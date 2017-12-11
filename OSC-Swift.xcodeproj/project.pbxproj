@@ -112,12 +112,15 @@
 		CEFEC64B1FDE41030019DDF2 /* OSC-Swift */ = {
 			isa = PBXGroup;
 			children = (
-				CEFEC67A1FDE41170019DDF2 /* Application */,
-				CEFEC64E1FDE41030019DDF2 /* ViewController.swift */,
-				CEFEC6501FDE41030019DDF2 /* Main.storyboard */,
 				CEFEC6531FDE41030019DDF2 /* Assets.xcassets */,
 				CEFEC6551FDE41030019DDF2 /* LaunchScreen.storyboard */,
 				CEFEC6581FDE41030019DDF2 /* Info.plist */,
+				CEFEC67E1FDE43BA0019DDF2 /* Resources */,
+				CEFEC67D1FDE43B10019DDF2 /* Utils */,
+				CEFEC67C1FDE43AB0019DDF2 /* Views */,
+				CEFEC67B1FDE43A00019DDF2 /* Controllers */,
+				CEFEC67A1FDE41170019DDF2 /* Application */,
+				CEFEC64E1FDE41030019DDF2 /* ViewController.swift */,
 			);
 			path = "OSC-Swift";
 			sourceTree = "<group>";
@@ -146,6 +149,43 @@
 				CEFEC64C1FDE41030019DDF2 /* AppDelegate.swift */,
 			);
 			path = Application;
+			sourceTree = "<group>";
+		};
+		CEFEC67B1FDE43A00019DDF2 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		CEFEC67C1FDE43AB0019DDF2 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		CEFEC67D1FDE43B10019DDF2 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		CEFEC67E1FDE43BA0019DDF2 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				CEFEC67F1FDE43F10019DDF2 /* storyboard */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		CEFEC67F1FDE43F10019DDF2 /* storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				CEFEC6501FDE41030019DDF2 /* Main.storyboard */,
+			);
+			path = storyboard;
 			sourceTree = "<group>";
 		};
 		FE12885E547DA5FA7F7D5A86 /* Pods */ = {

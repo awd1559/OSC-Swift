@@ -15,6 +15,38 @@
 		CEFEC6571FDE41030019DDF2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEFEC6551FDE41030019DDF2 /* LaunchScreen.storyboard */; };
 		CEFEC6621FDE41040019DDF2 /* OSC_SwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFEC6611FDE41040019DDF2 /* OSC_SwiftTests.swift */; };
 		CEFEC66D1FDE41040019DDF2 /* OSC_SwiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFEC66C1FDE41040019DDF2 /* OSC_SwiftUITests.swift */; };
+		CEFEC6A31FDE44580019DDF2 /* format.html in Resources */ = {isa = PBXBuildFile; fileRef = CEFEC6801FDE44560019DDF2 /* format.html */; };
+		CEFEC6A41FDE44580019DDF2 /* shake.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CEFEC6811FDE44570019DDF2 /* shake.mp3 */; };
+		CEFEC6A51FDE44580019DDF2 /* activity.html in Resources */ = {isa = PBXBuildFile; fileRef = CEFEC6831FDE44570019DDF2 /* activity.html */; };
+		CEFEC6A61FDE44580019DDF2 /* newTweet.html in Resources */ = {isa = PBXBuildFile; fileRef = CEFEC6841FDE44570019DDF2 /* newTweet.html */; };
+		CEFEC6A71FDE44580019DDF2 /* blog.html in Resources */ = {isa = PBXBuildFile; fileRef = CEFEC6851FDE44570019DDF2 /* blog.html */; };
+		CEFEC6A81FDE44580019DDF2 /* software.html in Resources */ = {isa = PBXBuildFile; fileRef = CEFEC6861FDE44570019DDF2 /* software.html */; };
+		CEFEC6A91FDE44580019DDF2 /* base.mustache in Resources */ = {isa = PBXBuildFile; fileRef = CEFEC6871FDE44570019DDF2 /* base.mustache */; };
+		CEFEC6AA1FDE44580019DDF2 /* article.html in Resources */ = {isa = PBXBuildFile; fileRef = CEFEC6881FDE44570019DDF2 /* article.html */; };
+		CEFEC6AB1FDE44580019DDF2 /* blog.mustache in Resources */ = {isa = PBXBuildFile; fileRef = CEFEC6891FDE44570019DDF2 /* blog.mustache */; };
+		CEFEC6AC1FDE44580019DDF2 /* git_project.mustache in Resources */ = {isa = PBXBuildFile; fileRef = CEFEC68A1FDE44570019DDF2 /* git_project.mustache */; };
+		CEFEC6AD1FDE44580019DDF2 /* newTweet.mustache in Resources */ = {isa = PBXBuildFile; fileRef = CEFEC68B1FDE44570019DDF2 /* newTweet.mustache */; };
+		CEFEC6AE1FDE44580019DDF2 /* git_project.html in Resources */ = {isa = PBXBuildFile; fileRef = CEFEC68C1FDE44570019DDF2 /* git_project.html */; };
+		CEFEC6AF1FDE44580019DDF2 /* tweet.html in Resources */ = {isa = PBXBuildFile; fileRef = CEFEC68D1FDE44570019DDF2 /* tweet.html */; };
+		CEFEC6B01FDE44580019DDF2 /* OSLicense.html in Resources */ = {isa = PBXBuildFile; fileRef = CEFEC68E1FDE44570019DDF2 /* OSLicense.html */; };
+		CEFEC6B11FDE44580019DDF2 /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CEFEC68F1FDE44570019DDF2 /* FontAwesome.ttf */; };
+		CEFEC6B21FDE44580019DDF2 /* recommend_tag.png in Resources */ = {isa = PBXBuildFile; fileRef = CEFEC6901FDE44570019DDF2 /* recommend_tag.png */; };
+		CEFEC6B31FDE44580019DDF2 /* note.png in Resources */ = {isa = PBXBuildFile; fileRef = CEFEC6921FDE44570019DDF2 /* note.png */; };
+		CEFEC6B41FDE44580019DDF2 /* shooting.png in Resources */ = {isa = PBXBuildFile; fileRef = CEFEC6931FDE44570019DDF2 /* shooting.png */; };
+		CEFEC6B51FDE44580019DDF2 /* sound.png in Resources */ = {isa = PBXBuildFile; fileRef = CEFEC6941FDE44570019DDF2 /* sound.png */; };
+		CEFEC6B61FDE44580019DDF2 /* search.png in Resources */ = {isa = PBXBuildFile; fileRef = CEFEC6951FDE44570019DDF2 /* search.png */; };
+		CEFEC6B71FDE44580019DDF2 /* tweetEditing.png in Resources */ = {isa = PBXBuildFile; fileRef = CEFEC6961FDE44570019DDF2 /* tweetEditing.png */; };
+		CEFEC6B81FDE44580019DDF2 /* picture.png in Resources */ = {isa = PBXBuildFile; fileRef = CEFEC6971FDE44570019DDF2 /* picture.png */; };
+		CEFEC6B91FDE44580019DDF2 /* scan.png in Resources */ = {isa = PBXBuildFile; fileRef = CEFEC6981FDE44570019DDF2 /* scan.png */; };
+		CEFEC6BA1FDE44580019DDF2 /* jquery.js in Resources */ = {isa = PBXBuildFile; fileRef = CEFEC6991FDE44570019DDF2 /* jquery.js */; };
+		CEFEC6BB1FDE44580019DDF2 /* code.html in Resources */ = {isa = PBXBuildFile; fileRef = CEFEC69A1FDE44570019DDF2 /* code.html */; };
+		CEFEC6BC1FDE44580019DDF2 /* github.css in Resources */ = {isa = PBXBuildFile; fileRef = CEFEC69B1FDE44570019DDF2 /* github.css */; };
+		CEFEC6BD1FDE44580019DDF2 /* highlight.pack.js in Resources */ = {isa = PBXBuildFile; fileRef = CEFEC69C1FDE44570019DDF2 /* highlight.pack.js */; };
+		CEFEC6BE1FDE44580019DDF2 /* code.css in Resources */ = {isa = PBXBuildFile; fileRef = CEFEC69D1FDE44570019DDF2 /* code.css */; };
+		CEFEC6BF1FDE44580019DDF2 /* git_project.css in Resources */ = {isa = PBXBuildFile; fileRef = CEFEC69F1FDE44570019DDF2 /* git_project.css */; };
+		CEFEC6C01FDE44580019DDF2 /* detail.css in Resources */ = {isa = PBXBuildFile; fileRef = CEFEC6A01FDE44570019DDF2 /* detail.css */; };
+		CEFEC6C11FDE44580019DDF2 /* blog.css in Resources */ = {isa = PBXBuildFile; fileRef = CEFEC6A11FDE44570019DDF2 /* blog.css */; };
+		CEFEC6C21FDE44580019DDF2 /* base.html in Resources */ = {isa = PBXBuildFile; fileRef = CEFEC6A21FDE44580019DDF2 /* base.html */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +83,38 @@
 		CEFEC6681FDE41040019DDF2 /* OSC-SwiftUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "OSC-SwiftUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEFEC66C1FDE41040019DDF2 /* OSC_SwiftUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSC_SwiftUITests.swift; sourceTree = "<group>"; };
 		CEFEC66E1FDE41040019DDF2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CEFEC6801FDE44560019DDF2 /* format.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = format.html; sourceTree = "<group>"; };
+		CEFEC6811FDE44570019DDF2 /* shake.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = shake.mp3; sourceTree = "<group>"; };
+		CEFEC6831FDE44570019DDF2 /* activity.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = activity.html; sourceTree = "<group>"; };
+		CEFEC6841FDE44570019DDF2 /* newTweet.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = newTweet.html; sourceTree = "<group>"; };
+		CEFEC6851FDE44570019DDF2 /* blog.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = blog.html; sourceTree = "<group>"; };
+		CEFEC6861FDE44570019DDF2 /* software.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = software.html; sourceTree = "<group>"; };
+		CEFEC6871FDE44570019DDF2 /* base.mustache */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = base.mustache; sourceTree = "<group>"; };
+		CEFEC6881FDE44570019DDF2 /* article.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = article.html; sourceTree = "<group>"; };
+		CEFEC6891FDE44570019DDF2 /* blog.mustache */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = blog.mustache; sourceTree = "<group>"; };
+		CEFEC68A1FDE44570019DDF2 /* git_project.mustache */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = git_project.mustache; sourceTree = "<group>"; };
+		CEFEC68B1FDE44570019DDF2 /* newTweet.mustache */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = newTweet.mustache; sourceTree = "<group>"; };
+		CEFEC68C1FDE44570019DDF2 /* git_project.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = git_project.html; sourceTree = "<group>"; };
+		CEFEC68D1FDE44570019DDF2 /* tweet.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = tweet.html; sourceTree = "<group>"; };
+		CEFEC68E1FDE44570019DDF2 /* OSLicense.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = OSLicense.html; sourceTree = "<group>"; };
+		CEFEC68F1FDE44570019DDF2 /* FontAwesome.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome.ttf; sourceTree = "<group>"; };
+		CEFEC6901FDE44570019DDF2 /* recommend_tag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = recommend_tag.png; sourceTree = "<group>"; };
+		CEFEC6921FDE44570019DDF2 /* note.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = note.png; sourceTree = "<group>"; };
+		CEFEC6931FDE44570019DDF2 /* shooting.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shooting.png; sourceTree = "<group>"; };
+		CEFEC6941FDE44570019DDF2 /* sound.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sound.png; sourceTree = "<group>"; };
+		CEFEC6951FDE44570019DDF2 /* search.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = search.png; sourceTree = "<group>"; };
+		CEFEC6961FDE44570019DDF2 /* tweetEditing.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tweetEditing.png; sourceTree = "<group>"; };
+		CEFEC6971FDE44570019DDF2 /* picture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = picture.png; sourceTree = "<group>"; };
+		CEFEC6981FDE44570019DDF2 /* scan.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scan.png; sourceTree = "<group>"; };
+		CEFEC6991FDE44570019DDF2 /* jquery.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = jquery.js; sourceTree = "<group>"; };
+		CEFEC69A1FDE44570019DDF2 /* code.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = code.html; sourceTree = "<group>"; };
+		CEFEC69B1FDE44570019DDF2 /* github.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = github.css; sourceTree = "<group>"; };
+		CEFEC69C1FDE44570019DDF2 /* highlight.pack.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = highlight.pack.js; sourceTree = "<group>"; };
+		CEFEC69D1FDE44570019DDF2 /* code.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = code.css; sourceTree = "<group>"; };
+		CEFEC69F1FDE44570019DDF2 /* git_project.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = git_project.css; sourceTree = "<group>"; };
+		CEFEC6A01FDE44570019DDF2 /* detail.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = detail.css; sourceTree = "<group>"; };
+		CEFEC6A11FDE44570019DDF2 /* blog.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = blog.css; sourceTree = "<group>"; };
+		CEFEC6A21FDE44580019DDF2 /* base.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = base.html; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,6 +239,19 @@
 		CEFEC67E1FDE43BA0019DDF2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				CEFEC6A21FDE44580019DDF2 /* base.html */,
+				CEFEC69D1FDE44570019DDF2 /* code.css */,
+				CEFEC69A1FDE44570019DDF2 /* code.html */,
+				CEFEC69E1FDE44570019DDF2 /* CSS */,
+				CEFEC68F1FDE44570019DDF2 /* FontAwesome.ttf */,
+				CEFEC6801FDE44560019DDF2 /* format.html */,
+				CEFEC69B1FDE44570019DDF2 /* github.css */,
+				CEFEC69C1FDE44570019DDF2 /* highlight.pack.js */,
+				CEFEC6821FDE44570019DDF2 /* html */,
+				CEFEC6991FDE44570019DDF2 /* jquery.js */,
+				CEFEC6911FDE44570019DDF2 /* option buttons */,
+				CEFEC6901FDE44570019DDF2 /* recommend_tag.png */,
+				CEFEC6811FDE44570019DDF2 /* shake.mp3 */,
 				CEFEC67F1FDE43F10019DDF2 /* storyboard */,
 			);
 			path = Resources;
@@ -186,6 +263,49 @@
 				CEFEC6501FDE41030019DDF2 /* Main.storyboard */,
 			);
 			path = storyboard;
+			sourceTree = "<group>";
+		};
+		CEFEC6821FDE44570019DDF2 /* html */ = {
+			isa = PBXGroup;
+			children = (
+				CEFEC6831FDE44570019DDF2 /* activity.html */,
+				CEFEC6841FDE44570019DDF2 /* newTweet.html */,
+				CEFEC6851FDE44570019DDF2 /* blog.html */,
+				CEFEC6861FDE44570019DDF2 /* software.html */,
+				CEFEC6871FDE44570019DDF2 /* base.mustache */,
+				CEFEC6881FDE44570019DDF2 /* article.html */,
+				CEFEC6891FDE44570019DDF2 /* blog.mustache */,
+				CEFEC68A1FDE44570019DDF2 /* git_project.mustache */,
+				CEFEC68B1FDE44570019DDF2 /* newTweet.mustache */,
+				CEFEC68C1FDE44570019DDF2 /* git_project.html */,
+				CEFEC68D1FDE44570019DDF2 /* tweet.html */,
+				CEFEC68E1FDE44570019DDF2 /* OSLicense.html */,
+			);
+			path = html;
+			sourceTree = "<group>";
+		};
+		CEFEC6911FDE44570019DDF2 /* option buttons */ = {
+			isa = PBXGroup;
+			children = (
+				CEFEC6921FDE44570019DDF2 /* note.png */,
+				CEFEC6931FDE44570019DDF2 /* shooting.png */,
+				CEFEC6941FDE44570019DDF2 /* sound.png */,
+				CEFEC6951FDE44570019DDF2 /* search.png */,
+				CEFEC6961FDE44570019DDF2 /* tweetEditing.png */,
+				CEFEC6971FDE44570019DDF2 /* picture.png */,
+				CEFEC6981FDE44570019DDF2 /* scan.png */,
+			);
+			path = "option buttons";
+			sourceTree = "<group>";
+		};
+		CEFEC69E1FDE44570019DDF2 /* CSS */ = {
+			isa = PBXGroup;
+			children = (
+				CEFEC69F1FDE44570019DDF2 /* git_project.css */,
+				CEFEC6A01FDE44570019DDF2 /* detail.css */,
+				CEFEC6A11FDE44570019DDF2 /* blog.css */,
+			);
+			path = CSS;
 			sourceTree = "<group>";
 		};
 		FE12885E547DA5FA7F7D5A86 /* Pods */ = {
@@ -307,9 +427,41 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEFEC6BF1FDE44580019DDF2 /* git_project.css in Resources */,
+				CEFEC6A71FDE44580019DDF2 /* blog.html in Resources */,
+				CEFEC6BC1FDE44580019DDF2 /* github.css in Resources */,
+				CEFEC6B31FDE44580019DDF2 /* note.png in Resources */,
+				CEFEC6AB1FDE44580019DDF2 /* blog.mustache in Resources */,
+				CEFEC6A61FDE44580019DDF2 /* newTweet.html in Resources */,
+				CEFEC6B91FDE44580019DDF2 /* scan.png in Resources */,
 				CEFEC6571FDE41030019DDF2 /* LaunchScreen.storyboard in Resources */,
+				CEFEC6BA1FDE44580019DDF2 /* jquery.js in Resources */,
+				CEFEC6C11FDE44580019DDF2 /* blog.css in Resources */,
+				CEFEC6BB1FDE44580019DDF2 /* code.html in Resources */,
+				CEFEC6A81FDE44580019DDF2 /* software.html in Resources */,
+				CEFEC6B11FDE44580019DDF2 /* FontAwesome.ttf in Resources */,
 				CEFEC6541FDE41030019DDF2 /* Assets.xcassets in Resources */,
+				CEFEC6B71FDE44580019DDF2 /* tweetEditing.png in Resources */,
+				CEFEC6AF1FDE44580019DDF2 /* tweet.html in Resources */,
+				CEFEC6A41FDE44580019DDF2 /* shake.mp3 in Resources */,
+				CEFEC6A91FDE44580019DDF2 /* base.mustache in Resources */,
+				CEFEC6A51FDE44580019DDF2 /* activity.html in Resources */,
+				CEFEC6B21FDE44580019DDF2 /* recommend_tag.png in Resources */,
+				CEFEC6BE1FDE44580019DDF2 /* code.css in Resources */,
+				CEFEC6B01FDE44580019DDF2 /* OSLicense.html in Resources */,
+				CEFEC6AC1FDE44580019DDF2 /* git_project.mustache in Resources */,
 				CEFEC6521FDE41030019DDF2 /* Main.storyboard in Resources */,
+				CEFEC6A31FDE44580019DDF2 /* format.html in Resources */,
+				CEFEC6AD1FDE44580019DDF2 /* newTweet.mustache in Resources */,
+				CEFEC6AA1FDE44580019DDF2 /* article.html in Resources */,
+				CEFEC6C01FDE44580019DDF2 /* detail.css in Resources */,
+				CEFEC6AE1FDE44580019DDF2 /* git_project.html in Resources */,
+				CEFEC6B81FDE44580019DDF2 /* picture.png in Resources */,
+				CEFEC6B41FDE44580019DDF2 /* shooting.png in Resources */,
+				CEFEC6C21FDE44580019DDF2 /* base.html in Resources */,
+				CEFEC6B51FDE44580019DDF2 /* sound.png in Resources */,
+				CEFEC6B61FDE44580019DDF2 /* search.png in Resources */,
+				CEFEC6BD1FDE44580019DDF2 /* highlight.pack.js in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -97,7 +97,7 @@
 		CEFEC64B1FDE41030019DDF2 /* OSC-Swift */ = {
 			isa = PBXGroup;
 			children = (
-				CEFEC64C1FDE41030019DDF2 /* AppDelegate.swift */,
+				CEFEC67A1FDE41170019DDF2 /* Application */,
 				CEFEC64E1FDE41030019DDF2 /* ViewController.swift */,
 				CEFEC6501FDE41030019DDF2 /* Main.storyboard */,
 				CEFEC6531FDE41030019DDF2 /* Assets.xcassets */,
@@ -123,6 +123,14 @@
 				CEFEC66E1FDE41040019DDF2 /* Info.plist */,
 			);
 			path = "OSC-SwiftUITests";
+			sourceTree = "<group>";
+		};
+		CEFEC67A1FDE41170019DDF2 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				CEFEC64C1FDE41030019DDF2 /* AppDelegate.swift */,
+			);
+			path = Application;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

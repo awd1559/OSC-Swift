@@ -1,6 +1,6 @@
 platform :ios, '9.0'
 
-target 'TestNet' do
+target 'OSC-Swift' do
 	use_frameworks!
 
 	pod 'RxSwift'

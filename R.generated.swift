@@ -2492,23 +2492,14 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.storyboard` struct is generated, and contains static references to 5 storyboards.
+  /// This `R.storyboard` struct is generated, and contains static references to 3 storyboards.
   struct storyboard {
-    /// Storyboard `CSDNLogin`.
-    static let csdnLogin = _R.storyboard.csdnLogin()
     /// Storyboard `LaunchScreen`.
     static let launchScreen = _R.storyboard.launchScreen()
     /// Storyboard `Login`.
     static let login = _R.storyboard.login()
     /// Storyboard `Main`.
     static let main = _R.storyboard.main()
-    /// Storyboard `NewLogin`.
-    static let newLogin = _R.storyboard.newLogin()
-    
-    /// `UIStoryboard(name: "CSDNLogin", bundle: ...)`
-    static func csdnLogin(_: Void = ()) -> UIKit.UIStoryboard {
-      return UIKit.UIStoryboard(resource: R.storyboard.csdnLogin)
-    }
     
     /// `UIStoryboard(name: "LaunchScreen", bundle: ...)`
     static func launchScreen(_: Void = ()) -> UIKit.UIStoryboard {
@@ -2523,11 +2514,6 @@ struct R: Rswift.Validatable {
     /// `UIStoryboard(name: "Main", bundle: ...)`
     static func main(_: Void = ()) -> UIKit.UIStoryboard {
       return UIKit.UIStoryboard(resource: R.storyboard.main)
-    }
-    
-    /// `UIStoryboard(name: "NewLogin", bundle: ...)`
-    static func newLogin(_: Void = ()) -> UIKit.UIStoryboard {
-      return UIKit.UIStoryboard(resource: R.storyboard.newLogin)
     }
     
     fileprivate init() {}
@@ -2563,27 +2549,7 @@ struct _R: Rswift.Validatable {
   struct storyboard: Rswift.Validatable {
     static func validate() throws {
       try main.validate()
-      try csdnLogin.validate()
       try login.validate()
-      try newLogin.validate()
-    }
-    
-    struct csdnLogin: Rswift.StoryboardResourceType, Rswift.Validatable {
-      let bundle = R.hostingBundle
-      let csdnLoginViewController = StoryboardViewControllerResource<UIKit.UIViewController>(identifier: "CSDNLoginViewController")
-      let name = "CSDNLogin"
-      
-      func csdnLoginViewController(_: Void = ()) -> UIKit.UIViewController? {
-        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: csdnLoginViewController)
-      }
-      
-      static func validate() throws {
-        if UIKit.UIImage(named: "ic_close") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ic_close' is used in storyboard 'CSDNLogin', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "ic_logo_3party_csdn") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ic_logo_3party_csdn' is used in storyboard 'CSDNLogin', but couldn't be loaded.") }
-        if _R.storyboard.csdnLogin().csdnLoginViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'csdnLoginViewController' could not be loaded from storyboard 'CSDNLogin' as 'UIKit.UIViewController'.") }
-      }
-      
-      fileprivate init() {}
     }
     
     struct launchScreen: Rswift.StoryboardResourceWithInitialControllerType {
@@ -2599,18 +2565,38 @@ struct _R: Rswift.Validatable {
       let bundle = R.hostingBundle
       let loginViewController = StoryboardViewControllerResource<LoginViewController>(identifier: "LoginViewController")
       let name = "Login"
+      let registerInfoViewController = StoryboardViewControllerResource<UIKit.UIViewController>(identifier: "RegisterInfoViewController")
+      let resetPWViewController = StoryboardViewControllerResource<UIKit.UIViewController>(identifier: "ResetPWViewController")
       
       func loginViewController(_: Void = ()) -> LoginViewController? {
         return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: loginViewController)
       }
       
+      func registerInfoViewController(_: Void = ()) -> UIKit.UIViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: registerInfoViewController)
+      }
+      
+      func resetPWViewController(_: Void = ()) -> UIKit.UIViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: resetPWViewController)
+      }
+      
       static func validate() throws {
-        if UIKit.UIImage(named: "ic_login_password") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ic_login_password' is used in storyboard 'Login', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "btn_gender_female_normal") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'btn_gender_female_normal' is used in storyboard 'Login', but couldn't be loaded.") }
         if UIKit.UIImage(named: "bg_login") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'bg_login' is used in storyboard 'Login', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "ic_login_username") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ic_login_username' is used in storyboard 'Login', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "bg_login_thirdpart") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'bg_login_thirdpart' is used in storyboard 'Login', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "ic_signup_sms") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ic_signup_sms' is used in storyboard 'Login', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "ic_login_3party_qq") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ic_login_3party_qq' is used in storyboard 'Login', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "ic_logo_3party_csdn") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ic_logo_3party_csdn' is used in storyboard 'Login', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "btn_gender_male_actived") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'btn_gender_male_actived' is used in storyboard 'Login', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "ic_singup_mobile") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ic_singup_mobile' is used in storyboard 'Login', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "btn_back_normal") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'btn_back_normal' is used in storyboard 'Login', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "ic_login_password") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ic_login_password' is used in storyboard 'Login', but couldn't be loaded.") }
         if UIKit.UIImage(named: "ic_login_3party_weibo") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ic_login_3party_weibo' is used in storyboard 'Login', but couldn't be loaded.") }
         if UIKit.UIImage(named: "logo_osc") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'logo_osc' is used in storyboard 'Login', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "ic_login_3party_wechat") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ic_login_3party_wechat' is used in storyboard 'Login', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "bg_login_thirdpart") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'bg_login_thirdpart' is used in storyboard 'Login', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "ic_login_username") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ic_login_username' is used in storyboard 'Login', but couldn't be loaded.") }
+        if _R.storyboard.login().registerInfoViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'registerInfoViewController' could not be loaded from storyboard 'Login' as 'UIKit.UIViewController'.") }
+        if _R.storyboard.login().resetPWViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'resetPWViewController' could not be loaded from storyboard 'Login' as 'UIKit.UIViewController'.") }
         if _R.storyboard.login().loginViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'loginViewController' could not be loaded from storyboard 'Login' as 'LoginViewController'.") }
       }
       
@@ -2628,48 +2614,6 @@ struct _R: Rswift.Validatable {
         if UIKit.UIImage(named: "tabbar-discover") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'tabbar-discover' is used in storyboard 'Main', but couldn't be loaded.") }
         if UIKit.UIImage(named: "tabbar-me") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'tabbar-me' is used in storyboard 'Main', but couldn't be loaded.") }
         if UIKit.UIImage(named: "tabbar-news") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'tabbar-news' is used in storyboard 'Main', but couldn't be loaded.") }
-      }
-      
-      fileprivate init() {}
-    }
-    
-    struct newLogin: Rswift.StoryboardResourceType, Rswift.Validatable {
-      let bundle = R.hostingBundle
-      let name = "NewLogin"
-      let newLoginViewController = StoryboardViewControllerResource<UIKit.UIViewController>(identifier: "NewLoginViewController")
-      let registerInfoViewController = StoryboardViewControllerResource<UIKit.UIViewController>(identifier: "RegisterInfoViewController")
-      let resetPWViewController = StoryboardViewControllerResource<UIKit.UIViewController>(identifier: "ResetPWViewController")
-      
-      func newLoginViewController(_: Void = ()) -> UIKit.UIViewController? {
-        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: newLoginViewController)
-      }
-      
-      func registerInfoViewController(_: Void = ()) -> UIKit.UIViewController? {
-        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: registerInfoViewController)
-      }
-      
-      func resetPWViewController(_: Void = ()) -> UIKit.UIViewController? {
-        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: resetPWViewController)
-      }
-      
-      static func validate() throws {
-        if UIKit.UIImage(named: "btn_gender_female_normal") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'btn_gender_female_normal' is used in storyboard 'NewLogin', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "bg_login") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'bg_login' is used in storyboard 'NewLogin', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "ic_signup_sms") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ic_signup_sms' is used in storyboard 'NewLogin', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "ic_login_3party_qq") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ic_login_3party_qq' is used in storyboard 'NewLogin', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "ic_logo_3party_csdn") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ic_logo_3party_csdn' is used in storyboard 'NewLogin', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "btn_gender_male_actived") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'btn_gender_male_actived' is used in storyboard 'NewLogin', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "ic_singup_mobile") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ic_singup_mobile' is used in storyboard 'NewLogin', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "btn_back_normal") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'btn_back_normal' is used in storyboard 'NewLogin', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "ic_login_password") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ic_login_password' is used in storyboard 'NewLogin', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "ic_login_3party_weibo") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ic_login_3party_weibo' is used in storyboard 'NewLogin', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "logo_osc") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'logo_osc' is used in storyboard 'NewLogin', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "ic_login_3party_wechat") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ic_login_3party_wechat' is used in storyboard 'NewLogin', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "bg_login_thirdpart") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'bg_login_thirdpart' is used in storyboard 'NewLogin', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "ic_login_username") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ic_login_username' is used in storyboard 'NewLogin', but couldn't be loaded.") }
-        if _R.storyboard.newLogin().newLoginViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'newLoginViewController' could not be loaded from storyboard 'NewLogin' as 'UIKit.UIViewController'.") }
-        if _R.storyboard.newLogin().registerInfoViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'registerInfoViewController' could not be loaded from storyboard 'NewLogin' as 'UIKit.UIViewController'.") }
-        if _R.storyboard.newLogin().resetPWViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'resetPWViewController' could not be loaded from storyboard 'NewLogin' as 'UIKit.UIViewController'.") }
       }
       
       fileprivate init() {}

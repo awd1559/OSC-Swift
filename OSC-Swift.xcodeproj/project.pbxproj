@@ -13,8 +13,6 @@
 		CE48FCA31FDF586B00366E4F /* RegisterInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE48FCA21FDF586B00366E4F /* RegisterInfoViewController.swift */; };
 		CE48FCA51FDF588400366E4F /* ResetPWViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE48FCA41FDF588400366E4F /* ResetPWViewController.swift */; };
 		CE48FCA71FDF58C100366E4F /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE48FCA61FDF58C100366E4F /* RegisterViewController.swift */; };
-		CE48FCAA1FDF69AE00366E4F /* CSDNLogin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE48FCA81FDF69AE00366E4F /* CSDNLogin.storyboard */; };
-		CE48FCAB1FDF69AE00366E4F /* NewLogin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE48FCA91FDF69AE00366E4F /* NewLogin.storyboard */; };
 		CE48FCAD1FDF845900366E4F /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE48FCAC1FDF845900366E4F /* Login.storyboard */; };
 		CEFEC64D1FDE41030019DDF2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFEC64C1FDE41030019DDF2 /* AppDelegate.swift */; };
 		CEFEC6521FDE41030019DDF2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEFEC6501FDE41030019DDF2 /* Main.storyboard */; };
@@ -85,8 +83,6 @@
 		CE48FCA21FDF586B00366E4F /* RegisterInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterInfoViewController.swift; sourceTree = "<group>"; };
 		CE48FCA41FDF588400366E4F /* ResetPWViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPWViewController.swift; sourceTree = "<group>"; };
 		CE48FCA61FDF58C100366E4F /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
-		CE48FCA81FDF69AE00366E4F /* CSDNLogin.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CSDNLogin.storyboard; sourceTree = "<group>"; };
-		CE48FCA91FDF69AE00366E4F /* NewLogin.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = NewLogin.storyboard; sourceTree = "<group>"; };
 		CE48FCAC1FDF845900366E4F /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		CEFEC6491FDE41030019DDF2 /* OSC-Swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "OSC-Swift.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEFEC64C1FDE41030019DDF2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -209,8 +205,6 @@
 		CEFEC64B1FDE41030019DDF2 /* OSC-Swift */ = {
 			isa = PBXGroup;
 			children = (
-				CE48FCA81FDF69AE00366E4F /* CSDNLogin.storyboard */,
-				CE48FCA91FDF69AE00366E4F /* NewLogin.storyboard */,
 				CEFEC6501FDE41030019DDF2 /* Main.storyboard */,
 				CEFEC6551FDE41030019DDF2 /* LaunchScreen.storyboard */,
 				CEFEC6531FDE41030019DDF2 /* Assets.xcassets */,
@@ -478,8 +472,6 @@
 				CEFEC6C11FDE44580019DDF2 /* blog.css in Resources */,
 				CEFEC6BB1FDE44580019DDF2 /* code.html in Resources */,
 				CEFEC6A81FDE44580019DDF2 /* software.html in Resources */,
-				CE48FCAA1FDF69AE00366E4F /* CSDNLogin.storyboard in Resources */,
-				CE48FCAB1FDF69AE00366E4F /* NewLogin.storyboard in Resources */,
 				CEFEC6B11FDE44580019DDF2 /* FontAwesome.ttf in Resources */,
 				CEFEC6541FDE41030019DDF2 /* Assets.xcassets in Resources */,
 				CEFEC6B71FDE44580019DDF2 /* tweetEditing.png in Resources */,

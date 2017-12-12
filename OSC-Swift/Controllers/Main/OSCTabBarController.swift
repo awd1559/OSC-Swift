@@ -56,13 +56,13 @@ class OSCTabBarController : UITabBarController{
         self.tabBar.addSubview(centerButton)
     }
     
-    //MARK: click on center button
+    //MARK: - click on center button
     @objc func buttonPressed() {
 //        if Config.getOwnID() == 0 {
             let loginVC = R.storyboard.login.loginViewController()
             self.selectedViewController?.present(loginVC!, animated: true)
 //        } else {
-            //TODO: add TweetEditingVC
+            // TODO: - add TweetEditingVC
 //            let tweetEditingVC = TweetEditingVC()
 //            self.selectedViewController?.present(tweetEditingVC, animated: true)
 //        }

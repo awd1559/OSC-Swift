@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--New Login View Controller-->
+        <scene sceneID="kWW-Va-qrZ">
+            <objects>
+                <viewController storyboardIdentifier="LoginViewController" id="CIQ-vS-AWo" customClass="NewLoginViewController" customModule="OSC_Swift" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="asx-lz-ycO">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_login" translatesAutoresizingMaskIntoConstraints="NO" id="XFh-z2-DRd">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_osc" translatesAutoresizingMaskIntoConstraints="NO" id="G6v-Xo-QNd">
+                                <rect key="frame" x="104.5" y="97" width="166" height="54"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="54" id="SvH-lZ-0aX"/>
+                                    <constraint firstAttribute="width" constant="166" id="nd5-81-jNS"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="G6v-Xo-QNd" firstAttribute="centerX" secondItem="asx-lz-ycO" secondAttribute="centerX" id="JAV-z3-bgI"/>
+                            <constraint firstItem="G6v-Xo-QNd" firstAttribute="top" secondItem="DOl-6O-swM" secondAttribute="top" constant="77" id="Tc6-n5-uHp"/>
+                            <constraint firstItem="DOl-6O-swM" firstAttribute="bottom" secondItem="XFh-z2-DRd" secondAttribute="bottom" id="Tga-Gl-cyH"/>
+                            <constraint firstItem="XFh-z2-DRd" firstAttribute="leading" secondItem="asx-lz-ycO" secondAttribute="leading" id="cid-o5-Kfp"/>
+                            <constraint firstAttribute="trailing" secondItem="XFh-z2-DRd" secondAttribute="trailing" id="ry6-tA-rTO"/>
+                            <constraint firstItem="XFh-z2-DRd" firstAttribute="top" secondItem="DOl-6O-swM" secondAttribute="top" constant="-20" id="xoC-sc-WwK"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="DOl-6O-swM"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vV5-jj-2xT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-326" y="-226"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="bg_login" width="375" height="667"/>
+        <image name="logo_osc" width="167" height="56"/>
+    </resources>
+</document>

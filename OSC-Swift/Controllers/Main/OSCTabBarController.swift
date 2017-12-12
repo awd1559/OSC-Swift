@@ -59,8 +59,8 @@ class OSCTabBarController : UITabBarController{
     //MARK: click on center button
     @objc func buttonPressed() {
 //        if Config.getOwnID() == 0 {
-            let loginVC = NewLoginViewController()
-            self.selectedViewController?.present(loginVC, animated: true)
+            let loginVC = R.storyboard.login.loginViewController()
+            self.selectedViewController?.present(loginVC!, animated: true)
 //        } else {
             //TODO: add TweetEditingVC
 //            let tweetEditingVC = TweetEditingVC()

@@ -31,26 +31,28 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qNK-OF-5yc" userLabel="nameContainer">
                                 <rect key="frame" x="20" y="195" width="335" height="54"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_my_event" translatesAutoresizingMaskIntoConstraints="NO" id="Ff7-a5-gJI">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_login_username" translatesAutoresizingMaskIntoConstraints="NO" id="Ff7-a5-gJI">
                                         <rect key="frame" x="30" y="18" width="16" height="18"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="16" id="53q-UW-JLT"/>
                                             <constraint firstAttribute="height" constant="18" id="6gy-aJ-jce"/>
                                         </constraints>
                                     </imageView>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hxy-Bi-LEd">
-                                        <rect key="frame" x="64" y="11.5" width="251" height="30"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hxy-Bi-LEd">
+                                        <rect key="frame" x="64" y="0.0" width="251" height="54"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="hxy-Bi-LEd" firstAttribute="leading" secondItem="Ff7-a5-gJI" secondAttribute="trailing" constant="18" id="3My-73-i1b"/>
                                     <constraint firstItem="Ff7-a5-gJI" firstAttribute="centerY" secondItem="qNK-OF-5yc" secondAttribute="centerY" id="AJK-Q6-xKM"/>
                                     <constraint firstAttribute="trailing" secondItem="hxy-Bi-LEd" secondAttribute="trailing" constant="20" id="QPS-l1-JtL"/>
+                                    <constraint firstItem="hxy-Bi-LEd" firstAttribute="top" secondItem="qNK-OF-5yc" secondAttribute="top" id="Rz0-gJ-daE"/>
                                     <constraint firstItem="Ff7-a5-gJI" firstAttribute="leading" secondItem="qNK-OF-5yc" secondAttribute="leading" constant="30" id="YL2-oJ-iS9"/>
+                                    <constraint firstAttribute="bottom" secondItem="hxy-Bi-LEd" secondAttribute="bottom" id="iUY-WL-Z38"/>
                                     <constraint firstAttribute="height" constant="54" id="joa-N6-KV7"/>
                                     <constraint firstItem="hxy-Bi-LEd" firstAttribute="centerY" secondItem="qNK-OF-5yc" secondAttribute="centerY" id="oDt-x3-VnX"/>
                                 </constraints>
@@ -58,28 +60,30 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Txk-jp-bL3" userLabel="passwordContainer">
                                 <rect key="frame" x="20" y="262" width="335" height="54"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_my_blog" translatesAutoresizingMaskIntoConstraints="NO" id="Bhg-GK-x51">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_login_password" translatesAutoresizingMaskIntoConstraints="NO" id="Bhg-GK-x51">
                                         <rect key="frame" x="30" y="18" width="16" height="18"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="16" id="jVU-hj-DKz"/>
                                             <constraint firstAttribute="height" constant="18" id="oqy-M7-guV"/>
                                         </constraints>
                                     </imageView>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="a3i-Ic-eRR">
-                                        <rect key="frame" x="64" y="12" width="251" height="30"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="a3i-Ic-eRR">
+                                        <rect key="frame" x="64" y="0.0" width="251" height="54"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="a3i-Ic-eRR" secondAttribute="trailing" constant="20" id="0RO-8w-XO2"/>
                                     <constraint firstItem="Bhg-GK-x51" firstAttribute="leading" secondItem="Txk-jp-bL3" secondAttribute="leading" constant="30" id="3dn-lJ-MV6"/>
                                     <constraint firstItem="Bhg-GK-x51" firstAttribute="centerY" secondItem="Txk-jp-bL3" secondAttribute="centerY" id="Wpy-6G-yXH"/>
                                     <constraint firstItem="a3i-Ic-eRR" firstAttribute="centerY" secondItem="Txk-jp-bL3" secondAttribute="centerY" id="ZZN-8H-hlC"/>
                                     <constraint firstItem="a3i-Ic-eRR" firstAttribute="leading" secondItem="Bhg-GK-x51" secondAttribute="trailing" constant="18" id="Zzp-8Y-J8k"/>
+                                    <constraint firstItem="a3i-Ic-eRR" firstAttribute="top" secondItem="Txk-jp-bL3" secondAttribute="top" id="vVD-T4-Ndh"/>
                                     <constraint firstAttribute="height" constant="54" id="vgG-dx-1x5"/>
+                                    <constraint firstAttribute="bottom" secondItem="a3i-Ic-eRR" secondAttribute="bottom" id="xPq-tb-lki"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J5x-Pu-EUB" userLabel="loginButton">
@@ -146,8 +150,8 @@
     </scenes>
     <resources>
         <image name="bg_login" width="375" height="667"/>
-        <image name="ic_my_blog" width="29" height="29"/>
-        <image name="ic_my_event" width="29" height="29"/>
+        <image name="ic_login_password" width="22" height="22"/>
+        <image name="ic_login_username" width="22" height="22"/>
         <image name="logo_osc" width="167" height="56"/>
     </resources>
 </document>

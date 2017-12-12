@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6CE8B60625BC0FFE9142D6E9 /* Pods_OSC_Swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A7333335DB515DB0E1E4969 /* Pods_OSC_Swift.framework */; };
-		CE48FC9F1FDF580D00366E4F /* NewLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE48FC9E1FDF580D00366E4F /* NewLoginViewController.swift */; };
+		CE48FC9F1FDF580D00366E4F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE48FC9E1FDF580D00366E4F /* LoginViewController.swift */; };
 		CE48FCA11FDF582900366E4F /* FoundPWViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE48FCA01FDF582900366E4F /* FoundPWViewController.swift */; };
 		CE48FCA31FDF586B00366E4F /* RegisterInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE48FCA21FDF586B00366E4F /* RegisterInfoViewController.swift */; };
 		CE48FCA51FDF588400366E4F /* ResetPWViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE48FCA41FDF588400366E4F /* ResetPWViewController.swift */; };
@@ -80,7 +80,7 @@
 		0A7333335DB515DB0E1E4969 /* Pods_OSC_Swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OSC_Swift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		777ABAD1853E6877D96ED6DF /* Pods-OSC-Swift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OSC-Swift.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OSC-Swift/Pods-OSC-Swift.debug.xcconfig"; sourceTree = "<group>"; };
 		B87EE4758EFCCC549C436E11 /* Pods-OSC-Swift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OSC-Swift.release.xcconfig"; path = "Pods/Target Support Files/Pods-OSC-Swift/Pods-OSC-Swift.release.xcconfig"; sourceTree = "<group>"; };
-		CE48FC9E1FDF580D00366E4F /* NewLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewLoginViewController.swift; sourceTree = "<group>"; };
+		CE48FC9E1FDF580D00366E4F /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		CE48FCA01FDF582900366E4F /* FoundPWViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoundPWViewController.swift; sourceTree = "<group>"; };
 		CE48FCA21FDF586B00366E4F /* RegisterInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterInfoViewController.swift; sourceTree = "<group>"; };
 		CE48FCA41FDF588400366E4F /* ResetPWViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPWViewController.swift; sourceTree = "<group>"; };
@@ -174,7 +174,7 @@
 		CE48FC9A1FDF566B00366E4F /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				CE48FC9E1FDF580D00366E4F /* NewLoginViewController.swift */,
+				CE48FC9E1FDF580D00366E4F /* LoginViewController.swift */,
 				CE48FCA01FDF582900366E4F /* FoundPWViewController.swift */,
 				CE48FCA21FDF586B00366E4F /* RegisterInfoViewController.swift */,
 				CE48FCA41FDF588400366E4F /* ResetPWViewController.swift */,
@@ -595,7 +595,7 @@
 				CEFEC6CA1FDE720B0019DDF2 /* OSCTabBarController.swift in Sources */,
 				CEFEC6CD1FDEBFFC0019DDF2 /* Config.swift in Sources */,
 				CEFEC64D1FDE41030019DDF2 /* AppDelegate.swift in Sources */,
-				CE48FC9F1FDF580D00366E4F /* NewLoginViewController.swift in Sources */,
+				CE48FC9F1FDF580D00366E4F /* LoginViewController.swift in Sources */,
 				CEFEC6C81FDE5BC40019DDF2 /* R.generated.swift in Sources */,
 				CE48FCA51FDF588400366E4F /* ResetPWViewController.swift in Sources */,
 			);

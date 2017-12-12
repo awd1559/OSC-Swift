@@ -2597,17 +2597,19 @@ struct _R: Rswift.Validatable {
     
     struct login: Rswift.StoryboardResourceType, Rswift.Validatable {
       let bundle = R.hostingBundle
-      let loginViewController = StoryboardViewControllerResource<NewLoginViewController>(identifier: "LoginViewController")
+      let loginViewController = StoryboardViewControllerResource<LoginViewController>(identifier: "LoginViewController")
       let name = "Login"
       
-      func loginViewController(_: Void = ()) -> NewLoginViewController? {
+      func loginViewController(_: Void = ()) -> LoginViewController? {
         return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: loginViewController)
       }
       
       static func validate() throws {
+        if UIKit.UIImage(named: "ic_login_password") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ic_login_password' is used in storyboard 'Login', but couldn't be loaded.") }
         if UIKit.UIImage(named: "bg_login") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'bg_login' is used in storyboard 'Login', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "ic_login_username") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ic_login_username' is used in storyboard 'Login', but couldn't be loaded.") }
         if UIKit.UIImage(named: "logo_osc") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'logo_osc' is used in storyboard 'Login', but couldn't be loaded.") }
-        if _R.storyboard.login().loginViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'loginViewController' could not be loaded from storyboard 'Login' as 'NewLoginViewController'.") }
+        if _R.storyboard.login().loginViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'loginViewController' could not be loaded from storyboard 'Login' as 'LoginViewController'.") }
       }
       
       fileprivate init() {}

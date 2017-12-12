@@ -11,6 +11,12 @@ import SnapKit
 
 class NewLoginViewController: UIViewController {
     private func _initviews() {
+        //easy to write
+        //good for id check
+        //very hard to understand
+        //can not view on different devices
+        //BAD !!!
+        //use storyboard
         let bg_login = UIImageView(image: R.image.bg_login())
         self.view.addSubview(bg_login)
         bg_login.snp.makeConstraints{ make in

@@ -8,4 +8,6 @@ target 'OSC-Swift' do
 	pod 'Alamofire'
 	pod 'SwiftyJSON'
   	pod 'ObjectMapper'
+    pod 'SnapKit'
+  	pod 'R.swift'
 end

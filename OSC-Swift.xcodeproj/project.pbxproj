@@ -8,8 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		6CE8B60625BC0FFE9142D6E9 /* Pods_OSC_Swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A7333335DB515DB0E1E4969 /* Pods_OSC_Swift.framework */; };
+		CE48FC9F1FDF580D00366E4F /* NewLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE48FC9E1FDF580D00366E4F /* NewLoginViewController.swift */; };
+		CE48FCA11FDF582900366E4F /* FoundPWViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE48FCA01FDF582900366E4F /* FoundPWViewController.swift */; };
+		CE48FCA31FDF586B00366E4F /* RegisterInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE48FCA21FDF586B00366E4F /* RegisterInfoViewController.swift */; };
+		CE48FCA51FDF588400366E4F /* ResetPWViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE48FCA41FDF588400366E4F /* ResetPWViewController.swift */; };
+		CE48FCA71FDF58C100366E4F /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE48FCA61FDF58C100366E4F /* RegisterViewController.swift */; };
+		CE48FCAA1FDF69AE00366E4F /* CSDNLogin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE48FCA81FDF69AE00366E4F /* CSDNLogin.storyboard */; };
+		CE48FCAB1FDF69AE00366E4F /* NewLogin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE48FCA91FDF69AE00366E4F /* NewLogin.storyboard */; };
 		CEFEC64D1FDE41030019DDF2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFEC64C1FDE41030019DDF2 /* AppDelegate.swift */; };
-		CEFEC64F1FDE41030019DDF2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFEC64E1FDE41030019DDF2 /* ViewController.swift */; };
 		CEFEC6521FDE41030019DDF2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEFEC6501FDE41030019DDF2 /* Main.storyboard */; };
 		CEFEC6541FDE41030019DDF2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEFEC6531FDE41030019DDF2 /* Assets.xcassets */; };
 		CEFEC6571FDE41030019DDF2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEFEC6551FDE41030019DDF2 /* LaunchScreen.storyboard */; };
@@ -47,6 +53,9 @@
 		CEFEC6C01FDE44580019DDF2 /* detail.css in Resources */ = {isa = PBXBuildFile; fileRef = CEFEC6A01FDE44570019DDF2 /* detail.css */; };
 		CEFEC6C11FDE44580019DDF2 /* blog.css in Resources */ = {isa = PBXBuildFile; fileRef = CEFEC6A11FDE44570019DDF2 /* blog.css */; };
 		CEFEC6C21FDE44580019DDF2 /* base.html in Resources */ = {isa = PBXBuildFile; fileRef = CEFEC6A21FDE44580019DDF2 /* base.html */; };
+		CEFEC6C81FDE5BC40019DDF2 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFEC6C71FDE5BC40019DDF2 /* R.generated.swift */; };
+		CEFEC6CA1FDE720B0019DDF2 /* OSCTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFEC6C91FDE720B0019DDF2 /* OSCTabBarController.swift */; };
+		CEFEC6CD1FDEBFFC0019DDF2 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFEC6CC1FDEBFFC0019DDF2 /* Config.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,9 +79,15 @@
 		0A7333335DB515DB0E1E4969 /* Pods_OSC_Swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OSC_Swift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		777ABAD1853E6877D96ED6DF /* Pods-OSC-Swift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OSC-Swift.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OSC-Swift/Pods-OSC-Swift.debug.xcconfig"; sourceTree = "<group>"; };
 		B87EE4758EFCCC549C436E11 /* Pods-OSC-Swift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OSC-Swift.release.xcconfig"; path = "Pods/Target Support Files/Pods-OSC-Swift/Pods-OSC-Swift.release.xcconfig"; sourceTree = "<group>"; };
+		CE48FC9E1FDF580D00366E4F /* NewLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewLoginViewController.swift; sourceTree = "<group>"; };
+		CE48FCA01FDF582900366E4F /* FoundPWViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoundPWViewController.swift; sourceTree = "<group>"; };
+		CE48FCA21FDF586B00366E4F /* RegisterInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterInfoViewController.swift; sourceTree = "<group>"; };
+		CE48FCA41FDF588400366E4F /* ResetPWViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPWViewController.swift; sourceTree = "<group>"; };
+		CE48FCA61FDF58C100366E4F /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		CE48FCA81FDF69AE00366E4F /* CSDNLogin.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CSDNLogin.storyboard; sourceTree = "<group>"; };
+		CE48FCA91FDF69AE00366E4F /* NewLogin.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = NewLogin.storyboard; sourceTree = "<group>"; };
 		CEFEC6491FDE41030019DDF2 /* OSC-Swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "OSC-Swift.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEFEC64C1FDE41030019DDF2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		CEFEC64E1FDE41030019DDF2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		CEFEC6511FDE41030019DDF2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CEFEC6531FDE41030019DDF2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CEFEC6561FDE41030019DDF2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -115,6 +130,9 @@
 		CEFEC6A01FDE44570019DDF2 /* detail.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = detail.css; sourceTree = "<group>"; };
 		CEFEC6A11FDE44570019DDF2 /* blog.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = blog.css; sourceTree = "<group>"; };
 		CEFEC6A21FDE44580019DDF2 /* base.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = base.html; sourceTree = "<group>"; };
+		CEFEC6C71FDE5BC40019DDF2 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
+		CEFEC6C91FDE720B0019DDF2 /* OSCTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSCTabBarController.swift; sourceTree = "<group>"; };
+		CEFEC6CC1FDEBFFC0019DDF2 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +169,18 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		CE48FC9A1FDF566B00366E4F /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				CE48FC9E1FDF580D00366E4F /* NewLoginViewController.swift */,
+				CE48FCA01FDF582900366E4F /* FoundPWViewController.swift */,
+				CE48FCA21FDF586B00366E4F /* RegisterInfoViewController.swift */,
+				CE48FCA41FDF588400366E4F /* ResetPWViewController.swift */,
+				CE48FCA61FDF58C100366E4F /* RegisterViewController.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
 		CEFEC6401FDE41030019DDF2 = {
 			isa = PBXGroup;
 			children = (
@@ -176,15 +206,17 @@
 		CEFEC64B1FDE41030019DDF2 /* OSC-Swift */ = {
 			isa = PBXGroup;
 			children = (
-				CEFEC6531FDE41030019DDF2 /* Assets.xcassets */,
+				CE48FCA81FDF69AE00366E4F /* CSDNLogin.storyboard */,
+				CE48FCA91FDF69AE00366E4F /* NewLogin.storyboard */,
+				CEFEC6501FDE41030019DDF2 /* Main.storyboard */,
 				CEFEC6551FDE41030019DDF2 /* LaunchScreen.storyboard */,
+				CEFEC6531FDE41030019DDF2 /* Assets.xcassets */,
 				CEFEC6581FDE41030019DDF2 /* Info.plist */,
 				CEFEC67E1FDE43BA0019DDF2 /* Resources */,
 				CEFEC67D1FDE43B10019DDF2 /* Utils */,
 				CEFEC67C1FDE43AB0019DDF2 /* Views */,
 				CEFEC67B1FDE43A00019DDF2 /* Controllers */,
 				CEFEC67A1FDE41170019DDF2 /* Application */,
-				CEFEC64E1FDE41030019DDF2 /* ViewController.swift */,
 			);
 			path = "OSC-Swift";
 			sourceTree = "<group>";
@@ -218,6 +250,8 @@
 		CEFEC67B1FDE43A00019DDF2 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				CE48FC9A1FDF566B00366E4F /* Login */,
+				CEFEC6C31FDE53530019DDF2 /* Main */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -225,6 +259,7 @@
 		CEFEC67C1FDE43AB0019DDF2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				CEFEC6CC1FDEBFFC0019DDF2 /* Config.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -239,6 +274,7 @@
 		CEFEC67E1FDE43BA0019DDF2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				CEFEC6C71FDE5BC40019DDF2 /* R.generated.swift */,
 				CEFEC6A21FDE44580019DDF2 /* base.html */,
 				CEFEC69D1FDE44570019DDF2 /* code.css */,
 				CEFEC69A1FDE44570019DDF2 /* code.html */,
@@ -252,17 +288,8 @@
 				CEFEC6911FDE44570019DDF2 /* option buttons */,
 				CEFEC6901FDE44570019DDF2 /* recommend_tag.png */,
 				CEFEC6811FDE44570019DDF2 /* shake.mp3 */,
-				CEFEC67F1FDE43F10019DDF2 /* storyboard */,
 			);
 			path = Resources;
-			sourceTree = "<group>";
-		};
-		CEFEC67F1FDE43F10019DDF2 /* storyboard */ = {
-			isa = PBXGroup;
-			children = (
-				CEFEC6501FDE41030019DDF2 /* Main.storyboard */,
-			);
-			path = storyboard;
 			sourceTree = "<group>";
 		};
 		CEFEC6821FDE44570019DDF2 /* html */ = {
@@ -308,6 +335,14 @@
 			path = CSS;
 			sourceTree = "<group>";
 		};
+		CEFEC6C31FDE53530019DDF2 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				CEFEC6C91FDE720B0019DDF2 /* OSCTabBarController.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
 		FE12885E547DA5FA7F7D5A86 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -325,6 +360,7 @@
 			buildConfigurationList = CEFEC6711FDE41040019DDF2 /* Build configuration list for PBXNativeTarget "OSC-Swift" */;
 			buildPhases = (
 				186F422A9CFD98E68D5085AE /* [CP] Check Pods Manifest.lock */,
+				CEFEC6C61FDE5A070019DDF2 /* ShellScript */,
 				CEFEC6451FDE41030019DDF2 /* Sources */,
 				CEFEC6461FDE41030019DDF2 /* Frameworks */,
 				CEFEC6471FDE41030019DDF2 /* Resources */,
@@ -439,6 +475,8 @@
 				CEFEC6C11FDE44580019DDF2 /* blog.css in Resources */,
 				CEFEC6BB1FDE44580019DDF2 /* code.html in Resources */,
 				CEFEC6A81FDE44580019DDF2 /* software.html in Resources */,
+				CE48FCAA1FDF69AE00366E4F /* CSDNLogin.storyboard in Resources */,
+				CE48FCAB1FDF69AE00366E4F /* NewLogin.storyboard in Resources */,
 				CEFEC6B11FDE44580019DDF2 /* FontAwesome.ttf in Resources */,
 				CEFEC6541FDE41030019DDF2 /* Assets.xcassets in Resources */,
 				CEFEC6B71FDE44580019DDF2 /* tweetEditing.png in Resources */,
@@ -527,6 +565,19 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OSC-Swift/Pods-OSC-Swift-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		CEFEC6C61FDE5A070019DDF2 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT\"";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -534,8 +585,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CEFEC64F1FDE41030019DDF2 /* ViewController.swift in Sources */,
+				CE48FCA71FDF58C100366E4F /* RegisterViewController.swift in Sources */,
+				CE48FCA31FDF586B00366E4F /* RegisterInfoViewController.swift in Sources */,
+				CE48FCA11FDF582900366E4F /* FoundPWViewController.swift in Sources */,
+				CEFEC6CA1FDE720B0019DDF2 /* OSCTabBarController.swift in Sources */,
+				CEFEC6CD1FDEBFFC0019DDF2 /* Config.swift in Sources */,
 				CEFEC64D1FDE41030019DDF2 /* AppDelegate.swift in Sources */,
+				CE48FC9F1FDF580D00366E4F /* NewLoginViewController.swift in Sources */,
+				CEFEC6C81FDE5BC40019DDF2 /* R.generated.swift in Sources */,
+				CE48FCA51FDF588400366E4F /* ResetPWViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

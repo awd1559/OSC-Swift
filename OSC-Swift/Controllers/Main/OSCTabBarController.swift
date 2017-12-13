@@ -7,11 +7,11 @@
 //
 
 import UIKit
+import MobileCoreServices
 
 class OSCTabBarController : UITabBarController{
     //MARK: - property
     lazy var centerButton: UIButton = {
-        print("create a center button")
         let button = UIButton(type: .custom)
         button.setImage(R.image.ic_nav_add(), for: .normal)
         button.setImage(R.image.ic_nav_add_actived(), for: .highlighted)
@@ -30,6 +30,7 @@ class OSCTabBarController : UITabBarController{
         super.viewDidLoad()
         
         setupTabBar()
+        setupOptionButton()
     }
     
 }
@@ -41,11 +42,9 @@ extension OSCTabBarController {
             let loginVC = R.storyboard.login.loginViewController()
             self.selectedViewController?.present(loginVC!, animated: true)
         } else {
-            // TODO: add TweetEditingVC
-            let loginVC = R.storyboard.login.loginViewController()
-            self.selectedViewController?.present(loginVC!, animated: true)
-            //            let tweetEditingVC = TweetEditingVC()
-            //            self.selectedViewController?.present(tweetEditingVC, animated: true)
+            let tweetEditingVC = TweetEditingVC()
+            let nav = UINavigationController(rootViewController: tweetEditingVC)
+            self.selectedViewController?.present(nav, animated: true)
         }
     }
 }
@@ -83,15 +82,77 @@ extension OSCTabBarController {
     }
     
     fileprivate func setupOptionButton() {
-//        var optionButtons = [Any]
-//        let screenHeight = UIScreen.main.bounds.size.height
-//        let screenWidth  = UIScreen.main.bounds.size.height
-//        let length = 60
-//        let animator = UIDynamicAnimator(referenceView: self.view)
-//
-//        let buttonTitles = ["文字", "相册", "拍照", "语音", "扫一扫", "找人"]
-        let buttonImages = [R.image.tweetEditing(),
-                            R.image.picture()]
+        var optionButtons = [OptionButton]()
+        let screenHeight = UIScreen.main.bounds.size.height
+        let screenWidth  = UIScreen.main.bounds.size.height
+        let length: CGFloat = 60.0
+        let animator = UIDynamicAnimator(referenceView: self.view)
+
+        let buttonRes = [
+            (1, "文字", UIImage(named: "tweetEditing"), 0xe69961),
+            (2, "相册", UIImage(named: "picture"), 0x0dac6b),
+            (3, "拍照", UIImage(named: "shooting"), 0x24a0c4),
+            (4, "语音", UIImage(named: "sound"), 0xe96360),
+            (5, "扫一扫", UIImage(named: "scan"), 0x61b644),
+            (6, "找人", UIImage(named: "search"), 0xf1c50e)
+        ]
+        for (index, title, image, color) in buttonRes {
+            let i = CGFloat(index)
+            let button = OptionButton(title: title, image: image!, color: UIColor(hex: color))
+            let x = screenWidth/6.0 * (CGFloat(index%3)*2.0+1.0) - (length+16.0)/2.0
+            let y = screenHeight + 150.0 + i/3.0*100.0
+            let w = length + 16.0
+            let h = length + UIFont.systemFont(ofSize:14).lineHeight + 24.0
+            
+            button.frame = CGRect(x: x, y: y, width: w, height: h)
+            button.button.layer.cornerRadius = length/2.0
+            
+            button.tag = index
+            button.isUserInteractionEnabled = true
+            let recognizer = UITapGestureRecognizer(target: self, action: #selector(onTapOptionButton))
+            button.addGestureRecognizer(recognizer)
+            
+            optionButtons.append(button)
+        }
+        
+    }
+    
+    @objc fileprivate func onTapOptionButton(_ sender: UITapGestureRecognizer) {
+        switch sender.view!.tag {
+        case 1:
+            let tweetEditingVC = TweetEditingVC()
+            let nav = UINavigationController(rootViewController: tweetEditingVC)
+            self.selectedViewController?.present(nav, animated: true)
+        case 2: break
+        case 3:
+            if !UIImagePickerController.isSourceTypeAvailable(.camera) {
+                let alertController = UIAlertController(title: "Error", message: "Device has no camera", preferredStyle: .alert)
+                alertController.addAction(UIAlertAction(title: "OK", style: .cancel))
+                self.present(alertController, animated: true)
+            } else {
+                let imagePicker = UIImagePickerController()
+                imagePicker.delegate = self
+                imagePicker.sourceType = .camera
+                imagePicker.allowsEditing = false
+                imagePicker.showsCameraControls = true
+                imagePicker.cameraDevice = .rear
+                imagePicker.mediaTypes = [kUTTypeImage as String]
+                
+                self.present(imagePicker, animated: true)
+            }
+        case 4:
+            let voiceTweetVC = VoiceTweetEditingVC()
+            let nav = UINavigationController(rootViewController: voiceTweetVC)
+            self.selectedViewController?.present(nav, animated: true)
+        case 5:
+            let scanVC = ScanViewController()
+            let nav = UINavigationController(rootViewController: scanVC)
+            self.selectedViewController?.present(nav, animated: true)
+        case 6: break
+        default: break
+        }
+        
+        self.buttonPressed()
     }
     
     fileprivate func navigationControllerWithSearchBar(_ controller: UIViewController) -> UINavigationController {

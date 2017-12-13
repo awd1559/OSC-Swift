@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		6CE8B60625BC0FFE9142D6E9 /* Pods_OSC_Swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A7333335DB515DB0E1E4969 /* Pods_OSC_Swift.framework */; };
+		CE2BF0DF1FE106D200528BA6 /* OptionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2BF0DE1FE106D200528BA6 /* OptionButton.swift */; };
+		CE2BF0E11FE10CD800528BA6 /* UIColor+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2BF0E01FE10CD800528BA6 /* UIColor+ext.swift */; };
+		CE2BF0E61FE1189700528BA6 /* TweetEditingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2BF0E51FE1189700528BA6 /* TweetEditingVC.swift */; };
+		CE2BF0E81FE1686700528BA6 /* VoiceTweetEditingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2BF0E71FE1686700528BA6 /* VoiceTweetEditingVC.swift */; };
+		CE2BF0EB1FE1693700528BA6 /* ScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2BF0EA1FE1693700528BA6 /* ScanViewController.swift */; };
 		CE48FC9F1FDF580D00366E4F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE48FC9E1FDF580D00366E4F /* LoginViewController.swift */; };
 		CE48FCA11FDF582900366E4F /* FoundPWViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE48FCA01FDF582900366E4F /* FoundPWViewController.swift */; };
 		CE48FCA31FDF586B00366E4F /* RegisterInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE48FCA21FDF586B00366E4F /* RegisterInfoViewController.swift */; };
@@ -85,6 +90,11 @@
 		0A7333335DB515DB0E1E4969 /* Pods_OSC_Swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OSC_Swift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		777ABAD1853E6877D96ED6DF /* Pods-OSC-Swift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OSC-Swift.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OSC-Swift/Pods-OSC-Swift.debug.xcconfig"; sourceTree = "<group>"; };
 		B87EE4758EFCCC549C436E11 /* Pods-OSC-Swift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OSC-Swift.release.xcconfig"; path = "Pods/Target Support Files/Pods-OSC-Swift/Pods-OSC-Swift.release.xcconfig"; sourceTree = "<group>"; };
+		CE2BF0DE1FE106D200528BA6 /* OptionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionButton.swift; sourceTree = "<group>"; };
+		CE2BF0E01FE10CD800528BA6 /* UIColor+ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+ext.swift"; sourceTree = "<group>"; };
+		CE2BF0E51FE1189700528BA6 /* TweetEditingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetEditingVC.swift; sourceTree = "<group>"; };
+		CE2BF0E71FE1686700528BA6 /* VoiceTweetEditingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceTweetEditingVC.swift; sourceTree = "<group>"; };
+		CE2BF0EA1FE1693700528BA6 /* ScanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanViewController.swift; sourceTree = "<group>"; };
 		CE48FC9E1FDF580D00366E4F /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		CE48FCA01FDF582900366E4F /* FoundPWViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoundPWViewController.swift; sourceTree = "<group>"; };
 		CE48FCA21FDF586B00366E4F /* RegisterInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterInfoViewController.swift; sourceTree = "<group>"; };
@@ -181,6 +191,37 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		CE2BF0E21FE1186E00528BA6 /* Edit */ = {
+			isa = PBXGroup;
+			children = (
+				CE2BF0E51FE1189700528BA6 /* TweetEditingVC.swift */,
+				CE2BF0E71FE1686700528BA6 /* VoiceTweetEditingVC.swift */,
+			);
+			path = Edit;
+			sourceTree = "<group>";
+		};
+		CE2BF0E31FE1187900528BA6 /* List */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = List;
+			sourceTree = "<group>";
+		};
+		CE2BF0E41FE1188300528BA6 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		CE2BF0E91FE1692C00528BA6 /* 扫一扫 */ = {
+			isa = PBXGroup;
+			children = (
+				CE2BF0EA1FE1693700528BA6 /* ScanViewController.swift */,
+			);
+			path = "扫一扫";
+			sourceTree = "<group>";
+		};
 		CE48FC9A1FDF566B00366E4F /* Login */ = {
 			isa = PBXGroup;
 			children = (
@@ -197,6 +238,7 @@
 		CECAD8761FE0BDF2008EE696 /* 发现 */ = {
 			isa = PBXGroup;
 			children = (
+				CE2BF0E91FE1692C00528BA6 /* 扫一扫 */,
 				CECAD87E1FE0C963008EE696 /* Discover.storyboard */,
 				CE6B24E61FE0D2BE00659156 /* DiscoverViewController.swift */,
 			);
@@ -215,6 +257,9 @@
 		CECAD8781FE0BE0F008EE696 /* 动弹 */ = {
 			isa = PBXGroup;
 			children = (
+				CE2BF0E41FE1188300528BA6 /* Detail */,
+				CE2BF0E31FE1187900528BA6 /* List */,
+				CE2BF0E21FE1186E00528BA6 /* Edit */,
 				CECAD8841FE0CAA2008EE696 /* OSCTweetsController.swift */,
 			);
 			path = "动弹";
@@ -315,6 +360,7 @@
 		CEFEC67D1FDE43B10019DDF2 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				CE2BF0E01FE10CD800528BA6 /* UIColor+ext.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -389,6 +435,7 @@
 				CEFEC6C91FDE720B0019DDF2 /* OSCTabBarController.swift */,
 				CECAD87C1FE0C585008EE696 /* OSCSearchViewController.swift */,
 				CECAD8821FE0C9AC008EE696 /* OSCSyntheticalController.swift */,
+				CE2BF0DE1FE106D200528BA6 /* OptionButton.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -637,11 +684,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE2BF0EB1FE1693700528BA6 /* ScanViewController.swift in Sources */,
 				CE48FCA71FDF58C100366E4F /* RegisterViewController.swift in Sources */,
 				CE48FCA31FDF586B00366E4F /* RegisterInfoViewController.swift in Sources */,
+				CE2BF0E81FE1686700528BA6 /* VoiceTweetEditingVC.swift in Sources */,
+				CE2BF0E61FE1189700528BA6 /* TweetEditingVC.swift in Sources */,
 				CE48FCA11FDF582900366E4F /* FoundPWViewController.swift in Sources */,
 				CEFEC6CA1FDE720B0019DDF2 /* OSCTabBarController.swift in Sources */,
 				CEFEC6CD1FDEBFFC0019DDF2 /* Config.swift in Sources */,
+				CE2BF0E11FE10CD800528BA6 /* UIColor+ext.swift in Sources */,
+				CE2BF0DF1FE106D200528BA6 /* OptionButton.swift in Sources */,
 				CE6B24E71FE0D2BE00659156 /* DiscoverViewController.swift in Sources */,
 				CECAD8851FE0CAA2008EE696 /* OSCTweetsController.swift in Sources */,
 				CEFEC64D1FDE41030019DDF2 /* AppDelegate.swift in Sources */,

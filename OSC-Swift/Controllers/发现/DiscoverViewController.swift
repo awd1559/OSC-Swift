@@ -12,7 +12,7 @@ class DiscoverViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         let todo = UILabel(frame: self.view.frame)
-        todo.text = "serach todo"
+        todo.text = "discover todo"
         self.view.addSubview(todo)
     }
 }

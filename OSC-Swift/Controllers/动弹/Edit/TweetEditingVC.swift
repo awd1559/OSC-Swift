@@ -1,5 +1,5 @@
 //
-//  HomepageViewController.swift
+//  TweetEditingVC.swift
 //  OSC-Swift
 //
 //  Created by awd on 2017/12/13.
@@ -8,11 +8,12 @@
 
 import UIKit
 
-class HomepageViewController: UITableViewController {
+class TweetEditingVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         let todo = UILabel(frame: self.view.frame)
-        todo.text = "home todo"
+        todo.text = "tweet editing vc"
         self.view.addSubview(todo)
     }
 }

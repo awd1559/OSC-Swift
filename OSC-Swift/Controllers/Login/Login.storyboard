@@ -235,7 +235,7 @@
         <!--Login View Controller-->
         <scene sceneID="jZX-Sl-tVe">
             <objects>
-                <viewController storyboardIdentifier="NewLoginViewController" hidesBottomBarWhenPushed="YES" id="vS5-zH-Q77" customClass="LoginViewController" customModule="OSC_Swift" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" hidesBottomBarWhenPushed="YES" id="vS5-zH-Q77" customClass="LoginViewController" customModule="OSC_Swift" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1BV-ZY-BJE">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

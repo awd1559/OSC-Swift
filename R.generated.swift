@@ -2614,13 +2614,13 @@ struct _R: Rswift.Validatable {
     
     struct login: Rswift.StoryboardResourceType, Rswift.Validatable {
       let bundle = R.hostingBundle
+      let loginViewController = StoryboardViewControllerResource<LoginViewController>(identifier: "LoginViewController")
       let name = "Login"
-      let newLoginViewController = StoryboardViewControllerResource<LoginViewController>(identifier: "NewLoginViewController")
       let registerInfoViewController = StoryboardViewControllerResource<RegisterInfoViewController>(identifier: "RegisterInfoViewController")
       let resetPWViewController = StoryboardViewControllerResource<ResetPWViewController>(identifier: "ResetPWViewController")
       
-      func newLoginViewController(_: Void = ()) -> LoginViewController? {
-        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: newLoginViewController)
+      func loginViewController(_: Void = ()) -> LoginViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: loginViewController)
       }
       
       func registerInfoViewController(_: Void = ()) -> RegisterInfoViewController? {
@@ -2646,9 +2646,9 @@ struct _R: Rswift.Validatable {
         if UIKit.UIImage(named: "ic_login_3party_wechat") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ic_login_3party_wechat' is used in storyboard 'Login', but couldn't be loaded.") }
         if UIKit.UIImage(named: "bg_login_thirdpart") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'bg_login_thirdpart' is used in storyboard 'Login', but couldn't be loaded.") }
         if UIKit.UIImage(named: "ic_login_username") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ic_login_username' is used in storyboard 'Login', but couldn't be loaded.") }
-        if _R.storyboard.login().newLoginViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'newLoginViewController' could not be loaded from storyboard 'Login' as 'LoginViewController'.") }
         if _R.storyboard.login().registerInfoViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'registerInfoViewController' could not be loaded from storyboard 'Login' as 'RegisterInfoViewController'.") }
         if _R.storyboard.login().resetPWViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'resetPWViewController' could not be loaded from storyboard 'Login' as 'ResetPWViewController'.") }
+        if _R.storyboard.login().loginViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'loginViewController' could not be loaded from storyboard 'Login' as 'LoginViewController'.") }
       }
       
       fileprivate init() {}

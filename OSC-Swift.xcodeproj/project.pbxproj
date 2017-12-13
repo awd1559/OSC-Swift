@@ -409,8 +409,8 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CEFEC6711FDE41040019DDF2 /* Build configuration list for PBXNativeTarget "OSC-Swift" */;
 			buildPhases = (
+				CEFEC6C61FDE5A070019DDF2 /* Run Script */,
 				186F422A9CFD98E68D5085AE /* [CP] Check Pods Manifest.lock */,
-				CEFEC6C61FDE5A070019DDF2 /* ShellScript */,
 				CEFEC6451FDE41030019DDF2 /* Sources */,
 				CEFEC6461FDE41030019DDF2 /* Frameworks */,
 				CEFEC6471FDE41030019DDF2 /* Resources */,
@@ -616,13 +616,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OSC-Swift/Pods-OSC-Swift-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		CEFEC6C61FDE5A070019DDF2 /* ShellScript */ = {
+		CEFEC6C61FDE5A070019DDF2 /* Run Script */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
+			name = "Run Script";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -82,7 +82,19 @@ extension OSCTabBarController {
         self.tabBar.isTranslucent = false
     }
     
-    func navigationControllerWithSearchBar(_ controller: UIViewController) -> UINavigationController {
+    fileprivate func setupOptionButton() {
+//        var optionButtons = [Any]
+//        let screenHeight = UIScreen.main.bounds.size.height
+//        let screenWidth  = UIScreen.main.bounds.size.height
+//        let length = 60
+//        let animator = UIDynamicAnimator(referenceView: self.view)
+//
+//        let buttonTitles = ["文字", "相册", "拍照", "语音", "扫一扫", "找人"]
+        let buttonImages = [R.image.tweetEditing(),
+                            R.image.picture()]
+    }
+    
+    fileprivate func navigationControllerWithSearchBar(_ controller: UIViewController) -> UINavigationController {
         let nav = UINavigationController(rootViewController: controller)
         let item = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(pushSearchViewController))
         controller.navigationItem.rightBarButtonItem = item

@@ -14,6 +14,8 @@
 		CE48FCA51FDF588400366E4F /* ResetPWViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE48FCA41FDF588400366E4F /* ResetPWViewController.swift */; };
 		CE48FCA71FDF58C100366E4F /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE48FCA61FDF58C100366E4F /* RegisterViewController.swift */; };
 		CE48FCAD1FDF845900366E4F /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE48FCAC1FDF845900366E4F /* Login.storyboard */; };
+		CE6B24E71FE0D2BE00659156 /* DiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6B24E61FE0D2BE00659156 /* DiscoverViewController.swift */; };
+		CE6B24E91FE0D2FE00659156 /* HomepageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6B24E81FE0D2FE00659156 /* HomepageViewController.swift */; };
 		CECAD87D1FE0C585008EE696 /* OSCSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECAD87C1FE0C585008EE696 /* OSCSearchViewController.swift */; };
 		CECAD87F1FE0C963008EE696 /* Discover.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CECAD87E1FE0C963008EE696 /* Discover.storyboard */; };
 		CECAD8811FE0C981008EE696 /* Homepage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CECAD8801FE0C980008EE696 /* Homepage.storyboard */; };
@@ -89,6 +91,8 @@
 		CE48FCA41FDF588400366E4F /* ResetPWViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPWViewController.swift; sourceTree = "<group>"; };
 		CE48FCA61FDF58C100366E4F /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		CE48FCAC1FDF845900366E4F /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		CE6B24E61FE0D2BE00659156 /* DiscoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverViewController.swift; sourceTree = "<group>"; };
+		CE6B24E81FE0D2FE00659156 /* HomepageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomepageViewController.swift; sourceTree = "<group>"; };
 		CECAD87C1FE0C585008EE696 /* OSCSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSCSearchViewController.swift; sourceTree = "<group>"; };
 		CECAD87E1FE0C963008EE696 /* Discover.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Discover.storyboard; sourceTree = "<group>"; };
 		CECAD8801FE0C980008EE696 /* Homepage.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Homepage.storyboard; sourceTree = "<group>"; };
@@ -194,6 +198,7 @@
 			isa = PBXGroup;
 			children = (
 				CECAD87E1FE0C963008EE696 /* Discover.storyboard */,
+				CE6B24E61FE0D2BE00659156 /* DiscoverViewController.swift */,
 			);
 			path = "发现";
 			sourceTree = "<group>";
@@ -202,6 +207,7 @@
 			isa = PBXGroup;
 			children = (
 				CECAD8801FE0C980008EE696 /* Homepage.storyboard */,
+				CE6B24E81FE0D2FE00659156 /* HomepageViewController.swift */,
 			);
 			path = "我的";
 			sourceTree = "<group>";
@@ -635,10 +641,12 @@
 				CE48FCA11FDF582900366E4F /* FoundPWViewController.swift in Sources */,
 				CEFEC6CA1FDE720B0019DDF2 /* OSCTabBarController.swift in Sources */,
 				CEFEC6CD1FDEBFFC0019DDF2 /* Config.swift in Sources */,
+				CE6B24E71FE0D2BE00659156 /* DiscoverViewController.swift in Sources */,
 				CECAD8851FE0CAA2008EE696 /* OSCTweetsController.swift in Sources */,
 				CEFEC64D1FDE41030019DDF2 /* AppDelegate.swift in Sources */,
 				CECAD8831FE0C9AC008EE696 /* OSCSyntheticalController.swift in Sources */,
 				CE48FC9F1FDF580D00366E4F /* LoginViewController.swift in Sources */,
+				CE6B24E91FE0D2FE00659156 /* HomepageViewController.swift in Sources */,
 				CEFEC6C81FDE5BC40019DDF2 /* R.generated.swift in Sources */,
 				CECAD87D1FE0C585008EE696 /* OSCSearchViewController.swift in Sources */,
 				CE48FCA51FDF588400366E4F /* ResetPWViewController.swift in Sources */,

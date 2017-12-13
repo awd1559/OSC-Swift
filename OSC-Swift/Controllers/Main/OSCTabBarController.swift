@@ -9,7 +9,6 @@
 import UIKit
 
 class OSCTabBarController : UITabBarController{
-    
     //MARK: - property
     lazy var centerButton: UIButton = {
         print("create a center button")
@@ -26,7 +25,6 @@ class OSCTabBarController : UITabBarController{
         return button
     }()
     
-    
     //MARK: - lifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,19 +32,22 @@ class OSCTabBarController : UITabBarController{
         setupTabBar()
     }
     
-    //MARK: - click on center button
+}
+
+// MARK: - center button
+extension OSCTabBarController {
     @objc func buttonPressed() {
         if Config.getOwnID() == 0 {
             let loginVC = R.storyboard.login.loginViewController()
             self.selectedViewController?.present(loginVC!, animated: true)
         } else {
             // TODO: add TweetEditingVC
-//            let tweetEditingVC = TweetEditingVC()
-//            self.selectedViewController?.present(tweetEditingVC, animated: true)
+            let loginVC = R.storyboard.login.loginViewController()
+            self.selectedViewController?.present(loginVC!, animated: true)
+            //            let tweetEditingVC = TweetEditingVC()
+            //            self.selectedViewController?.present(tweetEditingVC, animated: true)
         }
     }
-    
-    
 }
 
 // MARK: - private
@@ -62,9 +63,6 @@ extension OSCTabBarController {
         dongtan.tabBarItem.image = R.image.tabbarNews()
         dongtan.tabBarItem.selectedImage = R.image.tabbarNewsSelected()
         
-        self.tabBar.items?[2].isEnabled = false
-        self.tabBar.addSubview(centerButton)
-        
         let faxian = R.storyboard.discover.nav()
         faxian?.topViewController?.tabBarItem.title = "发现"
         faxian?.topViewController?.tabBarItem.image = R.image.tabbarNews()
@@ -78,8 +76,8 @@ extension OSCTabBarController {
         let center = UIViewController()
         self.viewControllers = [zonghe, dongtan, center, faxian!, me!]
         
-        
-        
+        self.tabBar.items![2].isEnabled = false
+        self.tabBar.addSubview(centerButton)
         
         self.tabBar.isTranslucent = false
     }

@@ -2492,14 +2492,28 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.storyboard` struct is generated, and contains static references to 3 storyboards.
+  /// This `R.storyboard` struct is generated, and contains static references to 5 storyboards.
   struct storyboard {
+    /// Storyboard `Discover`.
+    static let discover = _R.storyboard.discover()
+    /// Storyboard `Homepage`.
+    static let homepage = _R.storyboard.homepage()
     /// Storyboard `LaunchScreen`.
     static let launchScreen = _R.storyboard.launchScreen()
     /// Storyboard `Login`.
     static let login = _R.storyboard.login()
     /// Storyboard `Main`.
     static let main = _R.storyboard.main()
+    
+    /// `UIStoryboard(name: "Discover", bundle: ...)`
+    static func discover(_: Void = ()) -> UIKit.UIStoryboard {
+      return UIKit.UIStoryboard(resource: R.storyboard.discover)
+    }
+    
+    /// `UIStoryboard(name: "Homepage", bundle: ...)`
+    static func homepage(_: Void = ()) -> UIKit.UIStoryboard {
+      return UIKit.UIStoryboard(resource: R.storyboard.homepage)
+    }
     
     /// `UIStoryboard(name: "LaunchScreen", bundle: ...)`
     static func launchScreen(_: Void = ()) -> UIKit.UIStoryboard {
@@ -2550,6 +2564,40 @@ struct _R: Rswift.Validatable {
     static func validate() throws {
       try main.validate()
       try login.validate()
+      try discover.validate()
+      try homepage.validate()
+    }
+    
+    struct discover: Rswift.StoryboardResourceType, Rswift.Validatable {
+      let bundle = R.hostingBundle
+      let name = "Discover"
+      let nav = StoryboardViewControllerResource<UIKit.UINavigationController>(identifier: "Nav")
+      
+      func nav(_: Void = ()) -> UIKit.UINavigationController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: nav)
+      }
+      
+      static func validate() throws {
+        if _R.storyboard.discover().nav() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'nav' could not be loaded from storyboard 'Discover' as 'UIKit.UINavigationController'.") }
+      }
+      
+      fileprivate init() {}
+    }
+    
+    struct homepage: Rswift.StoryboardResourceType, Rswift.Validatable {
+      let bundle = R.hostingBundle
+      let name = "Homepage"
+      let nav = StoryboardViewControllerResource<UIKit.UINavigationController>(identifier: "Nav")
+      
+      func nav(_: Void = ()) -> UIKit.UINavigationController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: nav)
+      }
+      
+      static func validate() throws {
+        if _R.storyboard.homepage().nav() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'nav' could not be loaded from storyboard 'Homepage' as 'UIKit.UINavigationController'.") }
+      }
+      
+      fileprivate init() {}
     }
     
     struct launchScreen: Rswift.StoryboardResourceWithInitialControllerType {

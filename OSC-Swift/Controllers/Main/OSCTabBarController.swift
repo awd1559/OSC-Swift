@@ -52,36 +52,39 @@ class OSCTabBarController : UITabBarController{
 // MARK: - private
 extension OSCTabBarController {
     fileprivate func setupTabBar() {
-        let zonghe = UIViewController()
+        let zonghe = self.navigationControllerWithSearchBar(OSCSyntheticalController())
         zonghe.tabBarItem.title = "综合"
         zonghe.tabBarItem.image = R.image.tabbarNews()
         zonghe.tabBarItem.selectedImage = R.image.tabbarNewsSelected()
         
-        let dongtan = UIViewController()
+        let dongtan = self.navigationControllerWithSearchBar(OSCTweetsController())
         dongtan.tabBarItem.title = "动弹"
         dongtan.tabBarItem.image = R.image.tabbarNews()
         dongtan.tabBarItem.selectedImage = R.image.tabbarNewsSelected()
         
-        let faxian = UIViewController()
-        faxian.tabBarItem.title = "发现"
-        faxian.tabBarItem.image = R.image.tabbarNews()
-        faxian.tabBarItem.selectedImage = R.image.tabbarNewsSelected()
+        self.tabBar.items?[2].isEnabled = false
+        self.tabBar.addSubview(centerButton)
         
-        let me = UIViewController()
-        me.tabBarItem.title = "我的"
-        me.tabBarItem.image = R.image.tabbarNews()
-        me.tabBarItem.selectedImage = R.image.tabbarNewsSelected()
+        let faxian = R.storyboard.discover.nav()
+        self.tabBar.items?[3].title = "发现"
+        self.tabBar.items?[3].image = R.image.tabbarNews()
+        self.tabBar.items?[3].selectedImage = R.image.tabbarNewsSelected()
+        
+        let me = R.storyboard.homepage.nav()
+        self.tabBar.items?[4].title = "我的"
+        self.tabBar.items?[4].image = R.image.tabbarNews()
+        self.tabBar.items?[4].selectedImage = R.image.tabbarNewsSelected()
         
         let center = UIViewController()
-        self.viewControllers = [zonghe, dongtan, center, faxian, me]
+        self.viewControllers = [zonghe, dongtan, center, faxian!, me!]
         
-        self.tabBar.items?[2].isEnabled = false
         
-        self.tabBar.addSubview(centerButton)
+        
+        
         self.tabBar.isTranslucent = false
     }
     
-    func navigationControllerWithSearchBar(controller: UIViewController) -> UINavigationController {
+    func navigationControllerWithSearchBar(_ controller: UIViewController) -> UINavigationController {
         let nav = UINavigationController(rootViewController: controller)
         let item = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(pushSearchViewController))
         controller.navigationItem.rightBarButtonItem = item

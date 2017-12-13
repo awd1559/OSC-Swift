@@ -9,5 +9,10 @@
 import UIKit
 
 class OSCSearchViewController : UIViewController {
-    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        let todo = UILabel(frame: self.view.frame)
+        todo.text = "serach todo"
+        self.view.addSubview(todo)
+    }
 }

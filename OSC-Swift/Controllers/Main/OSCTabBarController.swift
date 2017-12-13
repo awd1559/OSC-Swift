@@ -66,14 +66,14 @@ extension OSCTabBarController {
         self.tabBar.addSubview(centerButton)
         
         let faxian = R.storyboard.discover.nav()
-        self.tabBar.items?[3].title = "发现"
-        self.tabBar.items?[3].image = R.image.tabbarNews()
-        self.tabBar.items?[3].selectedImage = R.image.tabbarNewsSelected()
+        faxian?.topViewController?.tabBarItem.title = "发现"
+        faxian?.topViewController?.tabBarItem.image = R.image.tabbarNews()
+        faxian?.topViewController?.tabBarItem.selectedImage = R.image.tabbarNewsSelected()
         
         let me = R.storyboard.homepage.nav()
-        self.tabBar.items?[4].title = "我的"
-        self.tabBar.items?[4].image = R.image.tabbarNews()
-        self.tabBar.items?[4].selectedImage = R.image.tabbarNewsSelected()
+        me?.topViewController?.tabBarItem.title = "我的"
+        me?.topViewController?.tabBarItem.image = R.image.tabbarNews()
+        me?.topViewController?.tabBarItem.selectedImage = R.image.tabbarNewsSelected()
         
         let center = UIViewController()
         self.viewControllers = [zonghe, dongtan, center, faxian!, me!]

@@ -10,6 +10,7 @@ import UIKit
 
 class OSCTabBarController : UITabBarController{
     
+    //MARK: - property
     lazy var centerButton: UIButton = {
         print("create a center button")
         let button = UIButton(type: .custom)
@@ -25,9 +26,32 @@ class OSCTabBarController : UITabBarController{
         return button
     }()
     
+    
+    //MARK: - lifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupTabBar()
+    }
+    
+    //MARK: - click on center button
+    @objc func buttonPressed() {
+        if Config.getOwnID() == 0 {
+            let loginVC = R.storyboard.login.loginViewController()
+            self.selectedViewController?.present(loginVC!, animated: true)
+        } else {
+            // TODO: add TweetEditingVC
+//            let tweetEditingVC = TweetEditingVC()
+//            self.selectedViewController?.present(tweetEditingVC, animated: true)
+        }
+    }
+    
+    
+}
+
+// MARK: - private
+extension OSCTabBarController {
+    fileprivate func setupTabBar() {
         let zonghe = UIViewController()
         zonghe.tabBarItem.title = "综合"
         zonghe.tabBarItem.image = R.image.tabbarNews()
@@ -54,18 +78,35 @@ class OSCTabBarController : UITabBarController{
         self.tabBar.items?[2].isEnabled = false
         
         self.tabBar.addSubview(centerButton)
+        self.tabBar.isTranslucent = false
     }
     
-    //MARK: - click on center button
-    @objc func buttonPressed() {
-//        if Config.getOwnID() == 0 {
-            let loginVC = R.storyboard.login.loginViewController()
-            self.selectedViewController?.present(loginVC!, animated: true)
-//        } else {
-            // TODO: - add TweetEditingVC
-//            let tweetEditingVC = TweetEditingVC()
-//            self.selectedViewController?.present(tweetEditingVC, animated: true)
-//        }
+    func navigationControllerWithSearchBar(controller: UIViewController) -> UINavigationController {
+        let nav = UINavigationController(rootViewController: controller)
+        let item = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(pushSearchViewController))
+        controller.navigationItem.rightBarButtonItem = item
+        return nav
     }
+    
+    @objc func pushSearchViewController() {
+        let nav = self.selectedViewController
+        let searchVC = OSCSearchViewController()
+        let rootNav = UINavigationController(rootViewController: searchVC)
+        nav?.present(rootNav, animated: true)
+    }
+}
+
+//MARK: - UITabBarControllerDelegate
+extension OSCTabBarController : UITabBarControllerDelegate {
+    
+}
+
+//MARK: - UINavigationControllerDelegate
+extension OSCTabBarController : UINavigationControllerDelegate {
+    
+}
+
+//MARK: - UIImagePickerControllerDelegate
+extension OSCTabBarController : UIImagePickerControllerDelegate {
     
 }

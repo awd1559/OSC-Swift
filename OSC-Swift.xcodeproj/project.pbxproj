@@ -13,7 +13,6 @@
 		CE2BF0E61FE1189700528BA6 /* TweetEditingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2BF0E51FE1189700528BA6 /* TweetEditingVC.swift */; };
 		CE2BF0E81FE1686700528BA6 /* VoiceTweetEditingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2BF0E71FE1686700528BA6 /* VoiceTweetEditingVC.swift */; };
 		CE2BF0EB1FE1693700528BA6 /* ScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2BF0EA1FE1693700528BA6 /* ScanViewController.swift */; };
-		CE2BF0ED1FE1766D00528BA6 /* OSCPhotoGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2BF0EC1FE1766D00528BA6 /* OSCPhotoGroupView.swift */; };
 		CE2BF0EF1FE17A5C00528BA6 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2BF0EE1FE17A5C00528BA6 /* Utils.swift */; };
 		CE48FC9F1FDF580D00366E4F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE48FC9E1FDF580D00366E4F /* LoginViewController.swift */; };
 		CE48FCA11FDF582900366E4F /* FoundPWViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE48FCA01FDF582900366E4F /* FoundPWViewController.swift */; };
@@ -41,6 +40,8 @@
 		CEC518F01FE247CF009A7CF2 /* SearchResultController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC518EF1FE247CF009A7CF2 /* SearchResultController.swift */; };
 		CEC518F31FE24906009A7CF2 /* HorizontalController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC518F21FE24906009A7CF2 /* HorizontalController.swift */; };
 		CEC518F51FE2493F009A7CF2 /* SwipableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC518F41FE2493F009A7CF2 /* SwipableViewController.swift */; };
+		CEC518F91FE24A54009A7CF2 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = CEC518F81FE24A54009A7CF2 /* README.md */; };
+		CEC518FB1FE24A7C009A7CF2 /* OSCPhotoGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC518FA1FE24A7C009A7CF2 /* OSCPhotoGroupView.swift */; };
 		CECAD87D1FE0C585008EE696 /* OSCSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECAD87C1FE0C585008EE696 /* OSCSearchViewController.swift */; };
 		CECAD87F1FE0C963008EE696 /* Discover.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CECAD87E1FE0C963008EE696 /* Discover.storyboard */; };
 		CECAD8811FE0C981008EE696 /* Homepage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CECAD8801FE0C980008EE696 /* Homepage.storyboard */; };
@@ -115,7 +116,6 @@
 		CE2BF0E51FE1189700528BA6 /* TweetEditingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetEditingVC.swift; sourceTree = "<group>"; };
 		CE2BF0E71FE1686700528BA6 /* VoiceTweetEditingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceTweetEditingVC.swift; sourceTree = "<group>"; };
 		CE2BF0EA1FE1693700528BA6 /* ScanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanViewController.swift; sourceTree = "<group>"; };
-		CE2BF0EC1FE1766D00528BA6 /* OSCPhotoGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSCPhotoGroupView.swift; sourceTree = "<group>"; };
 		CE2BF0EE1FE17A5C00528BA6 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		CE2BF0F01FE1FCAE00528BA6 /* bridge-header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "bridge-header.h"; sourceTree = "<group>"; };
 		CE48FC9E1FDF580D00366E4F /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -144,6 +144,8 @@
 		CEC518EF1FE247CF009A7CF2 /* SearchResultController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultController.swift; sourceTree = "<group>"; };
 		CEC518F21FE24906009A7CF2 /* HorizontalController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalController.swift; sourceTree = "<group>"; };
 		CEC518F41FE2493F009A7CF2 /* SwipableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipableViewController.swift; sourceTree = "<group>"; };
+		CEC518F81FE24A54009A7CF2 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		CEC518FA1FE24A7C009A7CF2 /* OSCPhotoGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSCPhotoGroupView.swift; sourceTree = "<group>"; };
 		CECAD87C1FE0C585008EE696 /* OSCSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSCSearchViewController.swift; sourceTree = "<group>"; };
 		CECAD87E1FE0C963008EE696 /* Discover.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Discover.storyboard; sourceTree = "<group>"; };
 		CECAD8801FE0C980008EE696 /* Homepage.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Homepage.storyboard; sourceTree = "<group>"; };
@@ -348,6 +350,23 @@
 			path = SwipableController;
 			sourceTree = "<group>";
 		};
+		CEC518F61FE24A19009A7CF2 /* vendor */ = {
+			isa = PBXGroup;
+			children = (
+				CEC518F71FE24A22009A7CF2 /* SDCycleScrollView */,
+			);
+			path = vendor;
+			sourceTree = "<group>";
+		};
+		CEC518F71FE24A22009A7CF2 /* SDCycleScrollView */ = {
+			isa = PBXGroup;
+			children = (
+				CEC518F81FE24A54009A7CF2 /* README.md */,
+				CEC518FA1FE24A7C009A7CF2 /* OSCPhotoGroupView.swift */,
+			);
+			path = SDCycleScrollView;
+			sourceTree = "<group>";
+		};
 		CECAD8761FE0BDF2008EE696 /* 发现 */ = {
 			isa = PBXGroup;
 			children = (
@@ -411,6 +430,7 @@
 		CEFEC64B1FDE41030019DDF2 /* OSC-Swift */ = {
 			isa = PBXGroup;
 			children = (
+				CEC518F61FE24A19009A7CF2 /* vendor */,
 				CEFEC6501FDE41030019DDF2 /* Main.storyboard */,
 				CEFEC6551FDE41030019DDF2 /* LaunchScreen.storyboard */,
 				CEFEC6531FDE41030019DDF2 /* Assets.xcassets */,
@@ -467,7 +487,6 @@
 		CEFEC67C1FDE43AB0019DDF2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				CE2BF0EC1FE1766D00528BA6 /* OSCPhotoGroupView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -708,6 +727,7 @@
 				CEFEC6AA1FDE44580019DDF2 /* article.html in Resources */,
 				CECAD87F1FE0C963008EE696 /* Discover.storyboard in Resources */,
 				CEFEC6C01FDE44580019DDF2 /* detail.css in Resources */,
+				CEC518F91FE24A54009A7CF2 /* README.md in Resources */,
 				CEFEC6AE1FDE44580019DDF2 /* git_project.html in Resources */,
 				CEFEC6B81FDE44580019DDF2 /* picture.png in Resources */,
 				CEFEC6B41FDE44580019DDF2 /* shooting.png in Resources */,
@@ -808,6 +828,7 @@
 				CEC518EE1FE247C3009A7CF2 /* SearchResultCells.swift in Sources */,
 				CEC518F31FE24906009A7CF2 /* HorizontalController.swift in Sources */,
 				CE48FCA71FDF58C100366E4F /* RegisterViewController.swift in Sources */,
+				CEC518FB1FE24A7C009A7CF2 /* OSCPhotoGroupView.swift in Sources */,
 				CE48FCA31FDF586B00366E4F /* RegisterInfoViewController.swift in Sources */,
 				CE2BF0E81FE1686700528BA6 /* VoiceTweetEditingVC.swift in Sources */,
 				CEC518CA1FE228D3009A7CF2 /* OSCPropertyCollection.swift in Sources */,
@@ -836,7 +857,6 @@
 				CE2BF0EF1FE17A5C00528BA6 /* Utils.swift in Sources */,
 				CEC518DE1FE243F3009A7CF2 /* InformationCell.swift in Sources */,
 				CEC518E91FE244CF009A7CF2 /* BottomBarViewController.swift in Sources */,
-				CE2BF0ED1FE1766D00528BA6 /* OSCPhotoGroupView.swift in Sources */,
 				CECAD87D1FE0C585008EE696 /* OSCSearchViewController.swift in Sources */,
 				CEC518C61FE226BC009A7CF2 /* SyntheticalTitleBarView.swift in Sources */,
 				CEC518DC1FE24359009A7CF2 /* OSCMenuItem.swift in Sources */,

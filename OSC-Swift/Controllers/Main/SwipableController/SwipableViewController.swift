@@ -55,7 +55,12 @@ class SwipableViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func scrollToViewAtIndex(_ index: Int) {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.view.backgroundColor = UIColor.titleBarColor()
+    }
     
+    func scrollToViewAtIndex(_ index: Int) {
+        viewPager?.changeIndex!(index)
     }
 }

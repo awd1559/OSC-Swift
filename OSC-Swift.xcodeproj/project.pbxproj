@@ -13,6 +13,8 @@
 		CE2BF0E61FE1189700528BA6 /* TweetEditingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2BF0E51FE1189700528BA6 /* TweetEditingVC.swift */; };
 		CE2BF0E81FE1686700528BA6 /* VoiceTweetEditingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2BF0E71FE1686700528BA6 /* VoiceTweetEditingVC.swift */; };
 		CE2BF0EB1FE1693700528BA6 /* ScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2BF0EA1FE1693700528BA6 /* ScanViewController.swift */; };
+		CE2BF0ED1FE1766D00528BA6 /* OSCPhotoGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2BF0EC1FE1766D00528BA6 /* OSCPhotoGroupView.swift */; };
+		CE2BF0EF1FE17A5C00528BA6 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2BF0EE1FE17A5C00528BA6 /* Utils.swift */; };
 		CE48FC9F1FDF580D00366E4F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE48FC9E1FDF580D00366E4F /* LoginViewController.swift */; };
 		CE48FCA11FDF582900366E4F /* FoundPWViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE48FCA01FDF582900366E4F /* FoundPWViewController.swift */; };
 		CE48FCA31FDF586B00366E4F /* RegisterInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE48FCA21FDF586B00366E4F /* RegisterInfoViewController.swift */; };
@@ -21,6 +23,10 @@
 		CE6B24E71FE0D2BE00659156 /* DiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6B24E61FE0D2BE00659156 /* DiscoverViewController.swift */; };
 		CE6B24E91FE0D2FE00659156 /* HomepageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6B24E81FE0D2FE00659156 /* HomepageViewController.swift */; };
 		CE6B24ED1FE0E13F00659156 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE6B24EC1FE0E13F00659156 /* Login.storyboard */; };
+		CEC518C61FE226BC009A7CF2 /* SyntheticalTitleBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC518C51FE226BC009A7CF2 /* SyntheticalTitleBarView.swift */; };
+		CEC518C81FE227A3009A7CF2 /* TitleBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC518C71FE227A3009A7CF2 /* TitleBarView.swift */; };
+		CEC518CA1FE228D3009A7CF2 /* OSCPropertyCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC518C91FE228D3009A7CF2 /* OSCPropertyCollection.swift */; };
+		CEC518CD1FE22C5D009A7CF2 /* OSCInformationListCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC518CC1FE22C5D009A7CF2 /* OSCInformationListCollectionViewController.swift */; };
 		CECAD87D1FE0C585008EE696 /* OSCSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECAD87C1FE0C585008EE696 /* OSCSearchViewController.swift */; };
 		CECAD87F1FE0C963008EE696 /* Discover.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CECAD87E1FE0C963008EE696 /* Discover.storyboard */; };
 		CECAD8811FE0C981008EE696 /* Homepage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CECAD8801FE0C980008EE696 /* Homepage.storyboard */; };
@@ -95,6 +101,9 @@
 		CE2BF0E51FE1189700528BA6 /* TweetEditingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetEditingVC.swift; sourceTree = "<group>"; };
 		CE2BF0E71FE1686700528BA6 /* VoiceTweetEditingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceTweetEditingVC.swift; sourceTree = "<group>"; };
 		CE2BF0EA1FE1693700528BA6 /* ScanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanViewController.swift; sourceTree = "<group>"; };
+		CE2BF0EC1FE1766D00528BA6 /* OSCPhotoGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSCPhotoGroupView.swift; sourceTree = "<group>"; };
+		CE2BF0EE1FE17A5C00528BA6 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		CE2BF0F01FE1FCAE00528BA6 /* bridge-header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "bridge-header.h"; sourceTree = "<group>"; };
 		CE48FC9E1FDF580D00366E4F /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		CE48FCA01FDF582900366E4F /* FoundPWViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoundPWViewController.swift; sourceTree = "<group>"; };
 		CE48FCA21FDF586B00366E4F /* RegisterInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterInfoViewController.swift; sourceTree = "<group>"; };
@@ -103,6 +112,10 @@
 		CE6B24E61FE0D2BE00659156 /* DiscoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverViewController.swift; sourceTree = "<group>"; };
 		CE6B24E81FE0D2FE00659156 /* HomepageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomepageViewController.swift; sourceTree = "<group>"; };
 		CE6B24EC1FE0E13F00659156 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		CEC518C51FE226BC009A7CF2 /* SyntheticalTitleBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyntheticalTitleBarView.swift; sourceTree = "<group>"; };
+		CEC518C71FE227A3009A7CF2 /* TitleBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleBarView.swift; sourceTree = "<group>"; };
+		CEC518C91FE228D3009A7CF2 /* OSCPropertyCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSCPropertyCollection.swift; sourceTree = "<group>"; };
+		CEC518CC1FE22C5D009A7CF2 /* OSCInformationListCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSCInformationListCollectionViewController.swift; sourceTree = "<group>"; };
 		CECAD87C1FE0C585008EE696 /* OSCSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSCSearchViewController.swift; sourceTree = "<group>"; };
 		CECAD87E1FE0C963008EE696 /* Discover.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Discover.storyboard; sourceTree = "<group>"; };
 		CECAD8801FE0C980008EE696 /* Homepage.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Homepage.storyboard; sourceTree = "<group>"; };
@@ -235,6 +248,14 @@
 			path = Login;
 			sourceTree = "<group>";
 		};
+		CEC518CB1FE22C4E009A7CF2 /* MenuList */ = {
+			isa = PBXGroup;
+			children = (
+				CEC518CC1FE22C5D009A7CF2 /* OSCInformationListCollectionViewController.swift */,
+			);
+			path = MenuList;
+			sourceTree = "<group>";
+		};
 		CECAD8761FE0BDF2008EE696 /* 发现 */ = {
 			isa = PBXGroup;
 			children = (
@@ -268,6 +289,7 @@
 		CECAD8791FE0BE19008EE696 /* 综合 */ = {
 			isa = PBXGroup;
 			children = (
+				CEC518CB1FE22C4E009A7CF2 /* MenuList */,
 			);
 			path = "综合";
 			sourceTree = "<group>";
@@ -301,6 +323,7 @@
 				CEFEC6551FDE41030019DDF2 /* LaunchScreen.storyboard */,
 				CEFEC6531FDE41030019DDF2 /* Assets.xcassets */,
 				CEFEC6581FDE41030019DDF2 /* Info.plist */,
+				CE2BF0F01FE1FCAE00528BA6 /* bridge-header.h */,
 				CEFEC67E1FDE43BA0019DDF2 /* Resources */,
 				CEFEC67D1FDE43B10019DDF2 /* Utils */,
 				CEFEC67C1FDE43AB0019DDF2 /* Views */,
@@ -352,7 +375,9 @@
 		CEFEC67C1FDE43AB0019DDF2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				CEFEC6CC1FDEBFFC0019DDF2 /* Config.swift */,
+				CE2BF0EC1FE1766D00528BA6 /* OSCPhotoGroupView.swift */,
+				CEC518C51FE226BC009A7CF2 /* SyntheticalTitleBarView.swift */,
+				CEC518C71FE227A3009A7CF2 /* TitleBarView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -360,7 +385,9 @@
 		CEFEC67D1FDE43B10019DDF2 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				CEFEC6CC1FDEBFFC0019DDF2 /* Config.swift */,
 				CE2BF0E01FE10CD800528BA6 /* UIColor+ext.swift */,
+				CE2BF0EE1FE17A5C00528BA6 /* Utils.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -436,6 +463,7 @@
 				CECAD87C1FE0C585008EE696 /* OSCSearchViewController.swift */,
 				CECAD8821FE0C9AC008EE696 /* OSCSyntheticalController.swift */,
 				CE2BF0DE1FE106D200528BA6 /* OptionButton.swift */,
+				CEC518C91FE228D3009A7CF2 /* OSCPropertyCollection.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -456,8 +484,8 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CEFEC6711FDE41040019DDF2 /* Build configuration list for PBXNativeTarget "OSC-Swift" */;
 			buildPhases = (
-				CEFEC6C61FDE5A070019DDF2 /* Run Script */,
 				186F422A9CFD98E68D5085AE /* [CP] Check Pods Manifest.lock */,
+				CEFEC6C61FDE5A070019DDF2 /* Run Script */,
 				CEFEC6451FDE41030019DDF2 /* Sources */,
 				CEFEC6461FDE41030019DDF2 /* Frameworks */,
 				CEFEC6471FDE41030019DDF2 /* Resources */,
@@ -688,6 +716,8 @@
 				CE48FCA71FDF58C100366E4F /* RegisterViewController.swift in Sources */,
 				CE48FCA31FDF586B00366E4F /* RegisterInfoViewController.swift in Sources */,
 				CE2BF0E81FE1686700528BA6 /* VoiceTweetEditingVC.swift in Sources */,
+				CEC518CA1FE228D3009A7CF2 /* OSCPropertyCollection.swift in Sources */,
+				CEC518C81FE227A3009A7CF2 /* TitleBarView.swift in Sources */,
 				CE2BF0E61FE1189700528BA6 /* TweetEditingVC.swift in Sources */,
 				CE48FCA11FDF582900366E4F /* FoundPWViewController.swift in Sources */,
 				CEFEC6CA1FDE720B0019DDF2 /* OSCTabBarController.swift in Sources */,
@@ -698,10 +728,14 @@
 				CECAD8851FE0CAA2008EE696 /* OSCTweetsController.swift in Sources */,
 				CEFEC64D1FDE41030019DDF2 /* AppDelegate.swift in Sources */,
 				CECAD8831FE0C9AC008EE696 /* OSCSyntheticalController.swift in Sources */,
+				CEC518CD1FE22C5D009A7CF2 /* OSCInformationListCollectionViewController.swift in Sources */,
 				CE48FC9F1FDF580D00366E4F /* LoginViewController.swift in Sources */,
 				CE6B24E91FE0D2FE00659156 /* HomepageViewController.swift in Sources */,
 				CEFEC6C81FDE5BC40019DDF2 /* R.generated.swift in Sources */,
+				CE2BF0EF1FE17A5C00528BA6 /* Utils.swift in Sources */,
+				CE2BF0ED1FE1766D00528BA6 /* OSCPhotoGroupView.swift in Sources */,
 				CECAD87D1FE0C585008EE696 /* OSCSearchViewController.swift in Sources */,
+				CEC518C61FE226BC009A7CF2 /* SyntheticalTitleBarView.swift in Sources */,
 				CE48FCA51FDF588400366E4F /* ResetPWViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -810,6 +844,8 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_INSTALL_OBJC_HEADER = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -859,6 +895,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_INSTALL_OBJC_HEADER = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -875,6 +913,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "cn.net.emotion.OSC-Swift";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/$(PROJECT_NAME)/bridge-header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -891,6 +930,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "cn.net.emotion.OSC-Swift";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/$(PROJECT_NAME)/bridge-header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

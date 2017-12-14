@@ -10,4 +10,5 @@ target 'OSC-Swift' do
   	pod 'ObjectMapper'
     pod 'SnapKit'
   	pod 'R.swift'
+    pod 'YYKit'
 end

@@ -30,6 +30,8 @@ class OSCTabBarController : UITabBarController{
         super.viewDidLoad()
         
         setupTabBar()
+        //FIXME: how to use option buttons
+        //click center button just goto TweetEditingVC
         setupOptionButton()
     }
     

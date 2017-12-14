@@ -8,6 +8,38 @@
 
 import UIKit
 
+fileprivate let kMaxBtnWidth = 80
+fileprivate let kScreenSize = UIScreen.main.bounds.size
+
 class TitleBarView: UIScrollView {
+    var titleButtons: [UIButton]?
+    var currentIndex: Int?
+    var titleButtonClicked: ((Int) -> Void)?
+    var isNeedScroll = false
+    
+    init(frame: CGRect, titles: [String], needScroll: Bool = false) {
+        super.init(frame: frame)
+        self.isNeedScroll = needScroll
+        self.reloadAllButtonsOfTitleBarWithTitles(titles)
+        self.showsHorizontalScrollIndicator = false
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    func setTitleButtonsColor() {
+        
+    }
+    
+    func scrollToCenterWithIndex(_ index: Int) {
+        
+    }
+    
+    /**重置所有的btn*/
+    func reloadAllButtonsOfTitleBarWithTitles(_ titles: [String]) {
+        
+    }
+    
     
 }

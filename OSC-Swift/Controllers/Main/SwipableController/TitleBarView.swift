@@ -29,7 +29,9 @@ class TitleBarView: UIScrollView {
     }
     
     func setTitleButtonsColor() {
-        
+        for button in self.subviews {
+            button.backgroundColor = UIColor.titleBarColor()
+        }
     }
     
     func scrollToCenterWithIndex(_ index: Int) {

@@ -21,4 +21,25 @@ class Utils {
         
         return mAttrStr
     }
+    
+    static func fixedLocalMenuNames() -> [String] {
+        let fixedLocalTokens = ["开源资讯", "推荐博客", "技术问答", "每日一搏"]
+     
+        return fixedLocalTokens
+    }
+    
+    static func allSelectedMenuNames() -> [String] {
+        let chooseItemTokens = self.allSelectedMenuTokens()
+//        let allChooseMenuItems = [self conversionMenuItemsWithMenuTokens:chooseItemTokens]; //[OSCMenuItem]
+//        var allNames = [String]()
+//        for curItem in allChooseMenuItems {
+//            allNames.append(curItem.name)
+//        }
+//        return allNames
+        return chooseItemTokens
+    }
+    
+    static func allSelectedMenuTokens() -> [String] {
+        return ["new", "temp", "todo"]
+    }
 }

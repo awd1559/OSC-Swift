@@ -8,6 +8,11 @@
 
 import UIKit
 
+protocol OSCPropertyCollectionDelegate {
+    func clickCellWithIndex(index: Int)
+    func beginEdit()
+}
+
 class OSCPropertyCollection: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()

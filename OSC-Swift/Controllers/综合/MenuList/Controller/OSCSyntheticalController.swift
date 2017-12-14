@@ -98,7 +98,13 @@ extension OSCSyntheticalController {
 
 //MARK: - OSCPropertyCollectionDelegate
 extension OSCSyntheticalController: OSCPropertyCollectionDelegate {
+    func clickCellWithIndex(index: Int) {
+        
+    }
     
+    func beginEdit() {
+        
+    }
 }
 
 //MARK: - SyntheticaltitleBarDelegate

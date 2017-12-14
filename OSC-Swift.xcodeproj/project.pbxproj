@@ -27,6 +27,20 @@
 		CEC518C81FE227A3009A7CF2 /* TitleBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC518C71FE227A3009A7CF2 /* TitleBarView.swift */; };
 		CEC518CA1FE228D3009A7CF2 /* OSCPropertyCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC518C91FE228D3009A7CF2 /* OSCPropertyCollection.swift */; };
 		CEC518CD1FE22C5D009A7CF2 /* OSCInformationListCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC518CC1FE22C5D009A7CF2 /* OSCInformationListCollectionViewController.swift */; };
+		CEC518D11FE242A2009A7CF2 /* OSCInformationListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC518D01FE242A2009A7CF2 /* OSCInformationListController.swift */; };
+		CEC518DA1FE2434C009A7CF2 /* OSCListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC518D91FE2434C009A7CF2 /* OSCListItem.swift */; };
+		CEC518DC1FE24359009A7CF2 /* OSCMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC518DB1FE24359009A7CF2 /* OSCMenuItem.swift */; };
+		CEC518DE1FE243F3009A7CF2 /* InformationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC518DD1FE243F3009A7CF2 /* InformationCell.swift */; };
+		CEC518E01FE24413009A7CF2 /* PropertyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC518DF1FE24413009A7CF2 /* PropertyCell.swift */; };
+		CEC518E21FE2442B009A7CF2 /* AdCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC518E11FE2442B009A7CF2 /* AdCell.swift */; };
+		CEC518E41FE24434009A7CF2 /* DividerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC518E31FE24434009A7CF2 /* DividerCell.swift */; };
+		CEC518E61FE2443C009A7CF2 /* NormalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC518E51FE2443C009A7CF2 /* NormalCell.swift */; };
+		CEC518E91FE244CF009A7CF2 /* BottomBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC518E81FE244CF009A7CF2 /* BottomBarViewController.swift */; };
+		CEC518EB1FE244DE009A7CF2 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC518EA1FE244DE009A7CF2 /* DetailsViewController.swift */; };
+		CEC518EE1FE247C3009A7CF2 /* SearchResultCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC518ED1FE247C3009A7CF2 /* SearchResultCells.swift */; };
+		CEC518F01FE247CF009A7CF2 /* SearchResultController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC518EF1FE247CF009A7CF2 /* SearchResultController.swift */; };
+		CEC518F31FE24906009A7CF2 /* HorizontalController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC518F21FE24906009A7CF2 /* HorizontalController.swift */; };
+		CEC518F51FE2493F009A7CF2 /* SwipableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC518F41FE2493F009A7CF2 /* SwipableViewController.swift */; };
 		CECAD87D1FE0C585008EE696 /* OSCSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECAD87C1FE0C585008EE696 /* OSCSearchViewController.swift */; };
 		CECAD87F1FE0C963008EE696 /* Discover.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CECAD87E1FE0C963008EE696 /* Discover.storyboard */; };
 		CECAD8811FE0C981008EE696 /* Homepage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CECAD8801FE0C980008EE696 /* Homepage.storyboard */; };
@@ -116,6 +130,20 @@
 		CEC518C71FE227A3009A7CF2 /* TitleBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleBarView.swift; sourceTree = "<group>"; };
 		CEC518C91FE228D3009A7CF2 /* OSCPropertyCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSCPropertyCollection.swift; sourceTree = "<group>"; };
 		CEC518CC1FE22C5D009A7CF2 /* OSCInformationListCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSCInformationListCollectionViewController.swift; sourceTree = "<group>"; };
+		CEC518D01FE242A2009A7CF2 /* OSCInformationListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSCInformationListController.swift; sourceTree = "<group>"; };
+		CEC518D91FE2434C009A7CF2 /* OSCListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSCListItem.swift; sourceTree = "<group>"; };
+		CEC518DB1FE24359009A7CF2 /* OSCMenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSCMenuItem.swift; sourceTree = "<group>"; };
+		CEC518DD1FE243F3009A7CF2 /* InformationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationCell.swift; sourceTree = "<group>"; };
+		CEC518DF1FE24413009A7CF2 /* PropertyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyCell.swift; sourceTree = "<group>"; };
+		CEC518E11FE2442B009A7CF2 /* AdCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdCell.swift; sourceTree = "<group>"; };
+		CEC518E31FE24434009A7CF2 /* DividerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DividerCell.swift; sourceTree = "<group>"; };
+		CEC518E51FE2443C009A7CF2 /* NormalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NormalCell.swift; sourceTree = "<group>"; };
+		CEC518E81FE244CF009A7CF2 /* BottomBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomBarViewController.swift; sourceTree = "<group>"; };
+		CEC518EA1FE244DE009A7CF2 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		CEC518ED1FE247C3009A7CF2 /* SearchResultCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultCells.swift; sourceTree = "<group>"; };
+		CEC518EF1FE247CF009A7CF2 /* SearchResultController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultController.swift; sourceTree = "<group>"; };
+		CEC518F21FE24906009A7CF2 /* HorizontalController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalController.swift; sourceTree = "<group>"; };
+		CEC518F41FE2493F009A7CF2 /* SwipableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipableViewController.swift; sourceTree = "<group>"; };
 		CECAD87C1FE0C585008EE696 /* OSCSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSCSearchViewController.swift; sourceTree = "<group>"; };
 		CECAD87E1FE0C963008EE696 /* Discover.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Discover.storyboard; sourceTree = "<group>"; };
 		CECAD8801FE0C980008EE696 /* Homepage.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Homepage.storyboard; sourceTree = "<group>"; };
@@ -251,9 +279,73 @@
 		CEC518CB1FE22C4E009A7CF2 /* MenuList */ = {
 			isa = PBXGroup;
 			children = (
-				CEC518CC1FE22C5D009A7CF2 /* OSCInformationListCollectionViewController.swift */,
+				CEC518D81FE2433F009A7CF2 /* View */,
+				CEC518D71FE24333009A7CF2 /* Model */,
+				CEC518D61FE24320009A7CF2 /* Controller */,
 			);
 			path = MenuList;
+			sourceTree = "<group>";
+		};
+		CEC518D61FE24320009A7CF2 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				CEC518C91FE228D3009A7CF2 /* OSCPropertyCollection.swift */,
+				CECAD8821FE0C9AC008EE696 /* OSCSyntheticalController.swift */,
+				CEC518CC1FE22C5D009A7CF2 /* OSCInformationListCollectionViewController.swift */,
+				CEC518D01FE242A2009A7CF2 /* OSCInformationListController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		CEC518D71FE24333009A7CF2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CEC518D91FE2434C009A7CF2 /* OSCListItem.swift */,
+				CEC518DB1FE24359009A7CF2 /* OSCMenuItem.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		CEC518D81FE2433F009A7CF2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CEC518C51FE226BC009A7CF2 /* SyntheticalTitleBarView.swift */,
+				CEC518DD1FE243F3009A7CF2 /* InformationCell.swift */,
+				CEC518DF1FE24413009A7CF2 /* PropertyCell.swift */,
+				CEC518E11FE2442B009A7CF2 /* AdCell.swift */,
+				CEC518E31FE24434009A7CF2 /* DividerCell.swift */,
+				CEC518E51FE2443C009A7CF2 /* NormalCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CEC518E71FE244C3009A7CF2 /* DetailController */ = {
+			isa = PBXGroup;
+			children = (
+				CEC518E81FE244CF009A7CF2 /* BottomBarViewController.swift */,
+				CEC518EA1FE244DE009A7CF2 /* DetailsViewController.swift */,
+			);
+			path = DetailController;
+			sourceTree = "<group>";
+		};
+		CEC518EC1FE24514009A7CF2 /* SearchController */ = {
+			isa = PBXGroup;
+			children = (
+				CECAD87C1FE0C585008EE696 /* OSCSearchViewController.swift */,
+				CEC518ED1FE247C3009A7CF2 /* SearchResultCells.swift */,
+				CEC518EF1FE247CF009A7CF2 /* SearchResultController.swift */,
+			);
+			path = SearchController;
+			sourceTree = "<group>";
+		};
+		CEC518F11FE248F6009A7CF2 /* SwipableController */ = {
+			isa = PBXGroup;
+			children = (
+				CEC518C71FE227A3009A7CF2 /* TitleBarView.swift */,
+				CEC518F21FE24906009A7CF2 /* HorizontalController.swift */,
+				CEC518F41FE2493F009A7CF2 /* SwipableViewController.swift */,
+			);
+			path = SwipableController;
 			sourceTree = "<group>";
 		};
 		CECAD8761FE0BDF2008EE696 /* 发现 */ = {
@@ -376,8 +468,6 @@
 			isa = PBXGroup;
 			children = (
 				CE2BF0EC1FE1766D00528BA6 /* OSCPhotoGroupView.swift */,
-				CEC518C51FE226BC009A7CF2 /* SyntheticalTitleBarView.swift */,
-				CEC518C71FE227A3009A7CF2 /* TitleBarView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -459,11 +549,11 @@
 		CEFEC6C31FDE53530019DDF2 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				CEC518F11FE248F6009A7CF2 /* SwipableController */,
+				CEC518EC1FE24514009A7CF2 /* SearchController */,
+				CEC518E71FE244C3009A7CF2 /* DetailController */,
 				CEFEC6C91FDE720B0019DDF2 /* OSCTabBarController.swift */,
-				CECAD87C1FE0C585008EE696 /* OSCSearchViewController.swift */,
-				CECAD8821FE0C9AC008EE696 /* OSCSyntheticalController.swift */,
 				CE2BF0DE1FE106D200528BA6 /* OptionButton.swift */,
-				CEC518C91FE228D3009A7CF2 /* OSCPropertyCollection.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -713,29 +803,43 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE2BF0EB1FE1693700528BA6 /* ScanViewController.swift in Sources */,
+				CEC518E41FE24434009A7CF2 /* DividerCell.swift in Sources */,
+				CEC518F51FE2493F009A7CF2 /* SwipableViewController.swift in Sources */,
+				CEC518EE1FE247C3009A7CF2 /* SearchResultCells.swift in Sources */,
+				CEC518F31FE24906009A7CF2 /* HorizontalController.swift in Sources */,
 				CE48FCA71FDF58C100366E4F /* RegisterViewController.swift in Sources */,
 				CE48FCA31FDF586B00366E4F /* RegisterInfoViewController.swift in Sources */,
 				CE2BF0E81FE1686700528BA6 /* VoiceTweetEditingVC.swift in Sources */,
 				CEC518CA1FE228D3009A7CF2 /* OSCPropertyCollection.swift in Sources */,
 				CEC518C81FE227A3009A7CF2 /* TitleBarView.swift in Sources */,
+				CEC518EB1FE244DE009A7CF2 /* DetailsViewController.swift in Sources */,
 				CE2BF0E61FE1189700528BA6 /* TweetEditingVC.swift in Sources */,
 				CE48FCA11FDF582900366E4F /* FoundPWViewController.swift in Sources */,
 				CEFEC6CA1FDE720B0019DDF2 /* OSCTabBarController.swift in Sources */,
 				CEFEC6CD1FDEBFFC0019DDF2 /* Config.swift in Sources */,
 				CE2BF0E11FE10CD800528BA6 /* UIColor+ext.swift in Sources */,
+				CEC518E21FE2442B009A7CF2 /* AdCell.swift in Sources */,
 				CE2BF0DF1FE106D200528BA6 /* OptionButton.swift in Sources */,
 				CE6B24E71FE0D2BE00659156 /* DiscoverViewController.swift in Sources */,
 				CECAD8851FE0CAA2008EE696 /* OSCTweetsController.swift in Sources */,
 				CEFEC64D1FDE41030019DDF2 /* AppDelegate.swift in Sources */,
 				CECAD8831FE0C9AC008EE696 /* OSCSyntheticalController.swift in Sources */,
 				CEC518CD1FE22C5D009A7CF2 /* OSCInformationListCollectionViewController.swift in Sources */,
+				CEC518E01FE24413009A7CF2 /* PropertyCell.swift in Sources */,
+				CEC518DA1FE2434C009A7CF2 /* OSCListItem.swift in Sources */,
 				CE48FC9F1FDF580D00366E4F /* LoginViewController.swift in Sources */,
+				CEC518E61FE2443C009A7CF2 /* NormalCell.swift in Sources */,
 				CE6B24E91FE0D2FE00659156 /* HomepageViewController.swift in Sources */,
+				CEC518F01FE247CF009A7CF2 /* SearchResultController.swift in Sources */,
 				CEFEC6C81FDE5BC40019DDF2 /* R.generated.swift in Sources */,
+				CEC518D11FE242A2009A7CF2 /* OSCInformationListController.swift in Sources */,
 				CE2BF0EF1FE17A5C00528BA6 /* Utils.swift in Sources */,
+				CEC518DE1FE243F3009A7CF2 /* InformationCell.swift in Sources */,
+				CEC518E91FE244CF009A7CF2 /* BottomBarViewController.swift in Sources */,
 				CE2BF0ED1FE1766D00528BA6 /* OSCPhotoGroupView.swift in Sources */,
 				CECAD87D1FE0C585008EE696 /* OSCSearchViewController.swift in Sources */,
 				CEC518C61FE226BC009A7CF2 /* SyntheticalTitleBarView.swift in Sources */,
+				CEC518DC1FE24359009A7CF2 /* OSCMenuItem.swift in Sources */,
 				CE48FCA51FDF588400366E4F /* ResetPWViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

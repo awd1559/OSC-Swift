@@ -281,9 +281,9 @@
 		CEC518CB1FE22C4E009A7CF2 /* MenuList */ = {
 			isa = PBXGroup;
 			children = (
+				CEC518D61FE24320009A7CF2 /* Controller */,
 				CEC518D81FE2433F009A7CF2 /* View */,
 				CEC518D71FE24333009A7CF2 /* Model */,
-				CEC518D61FE24320009A7CF2 /* Controller */,
 			);
 			path = MenuList;
 			sourceTree = "<group>";
@@ -389,8 +389,8 @@
 		CECAD8781FE0BE0F008EE696 /* 动弹 */ = {
 			isa = PBXGroup;
 			children = (
-				CE2BF0E41FE1188300528BA6 /* Detail */,
 				CE2BF0E31FE1187900528BA6 /* List */,
+				CE2BF0E41FE1188300528BA6 /* Detail */,
 				CE2BF0E21FE1186E00528BA6 /* Edit */,
 				CECAD8841FE0CAA2008EE696 /* OSCTweetsController.swift */,
 			);
@@ -430,17 +430,17 @@
 		CEFEC64B1FDE41030019DDF2 /* OSC-Swift */ = {
 			isa = PBXGroup;
 			children = (
+				CEFEC67A1FDE41170019DDF2 /* Application */,
+				CEFEC67B1FDE43A00019DDF2 /* Controllers */,
+				CEFEC67C1FDE43AB0019DDF2 /* Views */,
+				CEFEC67D1FDE43B10019DDF2 /* Utils */,
+				CEFEC67E1FDE43BA0019DDF2 /* Resources */,
 				CEC518F61FE24A19009A7CF2 /* vendor */,
 				CEFEC6501FDE41030019DDF2 /* Main.storyboard */,
 				CEFEC6551FDE41030019DDF2 /* LaunchScreen.storyboard */,
 				CEFEC6531FDE41030019DDF2 /* Assets.xcassets */,
 				CEFEC6581FDE41030019DDF2 /* Info.plist */,
 				CE2BF0F01FE1FCAE00528BA6 /* bridge-header.h */,
-				CEFEC67E1FDE43BA0019DDF2 /* Resources */,
-				CEFEC67D1FDE43B10019DDF2 /* Utils */,
-				CEFEC67C1FDE43AB0019DDF2 /* Views */,
-				CEFEC67B1FDE43A00019DDF2 /* Controllers */,
-				CEFEC67A1FDE41170019DDF2 /* Application */,
 			);
 			path = "OSC-Swift";
 			sourceTree = "<group>";
@@ -474,12 +474,12 @@
 		CEFEC67B1FDE43A00019DDF2 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				CE48FC9A1FDF566B00366E4F /* Login */,
+				CEFEC6C31FDE53530019DDF2 /* Main */,
 				CECAD8791FE0BE19008EE696 /* 综合 */,
 				CECAD8781FE0BE0F008EE696 /* 动弹 */,
 				CECAD8771FE0BDFF008EE696 /* 我的 */,
 				CECAD8761FE0BDF2008EE696 /* 发现 */,
-				CE48FC9A1FDF566B00366E4F /* Login */,
-				CEFEC6C31FDE53530019DDF2 /* Main */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";

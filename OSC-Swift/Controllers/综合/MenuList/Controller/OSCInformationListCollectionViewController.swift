@@ -17,6 +17,7 @@ class OSCInformationListCollectionViewController: UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = .white
         let todo = UILabel()
         todo.text = "this infomation list todo"
         self.view.addSubview(todo)

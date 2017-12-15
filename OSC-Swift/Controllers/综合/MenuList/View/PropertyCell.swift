@@ -9,3 +9,40 @@
 import Foundation
 
 //TODO: this is OSCPropertyCollectionViewCell
+
+enum CellType: Int {
+    case nomal = 0
+    case select, second
+}
+
+protocol OSCPropertyCollectionCellDelegate {
+    func deleteBtnClickWithCell(cell: UICollectionViewCell)
+}
+class PropertyCell : UICollectionViewCell {
+    var title: String?
+    var delegate: OSCPropertyCollectionCellDelegate?
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    func beginEditing() {
+    
+    }
+    
+    func endEditing() {
+        
+    }
+    
+    func setCellType(_ cellType: CellType, isUnable:Bool) {
+        
+    }
+    
+    func getType() -> CellType {
+        return .nomal
+    }
+}

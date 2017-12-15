@@ -78,11 +78,39 @@ class SyntheticalTitleBarView: UIView {
     }
     
     func endAnimation() {
-        
+        addBtn?.isEnabled = true
     }
     
     @objc func addClick() {
+        addBtn?.isSelected = !(addBtn?.isSelected)!
+        addBtn?.isEnabled = false
+        if (addBtn?.isSelected)! {
+            let animation = CABasicAnimation(keyPath: "transform.rotation")
+            animation.duration = kAnimationTime - 0.2
+            animation.repeatCount = 1
+            animation.fillMode = kCAFillModeForwards
+            animation.isRemovedOnCompletion = false
+            animation.fromValue = 0
+            animation.toValue = Double.pi/4*3
+            addBtn?.layer.add(animation, forKey: "showAni")
+        } else {
+            let animation = CABasicAnimation(keyPath: "transform.rotation")
+            animation.duration = kAnimationTime - 0.2
+            animation.repeatCount = 1
+            animation.fillMode = kCAFillModeForwards
+            animation.isRemovedOnCompletion = false
+            animation.fromValue = Double.pi/4*3
+            animation.toValue = 0
+            addBtn?.layer.add(animation, forKey: "hideAni")
+            
+            if let delegate = self.delegate {
+                delegate.closeSyntheticalTitleBarView()
+            }
+        }
         
+        if let delegate = self.delegate {
+            delegate.addBtnClickWithIsBeginEdit(isEdit: (addBtn?.isSelected)!)
+        }
     }
     
 }

@@ -39,6 +39,11 @@ class Utils {
         return chooseItemTokens
     }
     
+    
+    static func allUnselectedMenuNames() -> [String] {
+        return ["1", "2", "3", "4", "5", "6", "7"]
+    }
+    
     static func allSelectedMenuTokens() -> [String] {
         return ["new", "temp", "todo"]
     }

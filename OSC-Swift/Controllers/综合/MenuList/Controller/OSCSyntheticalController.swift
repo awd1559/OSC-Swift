@@ -94,6 +94,30 @@ extension OSCSyntheticalController {
     func beginRefresh() {
         
     }
+    
+    func editBtnClick(button: UIButton) {
+        button.isSelected = !button.isSelected
+        self.collectionView?.changeStateWithEdit(isEditing: button.isSelected)
+        if (button.isSelected) {
+            label.text = "拖动排序"
+        }else{
+            label.text = "切换栏目"
+        }
+    }
+    
+    func beginChoseProperty() {
+        self.view.addSubview(self.collectionView!)
+        titleView?.addSubview(self.propertyTitleView!)
+        self.view.bringSubview(toFront: titleView!)
+        UIView.animate(withDuration: kAnimationTime) {
+            self.propertyTitleView?.alpha = 1
+            self.collectionView?.frame = CGRect(x: 0, y: (self.titleView?.frame.maxY)!, width: kScreenSize.width, height: kScreenSize.height - (self.titleView?.frame.maxY)!)
+        }
+    }
+    
+    func endChoseProperty() {
+        
+    }
 }
 
 //MARK: - OSCPropertyCollectionDelegate
@@ -103,18 +127,35 @@ extension OSCSyntheticalController: OSCPropertyCollectionDelegate {
     }
     
     func beginEdit() {
-        
+        self.editBtnClick(button: editBtn)
     }
 }
 
 //MARK: - SyntheticaltitleBarDelegate
 extension OSCSyntheticalController: SyntheticalTitleBarDelegate {
     func addBtnClickWithIsBeginEdit(isEdit: Bool) {
-        
+        if isEdit {
+            UIView.animate(withDuration: kAnimationTime, animations: {
+                let frame = CGRect(x: 0, y: kScreenSize.height, width: kScreenSize.width, height: (self.tabBarController?.tabBar.bounds.size.height)!)
+                self.tabBarController?.tabBar.frame = frame
+            }, completion: { finished in
+                self.titleView?.endAnimation()
+            })
+//            self.beginChoseProperty()
+        }else{
+            UIView.animate(withDuration: kAnimationTime, animations: {
+                let frame = CGRect(x: 0, y: kScreenSize.height - (self.tabBarController?.tabBar.bounds.size.height)!, width: kScreenSize.width, height: (self.tabBarController?.tabBar.bounds.size.height)!)
+                self.tabBarController?.tabBar.frame = frame
+            }, completion: {finished in
+                self.titleView?.endAnimation()
+            })
+//            self.endChoseProperty()
+        }
     }
     
     func titleBtnClickWithIndex(index: Int) {
-        
+        currentIndex = index
+        informationListController?.collectionView?.setContentOffset(CGPoint(x: CGFloat(index) * kScreenSize.width, y: 0), animated: true)
     }
     
     func closeSyntheticalTitleBarView() {

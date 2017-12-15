@@ -19,6 +19,7 @@
 		CE48FCA31FDF586B00366E4F /* RegisterInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE48FCA21FDF586B00366E4F /* RegisterInfoViewController.swift */; };
 		CE48FCA51FDF588400366E4F /* ResetPWViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE48FCA41FDF588400366E4F /* ResetPWViewController.swift */; };
 		CE48FCA71FDF58C100366E4F /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE48FCA61FDF58C100366E4F /* RegisterViewController.swift */; };
+		CE52B5DD1FE379B500A3E792 /* enumList.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE52B5DC1FE379B500A3E792 /* enumList.swift */; };
 		CE6B24E71FE0D2BE00659156 /* DiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6B24E61FE0D2BE00659156 /* DiscoverViewController.swift */; };
 		CE6B24E91FE0D2FE00659156 /* HomepageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6B24E81FE0D2FE00659156 /* HomepageViewController.swift */; };
 		CE6B24ED1FE0E13F00659156 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE6B24EC1FE0E13F00659156 /* Login.storyboard */; };
@@ -123,6 +124,7 @@
 		CE48FCA21FDF586B00366E4F /* RegisterInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterInfoViewController.swift; sourceTree = "<group>"; };
 		CE48FCA41FDF588400366E4F /* ResetPWViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPWViewController.swift; sourceTree = "<group>"; };
 		CE48FCA61FDF58C100366E4F /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		CE52B5DC1FE379B500A3E792 /* enumList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = enumList.swift; sourceTree = "<group>"; };
 		CE6B24E61FE0D2BE00659156 /* DiscoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverViewController.swift; sourceTree = "<group>"; };
 		CE6B24E81FE0D2FE00659156 /* HomepageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomepageViewController.swift; sourceTree = "<group>"; };
 		CE6B24EC1FE0E13F00659156 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
@@ -276,6 +278,14 @@
 				CE48FCA61FDF58C100366E4F /* RegisterViewController.swift */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		CE52B5DB1FE3799800A3E792 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CE52B5DC1FE379B500A3E792 /* enumList.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		CEC518CB1FE22C4E009A7CF2 /* MenuList */ = {
@@ -433,6 +443,7 @@
 				CEFEC67A1FDE41170019DDF2 /* Application */,
 				CEFEC67B1FDE43A00019DDF2 /* Controllers */,
 				CEFEC67C1FDE43AB0019DDF2 /* Views */,
+				CE52B5DB1FE3799800A3E792 /* Model */,
 				CEFEC67D1FDE43B10019DDF2 /* Utils */,
 				CEFEC67E1FDE43BA0019DDF2 /* Resources */,
 				CEC518F61FE24A19009A7CF2 /* vendor */,
@@ -848,6 +859,7 @@
 				CEC518CD1FE22C5D009A7CF2 /* OSCInformationListCollectionViewController.swift in Sources */,
 				CEC518E01FE24413009A7CF2 /* PropertyCell.swift in Sources */,
 				CEC518DA1FE2434C009A7CF2 /* OSCListItem.swift in Sources */,
+				CE52B5DD1FE379B500A3E792 /* enumList.swift in Sources */,
 				CE48FC9F1FDF580D00366E4F /* LoginViewController.swift in Sources */,
 				CEC518E61FE2443C009A7CF2 /* NormalCell.swift in Sources */,
 				CE6B24E91FE0D2FE00659156 /* HomepageViewController.swift in Sources */,

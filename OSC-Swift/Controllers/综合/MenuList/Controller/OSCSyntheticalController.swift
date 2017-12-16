@@ -71,7 +71,7 @@ class  OSCSyntheticalController: UIViewController {
         layout.minimumLineSpacing = 0
         layout.minimumInteritemSpacing = 0
         layout.sectionInset = UIEdgeInsetsMake(0, 0, 49, 0);
-        informationListController = OSCInformationListCollectionViewController(collectionViewLayout: layout)
+        informationListController = OSCInformationListCollectionViewController(layout)
         informationListController?.informationListCollectionDelegate = self
 //        informationListController.menuItem = [Utils conversionMenuItemsWithMenuNames:selectArray]
         self.addChildViewController(informationListController!)

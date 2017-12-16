@@ -10,6 +10,25 @@ import UIKit
 import YYKit
 
 class Utils {
+    
+    static func getAppToken() -> String {
+        #if DEBUG
+            return Debug_App_Token
+        #else
+            let defaults = UserDefaults.standard
+            let key = "token_key_\(Application_BundleID)\(Application_BuildNumber)"
+            let value = defaults.objectForKey(key)
+            if let value = vlaue {
+                var array = [Application_BuildNumber, Application_Version, App_Token_Key]
+                let value = Utils.sha1(array, componentsJoinedByString: "-")
+                defaults.set(value, forKey: key)
+                defaults.synchronize()
+                return self.getAppToken()
+            } else {
+                return value
+            }
+        #endif
+    }
 
     static func handle_TagString(_ originStr: String, fontSize: CGFloat) -> NSAttributedString {
         let needHandleStr = originStr

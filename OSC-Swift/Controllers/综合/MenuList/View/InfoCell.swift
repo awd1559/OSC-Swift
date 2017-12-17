@@ -68,6 +68,8 @@ class InfoCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        
+        self.contentView.addSubview(tableView)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -113,6 +115,7 @@ extension InfoCell: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 16
         if self.dataSources.count > 0 {
             let listItem = self.dataSources[indexPath.row]
             return 16

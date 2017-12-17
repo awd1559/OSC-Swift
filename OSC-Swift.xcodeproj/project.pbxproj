@@ -31,6 +31,7 @@
 		CE52B5E21FE3B3AD00A3E792 /* osc-token-config.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE52B5E11FE3B3AD00A3E792 /* osc-token-config.swift */; };
 		CE52B5E51FE3C32E00A3E792 /* OSCBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE52B5E41FE3C32E00A3E792 /* OSCBanner.swift */; };
 		CE52B5E71FE3C74900A3E792 /* OSCExtra.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE52B5E61FE3C74900A3E792 /* OSCExtra.swift */; };
+		CE6522D71FE62DB2000A98D2 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = CE6522D61FE62DB2000A98D2 /* README.md */; };
 		CE6B24E71FE0D2BE00659156 /* DiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6B24E61FE0D2BE00659156 /* DiscoverViewController.swift */; };
 		CE6B24E91FE0D2FE00659156 /* HomepageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6B24E81FE0D2FE00659156 /* HomepageViewController.swift */; };
 		CE6B24ED1FE0E13F00659156 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE6B24EC1FE0E13F00659156 /* Login.storyboard */; };
@@ -147,6 +148,7 @@
 		CE52B5E11FE3B3AD00A3E792 /* osc-token-config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "osc-token-config.swift"; sourceTree = "<group>"; };
 		CE52B5E41FE3C32E00A3E792 /* OSCBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSCBanner.swift; sourceTree = "<group>"; };
 		CE52B5E61FE3C74900A3E792 /* OSCExtra.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSCExtra.swift; sourceTree = "<group>"; };
+		CE6522D61FE62DB2000A98D2 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		CE6B24E61FE0D2BE00659156 /* DiscoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverViewController.swift; sourceTree = "<group>"; };
 		CE6B24E81FE0D2FE00659156 /* HomepageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomepageViewController.swift; sourceTree = "<group>"; };
 		CE6B24EC1FE0E13F00659156 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
@@ -470,6 +472,7 @@
 				CEFEC64A1FDE41030019DDF2 /* Products */,
 				FE12885E547DA5FA7F7D5A86 /* Pods */,
 				263D73016E4E699FB0D8B7B6 /* Frameworks */,
+				CE6522D61FE62DB2000A98D2 /* README.md */,
 			);
 			sourceTree = "<group>";
 		};
@@ -773,6 +776,7 @@
 				CE1CE4001FE4BD86002B3A50 /* subMenuItems.plist in Resources */,
 				CEFEC6541FDE41030019DDF2 /* Assets.xcassets in Resources */,
 				CEFEC6B71FDE44580019DDF2 /* tweetEditing.png in Resources */,
+				CE6522D71FE62DB2000A98D2 /* README.md in Resources */,
 				CEFEC6AF1FDE44580019DDF2 /* tweet.html in Resources */,
 				CEFEC6A41FDE44580019DDF2 /* shake.mp3 in Resources */,
 				CEFEC6A91FDE44580019DDF2 /* base.mustache in Resources */,

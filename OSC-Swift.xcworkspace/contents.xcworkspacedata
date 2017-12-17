@@ -5,6 +5,9 @@
       location = "group:OSC-Swift.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:README.txt">
+   </FileRef>
+   <FileRef
       location = "group:Pods/Pods.xcodeproj">
    </FileRef>
 </Workspace>

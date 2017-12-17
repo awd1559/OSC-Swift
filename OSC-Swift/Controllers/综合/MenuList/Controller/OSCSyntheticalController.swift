@@ -71,9 +71,9 @@ class  OSCSyntheticalController: UIViewController {
         layout.minimumLineSpacing = 0
         layout.minimumInteritemSpacing = 0
         layout.sectionInset = UIEdgeInsetsMake(0, 0, 49, 0);
-        informationListController = OSCInformationListCollectionViewController(layout)
+        informationListController = OSCInformationListCollectionViewController(collectionViewLayout: layout)
         informationListController?.informationListCollectionDelegate = self
-//        informationListController.menuItem = [Utils conversionMenuItemsWithMenuNames:selectArray]
+        informationListController?.menuItem = Utils.conversionMenuItems(with: selectArray!)
         self.addChildViewController(informationListController!)
         
         informationListController?.collectionView?.frame = CGRect(x:0, y:(titleView?.frame.maxY)!, width: kScreenSize.width, height:kScreenSize.height - (titleView?.frame.maxY)!)
@@ -123,7 +123,14 @@ extension OSCSyntheticalController {
 //MARK: - OSCPropertyCollectionDelegate
 extension OSCSyntheticalController: OSCPropertyCollectionDelegate {
     func clickCellWithIndex(index: Int) {
-        
+        currentIndex = index
+        self.titleView?.reloadAllButtonsOfTitleBarWithTitles(titles: (collectionView?.CompleteAllEditings())!)
+        self.titleView?.ClickCollectionCellWithIndex(index: index)
+        self.addBtnClickWithIsBeginEdit(isEdit: false)
+        selectArray = collectionView?.CompleteAllEditings()
+//        Utils.updateUserSelectedMenuListWithMenuNames(selectArray)
+//        informationListController?.menuItem = Utils.conversionMenuItemsWithMenuNames(selectArray)
+        informationListController?.collectionView?.setContentOffset(CGPoint(x: CGFloat(index) * kScreenSize.width, y:0), animated: true)
     }
     
     func beginEdit() {
@@ -166,6 +173,7 @@ extension OSCSyntheticalController: SyntheticalTitleBarDelegate {
 //MARK: - InformationListCollectionDelegate
 extension OSCSyntheticalController : InformationListCollectionDelegate {
     func ScrollViewDidEndWithIndex(index: Int) {
-        
+        currentIndex = index
+        self.titleView?.scrollToCenterWithIndex(index: index)
     }
 }

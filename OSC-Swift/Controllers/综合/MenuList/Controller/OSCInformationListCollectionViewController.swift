@@ -16,24 +16,38 @@ protocol InformationListCollectionDelegate {
 
 class OSCInformationListCollectionViewController: UICollectionViewController {
     var informationListCollectionDelegate: InformationListCollectionDelegate?
-    var menuItem: [OSCMenuItem]?
+    var menuItem: [OSCMenuItem]? {
+        didSet {
+            if dataSources_dic == nil {
+                dataSources_dic = [String:InfoResultItem]()
+                for curMenuItem in menuItem! {
+                    let postBackItem = InfoResultItem()
+//                    self.fillResultPostBackItem(postBackItem, currentMenuItem:curMenuItem)
+                    dataSources_dic![curMenuItem.token] =  postBackItem
+                }
+            }
+            self.collectionView?.reloadData()
+        }
+    }
     var isTouchSliding: Bool?
     var curMenuItem: OSCMenuItem?
 //    var HUD: MBProgressHUD
 //    var pageTokens: []?
     var dataSources_dic: [String: InfoResultItem]?
 
-    init(_ layout: UICollectionViewLayout) {
-        super.init(collectionViewLayout: layout)
-    }
+//    init(_ layout: UICollectionViewLayout) {
+//        super.init(collectionViewLayout: layout)
+//    }
     
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+//    required init?(coder aDecoder: NSCoder) {
+//        fatalError("init(coder:) has not been implemented")
+//    }
     
     //MARK: - lifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        self.collectionView?.contentInsetAdjustmentBehavior = .automatic
         isTouchSliding = false
         self.collectionView?.backgroundColor = .white
         self.collectionView?.register(InfoCell.self, forCellWithReuseIdentifier:kInformationListCollectionViewCellIdentifier)
@@ -58,6 +72,13 @@ class OSCInformationListCollectionViewController: UICollectionViewController {
     
     }
     
+    func getCurrentListDataSource() -> [String: InfoResultItem]{
+        let curMenuToken = curMenuItem?.token
+        let resultItem = dataSources_dic![curMenuToken!]!
+        let curResultDic: [String: InfoResultItem] = [curMenuToken! : resultItem]
+        return curResultDic
+    }
+    
     
     //MARK: - UICollectionViewDataSource
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -65,7 +86,15 @@ class OSCInformationListCollectionViewController: UICollectionViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = UICollectionViewCell()
+//        let cell = UICollectionViewCell()
+        
+        curMenuItem = self.menuItem?[indexPath.row]
+        let curDic = self.getCurrentListDataSource()
+        let cell = InfoCell.returnReuseInformationListCollectionViewCell(collectionView, identifier:kInformationListCollectionViewCellIdentifier, indexPath:indexPath, model:curMenuItem!)
+
+        cell.configurationPostBackDictionary(curDic)
+        cell.delegate = self
+        
         return cell
     }
     

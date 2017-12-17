@@ -13,6 +13,8 @@
 		CE1CE3F91FE4ADB8002B3A50 /* OSCAbout.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1CE3F81FE4ADB8002B3A50 /* OSCAbout.swift */; };
 		CE1CE3FC1FE4AF5F002B3A50 /* OSCTweetItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1CE3FB1FE4AF5F002B3A50 /* OSCTweetItem.swift */; };
 		CE1CE3FE1FE4AFC6002B3A50 /* OSCUserItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1CE3FD1FE4AFC6002B3A50 /* OSCUserItem.swift */; };
+		CE1CE4001FE4BD86002B3A50 /* subMenuItems.plist in Resources */ = {isa = PBXBuildFile; fileRef = CE1CE3FF1FE4BD86002B3A50 /* subMenuItems.plist */; };
+		CE1CE4031FE55EAA002B3A50 /* OSCInformationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1CE4021FE55EAA002B3A50 /* OSCInformationTableViewCell.swift */; };
 		CE2BF0DF1FE106D200528BA6 /* OptionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2BF0DE1FE106D200528BA6 /* OptionButton.swift */; };
 		CE2BF0E11FE10CD800528BA6 /* UIColor+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2BF0E01FE10CD800528BA6 /* UIColor+ext.swift */; };
 		CE2BF0E61FE1189700528BA6 /* TweetEditingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2BF0E51FE1189700528BA6 /* TweetEditingVC.swift */; };
@@ -39,7 +41,7 @@
 		CEC518D11FE242A2009A7CF2 /* OSCInformationListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC518D01FE242A2009A7CF2 /* OSCInformationListController.swift */; };
 		CEC518DA1FE2434C009A7CF2 /* OSCListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC518D91FE2434C009A7CF2 /* OSCListItem.swift */; };
 		CEC518DC1FE24359009A7CF2 /* OSCMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC518DB1FE24359009A7CF2 /* OSCMenuItem.swift */; };
-		CEC518DE1FE243F3009A7CF2 /* InformationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC518DD1FE243F3009A7CF2 /* InformationCell.swift */; };
+		CEC518DE1FE243F3009A7CF2 /* InfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC518DD1FE243F3009A7CF2 /* InfoCell.swift */; };
 		CEC518E01FE24413009A7CF2 /* PropertyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC518DF1FE24413009A7CF2 /* PropertyCell.swift */; };
 		CEC518E21FE2442B009A7CF2 /* AdCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC518E11FE2442B009A7CF2 /* AdCell.swift */; };
 		CEC518E41FE24434009A7CF2 /* DividerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC518E31FE24434009A7CF2 /* DividerCell.swift */; };
@@ -126,6 +128,8 @@
 		CE1CE3F81FE4ADB8002B3A50 /* OSCAbout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSCAbout.swift; sourceTree = "<group>"; };
 		CE1CE3FB1FE4AF5F002B3A50 /* OSCTweetItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSCTweetItem.swift; sourceTree = "<group>"; };
 		CE1CE3FD1FE4AFC6002B3A50 /* OSCUserItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSCUserItem.swift; sourceTree = "<group>"; };
+		CE1CE3FF1FE4BD86002B3A50 /* subMenuItems.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = subMenuItems.plist; sourceTree = "<group>"; };
+		CE1CE4021FE55EAA002B3A50 /* OSCInformationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSCInformationTableViewCell.swift; sourceTree = "<group>"; };
 		CE2BF0DE1FE106D200528BA6 /* OptionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionButton.swift; sourceTree = "<group>"; };
 		CE2BF0E01FE10CD800528BA6 /* UIColor+ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+ext.swift"; sourceTree = "<group>"; };
 		CE2BF0E51FE1189700528BA6 /* TweetEditingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetEditingVC.swift; sourceTree = "<group>"; };
@@ -153,7 +157,7 @@
 		CEC518D01FE242A2009A7CF2 /* OSCInformationListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSCInformationListController.swift; sourceTree = "<group>"; };
 		CEC518D91FE2434C009A7CF2 /* OSCListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSCListItem.swift; sourceTree = "<group>"; };
 		CEC518DB1FE24359009A7CF2 /* OSCMenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSCMenuItem.swift; sourceTree = "<group>"; };
-		CEC518DD1FE243F3009A7CF2 /* InformationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationCell.swift; sourceTree = "<group>"; };
+		CEC518DD1FE243F3009A7CF2 /* InfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoCell.swift; sourceTree = "<group>"; };
 		CEC518DF1FE24413009A7CF2 /* PropertyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyCell.swift; sourceTree = "<group>"; };
 		CEC518E11FE2442B009A7CF2 /* AdCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdCell.swift; sourceTree = "<group>"; };
 		CEC518E31FE24434009A7CF2 /* DividerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DividerCell.swift; sourceTree = "<group>"; };
@@ -262,6 +266,14 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		CE1CE4011FE55EA1002B3A50 /* news */ = {
+			isa = PBXGroup;
+			children = (
+				CE1CE4021FE55EAA002B3A50 /* OSCInformationTableViewCell.swift */,
+			);
+			path = news;
+			sourceTree = "<group>";
+		};
 		CE2BF0E21FE1186E00528BA6 /* Edit */ = {
 			isa = PBXGroup;
 			children = (
@@ -355,7 +367,7 @@
 			isa = PBXGroup;
 			children = (
 				CEC518C51FE226BC009A7CF2 /* SyntheticalTitleBarView.swift */,
-				CEC518DD1FE243F3009A7CF2 /* InformationCell.swift */,
+				CEC518DD1FE243F3009A7CF2 /* InfoCell.swift */,
 				CEC518DF1FE24413009A7CF2 /* PropertyCell.swift */,
 				CEC518E11FE2442B009A7CF2 /* AdCell.swift */,
 				CEC518E31FE24434009A7CF2 /* DividerCell.swift */,
@@ -443,6 +455,7 @@
 		CECAD8791FE0BE19008EE696 /* 综合 */ = {
 			isa = PBXGroup;
 			children = (
+				CE1CE4011FE55EA1002B3A50 /* news */,
 				CEC518CB1FE22C4E009A7CF2 /* MenuList */,
 			);
 			path = "综合";
@@ -550,6 +563,7 @@
 		CEFEC67E1FDE43BA0019DDF2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				CE1CE3FF1FE4BD86002B3A50 /* subMenuItems.plist */,
 				CEFEC6C71FDE5BC40019DDF2 /* R.generated.swift */,
 				CEFEC6A21FDE44580019DDF2 /* base.html */,
 				CEFEC69D1FDE44570019DDF2 /* code.css */,
@@ -756,6 +770,7 @@
 				CEFEC6BB1FDE44580019DDF2 /* code.html in Resources */,
 				CEFEC6A81FDE44580019DDF2 /* software.html in Resources */,
 				CEFEC6B11FDE44580019DDF2 /* FontAwesome.ttf in Resources */,
+				CE1CE4001FE4BD86002B3A50 /* subMenuItems.plist in Resources */,
 				CEFEC6541FDE41030019DDF2 /* Assets.xcassets in Resources */,
 				CEFEC6B71FDE44580019DDF2 /* tweetEditing.png in Resources */,
 				CEFEC6AF1FDE44580019DDF2 /* tweet.html in Resources */,
@@ -876,6 +891,7 @@
 				CE48FCA71FDF58C100366E4F /* RegisterViewController.swift in Sources */,
 				CEC518FB1FE24A7C009A7CF2 /* OSCPhotoGroupView.swift in Sources */,
 				CE48FCA31FDF586B00366E4F /* RegisterInfoViewController.swift in Sources */,
+				CE1CE4031FE55EAA002B3A50 /* OSCInformationTableViewCell.swift in Sources */,
 				CE1CE3FE1FE4AFC6002B3A50 /* OSCUserItem.swift in Sources */,
 				CE2BF0E81FE1686700528BA6 /* VoiceTweetEditingVC.swift in Sources */,
 				CEC518CA1FE228D3009A7CF2 /* OSCPropertyCollection.swift in Sources */,
@@ -909,7 +925,7 @@
 				CE52B5E71FE3C74900A3E792 /* OSCExtra.swift in Sources */,
 				CEC518D11FE242A2009A7CF2 /* OSCInformationListController.swift in Sources */,
 				CE2BF0EF1FE17A5C00528BA6 /* Utils.swift in Sources */,
-				CEC518DE1FE243F3009A7CF2 /* InformationCell.swift in Sources */,
+				CEC518DE1FE243F3009A7CF2 /* InfoCell.swift in Sources */,
 				CEC518E91FE244CF009A7CF2 /* BottomBarViewController.swift in Sources */,
 				CE52B5E51FE3C32E00A3E792 /* OSCBanner.swift in Sources */,
 				CECAD87D1FE0C585008EE696 /* OSCSearchViewController.swift in Sources */,

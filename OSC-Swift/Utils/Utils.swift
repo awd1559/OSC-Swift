@@ -66,4 +66,36 @@ class Utils {
     static func allSelectedMenuTokens() -> [String] {
         return ["new", "temp", "todo"]
     }
+    
+    static func conversionMenuItems(with menuNames:[String]) -> [OSCMenuItem] {
+        let allMenuItems = self.allLocalMenuItems()
+        var conversionMenuItem = [OSCMenuItem]()
+        var allName = [String]()
+        for item in allMenuItems {
+            allName.append(item.name)
+        }
+        for name in menuNames {
+            let index = allName.index(of: name)
+            if let index = index {
+                let item = allMenuItems[index]
+                conversionMenuItem.append(item)
+            }
+        }
+        return conversionMenuItem
+    }
+    
+    static func allLocalMenuItems() -> [OSCMenuItem] {
+        let fileUrl = R.file.subMenuItemsPlist()
+        let localMenusArr = NSArray(contentsOf: fileUrl!)
+        var menuItems = [OSCMenuItem]()
+        for arrItem in (localMenusArr?.enumerated())! {
+            let dict = arrItem.element as! [String: Any]
+            var item = OSCMenuItem()
+            item.name = dict["name"] as! String
+            //TODO: more property as long as name
+            
+            menuItems.append(item)
+        }
+        return menuItems
+    }
 }

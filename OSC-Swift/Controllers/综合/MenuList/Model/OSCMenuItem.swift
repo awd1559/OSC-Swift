@@ -9,30 +9,30 @@
 import Foundation
 
 struct OSCMenuItem {
-    var token: String
+    var token: String = ""
     
-    var name: String
+    var name: String = ""
     
-    var fixed: Bool
+    var fixed: Bool = false
     
-    var needLogin: Bool
+    var needLogin: Bool = false
     
-    var tag: String
+    var tag: String = ""
     
-    var type: InformationType
+    var type: InformationType = .linknews
     
-    var subtype: String
+    var subtype: String = ""
     
-    var order: Int
+    var order: Int = 0
     
-    var href: String
+    var href: String = ""
     
-    var banner: OSCMenuItem_Banner
+    var banner: OSCMenuItem_Banner = OSCMenuItem_Banner()
 }
 
 struct OSCMenuItem_Banner {
-    var catalog: OSCInformationListBannerType
-    var href: String
+    var catalog: OSCInformationListBannerType = .none
+    var href: String = ""
 }
 
 /**

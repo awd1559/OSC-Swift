@@ -26,7 +26,7 @@ open class PullToRefreshView: UIView {
     fileprivate var arrow: UIImageView
     fileprivate var indicator: UIActivityIndicatorView
     fileprivate var scrollViewInsets: UIEdgeInsets = UIEdgeInsets.zero
-    fileprivate var refreshCompletion: ((Void) -> Void)?
+    fileprivate var refreshCompletion: (() -> Void)?
     fileprivate var pull: Bool = true
     
     fileprivate var positionY:CGFloat = 0 {

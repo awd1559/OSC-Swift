@@ -22,7 +22,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.file` struct is generated, and contains static references to 34 files.
+  /// This `R.file` struct is generated, and contains static references to 35 files.
   struct file {
     /// Resource file `FontAwesome.ttf`.
     static let fontAwesomeTtf = Rswift.FileResource(bundle: R.hostingBundle, name: "FontAwesome", pathExtension: "ttf")
@@ -72,6 +72,8 @@ struct R: Rswift.Validatable {
     static let notePng = Rswift.FileResource(bundle: R.hostingBundle, name: "note", pathExtension: "png")
     /// Resource file `picture.png`.
     static let picturePng = Rswift.FileResource(bundle: R.hostingBundle, name: "picture", pathExtension: "png")
+    /// Resource file `pulltorefresharrow.png`.
+    static let pulltorefresharrowPng = Rswift.FileResource(bundle: R.hostingBundle, name: "pulltorefresharrow", pathExtension: "png")
     /// Resource file `recommend_tag.png`.
     static let recommend_tagPng = Rswift.FileResource(bundle: R.hostingBundle, name: "recommend_tag", pathExtension: "png")
     /// Resource file `scan.png`.
@@ -237,6 +239,12 @@ struct R: Rswift.Validatable {
       return fileResource.bundle.url(forResource: fileResource)
     }
     
+    /// `bundle.url(forResource: "pulltorefresharrow", withExtension: "png")`
+    static func pulltorefresharrowPng(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.pulltorefresharrowPng
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+    
     /// `bundle.url(forResource: "recommend_tag", withExtension: "png")`
     static func recommend_tagPng(_: Void = ()) -> Foundation.URL? {
       let fileResource = R.file.recommend_tagPng
@@ -317,7 +325,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 310 images.
+  /// This `R.image` struct is generated, and contains static references to 311 images.
   struct image {
     /// Image `@_icon`.
     static let _icon = Rswift.ImageResource(bundle: R.hostingBundle, name: "@_icon")
@@ -793,6 +801,8 @@ struct R: Rswift.Validatable {
     static let portrait_loading = Rswift.ImageResource(bundle: R.hostingBundle, name: "portrait_loading")
     /// Image `post_icon`.
     static let post_icon = Rswift.ImageResource(bundle: R.hostingBundle, name: "post_icon")
+    /// Image `pulltorefresharrow`.
+    static let pulltorefresharrow = Rswift.ImageResource(bundle: R.hostingBundle, name: "pulltorefresharrow")
     /// Image `qq-icon`.
     static let qqIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "qq-icon")
     /// Image `qrcode`.
@@ -2123,6 +2133,11 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "post_icon", bundle: ..., traitCollection: ...)`
     static func post_icon(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.post_icon, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "pulltorefresharrow", bundle: ..., traitCollection: ...)`
+    static func pulltorefresharrow(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.pulltorefresharrow, compatibleWith: traitCollection)
     }
     
     /// `UIImage(named: "qq-icon", bundle: ..., traitCollection: ...)`

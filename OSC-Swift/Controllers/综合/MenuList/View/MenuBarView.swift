@@ -11,13 +11,13 @@ import UIKit
 fileprivate let kScreenSize = UIScreen.main.bounds.size
 fileprivate let kAnimationTime = 0.5
 
-protocol SyntheticalTitleBarDelegate {
+protocol MenuBarDelegate {
     func addBtnClickWithIsBeginEdit(isEdit:Bool)
     func titleBtnClickWithIndex(index: Int)
     func closeSyntheticalTitleBarView()
 }
-class SyntheticalTitleBarView: UIView {
-    var delegate: SyntheticalTitleBarDelegate?
+class MenuBarView: UIView {
+    var delegate: MenuBarDelegate?
     var titleBarFrame: CGRect?
     var titleBar: TitleBarView?
     var titleArray: [String]?

@@ -10,12 +10,12 @@ import UIKit
 
 fileprivate let kScreenSize = UIScreen.main.bounds.size
 
-protocol InformationListCollectionDelegate {
+protocol InfoCollectionDelegate {
     func ScrollViewDidEndWithIndex(index:Int)
 }
 
-class OSCInformationListCollectionViewController: UICollectionViewController {
-    var informationListCollectionDelegate: InformationListCollectionDelegate?
+class InfoCollectionController: UICollectionViewController {
+    var informationListCollectionDelegate: InfoCollectionDelegate?
     var menuItem: [OSCMenuItem]? {
         didSet {
             if dataSources_dic == nil {
@@ -50,7 +50,7 @@ class OSCInformationListCollectionViewController: UICollectionViewController {
         self.collectionView?.contentInsetAdjustmentBehavior = .automatic
         isTouchSliding = false
         self.collectionView?.backgroundColor = .white
-        self.collectionView?.register(InfoCell.self, forCellWithReuseIdentifier:kInformationListCollectionViewCellIdentifier)
+        self.collectionView?.register(InfoCollectionCell.self, forCellWithReuseIdentifier:kInformationListCollectionViewCellIdentifier)
         self.collectionView?.isPagingEnabled = true
     }
     
@@ -90,7 +90,7 @@ class OSCInformationListCollectionViewController: UICollectionViewController {
         
         curMenuItem = self.menuItem?[indexPath.row]
         let curDic = self.getCurrentListDataSource()
-        let cell = InfoCell.returnReuseInformationListCollectionViewCell(collectionView, identifier:kInformationListCollectionViewCellIdentifier, indexPath:indexPath, model:curMenuItem!)
+        let cell = InfoCollectionCell.returnReuseInformationListCollectionViewCell(collectionView, identifier:kInformationListCollectionViewCellIdentifier, indexPath:indexPath, model:curMenuItem!)
 
         cell.configurationPostBackDictionary(curDic)
         cell.delegate = self
@@ -107,16 +107,16 @@ class OSCInformationListCollectionViewController: UICollectionViewController {
     }
 }
 
-extension OSCInformationListCollectionViewController: InfoCellDelegate {
-    func cell(_ cell: InfoCell, update dataSourceDic: [String : InfoResultItem]) {
+extension InfoCollectionController: InfoCollectionCellDelegate {
+    func cell(_ cell: InfoCollectionCell, update dataSourceDic: [String : InfoResultItem]) {
         
     }
     
-    func cell(_ cell: InfoCell, onclick tableViewCell: UITableViewCell, push controller: UIViewController, url: String) {
+    func cell(_ cell: InfoCollectionCell, onclick tableViewCell: UITableViewCell, push controller: UIViewController, url: String) {
         
     }
     
-    func cell(_ cell: InfoCell, onclick banner: UIView, push controller: UIViewController, url: String) {
+    func cell(_ cell: InfoCollectionCell, onclick banner: UIView, push controller: UIViewController, url: String) {
         
     }
     

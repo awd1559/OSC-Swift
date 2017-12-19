@@ -54,7 +54,7 @@ extension OSCTabBarController {
 // MARK: - private
 extension OSCTabBarController {
     fileprivate func setupTabBar() {
-        let zonghe = self.navigationControllerWithSearchBar(OSCSyntheticalController())
+        let zonghe = self.navigationControllerWithSearchBar(InfoContainerController())
         zonghe.tabBarItem.title = "综合"
         zonghe.tabBarItem.image = R.image.tabbarNews()
         zonghe.tabBarItem.selectedImage = R.image.tabbarNewsSelected()

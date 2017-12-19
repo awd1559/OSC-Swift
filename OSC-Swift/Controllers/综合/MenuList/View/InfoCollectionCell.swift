@@ -13,16 +13,16 @@ import Foundation
 let kInformationListCollectionViewCellIdentifier = "OSCInformationListCollectionViewCell"
 
 //FIXME: OSCInformationListCollectionViewCellDelegate
-protocol InfoCellDelegate {
-    func cell(_ cell: InfoCell, update dataSourceDic:[String: InfoResultItem])
+protocol InfoCollectionCellDelegate {
+    func cell(_ cell: InfoCollectionCell, update dataSourceDic:[String: InfoResultItem])
     
-    func cell(_ cell:InfoCell, onclick tableViewCell: UITableViewCell,  push controller: UIViewController, url: String)
+    func cell(_ cell:InfoCollectionCell, onclick tableViewCell: UITableViewCell,  push controller: UIViewController, url: String)
     
 //    func cell(_ cell: InfoCell, onclick banner: UIView, push controller: UIViewController, url:String)
 }
 
-extension InfoCellDelegate {
-    func cell(_ cell: InfoCell, onclick banner: UIView, push controller: UIViewController, url:String) {
+extension InfoCollectionCellDelegate {
+    func cell(_ cell: InfoCollectionCell, onclick banner: UIView, push controller: UIViewController, url:String) {
         //it is optional
     }
 }
@@ -30,8 +30,8 @@ extension InfoCellDelegate {
 
 
 //FIXME: OSCInformationListCollectionViewCell
-class InfoCell: UICollectionViewCell {
-    var delegate: InfoCellDelegate?
+class InfoCollectionCell: UICollectionViewCell {
+    var delegate: InfoCollectionCellDelegate?
     var menuItem: OSCMenuItem?
     var pageToken: String?
     var offestDistance: Float?
@@ -60,8 +60,8 @@ class InfoCell: UICollectionViewCell {
 //    var updateToController_Dic: [:]
     
     static func returnReuseInformationListCollectionViewCell(_ collectionView: UICollectionView,
-                identifier: String, indexPath: IndexPath,  model:OSCMenuItem) -> InfoCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier:identifier, for:indexPath) as! InfoCell
+                identifier: String, indexPath: IndexPath,  model:OSCMenuItem) -> InfoCollectionCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier:identifier, for:indexPath) as! InfoCollectionCell
         cell.menuItem = model
         return cell
     }
@@ -86,7 +86,7 @@ class InfoCell: UICollectionViewCell {
 }
 
 //MARK: - UITableViewDelegate
-extension InfoCell: UITableViewDelegate {
+extension InfoCollectionCell: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
     }
@@ -94,7 +94,7 @@ extension InfoCell: UITableViewDelegate {
 }
 
 //MARK: - UITableViewDataSource
-extension InfoCell: UITableViewDataSource {
+extension InfoCollectionCell: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }

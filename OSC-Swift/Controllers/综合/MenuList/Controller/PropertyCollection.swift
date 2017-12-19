@@ -15,13 +15,13 @@ fileprivate let kScreenSize = UIScreen.main.bounds.size
 fileprivate let kCellWith: CGFloat = 80.0
 fileprivate let kCellHeight: CGFloat = 30.0
 
-protocol OSCPropertyCollectionDelegate {
+protocol PropertyCollectionDelegate {
     func clickCellWithIndex(index: Int)
     func beginEdit()
 }
 
-class OSCPropertyCollection: UICollectionView {
-    var propertyCollectionDelegate: OSCPropertyCollectionDelegate?
+class PropertyCollection: UICollectionView {
+    var propertyCollectionDelegate: PropertyCollectionDelegate?
     var isEditing: Bool = false
     var index: Int
     var selectTitle: [String]?
@@ -93,12 +93,12 @@ class OSCPropertyCollection: UICollectionView {
 }
 
 //MARK: - UICollectionViewDelegate
-extension OSCPropertyCollection: UICollectionViewDelegate {
+extension PropertyCollection: UICollectionViewDelegate {
     
 }
 
 //MARK: - UICollectionViewDataSource
-extension OSCPropertyCollection: UICollectionViewDataSource {
+extension PropertyCollection: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if section == 0 {
             return self.selectTitle!.count
@@ -144,7 +144,7 @@ extension OSCPropertyCollection: UICollectionViewDataSource {
 }
 
 //MARK: - OSCPropertyCollectionCellDelegate
-extension OSCPropertyCollection : OSCPropertyCollectionCellDelegate {
+extension PropertyCollection : OSCPropertyCollectionCellDelegate {
     func deleteBtnClickWithCell(cell: UICollectionViewCell) {
         
     }

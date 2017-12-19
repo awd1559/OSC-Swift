@@ -8,6 +8,7 @@
 
 import UIKit
 import YYKit
+import MBProgressHUD
 
 class Utils {
     
@@ -229,5 +230,15 @@ class Utils {
         let items = self.menuItems(names: names)
         let tokens = self.menuTokens(items)
         self.updateSelectedMenuList(tokens: tokens)
+    }
+    
+    static func createHUD() -> MBProgressHUD {
+        let keyWindow = UIApplication.shared.keyWindow
+        let HUD = MBProgressHUD(view: keyWindow!)
+        HUD.detailsLabel.font = UIFont.boldSystemFont(ofSize: 16)
+        keyWindow?.addSubview(HUD)
+        HUD.show(animated: true)
+        HUD.removeFromSuperViewOnHide = true
+        return HUD
     }
 }

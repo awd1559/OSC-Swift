@@ -6,9 +6,7 @@
 //  Copyright © 2017年 awd. All rights reserved.
 //
 
-import Foundation
-
-//TODO: this is OSCInformationCollectionViewCell
+import MBProgressHUD
 
 let kInformationListCollectionViewCellIdentifier = "OSCInformationListCollectionViewCell"
 
@@ -20,8 +18,8 @@ protocol InfoCollectionCellDelegate {
 }
 
 extension InfoCollectionCellDelegate {
+    //optional
     func cell(_ cell: InfoCollectionCell, onclick banner: UIView, push controller: UIViewController, url:String) {
-        //it is optional
     }
 }
 
@@ -34,10 +32,13 @@ class InfoCollectionCell: UICollectionViewCell {
     var pageToken: String?
     var offestDistance: Float?
     
-//    var HUD: MBProgressHUD
-    //optional_banner
-//    var bannerScrollView: BannerScrollView
-//    var activityBannerView: ActivityHeadView
+    var HUD: MBProgressHUD?
+//    optional_banner
+//    var bannerScrollView: BannerScrollView?
+//    var activityBannerView: ActivityHeadView?
+    var dataSources = [OSCListItem]()
+    var bannerDataSources: [OSCBanner]?
+//    var updateToController_Dic: [:]
     
     lazy var tableView: UITableView = {
         let tableView = UITableView(frame: self.contentView.bounds)
@@ -52,10 +53,6 @@ class InfoCollectionCell: UICollectionViewCell {
     
         return tableView
     }()
-    
-    var dataSources = [OSCListItem]()
-    var bannerDataSources: [OSCBanner]?
-//    var updateToController_Dic: [:]
     
     static func returnReuseInformationListCollectionViewCell(_ collectionView: UICollectionView,
                 identifier: String, indexPath: IndexPath,  model:OSCMenuItem) -> InfoCollectionCell {

@@ -15,7 +15,7 @@ protocol InfoCollectionDelegate {
 }
 
 class InfoCollectionController: UICollectionViewController {
-    var informationListCollectionDelegate: InfoCollectionDelegate?
+    var delegate: InfoCollectionDelegate?
     var menuItem: [OSCMenuItem]? {
         didSet {
             if dataSources_dic == nil {
@@ -101,7 +101,7 @@ class InfoCollectionController: UICollectionViewController {
     //MARK: - scrollviewDelegate
     override func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         let index = Int(scrollView.contentOffset.x / kScreenSize.width)
-        if let delegate = self.informationListCollectionDelegate {
+        if let delegate = self.delegate {
             delegate.ScrollViewDidEndWithIndex(index: index)
         }
     }

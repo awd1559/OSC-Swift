@@ -16,8 +16,8 @@ fileprivate let kCellWith: CGFloat = 80.0
 fileprivate let kCellHeight: CGFloat = 30.0
 
 protocol PropertyCollectionDelegate {
-    func clickCellWithIndex(index: Int)
-    func beginEdit()
+    func clickPropertyItem(at index: Int)
+    func propertyCollectionBeginEdit()
 }
 
 class PropertyCollection: UICollectionView {

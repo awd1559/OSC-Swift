@@ -72,7 +72,7 @@ class  InfoContainerController: UIViewController {
         layout.minimumInteritemSpacing = 0
         layout.sectionInset = UIEdgeInsetsMake(0, 0, 49, 0);
         informationListController = InfoCollectionController(collectionViewLayout: layout)
-        informationListController?.informationListCollectionDelegate = self
+        informationListController?.delegate = self
         informationListController?.menuItem = Utils.menuItems(names: selectArray!)
         self.addChildViewController(informationListController!)
         
@@ -171,18 +171,18 @@ extension InfoContainerController: MenuBarDelegate {
 
 //MARK: - PropertyCollectionDelegate
 extension InfoContainerController: PropertyCollectionDelegate {
-    func clickCellWithIndex(index: Int) {
+    func clickPropertyItem(at index: Int) {
         currentIndex = index
         self.titleView?.reloadAllButtonsOfTitleBarWithTitles(titles: (collectionView?.CompleteAllEditings())!)
         self.titleView?.ClickCollectionCellWithIndex(index: index)
         self.clickAddButton(editing: false)
         selectArray = collectionView?.CompleteAllEditings()
-//        Utils.updateUserSelectedMenuListWithMenuNames(selectArray)
-//        informationListController?.menuItem = Utils.conversionMenuItemsWithMenuNames(selectArray)
+        Utils.updateSelectedMenuList(names: selectArray!)
+        informationListController?.menuItem = Utils.menuItems(names: selectArray!)
         informationListController?.collectionView?.setContentOffset(CGPoint(x: CGFloat(index) * kScreenSize.width, y:0), animated: true)
     }
     
-    func beginEdit() {
+    func propertyCollectionBeginEdit() {
         self.editBtnClick(button: editBtn)
     }
 }
@@ -195,3 +195,4 @@ extension InfoContainerController : InfoCollectionDelegate {
         self.titleView?.scrollToCenterWithIndex(index: index)
     }
 }
+

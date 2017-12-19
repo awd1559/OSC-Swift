@@ -84,67 +84,66 @@ class Utils {
     }
     
     static func selectedMenuTokens() -> [String] {
-        var mutableChooseItemTokens = UserDefaults.standard.array(forKey: kUserDefaults_ChooseMenus) as! Array<String>
-        var allTokens = self.allMenuTokens()
-        
-        if mutableChooseItemTokens.count == 0 {
-            mutableChooseItemTokens = self.buildinMenuTokens()
-            self.updateUserSelectedMenuList(tokens: mutableChooseItemTokens)
+        let allTokens = self.allMenuTokens()
+        var chooseTokens = UserDefaults.standard.array(forKey: kUserDefaults_ChooseMenus) as! Array<String>
+        if chooseTokens.count == 0 {
+            chooseTokens = self.buildinMenuTokens()
+            self.updateSelectedMenuList(tokens: chooseTokens)
         }
         
-        var deleteFixedLocalTokens = [String]()
-        deleteFixedLocalTokens.reserveCapacity(mutableChooseItemTokens.count)
-        let fixedLocalTokens = self.buildinMenuTokens()
-        for menuToken in mutableChooseItemTokens {/** 去除fixed分栏 */
-            if !fixedLocalTokens.contains(menuToken) {
-                deleteFixedLocalTokens.append(menuToken)
+        var result = [String]()
+        result.reserveCapacity(chooseTokens.count)
+        let buildinTokens = self.buildinMenuTokens()
+        for choose in chooseTokens {/** 去除buildin tokens分栏 */
+            if !buildinTokens.contains(choose) {
+                result.append(choose)
+            }
+        }
+        chooseTokens = result
+        
+        result = []
+        result.reserveCapacity(chooseTokens.count)
+        for choose in chooseTokens {/** 去除不合法分栏 */
+            if allTokens.contains(choose) {
+                result.append(choose)
             }
         }
         
-        mutableChooseItemTokens = deleteFixedLocalTokens
-        var resultMuatbleArray = [String]()
-        resultMuatbleArray.reserveCapacity(mutableChooseItemTokens.count)
-        for menuToken in mutableChooseItemTokens {/** 去除不合法分栏 */
-            if allTokens.contains(menuToken) {
-                resultMuatbleArray.append(menuToken)
-            }
-        }
-        
-        mutableChooseItemTokens = resultMuatbleArray
-        self.updateUserSelectedMenuList(tokens: mutableChooseItemTokens)
-        return mutableChooseItemTokens
+        chooseTokens = result
+        self.updateSelectedMenuList(tokens: chooseTokens)
+        return chooseTokens
     }
     
     static func unselectedMenuNames() -> [String] {
-        let chooseItemTokens = self.selectedMenuTokens()
-        var allChooseMenuItems = self.menuItems(tokens: chooseItemTokens)
-        var allNames = [String]()
-        for item in allChooseMenuItems {
-            allNames.append(item.name)
+        let chooseTokens = self.selectedMenuTokens()
+        let chooseItems = self.menuItems(tokens: chooseTokens)
+        var names = [String]()
+        for item in chooseItems {
+            names.append(item.name)
         }
-        return allNames
+        return names
     }
     
     static func unselectedMenuTokens() -> [String] {
         let allTokens = self.allMenuTokens()
-        let allSelectedMenuTokens = self.selectedMenuTokens()
+        let selectedTokens = self.selectedMenuTokens()
         
         var unselectedTokens = [String]()
         for token in allTokens {
-            if !allSelectedMenuTokens.contains(token) {
+            if !selectedTokens.contains(token) {
                 unselectedTokens.append(token)
             }
         }
-        var deleteFixedLocalTokens = [String]()
-        deleteFixedLocalTokens.reserveCapacity(unselectedTokens.count)
-        let fixedLocalTokens = self.buildinMenuTokens()
+        var result = [String]()
+        result.reserveCapacity(unselectedTokens.count)
+        let buildinTokens = self.buildinMenuTokens()
         
-        for menuToken in unselectedTokens {/** 去除fixed分栏 */
-            if !fixedLocalTokens.contains(menuToken) {
-                deleteFixedLocalTokens.append(menuToken)
+        for menuToken in unselectedTokens {/** 去除build in分栏 */
+            if !buildinTokens.contains(menuToken) {
+                result.append(menuToken)
             }
         }
-        unselectedTokens = deleteFixedLocalTokens
+        unselectedTokens = result
         
         return unselectedTokens
     }
@@ -218,10 +217,10 @@ class Utils {
     
     static func updateSelectedMenuList(_ items: [OSCMenuItem]) {
         let tokens = self.menuTokens(items)
-        self.updateUserSelectedMenuList(tokens: tokens)
+        self.updateSelectedMenuList(tokens: tokens)
     }
     
-    static func updateUserSelectedMenuList(tokens: [String]) {
+    static func updateSelectedMenuList(tokens: [String]) {
         UserDefaults.standard.set(tokens, forKey: kUserDefaults_ChooseMenus)
         UserDefaults.standard.synchronize()
     }
@@ -229,6 +228,6 @@ class Utils {
     static func updateUserSelectedMenuList(names: [String]) {
         let items = self.menuItems(names: names)
         let tokens = self.menuTokens(items)
-        self.updateUserSelectedMenuList(tokens: tokens)
+        self.updateSelectedMenuList(tokens: tokens)
     }
 }

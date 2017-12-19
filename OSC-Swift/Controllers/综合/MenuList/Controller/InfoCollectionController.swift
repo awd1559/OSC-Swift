@@ -34,14 +34,6 @@ class InfoCollectionController: UICollectionViewController {
 //    var HUD: MBProgressHUD
 //    var pageTokens: []?
     var dataSources_dic: [String: InfoResultItem]?
-
-//    init(_ layout: UICollectionViewLayout) {
-//        super.init(collectionViewLayout: layout)
-//    }
-    
-//    required init?(coder aDecoder: NSCoder) {
-//        fatalError("init(coder:) has not been implemented")
-//    }
     
     //MARK: - lifeCycle
     override func viewDidLoad() {
@@ -69,7 +61,9 @@ class InfoCollectionController: UICollectionViewController {
     }
     
     func beginRefreshWithIndex(_ index: Int) {
-    
+        let indexPath = IndexPath(row: index, section: 0)
+        let cell = self.collectionView?.cellForItem(at: indexPath)
+        cell.beginRefreh()
     }
     
     func getCurrentListDataSource() -> [String: InfoResultItem]{

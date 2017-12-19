@@ -12,4 +12,5 @@ target 'OSC-Swift' do
   	pod 'R.swift'
     pod 'YYKit'
     pod 'MJRefresh'
+    pod 'MBProgressHUD', '~> 1.1.0'
 end

@@ -62,8 +62,8 @@ class InfoCollectionController: UICollectionViewController {
     
     func beginRefreshWithIndex(_ index: Int) {
         let indexPath = IndexPath(row: index, section: 0)
-        let cell = self.collectionView?.cellForItem(at: indexPath)
-        cell.beginRefreh()
+        let cell = self.collectionView?.cellForItem(at: indexPath) as! InfoCollectionCell
+        cell.beginRefreshCurCell()
     }
     
     func getCurrentListDataSource() -> [String: InfoResultItem]{

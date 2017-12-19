@@ -10,6 +10,8 @@
 #define bridge_header_h
 
 #import <YYKit/YYKit.h>
+#import <MJRefresh/MJRefresh.h>
+#import <MBProgressHUD/MBProgressHUD.h>
 
 
 #endif /* bridge_header_h */

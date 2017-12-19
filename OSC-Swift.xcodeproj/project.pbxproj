@@ -275,12 +275,12 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		CE1CE4011FE55EA1002B3A50 /* news */ = {
+		CE1CE4011FE55EA1002B3A50 /* News */ = {
 			isa = PBXGroup;
 			children = (
 				CE1CE4021FE55EAA002B3A50 /* OSCInformationTableViewCell.swift */,
 			);
-			path = news;
+			path = News;
 			sourceTree = "<group>";
 		};
 		CE2BF0E21FE1186E00528BA6 /* Edit */ = {
@@ -500,7 +500,7 @@
 				CEA24E391FE8A580000BAA76 /* Software */,
 				CEA24E381FE8A579000BAA76 /* Questions */,
 				CEA24E371FE8A570000BAA76 /* Blogs */,
-				CE1CE4011FE55EA1002B3A50 /* news */,
+				CE1CE4011FE55EA1002B3A50 /* News */,
 				CEC518CB1FE22C4E009A7CF2 /* MenuList */,
 			);
 			path = "综合";

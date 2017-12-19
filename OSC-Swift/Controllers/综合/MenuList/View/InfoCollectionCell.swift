@@ -113,7 +113,6 @@ extension InfoCollectionCell: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 16
         if self.dataSources.count > 0 {
             let listItem = self.dataSources[indexPath.row]
             return 16
@@ -125,7 +124,6 @@ extension InfoCollectionCell: UITableViewDataSource {
 }
 
 
-//FIXME: OSCInformationListResultPostBackItem
 class InfoResultItem {
     var bannerArr: [OSCBanner]?
     

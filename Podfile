@@ -13,4 +13,5 @@ target 'OSC-Swift' do
     pod 'YYKit'
     pod 'MJRefresh'
     pod 'MBProgressHUD', '~> 1.1.0'
+    pod 'Ono'
 end

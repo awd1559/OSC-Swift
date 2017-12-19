@@ -39,6 +39,7 @@
 		CEA24D311FE76372000BAA76 /* PullToRefreshOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA24D2D1FE76371000BAA76 /* PullToRefreshOption.swift */; };
 		CEA24D321FE76372000BAA76 /* PullToRefreshView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA24D2E1FE76371000BAA76 /* PullToRefreshView.swift */; };
 		CEA24D331FE76372000BAA76 /* UIScrollViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA24D2F1FE76371000BAA76 /* UIScrollViewExtension.swift */; };
+		CEA24E3F1FE8F10D000BAA76 /* OSCObjsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA24E3E1FE8F10D000BAA76 /* OSCObjsViewController.swift */; };
 		CEC518C61FE226BC009A7CF2 /* MenuBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC518C51FE226BC009A7CF2 /* MenuBarView.swift */; };
 		CEC518C81FE227A3009A7CF2 /* TitleBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC518C71FE227A3009A7CF2 /* TitleBarView.swift */; };
 		CEC518CA1FE228D3009A7CF2 /* MenuPropertyCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC518C91FE228D3009A7CF2 /* MenuPropertyCollection.swift */; };
@@ -157,6 +158,7 @@
 		CEA24D2D1FE76371000BAA76 /* PullToRefreshOption.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PullToRefreshOption.swift; sourceTree = "<group>"; };
 		CEA24D2E1FE76371000BAA76 /* PullToRefreshView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PullToRefreshView.swift; sourceTree = "<group>"; };
 		CEA24D2F1FE76371000BAA76 /* UIScrollViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIScrollViewExtension.swift; sourceTree = "<group>"; };
+		CEA24E3E1FE8F10D000BAA76 /* OSCObjsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSCObjsViewController.swift; sourceTree = "<group>"; };
 		CEC518C51FE226BC009A7CF2 /* MenuBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarView.swift; sourceTree = "<group>"; };
 		CEC518C71FE227A3009A7CF2 /* TitleBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleBarView.swift; sourceTree = "<group>"; };
 		CEC518C91FE228D3009A7CF2 /* MenuPropertyCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuPropertyCollection.swift; sourceTree = "<group>"; };
@@ -365,8 +367,119 @@
 		CEA24E391FE8A580000BAA76 /* Software */ = {
 			isa = PBXGroup;
 			children = (
+				CEA24E3C1FE8EFED000BAA76 /* Controller */,
+				CEA24E3B1FE8EFEB000BAA76 /* Model */,
+				CEA24E3A1FE8EFE5000BAA76 /* View */,
 			);
 			path = Software;
+			sourceTree = "<group>";
+		};
+		CEA24E3A1FE8EFE5000BAA76 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CEA24E3B1FE8EFEB000BAA76 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		CEA24E3C1FE8EFED000BAA76 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		CEA24E3D1FE8F097000BAA76 /* General */ = {
+			isa = PBXGroup;
+			children = (
+				CEA24E491FE8F1BF000BAA76 /* Collect */,
+				CEA24E481FE8F197000BAA76 /* Comment */,
+				CEA24E471FE8F195000BAA76 /* Contact */,
+				CEA24E461FE8F193000BAA76 /* Follow */,
+				CEA24E451FE8F191000BAA76 /* Message */,
+				CEA24E441FE8F18F000BAA76 /* Post */,
+				CEA24E431FE8F18D000BAA76 /* Chat */,
+				CEA24E421FE8F18B000BAA76 /* Setting */,
+				CEA24E411FE8F189000BAA76 /* Team */,
+				CEA24E401FE8F185000BAA76 /* User */,
+			);
+			path = General;
+			sourceTree = "<group>";
+		};
+		CEA24E401FE8F185000BAA76 /* User */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
+		CEA24E411FE8F189000BAA76 /* Team */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Team;
+			sourceTree = "<group>";
+		};
+		CEA24E421FE8F18B000BAA76 /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
+		CEA24E431FE8F18D000BAA76 /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Chat;
+			sourceTree = "<group>";
+		};
+		CEA24E441FE8F18F000BAA76 /* Post */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Post;
+			sourceTree = "<group>";
+		};
+		CEA24E451FE8F191000BAA76 /* Message */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Message;
+			sourceTree = "<group>";
+		};
+		CEA24E461FE8F193000BAA76 /* Follow */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Follow;
+			sourceTree = "<group>";
+		};
+		CEA24E471FE8F195000BAA76 /* Contact */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Contact;
+			sourceTree = "<group>";
+		};
+		CEA24E481FE8F197000BAA76 /* Comment */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Comment;
+			sourceTree = "<group>";
+		};
+		CEA24E491FE8F1BF000BAA76 /* Collect */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Collect;
 			sourceTree = "<group>";
 		};
 		CEC518CB1FE22C4E009A7CF2 /* MenuList */ = {
@@ -570,6 +683,7 @@
 		CEFEC67B1FDE43A00019DDF2 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				CEA24E3D1FE8F097000BAA76 /* General */,
 				CE48FC9A1FDF566B00366E4F /* Login */,
 				CEFEC6C31FDE53530019DDF2 /* Main */,
 				CECAD8791FE0BE19008EE696 /* 综合 */,
@@ -670,6 +784,7 @@
 				CEC518E71FE244C3009A7CF2 /* DetailController */,
 				CEFEC6C91FDE720B0019DDF2 /* OSCTabBarController.swift */,
 				CE2BF0DE1FE106D200528BA6 /* OptionButton.swift */,
+				CEA24E3E1FE8F10D000BAA76 /* OSCObjsViewController.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -960,6 +1075,7 @@
 				CE6B24E91FE0D2FE00659156 /* HomepageViewController.swift in Sources */,
 				CEA24D331FE76372000BAA76 /* UIScrollViewExtension.swift in Sources */,
 				CEC518F01FE247CF009A7CF2 /* SearchResultController.swift in Sources */,
+				CEA24E3F1FE8F10D000BAA76 /* OSCObjsViewController.swift in Sources */,
 				CEFEC6C81FDE5BC40019DDF2 /* R.generated.swift in Sources */,
 				CE52B5E71FE3C74900A3E792 /* OSCExtra.swift in Sources */,
 				CE2BF0EF1FE17A5C00528BA6 /* Utils.swift in Sources */,

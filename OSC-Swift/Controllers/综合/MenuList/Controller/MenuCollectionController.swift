@@ -10,12 +10,12 @@ import UIKit
 
 fileprivate let kScreenSize = UIScreen.main.bounds.size
 
-protocol InfoCollectionDelegate {
+protocol MenuCollectionDelegate {
     func ScrollViewDidEndWithIndex(index:Int)
 }
 
-class InfoCollectionController: UICollectionViewController {
-    var delegate: InfoCollectionDelegate?
+class MenuCollectionController: UICollectionViewController {
+    var delegate: MenuCollectionDelegate?
     var menuItem: [OSCMenuItem]? {
         didSet {
             if dataSources_dic == nil {
@@ -42,7 +42,7 @@ class InfoCollectionController: UICollectionViewController {
         self.collectionView?.contentInsetAdjustmentBehavior = .automatic
         isTouchSliding = false
         self.collectionView?.backgroundColor = .white
-        self.collectionView?.register(InfoCollectionCell.self, forCellWithReuseIdentifier:kInformationListCollectionViewCellIdentifier)
+        self.collectionView?.register(MenuCollectionCell.self, forCellWithReuseIdentifier:kInformationListCollectionViewCellIdentifier)
         self.collectionView?.isPagingEnabled = true
     }
     
@@ -62,7 +62,7 @@ class InfoCollectionController: UICollectionViewController {
     
     func beginRefreshWithIndex(_ index: Int) {
         let indexPath = IndexPath(row: index, section: 0)
-        let cell = self.collectionView?.cellForItem(at: indexPath) as! InfoCollectionCell
+        let cell = self.collectionView?.cellForItem(at: indexPath) as! MenuCollectionCell
         cell.beginRefreshCurCell()
     }
     
@@ -84,7 +84,7 @@ class InfoCollectionController: UICollectionViewController {
         
         curMenuItem = self.menuItem?[indexPath.row]
         let curDic = self.getCurrentListDataSource()
-        let cell = InfoCollectionCell.returnReuseInformationListCollectionViewCell(collectionView, identifier:kInformationListCollectionViewCellIdentifier, indexPath:indexPath, model:curMenuItem!)
+        let cell = MenuCollectionCell.returnReuseInformationListCollectionViewCell(collectionView, identifier:kInformationListCollectionViewCellIdentifier, indexPath:indexPath, model:curMenuItem!)
 
         cell.configurationPostBackDictionary(curDic)
         cell.delegate = self
@@ -103,16 +103,16 @@ class InfoCollectionController: UICollectionViewController {
 
 
 //MARK: - InfoCollectionCellDelegate
-extension InfoCollectionController: InfoCollectionCellDelegate {
-    func cell(_ cell: InfoCollectionCell, update dataSourceDic: [String : InfoResultItem]) {
+extension MenuCollectionController: MenuCollectionCellDelegate {
+    func cell(_ cell: MenuCollectionCell, update dataSourceDic: [String : InfoResultItem]) {
         
     }
     
-    func cell(_ cell: InfoCollectionCell, onclick tableViewCell: UITableViewCell, push controller: UIViewController, url: String) {
+    func cell(_ cell: MenuCollectionCell, onclick tableViewCell: UITableViewCell, push controller: UIViewController, url: String) {
         
     }
     
-    func cell(_ cell: InfoCollectionCell, onclick banner: UIView, push controller: UIViewController, url: String) {
+    func cell(_ cell: MenuCollectionCell, onclick banner: UIView, push controller: UIViewController, url: String) {
         
     }
     

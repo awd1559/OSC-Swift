@@ -12,14 +12,14 @@ fileprivate let kTitleHeigh = 60
 fileprivate let kScreenSize = UIScreen.main.bounds.size
 fileprivate let kAnimationTime = 0.4
 
-class  InfoContainerController: UIViewController {
+class  MenuContainerController: UIViewController {
     var label = UILabel()
     var editBtn = UIButton()
     var titleView: MenuBarView?
-    var collectionView: PropertyCollection?
+    var collectionView: MenuPropertyCollection?
     var propertyTitleView: UIView?
     var currentIndex = 0
-    var informationListController: InfoCollectionController?
+    var informationListController: MenuCollectionController?
     
     var selectArray: [String]?
 //    var unSelectArray: []
@@ -71,7 +71,7 @@ class  InfoContainerController: UIViewController {
         layout.minimumLineSpacing = 0
         layout.minimumInteritemSpacing = 0
         layout.sectionInset = UIEdgeInsetsMake(0, 0, 49, 0);
-        informationListController = InfoCollectionController(collectionViewLayout: layout)
+        informationListController = MenuCollectionController(collectionViewLayout: layout)
         informationListController?.delegate = self
         informationListController?.menuItem = Utils.menuItems(names: selectArray!)
         self.addChildViewController(informationListController!)
@@ -90,7 +90,7 @@ class  InfoContainerController: UIViewController {
 }
 
 //MARK: - private
-extension InfoContainerController {
+extension MenuContainerController {
     func beginRefresh() {
         
     }
@@ -131,7 +131,7 @@ extension InfoContainerController {
 }
 
 //MARK: - MenuBarDelegate
-extension InfoContainerController: MenuBarDelegate {
+extension MenuContainerController: MenuBarDelegate {
     func clickAddButton(editing: Bool) {
         if editing {
             UIView.animate(withDuration: kAnimationTime, animations: {
@@ -170,7 +170,7 @@ extension InfoContainerController: MenuBarDelegate {
 }
 
 //MARK: - PropertyCollectionDelegate
-extension InfoContainerController: PropertyCollectionDelegate {
+extension MenuContainerController: MenuPropertyDelegate {
     func clickPropertyItem(at index: Int) {
         currentIndex = index
         self.titleView?.reloadAllButtonsOfTitleBarWithTitles(titles: (collectionView?.CompleteAllEditings())!)
@@ -189,7 +189,7 @@ extension InfoContainerController: PropertyCollectionDelegate {
 
 
 //MARK: - InfoCollectionDelegate
-extension InfoContainerController : InfoCollectionDelegate {
+extension MenuContainerController : MenuCollectionDelegate {
     func ScrollViewDidEndWithIndex(index: Int) {
         currentIndex = index
         self.titleView?.scrollToCenterWithIndex(index: index)

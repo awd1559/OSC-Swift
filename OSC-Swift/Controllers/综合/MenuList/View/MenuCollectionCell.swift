@@ -24,7 +24,6 @@ extension MenuCollectionCellDelegate {
 }
 
 
-
 //FIXME: OSCInformationListCollectionViewCell
 class MenuCollectionCell: UICollectionViewCell {
     var delegate: MenuCollectionCellDelegate?

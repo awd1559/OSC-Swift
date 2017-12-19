@@ -15,20 +15,20 @@ fileprivate let kScreenSize = UIScreen.main.bounds.size
 fileprivate let kCellWith: CGFloat = 80.0
 fileprivate let kCellHeight: CGFloat = 30.0
 
-protocol PropertyCollectionDelegate {
+protocol MenuPropertyDelegate {
     func clickPropertyItem(at index: Int)
     func propertyCollectionBeginEdit()
 }
 
-class PropertyCollection: UICollectionView {
-    var propertyCollectionDelegate: PropertyCollectionDelegate?
+class MenuPropertyCollection: UICollectionView {
+    var propertyCollectionDelegate: MenuPropertyDelegate?
     var isEditing: Bool = false
     var index: Int
     var selectTitle: [String]?
     var unSelectTitle: [String]?
     var longGR: UILongPressGestureRecognizer?
     var pressToEdit: UILongPressGestureRecognizer?
-    var moveCell: PropertyCell?
+    var moveCell: MenuPropertyCell?
     
     init(frame: CGRect, selected index: Int) {
         self.index = index
@@ -49,7 +49,7 @@ class PropertyCollection: UICollectionView {
         self.backgroundColor = UIColor(red: 246.0/255.0, green: 246.0/255.0, blue: 246.0/255.0, alpha: 1.0)
         self.delegate = self
         self.dataSource = self
-        self.register(PropertyCell.self, forCellWithReuseIdentifier: cellID)
+        self.register(MenuPropertyCell.self, forCellWithReuseIdentifier: cellID)
         self.register(UICollectionReusableView.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: headerID)
         let fixArray = Utils.buildinMenuNames()
         let selectArray = Utils.selectedMenuNames()
@@ -83,7 +83,7 @@ class PropertyCollection: UICollectionView {
         var index = 0
         for (i, title) in (selectTitle?.enumerated())! {
             let indexPath = IndexPath(row: i, section: 0)
-            let cell = self.cellForItem(at: indexPath) as! PropertyCell
+            let cell = self.cellForItem(at: indexPath) as! MenuPropertyCell
             if cell.getType() == .select {
                 index = i
             }
@@ -93,12 +93,12 @@ class PropertyCollection: UICollectionView {
 }
 
 //MARK: - UICollectionViewDelegate
-extension PropertyCollection: UICollectionViewDelegate {
+extension MenuPropertyCollection: UICollectionViewDelegate {
     
 }
 
 //MARK: - UICollectionViewDataSource
-extension PropertyCollection: UICollectionViewDataSource {
+extension MenuPropertyCollection: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if section == 0 {
             return self.selectTitle!.count
@@ -110,7 +110,7 @@ extension PropertyCollection: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell: PropertyCell = collectionView.dequeueReusableCell(withReuseIdentifier: cellID, for: indexPath) as! PropertyCell
+        let cell: MenuPropertyCell = collectionView.dequeueReusableCell(withReuseIdentifier: cellID, for: indexPath) as! MenuPropertyCell
         cell.endEditing()
 
         if indexPath.section == 0{
@@ -144,7 +144,7 @@ extension PropertyCollection: UICollectionViewDataSource {
 }
 
 //MARK: - PropertyCellDelegate
-extension PropertyCollection : PropertyCellDelegate {
+extension MenuPropertyCollection : MenuPropertyCellDelegate {
     func deleteBtnClickWithCell(cell: UICollectionViewCell) {
         
     }

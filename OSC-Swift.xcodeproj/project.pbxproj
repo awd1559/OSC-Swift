@@ -41,15 +41,12 @@
 		CEA24D331FE76372000BAA76 /* UIScrollViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA24D2F1FE76371000BAA76 /* UIScrollViewExtension.swift */; };
 		CEC518C61FE226BC009A7CF2 /* MenuBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC518C51FE226BC009A7CF2 /* MenuBarView.swift */; };
 		CEC518C81FE227A3009A7CF2 /* TitleBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC518C71FE227A3009A7CF2 /* TitleBarView.swift */; };
-		CEC518CA1FE228D3009A7CF2 /* PropertyCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC518C91FE228D3009A7CF2 /* PropertyCollection.swift */; };
-		CEC518CD1FE22C5D009A7CF2 /* InfoCollectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC518CC1FE22C5D009A7CF2 /* InfoCollectionController.swift */; };
+		CEC518CA1FE228D3009A7CF2 /* MenuPropertyCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC518C91FE228D3009A7CF2 /* MenuPropertyCollection.swift */; };
+		CEC518CD1FE22C5D009A7CF2 /* MenuCollectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC518CC1FE22C5D009A7CF2 /* MenuCollectionController.swift */; };
 		CEC518DA1FE2434C009A7CF2 /* OSCListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC518D91FE2434C009A7CF2 /* OSCListItem.swift */; };
 		CEC518DC1FE24359009A7CF2 /* OSCMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC518DB1FE24359009A7CF2 /* OSCMenuItem.swift */; };
-		CEC518DE1FE243F3009A7CF2 /* InfoCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC518DD1FE243F3009A7CF2 /* InfoCollectionCell.swift */; };
-		CEC518E01FE24413009A7CF2 /* PropertyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC518DF1FE24413009A7CF2 /* PropertyCell.swift */; };
-		CEC518E21FE2442B009A7CF2 /* AdCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC518E11FE2442B009A7CF2 /* AdCell.swift */; };
-		CEC518E41FE24434009A7CF2 /* DividerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC518E31FE24434009A7CF2 /* DividerCell.swift */; };
-		CEC518E61FE2443C009A7CF2 /* NormalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC518E51FE2443C009A7CF2 /* NormalCell.swift */; };
+		CEC518DE1FE243F3009A7CF2 /* MenuCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC518DD1FE243F3009A7CF2 /* MenuCollectionCell.swift */; };
+		CEC518E01FE24413009A7CF2 /* MenuPropertyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC518DF1FE24413009A7CF2 /* MenuPropertyCell.swift */; };
 		CEC518E91FE244CF009A7CF2 /* BottomBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC518E81FE244CF009A7CF2 /* BottomBarViewController.swift */; };
 		CEC518EB1FE244DE009A7CF2 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC518EA1FE244DE009A7CF2 /* DetailsViewController.swift */; };
 		CEC518EE1FE247C3009A7CF2 /* SearchResultCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC518ED1FE247C3009A7CF2 /* SearchResultCells.swift */; };
@@ -61,7 +58,7 @@
 		CECAD87D1FE0C585008EE696 /* OSCSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECAD87C1FE0C585008EE696 /* OSCSearchViewController.swift */; };
 		CECAD87F1FE0C963008EE696 /* Discover.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CECAD87E1FE0C963008EE696 /* Discover.storyboard */; };
 		CECAD8811FE0C981008EE696 /* Homepage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CECAD8801FE0C980008EE696 /* Homepage.storyboard */; };
-		CECAD8831FE0C9AC008EE696 /* InfoContainerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECAD8821FE0C9AC008EE696 /* InfoContainerController.swift */; };
+		CECAD8831FE0C9AC008EE696 /* MenuContainerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECAD8821FE0C9AC008EE696 /* MenuContainerController.swift */; };
 		CECAD8851FE0CAA2008EE696 /* OSCTweetsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECAD8841FE0CAA2008EE696 /* OSCTweetsController.swift */; };
 		CEFEC64D1FDE41030019DDF2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFEC64C1FDE41030019DDF2 /* AppDelegate.swift */; };
 		CEFEC6521FDE41030019DDF2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEFEC6501FDE41030019DDF2 /* Main.storyboard */; };
@@ -162,15 +159,12 @@
 		CEA24D2F1FE76371000BAA76 /* UIScrollViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIScrollViewExtension.swift; sourceTree = "<group>"; };
 		CEC518C51FE226BC009A7CF2 /* MenuBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarView.swift; sourceTree = "<group>"; };
 		CEC518C71FE227A3009A7CF2 /* TitleBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleBarView.swift; sourceTree = "<group>"; };
-		CEC518C91FE228D3009A7CF2 /* PropertyCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyCollection.swift; sourceTree = "<group>"; };
-		CEC518CC1FE22C5D009A7CF2 /* InfoCollectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoCollectionController.swift; sourceTree = "<group>"; };
+		CEC518C91FE228D3009A7CF2 /* MenuPropertyCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuPropertyCollection.swift; sourceTree = "<group>"; };
+		CEC518CC1FE22C5D009A7CF2 /* MenuCollectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCollectionController.swift; sourceTree = "<group>"; };
 		CEC518D91FE2434C009A7CF2 /* OSCListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSCListItem.swift; sourceTree = "<group>"; };
 		CEC518DB1FE24359009A7CF2 /* OSCMenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSCMenuItem.swift; sourceTree = "<group>"; };
-		CEC518DD1FE243F3009A7CF2 /* InfoCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoCollectionCell.swift; sourceTree = "<group>"; };
-		CEC518DF1FE24413009A7CF2 /* PropertyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyCell.swift; sourceTree = "<group>"; };
-		CEC518E11FE2442B009A7CF2 /* AdCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdCell.swift; sourceTree = "<group>"; };
-		CEC518E31FE24434009A7CF2 /* DividerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DividerCell.swift; sourceTree = "<group>"; };
-		CEC518E51FE2443C009A7CF2 /* NormalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NormalCell.swift; sourceTree = "<group>"; };
+		CEC518DD1FE243F3009A7CF2 /* MenuCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCollectionCell.swift; sourceTree = "<group>"; };
+		CEC518DF1FE24413009A7CF2 /* MenuPropertyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuPropertyCell.swift; sourceTree = "<group>"; };
 		CEC518E81FE244CF009A7CF2 /* BottomBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomBarViewController.swift; sourceTree = "<group>"; };
 		CEC518EA1FE244DE009A7CF2 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		CEC518ED1FE247C3009A7CF2 /* SearchResultCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultCells.swift; sourceTree = "<group>"; };
@@ -182,7 +176,7 @@
 		CECAD87C1FE0C585008EE696 /* OSCSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSCSearchViewController.swift; sourceTree = "<group>"; };
 		CECAD87E1FE0C963008EE696 /* Discover.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Discover.storyboard; sourceTree = "<group>"; };
 		CECAD8801FE0C980008EE696 /* Homepage.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Homepage.storyboard; sourceTree = "<group>"; };
-		CECAD8821FE0C9AC008EE696 /* InfoContainerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoContainerController.swift; sourceTree = "<group>"; };
+		CECAD8821FE0C9AC008EE696 /* MenuContainerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuContainerController.swift; sourceTree = "<group>"; };
 		CECAD8841FE0CAA2008EE696 /* OSCTweetsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSCTweetsController.swift; sourceTree = "<group>"; };
 		CEFEC6491FDE41030019DDF2 /* OSC-Swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "OSC-Swift.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEFEC64C1FDE41030019DDF2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -388,9 +382,9 @@
 		CEC518D61FE24320009A7CF2 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				CEC518C91FE228D3009A7CF2 /* PropertyCollection.swift */,
-				CECAD8821FE0C9AC008EE696 /* InfoContainerController.swift */,
-				CEC518CC1FE22C5D009A7CF2 /* InfoCollectionController.swift */,
+				CEC518C91FE228D3009A7CF2 /* MenuPropertyCollection.swift */,
+				CECAD8821FE0C9AC008EE696 /* MenuContainerController.swift */,
+				CEC518CC1FE22C5D009A7CF2 /* MenuCollectionController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -408,11 +402,8 @@
 			isa = PBXGroup;
 			children = (
 				CEC518C51FE226BC009A7CF2 /* MenuBarView.swift */,
-				CEC518DD1FE243F3009A7CF2 /* InfoCollectionCell.swift */,
-				CEC518DF1FE24413009A7CF2 /* PropertyCell.swift */,
-				CEC518E11FE2442B009A7CF2 /* AdCell.swift */,
-				CEC518E31FE24434009A7CF2 /* DividerCell.swift */,
-				CEC518E51FE2443C009A7CF2 /* NormalCell.swift */,
+				CEC518DD1FE243F3009A7CF2 /* MenuCollectionCell.swift */,
+				CEC518DF1FE24413009A7CF2 /* MenuPropertyCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -932,7 +923,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE2BF0EB1FE1693700528BA6 /* ScanViewController.swift in Sources */,
-				CEC518E41FE24434009A7CF2 /* DividerCell.swift in Sources */,
 				CEC518F51FE2493F009A7CF2 /* SwipableViewController.swift in Sources */,
 				CEC518EE1FE247C3009A7CF2 /* SearchResultCells.swift in Sources */,
 				CEA24D321FE76372000BAA76 /* PullToRefreshView.swift in Sources */,
@@ -943,7 +933,7 @@
 				CE1CE4031FE55EAA002B3A50 /* OSCInformationTableViewCell.swift in Sources */,
 				CE1CE3FE1FE4AFC6002B3A50 /* OSCUserItem.swift in Sources */,
 				CE2BF0E81FE1686700528BA6 /* VoiceTweetEditingVC.swift in Sources */,
-				CEC518CA1FE228D3009A7CF2 /* PropertyCollection.swift in Sources */,
+				CEC518CA1FE228D3009A7CF2 /* MenuPropertyCollection.swift in Sources */,
 				CE1CE3F71FE4AD8A002B3A50 /* OSCStatistics.swift in Sources */,
 				CE52B5DF1FE3ACAD00A3E792 /* OSCAPI.swift in Sources */,
 				CEC518C81FE227A3009A7CF2 /* TitleBarView.swift in Sources */,
@@ -954,20 +944,18 @@
 				CEFEC6CA1FDE720B0019DDF2 /* OSCTabBarController.swift in Sources */,
 				CEFEC6CD1FDEBFFC0019DDF2 /* Config.swift in Sources */,
 				CE2BF0E11FE10CD800528BA6 /* UIColor+ext.swift in Sources */,
-				CEC518E21FE2442B009A7CF2 /* AdCell.swift in Sources */,
 				CE2BF0DF1FE106D200528BA6 /* OptionButton.swift in Sources */,
 				CE6B24E71FE0D2BE00659156 /* DiscoverViewController.swift in Sources */,
 				CECAD8851FE0CAA2008EE696 /* OSCTweetsController.swift in Sources */,
 				CEFEC64D1FDE41030019DDF2 /* AppDelegate.swift in Sources */,
-				CECAD8831FE0C9AC008EE696 /* InfoContainerController.swift in Sources */,
+				CECAD8831FE0C9AC008EE696 /* MenuContainerController.swift in Sources */,
 				CE1CE3FC1FE4AF5F002B3A50 /* OSCTweetItem.swift in Sources */,
-				CEC518CD1FE22C5D009A7CF2 /* InfoCollectionController.swift in Sources */,
-				CEC518E01FE24413009A7CF2 /* PropertyCell.swift in Sources */,
+				CEC518CD1FE22C5D009A7CF2 /* MenuCollectionController.swift in Sources */,
+				CEC518E01FE24413009A7CF2 /* MenuPropertyCell.swift in Sources */,
 				CEC518DA1FE2434C009A7CF2 /* OSCListItem.swift in Sources */,
 				CE1CE3F91FE4ADB8002B3A50 /* OSCAbout.swift in Sources */,
 				CE52B5DD1FE379B500A3E792 /* enumList.swift in Sources */,
 				CE48FC9F1FDF580D00366E4F /* LoginViewController.swift in Sources */,
-				CEC518E61FE2443C009A7CF2 /* NormalCell.swift in Sources */,
 				CEA24D311FE76372000BAA76 /* PullToRefreshOption.swift in Sources */,
 				CE6B24E91FE0D2FE00659156 /* HomepageViewController.swift in Sources */,
 				CEA24D331FE76372000BAA76 /* UIScrollViewExtension.swift in Sources */,
@@ -975,7 +963,7 @@
 				CEFEC6C81FDE5BC40019DDF2 /* R.generated.swift in Sources */,
 				CE52B5E71FE3C74900A3E792 /* OSCExtra.swift in Sources */,
 				CE2BF0EF1FE17A5C00528BA6 /* Utils.swift in Sources */,
-				CEC518DE1FE243F3009A7CF2 /* InfoCollectionCell.swift in Sources */,
+				CEC518DE1FE243F3009A7CF2 /* MenuCollectionCell.swift in Sources */,
 				CEC518E91FE244CF009A7CF2 /* BottomBarViewController.swift in Sources */,
 				CE52B5E51FE3C32E00A3E792 /* OSCBanner.swift in Sources */,
 				CECAD87D1FE0C585008EE696 /* OSCSearchViewController.swift in Sources */,

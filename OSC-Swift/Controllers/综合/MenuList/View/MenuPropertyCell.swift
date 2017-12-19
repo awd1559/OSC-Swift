@@ -15,13 +15,13 @@ enum CellType: Int {
     case select, second
 }
 
-protocol PropertyCellDelegate {
+protocol MenuPropertyCellDelegate {
     func deleteBtnClickWithCell(cell: UICollectionViewCell)
 }
 
-class PropertyCell : UICollectionViewCell {
+class MenuPropertyCell : UICollectionViewCell {
     var title: String?
-    var delegate: PropertyCellDelegate?
+    var delegate: MenuPropertyCellDelegate?
     
     override init(frame: CGRect) {
         super.init(frame: frame)

@@ -51,11 +51,11 @@ class PropertyCollection: UICollectionView {
         self.dataSource = self
         self.register(PropertyCell.self, forCellWithReuseIdentifier: cellID)
         self.register(UICollectionReusableView.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: headerID)
-        let fixArray = Utils.fixedLocalMenuNames()
-        let selectArray = Utils.allSelectedMenuNames()
+        let fixArray = Utils.buildinMenuNames()
+        let selectArray = Utils.selectedMenuNames()
         self.selectTitle = fixArray
         self.selectTitle?.append(contentsOf: selectArray)
-        self.unSelectTitle = Utils.allUnselectedMenuNames()
+        self.unSelectTitle = Utils.unselectedMenuNames()
         self.alwaysBounceVertical = true
         
         self.pressToEdit = UILongPressGestureRecognizer(target: self, action: #selector(pressToEditClick))
@@ -143,8 +143,8 @@ extension PropertyCollection: UICollectionViewDataSource {
     
 }
 
-//MARK: - OSCPropertyCollectionCellDelegate
-extension PropertyCollection : OSCPropertyCollectionCellDelegate {
+//MARK: - PropertyCellDelegate
+extension PropertyCollection : PropertyCellDelegate {
     func deleteBtnClickWithCell(cell: UICollectionViewCell) {
         
     }

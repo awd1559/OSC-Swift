@@ -107,6 +107,8 @@ class InfoCollectionController: UICollectionViewController {
     }
 }
 
+
+//MARK: - InfoCollectionCellDelegate
 extension InfoCollectionController: InfoCollectionCellDelegate {
     func cell(_ cell: InfoCollectionCell, update dataSourceDic: [String : InfoResultItem]) {
         

@@ -56,8 +56,8 @@ class  InfoContainerController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        selectArray = Utils.fixedLocalMenuNames()
-        selectArray?.append(contentsOf: Utils.allSelectedMenuNames())
+        selectArray = Utils.buildinMenuNames()
+        selectArray?.append(contentsOf: Utils.selectedMenuNames())
         self.navigationItem.title = "综合"
         self.view.backgroundColor = .white
         let frame = CGRect(x: 0, y: 64, width: Int(kScreenSize.width), height: kTitleHeigh)
@@ -73,7 +73,7 @@ class  InfoContainerController: UIViewController {
         layout.sectionInset = UIEdgeInsetsMake(0, 0, 49, 0);
         informationListController = InfoCollectionController(collectionViewLayout: layout)
         informationListController?.informationListCollectionDelegate = self
-        informationListController?.menuItem = Utils.conversionMenuItems(with: selectArray!)
+        informationListController?.menuItem = Utils.menuItems(names: selectArray!)
         self.addChildViewController(informationListController!)
         
         informationListController?.collectionView?.frame = CGRect(x:0, y:(titleView?.frame.maxY)!, width: kScreenSize.width, height:kScreenSize.height - (titleView?.frame.maxY)!)
@@ -120,7 +120,7 @@ extension InfoContainerController {
     }
 }
 
-//MARK: - OSCPropertyCollectionDelegate
+//MARK: - PropertyCollectionDelegate
 extension InfoContainerController: PropertyCollectionDelegate {
     func clickCellWithIndex(index: Int) {
         currentIndex = index
@@ -138,7 +138,7 @@ extension InfoContainerController: PropertyCollectionDelegate {
     }
 }
 
-//MARK: - SyntheticaltitleBarDelegate
+//MARK: - MenuBarDelegate
 extension InfoContainerController: MenuBarDelegate {
     func addBtnClickWithIsBeginEdit(isEdit: Bool) {
         if isEdit {
@@ -170,7 +170,7 @@ extension InfoContainerController: MenuBarDelegate {
     }
 }
 
-//MARK: - InformationListCollectionDelegate
+//MARK: - InfoCollectionDelegate
 extension InfoContainerController : InfoCollectionDelegate {
     func ScrollViewDidEndWithIndex(index: Int) {
         currentIndex = index

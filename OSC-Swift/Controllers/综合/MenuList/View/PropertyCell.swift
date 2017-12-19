@@ -15,12 +15,13 @@ enum CellType: Int {
     case select, second
 }
 
-protocol OSCPropertyCollectionCellDelegate {
+protocol PropertyCellDelegate {
     func deleteBtnClickWithCell(cell: UICollectionViewCell)
 }
+
 class PropertyCell : UICollectionViewCell {
     var title: String?
-    var delegate: OSCPropertyCollectionCellDelegate?
+    var delegate: PropertyCellDelegate?
     
     override init(frame: CGRect) {
         super.init(frame: frame)

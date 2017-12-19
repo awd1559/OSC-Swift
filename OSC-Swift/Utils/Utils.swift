@@ -33,10 +33,10 @@ class Utils {
     static func handle_TagString(_ originStr: String, fontSize: CGFloat) -> NSAttributedString {
         let needHandleStr = originStr
         var mAttrStr = NSAttributedString(string: needHandleStr)
-        
+       
         //TODO:
 //        mAttrStr.setFont(UIFont.systemFontSize(fontSize))
-//        mAttrStr.setColor(UIColor.black, range: mAttrStr.rangeOfAll())
+//        mAttrStr.setColor(UIColor.black, rang: mAttrStr.rangeOfAll())
         
         return mAttrStr
     }
@@ -225,7 +225,7 @@ class Utils {
         UserDefaults.standard.synchronize()
     }
     
-    static func updateUserSelectedMenuList(names: [String]) {
+    static func updateSelectedMenuList(names: [String]) {
         let items = self.menuItems(names: names)
         let tokens = self.menuTokens(items)
         self.updateSelectedMenuList(tokens: tokens)

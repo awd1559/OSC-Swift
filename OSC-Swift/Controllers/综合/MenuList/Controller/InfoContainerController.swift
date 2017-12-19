@@ -116,7 +116,56 @@ extension InfoContainerController {
     }
     
     func endChoseProperty() {
-        
+        let height = kScreenSize.height - (titleView?.frame.maxY)!
+        UIView.animate(withDuration: kAnimationTime,
+           animations: {
+            self.propertyTitleView?.alpha = 0
+            self.collectionView?.frame = CGRect(x: 0, y: (self.titleView?.frame.maxY)!, width: kScreenSize.width, height: height)
+        }, completion: { _ in
+            self.collectionView?.removeFromSuperview()
+            self.propertyTitleView?.removeFromSuperview()
+//            self.propertyTitleView = nil
+//            self.collectionView = nil
+        })
+    }
+}
+
+//MARK: - MenuBarDelegate
+extension InfoContainerController: MenuBarDelegate {
+    func clickAddButton(editing: Bool) {
+        if editing {
+            UIView.animate(withDuration: kAnimationTime, animations: {
+                let frame = CGRect(x: 0, y: kScreenSize.height, width: kScreenSize.width, height: (self.tabBarController?.tabBar.bounds.size.height)!)
+                self.tabBarController?.tabBar.frame = frame
+            }, completion: { finished in
+                self.titleView?.endAnimation()
+            })
+            self.beginChoseProperty()
+        } else {
+            UIView.animate(withDuration: kAnimationTime, animations: {
+                let frame = CGRect(x: 0, y: kScreenSize.height - (self.tabBarController?.tabBar.bounds.size.height)!, width: kScreenSize.width, height: (self.tabBarController?.tabBar.bounds.size.height)!)
+                self.tabBarController?.tabBar.frame = frame
+            }, completion: {finished in
+                self.titleView?.endAnimation()
+            })
+            self.endChoseProperty()
+        }
+    }
+    
+    func clickMenuBarItem(at index: Int) {
+        currentIndex = index
+        informationListController?.collectionView?.setContentOffset(CGPoint(x: CGFloat(index) * kScreenSize.width, y: 0), animated: true)
+    }
+    
+    func closeMenuBarView() {
+        collectionView?.endEditing(true)
+        selectArray = collectionView?.CompleteAllEditings()
+        titleView?.reloadAllButtonsOfTitleBarWithTitles(titles: selectArray!)
+        Utils.updateSelectedMenuList(names: selectArray!)
+        informationListController?.menuItem = Utils.menuItems(names: selectArray!)
+        currentIndex = (collectionView?.getSelectIdenx())!
+        titleView?.scrollToCenterWithIndex(index: currentIndex)
+        informationListController?.collectionView?.setContentOffset(CGPoint(x: CGFloat(currentIndex) * kScreenSize.width, y: 0), animated: true)
     }
 }
 
@@ -126,7 +175,7 @@ extension InfoContainerController: PropertyCollectionDelegate {
         currentIndex = index
         self.titleView?.reloadAllButtonsOfTitleBarWithTitles(titles: (collectionView?.CompleteAllEditings())!)
         self.titleView?.ClickCollectionCellWithIndex(index: index)
-        self.addBtnClickWithIsBeginEdit(isEdit: false)
+        self.clickAddButton(editing: false)
         selectArray = collectionView?.CompleteAllEditings()
 //        Utils.updateUserSelectedMenuListWithMenuNames(selectArray)
 //        informationListController?.menuItem = Utils.conversionMenuItemsWithMenuNames(selectArray)
@@ -138,37 +187,6 @@ extension InfoContainerController: PropertyCollectionDelegate {
     }
 }
 
-//MARK: - MenuBarDelegate
-extension InfoContainerController: MenuBarDelegate {
-    func addBtnClickWithIsBeginEdit(isEdit: Bool) {
-        if isEdit {
-            UIView.animate(withDuration: kAnimationTime, animations: {
-                let frame = CGRect(x: 0, y: kScreenSize.height, width: kScreenSize.width, height: (self.tabBarController?.tabBar.bounds.size.height)!)
-                self.tabBarController?.tabBar.frame = frame
-            }, completion: { finished in
-                self.titleView?.endAnimation()
-            })
-//            self.beginChoseProperty()
-        }else{
-            UIView.animate(withDuration: kAnimationTime, animations: {
-                let frame = CGRect(x: 0, y: kScreenSize.height - (self.tabBarController?.tabBar.bounds.size.height)!, width: kScreenSize.width, height: (self.tabBarController?.tabBar.bounds.size.height)!)
-                self.tabBarController?.tabBar.frame = frame
-            }, completion: {finished in
-                self.titleView?.endAnimation()
-            })
-//            self.endChoseProperty()
-        }
-    }
-    
-    func titleBtnClickWithIndex(index: Int) {
-        currentIndex = index
-        informationListController?.collectionView?.setContentOffset(CGPoint(x: CGFloat(index) * kScreenSize.width, y: 0), animated: true)
-    }
-    
-    func closeSyntheticalTitleBarView() {
-        
-    }
-}
 
 //MARK: - InfoCollectionDelegate
 extension InfoContainerController : InfoCollectionDelegate {

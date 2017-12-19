@@ -12,9 +12,9 @@ fileprivate let kScreenSize = UIScreen.main.bounds.size
 fileprivate let kAnimationTime = 0.5
 
 protocol MenuBarDelegate {
-    func addBtnClickWithIsBeginEdit(isEdit:Bool)
-    func titleBtnClickWithIndex(index: Int)
-    func closeSyntheticalTitleBarView()
+    func clickAddButton(editing:Bool)
+    func clickMenuBarItem(at index: Int)
+    func closeMenuBarView()
 }
 class MenuBarView: UIView {
     var delegate: MenuBarDelegate?
@@ -39,7 +39,7 @@ class MenuBarView: UIView {
         titleBar = TitleBarView(frame: frame, titles: titleArray!, needScroll: true)
         titleBar?.titleButtonClicked = { [weak self] index in
             if let delegate = self?.delegate {
-                delegate.titleBtnClickWithIndex(index: index)
+                delegate.clickMenuBarItem(at: index)
             }
         }
         
@@ -104,12 +104,12 @@ class MenuBarView: UIView {
             addBtn?.layer.add(animation, forKey: "hideAni")
             
             if let delegate = self.delegate {
-                delegate.closeSyntheticalTitleBarView()
+                delegate.closeMenuBarView()
             }
         }
         
         if let delegate = self.delegate {
-            delegate.addBtnClickWithIsBeginEdit(isEdit: (addBtn?.isSelected)!)
+            delegate.clickAddButton(editing: (addBtn?.isSelected)!)
         }
     }
     

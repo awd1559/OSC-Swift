@@ -16,8 +16,44 @@ class  MenuContainerController: UIViewController {
     var label = UILabel()
     var editBtn = UIButton()
     var titleView: MenuBarView?
-    var collectionView: MenuPropertyCollection?
-    var propertyTitleView: UIView?
+    lazy var collectionView: MenuPropertyCollection = {
+        let height = kScreenSize.height - (self.titleView?.frame.maxY)!
+        let frame = CGRect(x: 0, y: (self.titleView?.frame.maxY)! - height, width: kScreenSize.width, height: height)
+        let view = MenuPropertyCollection(frame: frame, selectIndex: self.currentIndex)
+        view.menuPropertyDelegate = self
+        return view
+    }()
+    
+    lazy var propertyTitleView: UIView = {
+        let view = UIView(frame: (self.titleView?.titleBarFrame)!)
+        view.backgroundColor = UIColor.titleColor()
+        
+        self.label = UILabel(frame: CGRect(x:10, y:0, width: 100, height: view.bounds.size.height))
+        self.label.font = UIFont.systemFont(ofSize: 14)
+        
+        self.label.textColor = UIColor(hex:0x9d9d9d)
+        self.label.text = "切换栏目"
+        view.addSubview(self.label)
+        
+        self.editBtn = UIButton(type: .custom)
+        self.editBtn.frame = CGRect(x: (self.titleView?.titleBarFrame?.size.width)! - 60, y: (self.titleView?.titleBarFrame?.size.height)!/2 - 12, width: 60, height: 24)
+        self.editBtn.setTitle("排序删除", for: .normal)
+        self.editBtn.setTitle("完成", for: .selected)
+        self.editBtn.setBackgroundImage(Utils.createImageWithColor(UIColor.white), for:.normal)
+        self.editBtn.setBackgroundImage(Utils.createImageWithColor(UIColor.navigationbarColor()), for:.highlighted)
+        self.editBtn.setTitleColor(UIColor.navigationbarColor(), for:.normal)
+        self.editBtn.setTitleColor(UIColor.white, for:.highlighted)
+        self.editBtn.titleLabel?.font = UIFont.systemFont(ofSize: 12)
+        self.editBtn.layer.cornerRadius = 4
+        self.editBtn.layer.masksToBounds = true
+        self.editBtn.layer.borderColor = UIColor.navigationbarColor().cgColor
+        self.editBtn.layer.borderWidth = 1
+        self.editBtn.addTarget(self, action:#selector(editBtnClick), for:.touchUpInside)
+        view.addSubview(editBtn)
+        view.alpha = 0
+        
+        return view
+    }()
     var currentIndex = 0
     var informationListController: MenuCollectionController?
     
@@ -36,8 +72,8 @@ class  MenuContainerController: UIViewController {
         self.automaticallyAdjustsScrollViewInsets = false
         self.navigationController?.navigationBar.isTranslucent = true
         self.tabBarController?.tabBar.isTranslucent = true
-        if (collectionView != nil) && (collectionView?.isEditing)! {
-            collectionView?.changeStateWithEdit(isEditing: true)
+        if collectionView.isEditing {
+            collectionView.changeStateWithEdit(isEditing: true)
         }
     }
     
@@ -56,10 +92,11 @@ class  MenuContainerController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        selectArray = Utils.buildinMenuNames()
-        selectArray?.append(contentsOf: Utils.selectedMenuNames())
         self.navigationItem.title = "综合"
         self.view.backgroundColor = .white
+        
+        selectArray = Utils.buildinMenuNames()
+        selectArray?.append(contentsOf: Utils.selectedMenuNames())
         let frame = CGRect(x: 0, y: 64, width: Int(kScreenSize.width), height: kTitleHeigh)
         titleView = MenuBarView(frame: frame, titles: selectArray!)
         titleView?.delegate = self
@@ -92,12 +129,12 @@ class  MenuContainerController: UIViewController {
 //MARK: - private
 extension MenuContainerController {
     func beginRefresh() {
-        
+        informationListController?.beginRefreshWithIndex(currentIndex)
     }
     
-    func editBtnClick(button: UIButton) {
+    @objc func editBtnClick(button: UIButton) {
         button.isSelected = !button.isSelected
-        self.collectionView?.changeStateWithEdit(isEditing: button.isSelected)
+        self.collectionView.changeStateWithEdit(isEditing: button.isSelected)
         if (button.isSelected) {
             label.text = "拖动排序"
         }else{
@@ -106,12 +143,12 @@ extension MenuContainerController {
     }
     
     func beginChoseProperty() {
-        self.view.addSubview(self.collectionView!)
-        titleView?.addSubview(self.propertyTitleView!)
+        self.view.addSubview(self.collectionView)
+        titleView?.addSubview(self.propertyTitleView)
         self.view.bringSubview(toFront: titleView!)
         UIView.animate(withDuration: kAnimationTime) {
-            self.propertyTitleView?.alpha = 1
-            self.collectionView?.frame = CGRect(x: 0, y: (self.titleView?.frame.maxY)!, width: kScreenSize.width, height: kScreenSize.height - (self.titleView?.frame.maxY)!)
+            self.propertyTitleView.alpha = 1
+            self.collectionView.frame = CGRect(x: 0, y: (self.titleView?.frame.maxY)!, width: kScreenSize.width, height: kScreenSize.height - (self.titleView?.frame.maxY)!)
         }
     }
     
@@ -119,11 +156,11 @@ extension MenuContainerController {
         let height = kScreenSize.height - (titleView?.frame.maxY)!
         UIView.animate(withDuration: kAnimationTime,
            animations: {
-            self.propertyTitleView?.alpha = 0
-            self.collectionView?.frame = CGRect(x: 0, y: (self.titleView?.frame.maxY)!, width: kScreenSize.width, height: height)
+            self.propertyTitleView.alpha = 0
+            self.collectionView.frame = CGRect(x: 0, y: (self.titleView?.frame.maxY)!, width: kScreenSize.width, height: height)
         }, completion: { _ in
-            self.collectionView?.removeFromSuperview()
-            self.propertyTitleView?.removeFromSuperview()
+            self.collectionView.removeFromSuperview()
+            self.propertyTitleView.removeFromSuperview()
 //            self.propertyTitleView = nil
 //            self.collectionView = nil
         })
@@ -158,12 +195,12 @@ extension MenuContainerController: MenuBarDelegate {
     }
     
     func closeMenuBarView() {
-        collectionView?.endEditing(true)
-        selectArray = collectionView?.CompleteAllEditings()
+        collectionView.endEditing(true)
+        selectArray = collectionView.CompleteAllEditings()
         titleView?.reloadAllButtonsOfTitleBarWithTitles(titles: selectArray!)
         Utils.updateSelectedMenuList(names: selectArray!)
         informationListController?.menuItem = Utils.menuItems(names: selectArray!)
-        currentIndex = (collectionView?.getSelectIdenx())!
+        currentIndex = collectionView.getSelectIdenx()
         titleView?.scrollToCenterWithIndex(index: currentIndex)
         informationListController?.collectionView?.setContentOffset(CGPoint(x: CGFloat(currentIndex) * kScreenSize.width, y: 0), animated: true)
     }
@@ -173,10 +210,10 @@ extension MenuContainerController: MenuBarDelegate {
 extension MenuContainerController: MenuPropertyDelegate {
     func clickPropertyItem(at index: Int) {
         currentIndex = index
-        self.titleView?.reloadAllButtonsOfTitleBarWithTitles(titles: (collectionView?.CompleteAllEditings())!)
+        self.titleView?.reloadAllButtonsOfTitleBarWithTitles(titles: collectionView.CompleteAllEditings())
         self.titleView?.ClickCollectionCellWithIndex(index: index)
         self.clickAddButton(editing: false)
-        selectArray = collectionView?.CompleteAllEditings()
+        selectArray = collectionView.CompleteAllEditings()
         Utils.updateSelectedMenuList(names: selectArray!)
         informationListController?.menuItem = Utils.menuItems(names: selectArray!)
         informationListController?.collectionView?.setContentOffset(CGPoint(x: CGFloat(index) * kScreenSize.width, y:0), animated: true)

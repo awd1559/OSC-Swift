@@ -41,6 +41,18 @@ class Utils {
         
         return mAttrStr
     }
+    
+    static func createImageWithColor(_ color: UIColor) -> UIImage {
+        let rect=CGRect(x:0, y:0, width: 1, height: 1)
+        UIGraphicsBeginImageContext(rect.size)
+        let context = UIGraphicsGetCurrentContext()
+        context!.setFillColor(color.cgColor)
+        context!.fill(rect)
+        let theImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return theImage!
+    }
+    
 
     static func buildinMenuNames() -> [String] {
         let fixedLocalTokens = ["开源资讯", "推荐博客", "技术问答", "每日一搏"]
@@ -86,7 +98,10 @@ class Utils {
     
     static func selectedMenuTokens() -> [String] {
         let allTokens = self.allMenuTokens()
-        var chooseTokens = UserDefaults.standard.array(forKey: kUserDefaults_ChooseMenus) as! Array<String>
+        var chooseTokens = [String]()
+        if let m = UserDefaults.standard.array(forKey: kUserDefaults_ChooseMenus) {
+            chooseTokens = m as! [String]
+        }
         if chooseTokens.count == 0 {
             chooseTokens = self.buildinMenuTokens()
             self.updateSelectedMenuList(tokens: chooseTokens)

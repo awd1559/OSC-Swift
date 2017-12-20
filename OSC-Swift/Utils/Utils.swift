@@ -169,12 +169,24 @@ class Utils {
     static func allMenuItems() -> [OSCMenuItem] {
         let fileUrl = R.file.subMenuItemsPlist()
         let localMenusArr = NSArray(contentsOf: fileUrl!)
+        
+//        NSArray.modelArrayWithClass(OSCMenuItem.self, json: localMenusArr)
+        
         var menuItems = [OSCMenuItem]()
         for arrItem in (localMenusArr?.enumerated())! {
             let dict = arrItem.element as! [String: Any]
             var item = OSCMenuItem()
             item.name = dict["name"] as! String
-            //TODO: more property as long as name
+            item.token = dict["token"] as! String
+            item.fixed = dict["fixed"] as! Bool
+            item.needLogin = dict["needLogin"] as! Bool
+            item.tag = dict["tag"] as! String
+//            item.type = InformationType(rawValue: dict["type"] as! Int)!
+            item.subtype = dict["subtype"] as! String
+            item.order = dict["order"] as! Int
+            item.href = dict["href"] as! String
+            
+            //TODO: more banner property
             
             menuItems.append(item)
         }

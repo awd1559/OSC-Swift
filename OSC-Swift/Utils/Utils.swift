@@ -88,7 +88,9 @@ class Utils {
     }
 
     static func selectedMenuNames() -> [String] {
-        let menuItems = self.allMenuItems()
+        let menuTokens = self.selectedMenuTokens()
+        let menuItems = self.menuItems(tokens: menuTokens)
+        
         var names = [String]()
         for item in menuItems {
             names.append(item.name)
@@ -131,7 +133,7 @@ class Utils {
     }
     
     static func unselectedMenuNames() -> [String] {
-        let chooseTokens = self.selectedMenuTokens()
+        let chooseTokens = self.unselectedMenuTokens()
         let chooseItems = self.menuItems(tokens: chooseTokens)
         var names = [String]()
         for item in chooseItems {

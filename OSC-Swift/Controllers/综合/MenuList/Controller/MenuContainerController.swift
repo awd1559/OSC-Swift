@@ -26,7 +26,7 @@ class  MenuContainerController: UIViewController {
     
     lazy var propertyTitleView: UIView = {
         let view = UIView(frame: (self.titleView?.titleBarFrame)!)
-        view.backgroundColor = UIColor.titleColor()
+        view.backgroundColor = UIColor.titleBarColor()
         
         self.label = UILabel(frame: CGRect(x:10, y:0, width: 100, height: view.bounds.size.height))
         self.label.font = UIFont.systemFont(ofSize: 14)

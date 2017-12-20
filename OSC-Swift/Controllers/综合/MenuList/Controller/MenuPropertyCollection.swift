@@ -12,7 +12,7 @@ import UIKit
 fileprivate let cellID = "cell"
 fileprivate let headerID = "header"
 fileprivate let kScreenSize = UIScreen.main.bounds.size
-fileprivate let kCellWith: CGFloat = 80.0
+fileprivate let kCellWidth: CGFloat = 80.0
 fileprivate let kCellHeight: CGFloat = 30.0
 
 protocol MenuPropertyDelegate {
@@ -21,7 +21,7 @@ protocol MenuPropertyDelegate {
 }
 
 class MenuPropertyCollection: UICollectionView {
-    var propertyCollectionDelegate: MenuPropertyDelegate?
+    var menuPropertyDelegate: MenuPropertyDelegate?
     var isEditing: Bool = false
     var index: Int
     var selectTitle: [String]?
@@ -30,20 +30,20 @@ class MenuPropertyCollection: UICollectionView {
     var pressToEdit: UILongPressGestureRecognizer?
     var moveCell: MenuPropertyCell?
     
-    init(frame: CGRect, selected index: Int) {
-        self.index = index
+    init(frame: CGRect, selectIndex: Int) {
+        self.index = selectIndex
         let layout = UICollectionViewFlowLayout()
         var spacing: CGFloat = 11.0
-        let count = (kScreenSize.width - kCellWith - 2.0 * spacing) / 90.0 + 1.0
-        let resultSqrt = Int(kScreenSize.width - kCellWith - 2.0 * spacing)
+        let count = (kScreenSize.width - kCellWidth - 2.0 * spacing) / 90.0 + 1.0
+        let resultSqrt = Int(kScreenSize.width - kCellWidth - 2.0 * spacing)
         let number = resultSqrt % 90
         if number > 0 {
-            spacing = (kScreenSize.width - count * kCellWith) / (count + 1)
+            spacing = (kScreenSize.width - count * kCellWidth) / (count + 1)
         }
         layout.sectionInset = UIEdgeInsetsMake(11, spacing, 11 , spacing)
         layout.minimumLineSpacing = 11
         layout.minimumInteritemSpacing = spacing
-        layout.itemSize = CGSize(width: kCellWith, height: kCellHeight)
+        layout.itemSize = CGSize(width: kCellWidth, height: kCellHeight)
         super.init(frame: frame, collectionViewLayout: layout)
         
         self.backgroundColor = UIColor(red: 246.0/255.0, green: 246.0/255.0, blue: 246.0/255.0, alpha: 1.0)

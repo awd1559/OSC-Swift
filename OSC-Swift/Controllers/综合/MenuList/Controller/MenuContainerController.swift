@@ -15,8 +15,9 @@ fileprivate let kAnimationTime = 0.4
 class  MenuContainerController: UIViewController {
     var label = UILabel()
     var editBtn = UIButton()
+    
     var titleView: MenuBarView?
-    lazy var collectionView: MenuPropertyCollection = {
+    lazy var propertyCollectionView: MenuPropertyCollection = {
         let height = kScreenSize.height - (self.titleView?.frame.maxY)!
         let frame = CGRect(x: 0, y: (self.titleView?.frame.maxY)! - height, width: kScreenSize.width, height: height)
         let view = MenuPropertyCollection(frame: frame, selectIndex: self.currentIndex)
@@ -72,8 +73,8 @@ class  MenuContainerController: UIViewController {
         self.automaticallyAdjustsScrollViewInsets = false
         self.navigationController?.navigationBar.isTranslucent = true
         self.tabBarController?.tabBar.isTranslucent = true
-        if collectionView.isEditing {
-            collectionView.changeStateWithEdit(isEditing: true)
+        if propertyCollectionView.isEditing {
+            propertyCollectionView.changeStateWithEdit(isEditing: true)
         }
     }
     
@@ -134,7 +135,7 @@ extension MenuContainerController {
     
     @objc func editBtnClick(button: UIButton) {
         button.isSelected = !button.isSelected
-        self.collectionView.changeStateWithEdit(isEditing: button.isSelected)
+        self.propertyCollectionView.changeStateWithEdit(isEditing: button.isSelected)
         if (button.isSelected) {
             label.text = "拖动排序"
         }else{
@@ -143,12 +144,12 @@ extension MenuContainerController {
     }
     
     func beginChoseProperty() {
-        self.view.addSubview(self.collectionView)
+        self.view.addSubview(self.propertyCollectionView)
         titleView?.addSubview(self.propertyTitleView)
         self.view.bringSubview(toFront: titleView!)
         UIView.animate(withDuration: kAnimationTime) {
             self.propertyTitleView.alpha = 1
-            self.collectionView.frame = CGRect(x: 0, y: (self.titleView?.frame.maxY)!, width: kScreenSize.width, height: kScreenSize.height - (self.titleView?.frame.maxY)!)
+            self.propertyCollectionView.frame = CGRect(x: 0, y: (self.titleView?.frame.maxY)!, width: kScreenSize.width, height: kScreenSize.height - (self.titleView?.frame.maxY)!)
         }
     }
     
@@ -157,9 +158,9 @@ extension MenuContainerController {
         UIView.animate(withDuration: kAnimationTime,
            animations: {
             self.propertyTitleView.alpha = 0
-            self.collectionView.frame = CGRect(x: 0, y: (self.titleView?.frame.maxY)!, width: kScreenSize.width, height: height)
+            self.propertyCollectionView.frame = CGRect(x: 0, y: (self.titleView?.frame.maxY)!, width: kScreenSize.width, height: height)
         }, completion: { _ in
-            self.collectionView.removeFromSuperview()
+            self.propertyCollectionView.removeFromSuperview()
             self.propertyTitleView.removeFromSuperview()
 //            self.propertyTitleView = nil
 //            self.collectionView = nil
@@ -195,12 +196,12 @@ extension MenuContainerController: MenuBarDelegate {
     }
     
     func closeMenuBarView() {
-        collectionView.endEditing(true)
-        selectArray = collectionView.CompleteAllEditings()
+        propertyCollectionView.endEditing(true)
+        selectArray = propertyCollectionView.CompleteAllEditings()
         titleView?.reloadAllButtonsOfTitleBarWithTitles(titles: selectArray!)
         Utils.updateSelectedMenuList(names: selectArray!)
         informationListController?.menuItem = Utils.menuItems(names: selectArray!)
-        currentIndex = collectionView.getSelectIdenx()
+        currentIndex = propertyCollectionView.getSelectIdenx()
         titleView?.scrollToCenterWithIndex(index: currentIndex)
         informationListController?.collectionView?.setContentOffset(CGPoint(x: CGFloat(currentIndex) * kScreenSize.width, y: 0), animated: true)
     }
@@ -210,10 +211,10 @@ extension MenuContainerController: MenuBarDelegate {
 extension MenuContainerController: MenuPropertyDelegate {
     func clickPropertyItem(at index: Int) {
         currentIndex = index
-        self.titleView?.reloadAllButtonsOfTitleBarWithTitles(titles: collectionView.CompleteAllEditings())
+        self.titleView?.reloadAllButtonsOfTitleBarWithTitles(titles: propertyCollectionView.CompleteAllEditings())
         self.titleView?.ClickCollectionCellWithIndex(index: index)
         self.clickAddButton(editing: false)
-        selectArray = collectionView.CompleteAllEditings()
+        selectArray = propertyCollectionView.CompleteAllEditings()
         Utils.updateSelectedMenuList(names: selectArray!)
         informationListController?.menuItem = Utils.menuItems(names: selectArray!)
         informationListController?.collectionView?.setContentOffset(CGPoint(x: CGFloat(index) * kScreenSize.width, y:0), animated: true)

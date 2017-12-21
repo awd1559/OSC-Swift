@@ -9,6 +9,7 @@
 import MBProgressHUD
 import MJRefresh
 import Alamofire
+import Ono
 
 let kInformationListCollectionViewCellIdentifier = "OSCInformationListCollectionViewCell"
 
@@ -158,13 +159,55 @@ class MenuCollectionCell: UICollectionViewCell {
     }
     
     func sendRequestGetBannerData() {
-        let urlStr = "\(OSCAPI_V2_PREFIX)\(OSCAPI_BANNER)"
+        let url = OSCAPI_V2_PREFIX + OSCAPI_BANNER
+        let param = ["catalog" : menuItem?.banner.catalog.rawValue]
         
-        //TODO: Alamofire
+        Alamofire.request(url, method: .get, parameters: param)
+            .responseXMLDocument{ response in
+                switch response.result {
+                case .success(let doc):
+                    let rootElement: ONOXMLElement = doc.rootElement
+//                    let resultDic = rootElement.firstChild(withTag: "result").children(withTag: "items")
+                    
+                case .failure(let error):
+                    self.HUD = Utils.createHUD()
+                    self.HUD?.mode = .customView
+                    self.HUD?.detailsLabel.text = error.localizedDescription
+                    self.HUD?.hide(animated: true, afterDelay: 1)
+                }
+        }
     }
     
     func sendRequestGetListData(_ isRefresh: Bool) {
-        //TODO: Alamofire
+        if menuItem!.needLogin && Config.getOwnID() == 0 {
+            
+            //TODO: try to use base protocal, DO NOT USE AssociatedObject
+//            self.showCustomPageViewWithImage(R.image.ic_tip_fail(), tipString:"很遗憾,您必须登录才能查看此处内容")
+            return
+        } else {
+//            self.hideCustomPageView()
+        }
+        
+        let url = OSCAPI_V2_PREFIX + OSCAPI_INFORMATION_LIST
+        var param = ["token" : menuItem!, "pageToken" : menuItem!.token] as [String : Any]
+        if pageToken != "" && !isRefresh  {
+            param["pageToken"] = pageToken
+        } else {
+            self.tableView.mj_footer.state = .idle
+        }
+        
+        Alamofire.request(url, method: .get, parameters: param)
+            .responseXMLDocument{ response in
+                switch response.result {
+                case .success(let doc):
+                    let rootElement: ONOXMLElement = doc.rootElement
+//                    self.allCount = rootElement.firstChild(withTag: "allCount").numberValue().intValue
+//                    let objectsXML = self.parseXML(xml: doc)
+                case .failure(let error) :
+                    self.HUD = Utils.createHUD()
+                    self.HUD?.mode = .customView
+                }
+        }
     }
     
     func distributionListCurrentCellWithItem(listItem: OSCListItem, tableView:UITableView, indexPath: IndexPath) -> UITableViewCell {

@@ -166,7 +166,8 @@ class MenuCollectionCell: UICollectionViewCell {
             .responseXMLDocument{ response in
                 switch response.result {
                 case .success(let doc):
-                    let rootElement: ONOXMLElement = doc.rootElement
+                    break
+//                    let rootElement: ONOXMLElement = doc.rootElement
 //                    let resultDic = rootElement.firstChild(withTag: "result").children(withTag: "items")
                     
                 case .failure(let error):
@@ -200,7 +201,8 @@ class MenuCollectionCell: UICollectionViewCell {
             .responseXMLDocument{ response in
                 switch response.result {
                 case .success(let doc):
-                    let rootElement: ONOXMLElement = doc.rootElement
+                    break
+//                    let rootElement: ONOXMLElement = doc.rootElement
 //                    self.allCount = rootElement.firstChild(withTag: "allCount").numberValue().intValue
 //                    let objectsXML = self.parseXML(xml: doc)
                 case .failure(let error) :

@@ -21,7 +21,7 @@ class MenuBarView: UIView {
     var titleBarFrame: CGRect?
     var titleBar: TitleBarView?
     var titleArray: [String]?
-    var addBtn: UIButton?
+    var addBtn = UIButton(type: .custom)
     
     init(frame: CGRect, titles: [String]) {
         self.titleArray = titles
@@ -43,12 +43,11 @@ class MenuBarView: UIView {
             }
         }
         
-        addBtn = UIButton(type: .custom)
-        addBtn?.frame = CGRect(x: self.bounds.size.width - self.bounds.size.height - 5, y: 0, width: self.bounds.size.height, height: self.bounds.size.height)
-        addBtn?.setImage(R.image.ic_subscribe(), for: .normal)
-        addBtn?.titleLabel?.font = UIFont.systemFont(ofSize: 20)
-        addBtn?.addTarget(self, action: #selector(addClick), for: .touchUpInside)
-        self.addSubview(addBtn!)
+        addBtn.frame = CGRect(x: self.bounds.size.width - self.bounds.size.height - 5, y: 0, width: self.bounds.size.height, height: self.bounds.size.height)
+        addBtn.setImage(R.image.ic_subscribe(), for: .normal)
+        addBtn.titleLabel?.font = UIFont.systemFont(ofSize: 20)
+        addBtn.addTarget(self, action: #selector(addClick), for: .touchUpInside)
+        self.addSubview(addBtn)
         titleBar?.backgroundColor = UIColor(hex: 0xf6f6f6)
         titleBarFrame = titleBar?.frame
         
@@ -66,25 +65,35 @@ class MenuBarView: UIView {
     }
     
     func reloadAllButtonsOfTitleBarWithTitles(titles: [String]) {
-        
+        titleBar?.reloadAllButtonsOfTitleBarWithTitles(titles)
     }
     
     func scrollToCenterWithIndex(index: Int) {
-        
+        titleBar?.scrollToCenterWithIndex(index)
     }
     
     func ClickCollectionCellWithIndex(index:Int) {
-        
+        addBtn.isEnabled = false
+        addBtn.isSelected = false
+        let animation = CABasicAnimation(keyPath: "transform.rotation")
+        animation.duration = kAnimationTime - 0.2
+        animation.repeatCount = 1
+        animation.fillMode = kCAFillModeForwards
+        animation.isRemovedOnCompletion = false
+        animation.fromValue = -Double.pi/4 * 3
+        animation.toValue = 0
+        addBtn.layer.add(animation, forKey:"hideAni")
+        titleBar?.scrollToCenterWithIndex(index)
     }
     
     func endAnimation() {
-        addBtn?.isEnabled = true
+        addBtn.isEnabled = true
     }
     
     @objc func addClick() {
-        addBtn?.isSelected = !(addBtn?.isSelected)!
-        addBtn?.isEnabled = false
-        if (addBtn?.isSelected)! {
+        addBtn.isSelected = !addBtn.isSelected
+        addBtn.isEnabled = false
+        if addBtn.isSelected {
             let animation = CABasicAnimation(keyPath: "transform.rotation")
             animation.duration = kAnimationTime - 0.2
             animation.repeatCount = 1
@@ -92,7 +101,7 @@ class MenuBarView: UIView {
             animation.isRemovedOnCompletion = false
             animation.fromValue = 0
             animation.toValue = Double.pi/4*3
-            addBtn?.layer.add(animation, forKey: "showAni")
+            addBtn.layer.add(animation, forKey: "showAni")
         } else {
             let animation = CABasicAnimation(keyPath: "transform.rotation")
             animation.duration = kAnimationTime - 0.2
@@ -101,7 +110,7 @@ class MenuBarView: UIView {
             animation.isRemovedOnCompletion = false
             animation.fromValue = Double.pi/4*3
             animation.toValue = 0
-            addBtn?.layer.add(animation, forKey: "hideAni")
+            addBtn.layer.add(animation, forKey: "hideAni")
             
             if let delegate = self.delegate {
                 delegate.closeMenuBarView()
@@ -109,7 +118,7 @@ class MenuBarView: UIView {
         }
         
         if let delegate = self.delegate {
-            delegate.clickAddButton(editing: (addBtn?.isSelected)!)
+            delegate.clickAddButton(editing: addBtn.isSelected)
         }
     }
     

@@ -30,7 +30,7 @@ class MenuPropertyCell : UICollectionViewCell {
     var titleLabel = UILabel()
     var deleteBtn = UIButton(type: .custom)
     var isSelect = false
-    var isAble = false
+    var isUnable = false
     var cellType: CellType = .nomal
     
     override init(frame: CGRect) {
@@ -63,22 +63,59 @@ class MenuPropertyCell : UICollectionViewCell {
     }
     
     @objc func deleteClick(sender: UIButton) {
-        
+        if let delegate = self.delegate {
+            delegate.deleteBtnClickWithCell(cell: self)
+        }
     }
     
     func beginEditing() {
-    
+        let animation = CAKeyframeAnimation(keyPath: "transform.rotation")
+        animation.duration = 0.2
+        animation.isRemovedOnCompletion = true
+        animation.fillMode = kCAFillModeForwards
+        animation.repeatCount = Float(MAX_CANON)
+        let direction: Int = Int(arc4random() % 2)
+        if direction == 0 {
+            animation.values = [0, Double.pi / 90, 0, Double.pi / 90, 0]
+        } else {
+            animation.values = [0, Double.pi / 90, 0, Double.pi / 90, 0]
+        }
+        self.layer.add(animation, forKey:"animation")
+        deleteBtn.isHidden = false
     }
     
     func endEditing() {
-        
+        self.layer.removeAnimation(forKey: "animation")
+        deleteBtn.isHidden = true
     }
     
     func setCellType(_ cellType: CellType, isUnable:Bool) {
-        
+        self.isUnable = isUnable
+        self.cellType = cellType
+        switch cellType {
+        case .nomal:
+            titleLabel.textColor = UIColor(hex:0x111111)
+            if !isUnable {
+                titleLabel.layer.borderColor = UIColor(hex:0xcdcdcd).cgColor
+            }else{
+                titleLabel.layer.borderColor = UIColor(red:205/225.0, green:205/225.0, blue:205/225.0, alpha:0.4).cgColor
+                titleLabel.backgroundColor = UIColor.clear
+            }
+        case .select:
+            titleLabel.layer.borderColor = UIColor.navigationbarColor().cgColor
+            titleLabel.textColor = UIColor.navigationbarColor()
+            if isUnable {
+                titleLabel.backgroundColor = UIColor.clear
+            }
+        case .second:
+            titleLabel.textColor = UIColor(hex:0x111111)
+            titleLabel.layer.borderColor = UIColor(hex:0xcdcdcd).cgColor
+        default:
+            break
+        }
     }
     
     func getType() -> CellType {
-        return .nomal
+        return cellType
     }
 }

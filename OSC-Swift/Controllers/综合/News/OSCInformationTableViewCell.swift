@@ -8,6 +8,10 @@
 
 let InformationTableViewCell_IdentifierString = "InformationTableViewCellReuseIdenfitier"
 class OSCInformationTableViewCell: UITableViewCell {
+    var listItem: OSCListItem?
+    var showCommentCount: Bool = false
+    var showViewCount: Bool = false
+    
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.backgroundColor = .white

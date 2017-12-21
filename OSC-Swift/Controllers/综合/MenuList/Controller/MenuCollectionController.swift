@@ -49,13 +49,14 @@ class MenuCollectionController: UICollectionViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
 
-        for (menuItem_token, resultItem) in dataSources_dic! {
+        for (menuItem_token, item) in dataSources_dic! {
             if menuItem_token != curMenuItem?.token {
+                var resultItem = item
                 resultItem.bannerArr = nil
                 resultItem.tableViewArr = nil
-                resultItem.pageToken = nil
-                resultItem.offestDistance = 0
-//                dataSources_dic setObject:resultItem forKey:menuItem_token];
+                resultItem.pageToken = ""
+                resultItem.offsetDistance = 0
+                dataSources_dic![menuItem_token] = resultItem
             }
         }
     }
@@ -80,8 +81,6 @@ class MenuCollectionController: UICollectionViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-//        let cell = UICollectionViewCell()
-        
         curMenuItem = self.menuItem?[indexPath.row]
         let curDic = self.getCurrentListDataSource()
         let cell = MenuCollectionCell.returnReuseInformationListCollectionViewCell(collectionView, identifier:kInformationListCollectionViewCellIdentifier, indexPath:indexPath, model:curMenuItem!)

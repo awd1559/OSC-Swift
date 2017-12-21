@@ -63,6 +63,14 @@
 		CECAD8811FE0C981008EE696 /* Homepage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CECAD8801FE0C980008EE696 /* Homepage.storyboard */; };
 		CECAD8831FE0C9AC008EE696 /* MenuContainerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECAD8821FE0C9AC008EE696 /* MenuContainerController.swift */; };
 		CECAD8851FE0CAA2008EE696 /* OSCTweetsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECAD8841FE0CAA2008EE696 /* OSCTweetsController.swift */; };
+		CECBB5DD1FEB4BA4005E87AA /* BannerScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECBB5DC1FEB4BA4005E87AA /* BannerScrollView.swift */; };
+		CECBB5E01FEB4D5B005E87AA /* ActivityHeadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECBB5DF1FEB4D5B005E87AA /* ActivityHeadView.swift */; };
+		CECBB5E21FEB54BA005E87AA /* UsualTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECBB5E11FEB54BA005E87AA /* UsualTableViewCell.swift */; };
+		CECBB5E41FEB6789005E87AA /* UIView+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECBB5E31FEB6789005E87AA /* UIView+ext.swift */; };
+		CECBB5E61FEB6BB7005E87AA /* NewHotBlogTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECBB5E51FEB6BB7005E87AA /* NewHotBlogTableViewCell.swift */; };
+		CECBB5E81FEB6BE1005E87AA /* OSCQuesAnsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECBB5E71FEB6BE1005E87AA /* OSCQuesAnsTableViewCell.swift */; };
+		CECBB5EA1FEB6C1F005E87AA /* OSCActivityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECBB5E91FEB6C1F005E87AA /* OSCActivityTableViewCell.swift */; };
+		CECBB5EC1FEB7407005E87AA /* OSCPushTypeControllerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECBB5EB1FEB7407005E87AA /* OSCPushTypeControllerHelper.swift */; };
 		CEFEC64D1FDE41030019DDF2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFEC64C1FDE41030019DDF2 /* AppDelegate.swift */; };
 		CEFEC6521FDE41030019DDF2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEFEC6501FDE41030019DDF2 /* Main.storyboard */; };
 		CEFEC6541FDE41030019DDF2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEFEC6531FDE41030019DDF2 /* Assets.xcassets */; };
@@ -184,6 +192,14 @@
 		CECAD8801FE0C980008EE696 /* Homepage.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Homepage.storyboard; sourceTree = "<group>"; };
 		CECAD8821FE0C9AC008EE696 /* MenuContainerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuContainerController.swift; sourceTree = "<group>"; };
 		CECAD8841FE0CAA2008EE696 /* OSCTweetsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSCTweetsController.swift; sourceTree = "<group>"; };
+		CECBB5DC1FEB4BA4005E87AA /* BannerScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerScrollView.swift; sourceTree = "<group>"; };
+		CECBB5DF1FEB4D5B005E87AA /* ActivityHeadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityHeadView.swift; sourceTree = "<group>"; };
+		CECBB5E11FEB54BA005E87AA /* UsualTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsualTableViewCell.swift; sourceTree = "<group>"; };
+		CECBB5E31FEB6789005E87AA /* UIView+ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+ext.swift"; sourceTree = "<group>"; };
+		CECBB5E51FEB6BB7005E87AA /* NewHotBlogTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewHotBlogTableViewCell.swift; sourceTree = "<group>"; };
+		CECBB5E71FEB6BE1005E87AA /* OSCQuesAnsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSCQuesAnsTableViewCell.swift; sourceTree = "<group>"; };
+		CECBB5E91FEB6C1F005E87AA /* OSCActivityTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSCActivityTableViewCell.swift; sourceTree = "<group>"; };
+		CECBB5EB1FEB7407005E87AA /* OSCPushTypeControllerHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSCPushTypeControllerHelper.swift; sourceTree = "<group>"; };
 		CEFEC6491FDE41030019DDF2 /* OSC-Swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "OSC-Swift.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEFEC64C1FDE41030019DDF2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CEFEC6511FDE41030019DDF2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -358,6 +374,7 @@
 		CEA24E371FE8A570000BAA76 /* Blogs */ = {
 			isa = PBXGroup;
 			children = (
+				CECBB5E51FEB6BB7005E87AA /* NewHotBlogTableViewCell.swift */,
 			);
 			path = Blogs;
 			sourceTree = "<group>";
@@ -365,6 +382,7 @@
 		CEA24E381FE8A579000BAA76 /* Questions */ = {
 			isa = PBXGroup;
 			children = (
+				CECBB5E71FEB6BE1005E87AA /* OSCQuesAnsTableViewCell.swift */,
 			);
 			path = Questions;
 			sourceTree = "<group>";
@@ -576,6 +594,7 @@
 		CECAD8761FE0BDF2008EE696 /* 发现 */ = {
 			isa = PBXGroup;
 			children = (
+				CECBB5DE1FEB4D51005E87AA /* Activity */,
 				CE2BF0E91FE1692C00528BA6 /* 扫一扫 */,
 				CECAD87E1FE0C963008EE696 /* Discover.storyboard */,
 				CE6B24E61FE0D2BE00659156 /* DiscoverViewController.swift */,
@@ -613,6 +632,15 @@
 				CEC518CB1FE22C4E009A7CF2 /* MenuList */,
 			);
 			path = "综合";
+			sourceTree = "<group>";
+		};
+		CECBB5DE1FEB4D51005E87AA /* Activity */ = {
+			isa = PBXGroup;
+			children = (
+				CECBB5DF1FEB4D5B005E87AA /* ActivityHeadView.swift */,
+				CECBB5E91FEB6C1F005E87AA /* OSCActivityTableViewCell.swift */,
+			);
+			path = Activity;
 			sourceTree = "<group>";
 		};
 		CEFEC6401FDE41030019DDF2 = {
@@ -702,6 +730,8 @@
 		CEFEC67C1FDE43AB0019DDF2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				CECBB5DC1FEB4BA4005E87AA /* BannerScrollView.swift */,
+				CECBB5E11FEB54BA005E87AA /* UsualTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -713,6 +743,8 @@
 				CEFEC6CC1FDEBFFC0019DDF2 /* Config.swift */,
 				CE2BF0E01FE10CD800528BA6 /* UIColor+ext.swift */,
 				CE2BF0EE1FE17A5C00528BA6 /* Utils.swift */,
+				CECBB5E31FEB6789005E87AA /* UIView+ext.swift */,
+				CECBB5EB1FEB7407005E87AA /* OSCPushTypeControllerHelper.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -1048,15 +1080,19 @@
 				CEC518EE1FE247C3009A7CF2 /* SearchResultCells.swift in Sources */,
 				CEA24D321FE76372000BAA76 /* PullToRefreshView.swift in Sources */,
 				CEC518F31FE24906009A7CF2 /* HorizontalController.swift in Sources */,
+				CECBB5DD1FEB4BA4005E87AA /* BannerScrollView.swift in Sources */,
 				CE48FCA71FDF58C100366E4F /* RegisterViewController.swift in Sources */,
 				CEC518FB1FE24A7C009A7CF2 /* OSCPhotoGroupView.swift in Sources */,
 				CE48FCA31FDF586B00366E4F /* RegisterInfoViewController.swift in Sources */,
+				CECBB5E01FEB4D5B005E87AA /* ActivityHeadView.swift in Sources */,
 				CE1CE4031FE55EAA002B3A50 /* OSCInformationTableViewCell.swift in Sources */,
 				CE1CE3FE1FE4AFC6002B3A50 /* OSCUserItem.swift in Sources */,
 				CE2BF0E81FE1686700528BA6 /* VoiceTweetEditingVC.swift in Sources */,
 				CEC518CA1FE228D3009A7CF2 /* MenuPropertyCollection.swift in Sources */,
 				CE1CE3F71FE4AD8A002B3A50 /* OSCStatistics.swift in Sources */,
+				CECBB5E61FEB6BB7005E87AA /* NewHotBlogTableViewCell.swift in Sources */,
 				CE52B5DF1FE3ACAD00A3E792 /* OSCAPI.swift in Sources */,
+				CECBB5EC1FEB7407005E87AA /* OSCPushTypeControllerHelper.swift in Sources */,
 				CEC518C81FE227A3009A7CF2 /* TitleBarView.swift in Sources */,
 				CEC518EB1FE244DE009A7CF2 /* DetailsViewController.swift in Sources */,
 				CE2BF0E61FE1189700528BA6 /* TweetEditingVC.swift in Sources */,
@@ -1065,6 +1101,7 @@
 				CE52B5E21FE3B3AD00A3E792 /* osc-token-config.swift in Sources */,
 				CEFEC6CA1FDE720B0019DDF2 /* OSCTabBarController.swift in Sources */,
 				CEFEC6CD1FDEBFFC0019DDF2 /* Config.swift in Sources */,
+				CECBB5E41FEB6789005E87AA /* UIView+ext.swift in Sources */,
 				CE2BF0E11FE10CD800528BA6 /* UIColor+ext.swift in Sources */,
 				CEA24E4E1FE9413D000BAA76 /* Alamofire+xml.swift in Sources */,
 				CE2BF0DF1FE106D200528BA6 /* OptionButton.swift in Sources */,
@@ -1073,6 +1110,7 @@
 				CEFEC64D1FDE41030019DDF2 /* AppDelegate.swift in Sources */,
 				CECAD8831FE0C9AC008EE696 /* MenuContainerController.swift in Sources */,
 				CE1CE3FC1FE4AF5F002B3A50 /* OSCTweetItem.swift in Sources */,
+				CECBB5E81FEB6BE1005E87AA /* OSCQuesAnsTableViewCell.swift in Sources */,
 				CEC518CD1FE22C5D009A7CF2 /* MenuCollectionController.swift in Sources */,
 				CEC518E01FE24413009A7CF2 /* MenuPropertyCell.swift in Sources */,
 				CEC518DA1FE2434C009A7CF2 /* OSCListItem.swift in Sources */,
@@ -1081,6 +1119,7 @@
 				CE48FC9F1FDF580D00366E4F /* LoginViewController.swift in Sources */,
 				CEA24D311FE76372000BAA76 /* PullToRefreshOption.swift in Sources */,
 				CE6B24E91FE0D2FE00659156 /* HomepageViewController.swift in Sources */,
+				CECBB5EA1FEB6C1F005E87AA /* OSCActivityTableViewCell.swift in Sources */,
 				CEA24D331FE76372000BAA76 /* UIScrollViewExtension.swift in Sources */,
 				CEC518F01FE247CF009A7CF2 /* SearchResultController.swift in Sources */,
 				CEA24E3F1FE8F10D000BAA76 /* OSCObjsViewController.swift in Sources */,
@@ -1089,6 +1128,7 @@
 				CE2BF0EF1FE17A5C00528BA6 /* Utils.swift in Sources */,
 				CEC518DE1FE243F3009A7CF2 /* MenuCollectionCell.swift in Sources */,
 				CEC518E91FE244CF009A7CF2 /* BottomBarViewController.swift in Sources */,
+				CECBB5E21FEB54BA005E87AA /* UsualTableViewCell.swift in Sources */,
 				CE52B5E51FE3C32E00A3E792 /* OSCBanner.swift in Sources */,
 				CECAD87D1FE0C585008EE696 /* OSCSearchViewController.swift in Sources */,
 				CEC518C61FE226BC009A7CF2 /* MenuBarView.swift in Sources */,

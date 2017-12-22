@@ -9,6 +9,11 @@
 import UIKit
 
 
+protocol MenuPageDelegate {
+    func scrollViewDidEnd(at index:Int)
+}
+
+
 class MenuPageCollection: UICollectionViewController {
     var delegate: MenuPageDelegate?
     var menuItems: [OSCMenuItem]? {

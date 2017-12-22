@@ -11,9 +11,9 @@ import UIKit
 fileprivate let kAnimationTime = 0.5
 
 protocol MenuBarDelegate {
-    func clickAddButton(editing:Bool)
-    func menubar(_ menubar: MenuBar, didClickAt index: Int)
-    func menubarClosed(_ menubar: MenuBar)
+    func menubarWillShow()
+    func menubarWillClose()
+    func menubardidClickAt(_ index: Int)
 }
 
 class MenuBar: UIView {
@@ -26,7 +26,7 @@ class MenuBar: UIView {
         bar.backgroundColor = UIColor(hex: 0xf6f6f6)
         bar.titleButtonClicked = { [weak self] index in
             if let delegate = self?.delegate {
-                delegate.menubar(self!, didClickAt: index)
+                delegate.menubardidClickAt(index)
             }
         }
         return bar
@@ -57,7 +57,7 @@ class MenuBar: UIView {
         animation.repeatCount = 1
         animation.fillMode = kCAFillModeForwards
         animation.isRemovedOnCompletion = false
-        animation.fromValue = Double.pi/4*3
+        animation.fromValue = -Double.pi/4*3
         animation.toValue = 0
         return animation
     }()
@@ -89,25 +89,20 @@ class MenuBar: UIView {
         titleBar.reload(with: titles)
     }
     
-    func scrollToCenterWithIndex(index: Int) {
+    func scrollToCenter(with index: Int) {
         titleBar.scrollToCenter(with: index)
     }
     
     func ClickCollectionCellWithIndex(index:Int) {
-        addBtn.isEnabled = false
         addBtn.isSelected = false
-        let animation = CABasicAnimation(keyPath: "transform.rotation")
-        animation.duration = kAnimationTime - 0.2
-        animation.repeatCount = 1
-        animation.fillMode = kCAFillModeForwards
-        animation.isRemovedOnCompletion = false
-        animation.fromValue = -Double.pi/4 * 3
-        animation.toValue = 0
-        addBtn.layer.add(animation, forKey:"hideAni")
+        addBtn.isEnabled = false
+        
+        addBtn.layer.add(hideAnimation, forKey:"hideAni")
         titleBar.scrollToCenter(with: index)
-    }
-    
-    func endAnimation() {
+        if let delegate = self.delegate {
+            delegate.menubardidClickAt(index)
+        }
+        
         addBtn.isEnabled = true
     }
     
@@ -118,13 +113,16 @@ class MenuBar: UIView {
             addBtn.layer.add(showAnimation, forKey: "showAni")
         } else {
             addBtn.layer.add(hideAnimation, forKey: "hideAni")
-            if let delegate = self.delegate {
-                delegate.menubarClosed(self)
-            }
         }
         
+        addBtn.isEnabled = true
+        
         if let delegate = self.delegate {
-            delegate.clickAddButton(editing: addBtn.isSelected)
+            if addBtn.isSelected {
+                delegate.menubarWillShow()
+            } else {
+                delegate.menubarWillClose()
+            }
         }
     }
     

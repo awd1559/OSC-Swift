@@ -32,7 +32,6 @@
 		CE52B5E51FE3C32E00A3E792 /* OSCBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE52B5E41FE3C32E00A3E792 /* OSCBanner.swift */; };
 		CE52B5E71FE3C74900A3E792 /* OSCExtra.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE52B5E61FE3C74900A3E792 /* OSCExtra.swift */; };
 		CE6098FC1FEC8DC70023B6A5 /* MenuPropertyTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6098FB1FEC8DC70023B6A5 /* MenuPropertyTopView.swift */; };
-		CE6098FE1FEC90E60023B6A5 /* MenuDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6098FD1FEC90E60023B6A5 /* MenuDelegate.swift */; };
 		CE6099001FEC9C000023B6A5 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6098FF1FEC9C000023B6A5 /* Constants.swift */; };
 		CE6522D71FE62DB2000A98D2 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = CE6522D61FE62DB2000A98D2 /* README.md */; };
 		CE6B24E71FE0D2BE00659156 /* DiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6B24E61FE0D2BE00659156 /* DiscoverViewController.swift */; };
@@ -163,7 +162,6 @@
 		CE52B5E41FE3C32E00A3E792 /* OSCBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSCBanner.swift; sourceTree = "<group>"; };
 		CE52B5E61FE3C74900A3E792 /* OSCExtra.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSCExtra.swift; sourceTree = "<group>"; };
 		CE6098FB1FEC8DC70023B6A5 /* MenuPropertyTopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuPropertyTopView.swift; sourceTree = "<group>"; };
-		CE6098FD1FEC90E60023B6A5 /* MenuDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuDelegate.swift; sourceTree = "<group>"; };
 		CE6098FF1FEC9C000023B6A5 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		CE6522D61FE62DB2000A98D2 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		CE6B24E61FE0D2BE00659156 /* DiscoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverViewController.swift; sourceTree = "<group>"; };
@@ -530,7 +528,6 @@
 				CE6098FB1FEC8DC70023B6A5 /* MenuPropertyTopView.swift */,
 				CEC518C91FE228D3009A7CF2 /* MenuPropertyCollection.swift */,
 				CEC518DF1FE24413009A7CF2 /* MenuPropertyCell.swift */,
-				CE6098FD1FEC90E60023B6A5 /* MenuDelegate.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1089,7 +1086,6 @@
 				CE1CE4031FE55EAA002B3A50 /* OSCInformationTableViewCell.swift in Sources */,
 				CE1CE3FE1FE4AFC6002B3A50 /* OSCUserItem.swift in Sources */,
 				CE2BF0E81FE1686700528BA6 /* VoiceTweetEditingVC.swift in Sources */,
-				CE6098FE1FEC90E60023B6A5 /* MenuDelegate.swift in Sources */,
 				CEC518CA1FE228D3009A7CF2 /* MenuPropertyCollection.swift in Sources */,
 				CE1CE3F71FE4AD8A002B3A50 /* OSCStatistics.swift in Sources */,
 				CECBB5E61FEB6BB7005E87AA /* NewHotBlogTableViewCell.swift in Sources */,

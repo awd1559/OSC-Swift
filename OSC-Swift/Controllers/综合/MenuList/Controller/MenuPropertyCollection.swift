@@ -16,6 +16,12 @@ fileprivate let kCellWidth: CGFloat = 80.0
 fileprivate let kCellHeight: CGFloat = 30.0
 fileprivate let kHeaderKind = UICollectionElementKindSectionHeader
 
+protocol MenuPropertyDelegate {
+    func clickPropertyItem(at index: Int)
+    func propertyCollectionBeginEdit()
+}
+
+
 class MenuPropertyCollection: UICollectionView {
     var menuPropertyDelegate: MenuPropertyDelegate?
     var isEditing: Bool = false
@@ -148,7 +154,9 @@ class MenuPropertyCollection: UICollectionView {
     }
 }
 
-extension MenuPropertyCollection: PropertyCollectionDelegate {
+
+//MARK: - PropertyCollectionDelegate
+extension MenuPropertyCollection: PropertyTopViewDelegate {
     func changeStateWithEdit(_ isEditing: Bool) {
         self.isEditing = isEditing
         let indexSet = IndexSet(integer: 1)
@@ -287,7 +295,7 @@ extension MenuPropertyCollection: UICollectionViewDelegate {
 
 //MARK: - PropertyCellDelegate
 extension MenuPropertyCollection : MenuPropertyCellDelegate {
-    func deleteBtnClickWithCell(cell: UICollectionViewCell) {
+    func deleteBtnClick(at cell: UICollectionViewCell) {
         let indexPath = self.indexPath(for: cell)
         let currentTitle = self.selectTitle![(indexPath?.row)!]
         self.selectTitle?.remove(at: (indexPath?.row)!)

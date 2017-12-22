@@ -27,7 +27,7 @@ class  MenuContainerController: UIViewController {
     
     lazy var propertyTopView: MenuPropertyTopView = {
         let view = MenuPropertyTopView(frame: self.menuBar.titleBar.frame)
-        view.collectionDelegate = self.propertyCollection
+        view.topviewDelegate = self.propertyCollection
         return view
     }()
     
@@ -107,8 +107,16 @@ extension MenuContainerController {
     func beginRefresh() {
         pageCollection.beginRefreshWithIndex(currentIndex)
     }
-    
-    func beginChoseProperty() {
+}
+
+//MARK: - MenuBarDelegate
+extension MenuContainerController: MenuBarDelegate {
+    func menubarWillShow() {
+        UIView.animate(withDuration: kAnimationTime) {
+            let frame = CGRect(x: 0, y: kScreenSize.height, width: kScreenSize.width, height: (self.tabBarController?.tabBar.bounds.size.height)!)
+            self.tabBarController?.tabBar.frame = frame
+        }
+        
         self.view.addSubview(self.propertyCollection)
         menuBar.addSubview(self.propertyTopView)
         self.view.bringSubview(toFront: menuBar)
@@ -117,58 +125,37 @@ extension MenuContainerController {
             self.propertyCollection.frame = CGRect(x: 0, y: self.menuBar.frame.maxY, width: kScreenSize.width, height: kScreenSize.height - self.menuBar.frame.maxY)
         }
     }
-    
-    func endChoseProperty() {
-        let height = kScreenSize.height - menuBar.frame.maxY
-        UIView.animate(withDuration: kAnimationTime,
-           animations: {
-            self.propertyTopView.alpha = 0
-            self.propertyCollection.frame = CGRect(x: 0, y: self.menuBar.frame.maxY, width: kScreenSize.width, height: height)
-        }, completion: { _ in
-            self.propertyCollection.removeFromSuperview()
-            self.propertyTopView.removeFromSuperview()
-//            self.propertyTitleView = nil
-//            self.collectionView = nil
-        })
-    }
-}
-
-//MARK: - MenuBarDelegate
-extension MenuContainerController: MenuBarDelegate {
-    func clickAddButton(editing: Bool) {
-        if editing {
-            UIView.animate(withDuration: kAnimationTime, animations: {
-                let frame = CGRect(x: 0, y: kScreenSize.height, width: kScreenSize.width, height: (self.tabBarController?.tabBar.bounds.size.height)!)
-                self.tabBarController?.tabBar.frame = frame
-            }, completion: { finished in
-                self.menuBar.endAnimation()
-            })
-            self.beginChoseProperty()
-        } else {
-            UIView.animate(withDuration: kAnimationTime, animations: {
-                let frame = CGRect(x: 0, y: kScreenSize.height - (self.tabBarController?.tabBar.bounds.size.height)!, width: kScreenSize.width, height: (self.tabBarController?.tabBar.bounds.size.height)!)
-                self.tabBarController?.tabBar.frame = frame
-            }, completion: {finished in
-                self.menuBar.endAnimation()
-            })
-            self.endChoseProperty()
-        }
-    }
-    
-    func menubar(_ menubar: MenuBar, didClickAt index: Int) {
-        currentIndex = index
-        pageCollection.collectionView?.setContentOffset(CGPoint(x: CGFloat(index) * kScreenSize.width, y: 0), animated: true)
-    }
-    
-    func menubarClosed(_ menubar: MenuBar) {
+    func menubarWillClose() {
         propertyCollection.endEditing(true)
         selectArray = propertyCollection.CompleteAllEditings()
         menuBar.reloadTitleBar(with: selectArray!)
         Utils.updateSelectedMenuList(names: selectArray!)
         pageCollection.menuItems = Utils.menuItems(names: selectArray!)
-        currentIndex = propertyCollection.getSelectIdenx()
-        menuBar.scrollToCenterWithIndex(index: currentIndex)
+        menuBar.scrollToCenter(with: currentIndex)
         pageCollection.collectionView?.setContentOffset(CGPoint(x: CGFloat(currentIndex) * kScreenSize.width, y: 0), animated: true)
+        
+        //show tabbar
+        UIView.animate(withDuration: kAnimationTime) {
+            let frame = CGRect(x: 0, y: kScreenSize.height - (self.tabBarController?.tabBar.bounds.size.height)!, width: kScreenSize.width, height: (self.tabBarController?.tabBar.bounds.size.height)!)
+            self.tabBarController?.tabBar.frame = frame
+        }
+        
+        //hide menu property collection, and remove it
+        let height = kScreenSize.height - menuBar.frame.maxY
+        UIView.animate(withDuration: kAnimationTime, animations: {
+            self.propertyTopView.alpha = 0
+            self.propertyCollection.frame = CGRect(x: 0, y: self.menuBar.frame.maxY, width: kScreenSize.width, height: height)
+        }, completion: { _ in
+            self.propertyCollection.removeFromSuperview()
+            self.propertyTopView.removeFromSuperview()
+            //            self.propertyTitleView = nil
+            //            self.collectionView = nil
+        })
+    }
+    
+    func menubardidClickAt(_ index: Int) {
+        currentIndex = index
+        pageCollection.collectionView?.setContentOffset(CGPoint(x: CGFloat(index) * kScreenSize.width, y: 0), animated: true)
     }
 }
 
@@ -178,7 +165,7 @@ extension MenuContainerController: MenuPropertyDelegate {
         currentIndex = index
         self.menuBar.reloadTitleBar(with: propertyCollection.CompleteAllEditings())
         self.menuBar.ClickCollectionCellWithIndex(index: index)
-        self.clickAddButton(editing: false)
+        self.menubarWillClose()
         selectArray = propertyCollection.CompleteAllEditings()
         Utils.updateSelectedMenuList(names: selectArray!)
         pageCollection.menuItems = Utils.menuItems(names: selectArray!)
@@ -195,7 +182,7 @@ extension MenuContainerController: MenuPropertyDelegate {
 extension MenuContainerController : MenuPageDelegate {
     func scrollViewDidEnd(at index: Int) {
         currentIndex = index
-        self.menuBar.scrollToCenterWithIndex(index: index)
+        self.menuBar.scrollToCenter(with: index)
     }
 }
 

@@ -8,10 +8,14 @@
 
 import UIKit
 
+protocol PropertyTopViewDelegate {
+    func changeStateWithEdit(_: Bool)
+}
+
 class MenuPropertyTopView: UIView {
     var label = UILabel()
     var editBtn = UIButton(type: .custom)
-    var collectionDelegate: PropertyCollectionDelegate?
+    var topviewDelegate: PropertyTopViewDelegate?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -49,12 +53,14 @@ class MenuPropertyTopView: UIView {
     
     @objc func editBtnClick(button: UIButton) {
         button.isSelected = !button.isSelected
-        self.collectionDelegate?.changeStateWithEdit(button.isSelected)
+        
         if (button.isSelected) {
             label.text = "拖动排序"
         }else{
             label.text = "切换栏目"
         }
+        
+        self.topviewDelegate?.changeStateWithEdit(button.isSelected)
     }
     
     func beginEdit() {

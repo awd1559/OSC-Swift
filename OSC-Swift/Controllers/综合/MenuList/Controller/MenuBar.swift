@@ -10,6 +10,12 @@ import UIKit
 
 fileprivate let kAnimationTime = 0.5
 
+protocol MenuBarDelegate {
+    func clickAddButton(editing:Bool)
+    func menubar(_ menubar: MenuBar, didClickAt index: Int)
+    func menubarClosed(_ menubar: MenuBar)
+}
+
 class MenuBar: UIView {
     var delegate: MenuBarDelegate?
     var titles: [String]?
@@ -20,7 +26,7 @@ class MenuBar: UIView {
         bar.backgroundColor = UIColor(hex: 0xf6f6f6)
         bar.titleButtonClicked = { [weak self] index in
             if let delegate = self?.delegate {
-                delegate.clickMenuBarItem(at: index)
+                delegate.menubar(self!, didClickAt: index)
             }
         }
         return bar
@@ -35,19 +41,31 @@ class MenuBar: UIView {
         return button
     }()
     
+    var showAnimation: CAAnimation = {
+        let animation = CABasicAnimation(keyPath: "transform.rotation")
+        animation.duration = kAnimationTime - 0.2
+        animation.repeatCount = 1
+        animation.fillMode = kCAFillModeForwards
+        animation.isRemovedOnCompletion = false
+        animation.fromValue = 0
+        animation.toValue = Double.pi/4*3
+        return animation
+    }()
+    var hideAnimation: CAAnimation = {
+        let animation = CABasicAnimation(keyPath: "transform.rotation")
+        animation.duration = kAnimationTime - 0.2
+        animation.repeatCount = 1
+        animation.fillMode = kCAFillModeForwards
+        animation.isRemovedOnCompletion = false
+        animation.fromValue = Double.pi/4*3
+        animation.toValue = 0
+        return animation
+    }()
+    
     init(frame: CGRect, titles: [String]) {
         self.titles = titles
         super.init(frame: frame)
-        self.addContentView()
         self.backgroundColor = UIColor(hex: 0xf9f9f9)
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    fileprivate func addContentView() {
-        self.addSubview(addBtn)
         
         let titleBackView = UIView(frame: titleBar.frame)
         let layer = CAGradientLayer()
@@ -59,14 +77,20 @@ class MenuBar: UIView {
         titleBackView.layer.mask = layer
         titleBackView.addSubview(titleBar)
         self.addSubview(titleBackView)
+        self.addSubview(addBtn)
     }
     
-    func reloadAllButtonsOfTitleBarWithTitles(titles: [String]) {
-        titleBar.reloadAllButtonsOfTitleBarWithTitles(titles)
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    
+    func reloadTitleBar(with titles: [String]) {
+        titleBar.reload(with: titles)
     }
     
     func scrollToCenterWithIndex(index: Int) {
-        titleBar.scrollToCenterWithIndex(index)
+        titleBar.scrollToCenter(with: index)
     }
     
     func ClickCollectionCellWithIndex(index:Int) {
@@ -80,7 +104,7 @@ class MenuBar: UIView {
         animation.fromValue = -Double.pi/4 * 3
         animation.toValue = 0
         addBtn.layer.add(animation, forKey:"hideAni")
-        titleBar.scrollToCenterWithIndex(index)
+        titleBar.scrollToCenter(with: index)
     }
     
     func endAnimation() {
@@ -91,26 +115,11 @@ class MenuBar: UIView {
         addBtn.isSelected = !addBtn.isSelected
         addBtn.isEnabled = false
         if addBtn.isSelected {
-            let animation = CABasicAnimation(keyPath: "transform.rotation")
-            animation.duration = kAnimationTime - 0.2
-            animation.repeatCount = 1
-            animation.fillMode = kCAFillModeForwards
-            animation.isRemovedOnCompletion = false
-            animation.fromValue = 0
-            animation.toValue = Double.pi/4*3
-            addBtn.layer.add(animation, forKey: "showAni")
+            addBtn.layer.add(showAnimation, forKey: "showAni")
         } else {
-            let animation = CABasicAnimation(keyPath: "transform.rotation")
-            animation.duration = kAnimationTime - 0.2
-            animation.repeatCount = 1
-            animation.fillMode = kCAFillModeForwards
-            animation.isRemovedOnCompletion = false
-            animation.fromValue = Double.pi/4*3
-            animation.toValue = 0
-            addBtn.layer.add(animation, forKey: "hideAni")
-            
+            addBtn.layer.add(hideAnimation, forKey: "hideAni")
             if let delegate = self.delegate {
-                delegate.closeMenuBarView()
+                delegate.menubarClosed(self)
             }
         }
         

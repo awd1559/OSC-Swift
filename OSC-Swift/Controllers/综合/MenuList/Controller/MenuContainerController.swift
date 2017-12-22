@@ -155,15 +155,15 @@ extension MenuContainerController: MenuBarDelegate {
         }
     }
     
-    func clickMenuBarItem(at index: Int) {
+    func menubar(_ menubar: MenuBar, didClickAt index: Int) {
         currentIndex = index
         pageCollection.collectionView?.setContentOffset(CGPoint(x: CGFloat(index) * kScreenSize.width, y: 0), animated: true)
     }
     
-    func closeMenuBarView() {
+    func menubarClosed(_ menubar: MenuBar) {
         propertyCollection.endEditing(true)
         selectArray = propertyCollection.CompleteAllEditings()
-        menuBar.reloadAllButtonsOfTitleBarWithTitles(titles: selectArray!)
+        menuBar.reloadTitleBar(with: selectArray!)
         Utils.updateSelectedMenuList(names: selectArray!)
         pageCollection.menuItems = Utils.menuItems(names: selectArray!)
         currentIndex = propertyCollection.getSelectIdenx()
@@ -176,7 +176,7 @@ extension MenuContainerController: MenuBarDelegate {
 extension MenuContainerController: MenuPropertyDelegate {
     func clickPropertyItem(at index: Int) {
         currentIndex = index
-        self.menuBar.reloadAllButtonsOfTitleBarWithTitles(titles: propertyCollection.CompleteAllEditings())
+        self.menuBar.reloadTitleBar(with: propertyCollection.CompleteAllEditings())
         self.menuBar.ClickCollectionCellWithIndex(index: index)
         self.clickAddButton(editing: false)
         selectArray = propertyCollection.CompleteAllEditings()

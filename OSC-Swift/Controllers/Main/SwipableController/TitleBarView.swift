@@ -19,7 +19,7 @@ class TitleBarView: UIScrollView {
     init(frame: CGRect, titles: [String], needScroll: Bool = false) {
         super.init(frame: frame)
         self.isNeedScroll = needScroll
-        self.reloadAllButtonsOfTitleBarWithTitles(titles)
+        self.reload(with: titles)
         self.showsHorizontalScrollIndicator = false
     }
     
@@ -33,7 +33,7 @@ class TitleBarView: UIScrollView {
         }
     }
     
-    func scrollToCenterWithIndex(_ index: Int) {
+    func scrollToCenter(with index: Int) {
         let preTitle = self.titleButtons![self.currentIndex!];
         preTitle.setTitleColor(UIColor(hex: 0x909090), for: .normal)
         currentIndex = index
@@ -53,7 +53,7 @@ class TitleBarView: UIScrollView {
     }
     
     /**重置所有的btn*/
-    func reloadAllButtonsOfTitleBarWithTitles(_ titles: [String]) {
+    func reload(with titles: [String]) {
         if let titleButtons = titleButtons {
             for button in titleButtons {
                 button.removeFromSuperview()
@@ -100,7 +100,7 @@ class TitleBarView: UIScrollView {
     
     @objc func onClick(_ button: UIButton) {
         if (currentIndex != button.tag) {
-            self.scrollToCenterWithIndex(button.tag)
+            self.scrollToCenter(with: button.tag)
             titleButtonClicked!(button.tag)
         }
     }

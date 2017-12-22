@@ -35,13 +35,6 @@ protocol PropertyCollectionDelegate {
     func changeStateWithEdit(_: Bool)
 }
 
-//FIXME: in MenuNavTab
-protocol MenuBarDelegate {
-    func clickAddButton(editing:Bool)
-    func clickMenuBarItem(at index: Int)
-    func closeMenuBarView()
-}
-
 //FIXME: in MenuPropertyCell
 protocol MenuPropertyCellDelegate {
     func deleteBtnClickWithCell(cell: UICollectionViewCell)

@@ -28,12 +28,16 @@ class MenuPropertyCollection: UICollectionView {
     var index: Int
     var selectTitle: [String]?
     var unSelectTitle: [String]?
-    var longGR: UILongPressGestureRecognizer = {
-        let rec = UILongPressGestureRecognizer(target: self, action: #selector(moveCellWithGR))
+    var pressToMove: UILongPressGestureRecognizer = {
+        let rec = UILongPressGestureRecognizer(target: self, action: #selector(pressToMoveAction))
         rec.minimumPressDuration = 0.1;
         return rec
     }()
-    var pressToEdit: UILongPressGestureRecognizer?
+    var pressToEdit: UILongPressGestureRecognizer = {
+        let rec = UILongPressGestureRecognizer(target: self, action: #selector(pressToEditAction))
+        rec.minimumPressDuration = 1
+        return rec
+    }()
     var moveCell: MenuPropertyCell?
     
     init(frame: CGRect, selectIndex: Int) {
@@ -57,6 +61,7 @@ class MenuPropertyCollection: UICollectionView {
         self.dataSource = self
         self.register(MenuPropertyCell.self, forCellWithReuseIdentifier: cellID)
         self.register(UICollectionReusableView.self, forSupplementaryViewOfKind: kHeaderKind, withReuseIdentifier: headerID)
+        
         let buildinMenuNames = Utils.buildinMenuNames()
         let selectedMenuNames = Utils.selectedMenuNames()
         self.selectTitle = buildinMenuNames
@@ -64,16 +69,14 @@ class MenuPropertyCollection: UICollectionView {
         self.unSelectTitle = Utils.unselectedMenuNames()
         self.alwaysBounceVertical = true
         
-        self.pressToEdit = UILongPressGestureRecognizer(target: self, action: #selector(pressToEditClick))
-        self.pressToEdit?.minimumPressDuration = 1
-        self.addGestureRecognizer(pressToEdit!)
+        self.addGestureRecognizer(pressToEdit)
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    @objc func pressToEditClick(longPress: UILongPressGestureRecognizer) {
+    @objc func pressToEditAction(longPress: UILongPressGestureRecognizer) {
         if longPress.state == .began {
             if let menuPropertyDelegate = self.menuPropertyDelegate {
                 menuPropertyDelegate.propertyCollectionBeginEdit()
@@ -81,12 +84,12 @@ class MenuPropertyCollection: UICollectionView {
         }
     }
 
-    @objc func moveCellWithGR(longgr: UILongPressGestureRecognizer) {
+    @objc func pressToMoveAction(longgr: UILongPressGestureRecognizer) {
         switch longgr.state {
         case .began:
             let indexPath = self.indexPathForItem(at: longgr.location(in: self))
             if indexPath!.row > 3 {
-                moveCell = self.cellForItem(at: indexPath!) as! MenuPropertyCell
+                moveCell = self.cellForItem(at: indexPath!) as? MenuPropertyCell
                 if let moveCell = moveCell {
                     moveCell.endEditing()
                     self.beginInteractiveMovementForItem(at: indexPath!)
@@ -118,7 +121,6 @@ class MenuPropertyCollection: UICollectionView {
                     self.moveCell?.alpha = 1
                 }
                 moveCell?.beginEditing()
-//                moveCell = nil
             }
             if let moveCell = self.moveCell {
                 moveCell.alpha = 0.8
@@ -152,11 +154,7 @@ class MenuPropertyCollection: UICollectionView {
         }
         return index
     }
-}
-
-
-//MARK: - PropertyCollectionDelegate
-extension MenuPropertyCollection: PropertyTopViewDelegate {
+    
     func changeStateWithEdit(_ isEditing: Bool) {
         self.isEditing = isEditing
         let indexSet = IndexSet(integer: 1)
@@ -168,17 +166,18 @@ extension MenuPropertyCollection: PropertyTopViewDelegate {
             if i > 3 {
                 if isEditing {
                     cell.beginEditing()
-                    self.addGestureRecognizer(self.longGR)
-                    self.removeGestureRecognizer(self.pressToEdit!)
+                    self.addGestureRecognizer(self.pressToMove)
+                    self.removeGestureRecognizer(self.pressToEdit)
                 } else {
                     cell.endEditing()
-                    self.removeGestureRecognizer(self.longGR)
-                    self.addGestureRecognizer(self.pressToEdit!)
+                    self.removeGestureRecognizer(self.pressToMove)
+                    self.addGestureRecognizer(self.pressToEdit)
                 }
             }
         }
     }
 }
+
 
 //MARK: - UICollectionViewDataSource
 extension MenuPropertyCollection: UICollectionViewDataSource {

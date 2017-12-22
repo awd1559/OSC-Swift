@@ -27,7 +27,7 @@ class  MenuContainerController: UIViewController {
     
     lazy var propertyTopView: MenuPropertyTopView = {
         let view = MenuPropertyTopView(frame: self.menuBar.titleBar.frame)
-        view.topviewDelegate = self.propertyCollection
+        view.topviewDelegate = self
         return view
     }()
     
@@ -158,6 +158,19 @@ extension MenuContainerController: MenuBarDelegate {
         pageCollection.collectionView?.setContentOffset(CGPoint(x: CGFloat(index) * kScreenSize.width, y: 0), animated: true)
     }
 }
+
+
+//MARK: - PropertyTopViewDelegate
+extension MenuContainerController: PropertyTopViewDelegate {
+    func startEdit() {
+        self.propertyCollection.changeStateWithEdit(true)
+    }
+    
+    func stopEdit() {
+        self.propertyCollection.changeStateWithEdit(false)
+    }
+}
+
 
 //MARK: - MenuPropertyDelegate
 extension MenuContainerController: MenuPropertyDelegate {

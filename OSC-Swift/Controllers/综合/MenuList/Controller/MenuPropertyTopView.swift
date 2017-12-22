@@ -9,41 +9,47 @@
 import UIKit
 
 protocol PropertyTopViewDelegate {
-    func changeStateWithEdit(_: Bool)
+//    func changeStateWithEdit(_: Bool)
+    func startEdit()
+    func stopEdit()
 }
 
 class MenuPropertyTopView: UIView {
-    var label = UILabel()
-    var editBtn = UIButton(type: .custom)
     var topviewDelegate: PropertyTopViewDelegate?
+    
+    lazy var label: UILabel = {
+        let label = UILabel(frame: CGRect(x:10, y:0, width: 100, height: self.frame.size.height))
+        label.font = UIFont.systemFont(ofSize: 14)
+        
+        label.textColor = UIColor(hex:0x9d9d9d)
+        label.text = "切换栏目"
+        return label
+    }()
+    lazy var editBtn: UIButton = {
+        let button = UIButton(type: .custom)
+        button.frame = CGRect(x: self.frame.size.width - 60, y: frame.size.height/2 - 12, width: 60, height: 24)
+        button.setTitle("排序删除", for: .normal)
+        button.setTitle("完成", for: .selected)
+        button.setBackgroundImage(Utils.createImageWithColor(UIColor.white), for:.normal)
+        button.setBackgroundImage(Utils.createImageWithColor(UIColor.navigationbarColor()), for:.highlighted)
+        button.setTitleColor(UIColor.navigationbarColor(), for:.normal)
+        button.setTitleColor(UIColor.white, for:.highlighted)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 12)
+        button.layer.cornerRadius = 4
+        button.layer.masksToBounds = true
+        button.layer.borderColor = UIColor.navigationbarColor().cgColor
+        button.layer.borderWidth = 1
+        button.addTarget(self, action:#selector(editBtnClick), for:.touchUpInside)
+        
+        return button
+    }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        self.backgroundColor = UIColor.titleBarColor()
-        
-        self.label = UILabel(frame: CGRect(x:10, y:0, width: 100, height: frame.size.height))
-        self.label.font = UIFont.systemFont(ofSize: 14)
-        
-        self.label.textColor = UIColor(hex:0x9d9d9d)
-        self.label.text = "切换栏目"
         self.addSubview(self.label)
-        
-        self.editBtn = UIButton(type: .custom)
-        self.editBtn.frame = CGRect(x: frame.size.width - 60, y: frame.size.height/2 - 12, width: 60, height: 24)
-        self.editBtn.setTitle("排序删除", for: .normal)
-        self.editBtn.setTitle("完成", for: .selected)
-        self.editBtn.setBackgroundImage(Utils.createImageWithColor(UIColor.white), for:.normal)
-        self.editBtn.setBackgroundImage(Utils.createImageWithColor(UIColor.navigationbarColor()), for:.highlighted)
-        self.editBtn.setTitleColor(UIColor.navigationbarColor(), for:.normal)
-        self.editBtn.setTitleColor(UIColor.white, for:.highlighted)
-        self.editBtn.titleLabel?.font = UIFont.systemFont(ofSize: 12)
-        self.editBtn.layer.cornerRadius = 4
-        self.editBtn.layer.masksToBounds = true
-        self.editBtn.layer.borderColor = UIColor.navigationbarColor().cgColor
-        self.editBtn.layer.borderWidth = 1
-        self.editBtn.addTarget(self, action:#selector(editBtnClick), for:.touchUpInside)
-        self.addSubview(editBtn)
+        self.addSubview(self.editBtn)
+        self.backgroundColor = UIColor.titleBarColor()
         self.alpha = 0
     }
     
@@ -52,18 +58,22 @@ class MenuPropertyTopView: UIView {
     }
     
     @objc func editBtnClick(button: UIButton) {
-        button.isSelected = !button.isSelected
+        beginEdit()
         
-        if (button.isSelected) {
+        if button.isSelected {
+            self.topviewDelegate?.startEdit()
+        } else {
+            self.topviewDelegate?.stopEdit()
+        }
+    }
+    
+    func beginEdit() {
+        self.editBtn.isSelected = !self.editBtn.isSelected
+        
+        if (self.editBtn.isSelected) {
             label.text = "拖动排序"
         }else{
             label.text = "切换栏目"
         }
-        
-        self.topviewDelegate?.changeStateWithEdit(button.isSelected)
-    }
-    
-    func beginEdit() {
-        self.editBtnClick(button: self.editBtn)
     }
 }

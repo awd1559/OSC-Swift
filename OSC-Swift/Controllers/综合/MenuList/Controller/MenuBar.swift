@@ -117,12 +117,10 @@ class MenuBar: UIView {
         
         addBtn.isEnabled = true
         
-        if let delegate = self.delegate {
-            if addBtn.isSelected {
-                delegate.menubarWillShow()
-            } else {
-                delegate.menubarWillClose()
-            }
+        if addBtn.isSelected {
+            self.delegate?.menubarWillShow()
+        } else {
+            self.delegate?.menubarWillClose()
         }
     }
     

@@ -34,7 +34,7 @@ class  MenuContainerController: UIViewController {
     lazy var propertyCollection: MenuPropertyCollection = {
         let height = kScreenSize.height - self.menuBar.frame.maxY
         let frame = CGRect(x: 0, y: self.menuBar.frame.maxY - height, width: kScreenSize.width, height: height)
-        let view = MenuPropertyCollection(frame: frame, selectIndex: self.currentIndex)
+        let view = MenuPropertyCollection(frame: frame)
         view.menuPropertyDelegate = self
         return view
     }()
@@ -63,7 +63,7 @@ class  MenuContainerController: UIViewController {
         self.navigationController?.navigationBar.isTranslucent = true
         self.tabBarController?.tabBar.isTranslucent = true
         if propertyCollection.isEditing {
-            propertyCollection.changeStateWithEdit(true)
+            propertyCollection.changeState(true)
         }
     }
     
@@ -102,24 +102,22 @@ class  MenuContainerController: UIViewController {
     
 }
 
-//MARK: - private
-extension MenuContainerController {
-    func beginRefresh() {
-        pageCollection.beginRefreshWithIndex(currentIndex)
-    }
-}
 
 //MARK: - MenuBarDelegate
 extension MenuContainerController: MenuBarDelegate {
     func menubarWillShow() {
+        //hide tabbar
         UIView.animate(withDuration: kAnimationTime) {
             let frame = CGRect(x: 0, y: kScreenSize.height, width: kScreenSize.width, height: (self.tabBarController?.tabBar.bounds.size.height)!)
             self.tabBarController?.tabBar.frame = frame
         }
         
-        self.view.addSubview(self.propertyCollection)
         menuBar.addSubview(self.propertyTopView)
+        self.view.addSubview(self.propertyCollection)
+        self.propertyCollection.index = self.currentIndex
         self.view.bringSubview(toFront: menuBar)
+        
+        //show property collection
         UIView.animate(withDuration: kAnimationTime) {
             self.propertyTopView.alpha = 1
             self.propertyCollection.frame = CGRect(x: 0, y: self.menuBar.frame.maxY, width: kScreenSize.width, height: kScreenSize.height - self.menuBar.frame.maxY)
@@ -148,8 +146,6 @@ extension MenuContainerController: MenuBarDelegate {
         }, completion: { _ in
             self.propertyCollection.removeFromSuperview()
             self.propertyTopView.removeFromSuperview()
-            //            self.propertyTitleView = nil
-            //            self.collectionView = nil
         })
     }
     
@@ -163,11 +159,11 @@ extension MenuContainerController: MenuBarDelegate {
 //MARK: - PropertyTopViewDelegate
 extension MenuContainerController: PropertyTopViewDelegate {
     func startEdit() {
-        self.propertyCollection.changeStateWithEdit(true)
+        self.propertyCollection.changeState(true)
     }
     
     func stopEdit() {
-        self.propertyCollection.changeStateWithEdit(false)
+        self.propertyCollection.changeState(false)
     }
 }
 

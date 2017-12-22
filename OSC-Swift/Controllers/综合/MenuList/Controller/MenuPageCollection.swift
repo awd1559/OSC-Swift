@@ -18,12 +18,12 @@ class MenuPageCollection: UICollectionViewController {
     var delegate: MenuPageDelegate?
     var menuItems: [OSCMenuItem]? {
         didSet {
-            if dataSources_dic == nil {
-                dataSources_dic = [String:InfoResultItem]()
+            if dataSource == nil {
+                dataSource = [String:InfoResultItem]()
                 for curMenuItem in menuItems! {
                     let postBackItem = InfoResultItem()
 //                    self.fillResultPostBackItem(postBackItem, currentMenuItem:curMenuItem)
-                    dataSources_dic![curMenuItem.token] =  postBackItem
+                    dataSource![curMenuItem.token] =  postBackItem
                 }
             }
             self.collectionView?.reloadData()
@@ -31,9 +31,7 @@ class MenuPageCollection: UICollectionViewController {
     }
     var isTouchSliding: Bool?
     var curMenuItem: OSCMenuItem?
-//    var HUD: MBProgressHUD
-//    var pageTokens: []?
-    var dataSources_dic: [String: InfoResultItem]?
+    var dataSource: [String: InfoResultItem]?
     
     //MARK: - lifeCycle
     override func viewDidLoad() {
@@ -49,16 +47,20 @@ class MenuPageCollection: UICollectionViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
 
-        for (menuItem_token, item) in dataSources_dic! {
+        for (menuItem_token, item) in dataSource! {
             if menuItem_token != curMenuItem?.token {
                 var resultItem = item
                 resultItem.bannerArr = nil
                 resultItem.tableViewArr = nil
                 resultItem.pageToken = ""
                 resultItem.offsetDistance = 0
-                dataSources_dic![menuItem_token] = resultItem
+                dataSource![menuItem_token] = resultItem
             }
         }
+    }
+    
+    func fillResultItem(_ item: InfoResultItem, with menuItem:OSCMenuItem) {
+        //TODO
     }
     
     func beginRefreshWithIndex(_ index: Int) {
@@ -69,7 +71,7 @@ class MenuPageCollection: UICollectionViewController {
     
     func getCurrentListDataSource() -> [String: InfoResultItem]{
         let curMenuToken = curMenuItem?.token
-        let resultItem = dataSources_dic![curMenuToken!]!
+        let resultItem = dataSource![curMenuToken!]!
         let curResultDic: [String: InfoResultItem] = [curMenuToken! : resultItem]
         return curResultDic
     }

@@ -25,7 +25,11 @@ protocol MenuPropertyDelegate {
 class MenuPropertyCollection: UICollectionView {
     var menuPropertyDelegate: MenuPropertyDelegate?
     var isEditing: Bool = false
-    var index: Int
+    var index: Int = 0 {
+        didSet {
+            self.reloadData()
+        }
+    }
     var selectTitle: [String]?
     var unSelectTitle: [String]?
     var pressToMove: UILongPressGestureRecognizer = {
@@ -40,8 +44,7 @@ class MenuPropertyCollection: UICollectionView {
     }()
     var moveCell: MenuPropertyCell?
     
-    init(frame: CGRect, selectIndex: Int) {
-        self.index = selectIndex
+    init(frame: CGRect) {
         let layout = UICollectionViewFlowLayout()
         var spacing: CGFloat = 11.0
         let count = (kScreenSize.width - kCellWidth - 2.0 * spacing) / 90.0 + 1.0
@@ -80,7 +83,7 @@ class MenuPropertyCollection: UICollectionView {
     
     @objc func pressToEditAction(longPress: UILongPressGestureRecognizer) {
         if longPress.state == .began {
-            changeStateWithEdit(true)
+            changeState(true)
             self.menuPropertyDelegate?.propertyCollectionBeginEdit()
         }
     }
@@ -156,7 +159,7 @@ class MenuPropertyCollection: UICollectionView {
         return result
     }
     
-    func changeStateWithEdit(_ isEditing: Bool) {
+    func changeState(_ isEditing: Bool) {
         self.isEditing = isEditing
         let indexSet = IndexSet(integer: 1)
         self.reloadSections(indexSet)

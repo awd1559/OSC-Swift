@@ -63,7 +63,7 @@ class  MenuContainerController: UIViewController {
         self.navigationController?.navigationBar.isTranslucent = true
         self.tabBarController?.tabBar.isTranslucent = true
         if propertyCollection.isEditing {
-            propertyCollection.changeState(true)
+            propertyCollection.isEditing = true
         }
     }
     
@@ -159,11 +159,11 @@ extension MenuContainerController: MenuBarDelegate {
 //MARK: - PropertyTopViewDelegate
 extension MenuContainerController: PropertyTopViewDelegate {
     func startEdit() {
-        self.propertyCollection.changeState(true)
+        self.propertyCollection.isEditing = true
     }
     
     func stopEdit() {
-        self.propertyCollection.changeState(false)
+        self.propertyCollection.isEditing = false
     }
 }
 

@@ -24,7 +24,28 @@ protocol MenuPropertyDelegate {
 
 class MenuPropertyCollection: UICollectionView {
     var menuPropertyDelegate: MenuPropertyDelegate?
-    var isEditing: Bool = false
+    var isEditing: Bool = false {
+        didSet {
+            let indexSet = IndexSet(integer: 1)
+            self.reloadSections(indexSet)
+            for i in 0..<selectTitle!.count {
+                let indexPath = IndexPath(row: i, section: 0)
+                let cell = self.cellForItem(at: indexPath) as! MenuPropertyCell
+                
+                if i > 3 {
+                    if isEditing {
+                        cell.beginEditing()
+                        self.addGestureRecognizer(self.pressToMove)
+                        self.removeGestureRecognizer(self.pressToEdit)
+                    } else {
+                        cell.endEditing()
+                        self.removeGestureRecognizer(self.pressToMove)
+                        self.addGestureRecognizer(self.pressToEdit)
+                    }
+                }
+            }
+        }
+    }
     var index: Int = 0 {
         didSet {
             self.reloadData()
@@ -83,7 +104,7 @@ class MenuPropertyCollection: UICollectionView {
     
     @objc func pressToEditAction(longPress: UILongPressGestureRecognizer) {
         if longPress.state == .began {
-            changeState(true)
+            self.isEditing = true
             self.menuPropertyDelegate?.propertyCollectionBeginEdit()
         }
     }
@@ -157,28 +178,6 @@ class MenuPropertyCollection: UICollectionView {
             }
         }
         return result
-    }
-    
-    func changeState(_ isEditing: Bool) {
-        self.isEditing = isEditing
-        let indexSet = IndexSet(integer: 1)
-        self.reloadSections(indexSet)
-        for i in 0..<selectTitle!.count {
-            let indexPath = IndexPath(row: i, section: 0)
-            let cell = self.cellForItem(at: indexPath) as! MenuPropertyCell
-            
-            if i > 3 {
-                if isEditing {
-                    cell.beginEditing()
-                    self.addGestureRecognizer(self.pressToMove)
-                    self.removeGestureRecognizer(self.pressToEdit)
-                } else {
-                    cell.endEditing()
-                    self.removeGestureRecognizer(self.pressToMove)
-                    self.addGestureRecognizer(self.pressToEdit)
-                }
-            }
-        }
     }
 }
 

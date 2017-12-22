@@ -50,7 +50,6 @@ class MenuPropertyCell : UICollectionViewCell {
         button.frame = CGRect(x:0, y:0, width:28, height:28)
         button.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 14, 14);
         button.setImage(R.image.ic_unsubscribe(), for: .normal)
-        button.addTarget(self, action:#selector(deleteClick), for:.touchUpInside)
         button.isHidden = true
         return button
     }()
@@ -59,6 +58,7 @@ class MenuPropertyCell : UICollectionViewCell {
         super.init(frame: frame)
         
         self.contentView.addSubview(titleLabel)
+        deleteBtn.addTarget(self, action:#selector(deleteClick), for:.touchUpInside)
         self.contentView.addSubview(deleteBtn)
     }
     

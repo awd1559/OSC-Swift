@@ -15,17 +15,17 @@ class  MenuContainerController: UIViewController {
     var label = UILabel()
     var editBtn = UIButton()
     
-    var titleView: MenuNavTab?
+    var menuNavTab: MenuNavTab?
     lazy var propertyCollectionView: MenuPropertyCollection = {
-        let height = kScreenSize.height - (self.titleView?.frame.maxY)!
-        let frame = CGRect(x: 0, y: (self.titleView?.frame.maxY)! - height, width: kScreenSize.width, height: height)
+        let height = kScreenSize.height - (self.menuNavTab?.frame.maxY)!
+        let frame = CGRect(x: 0, y: (self.menuNavTab?.frame.maxY)! - height, width: kScreenSize.width, height: height)
         let view = MenuPropertyCollection(frame: frame, selectIndex: self.currentIndex)
         view.menuPropertyDelegate = self
         return view
     }()
     
     lazy var propertyTitleView: PropertyTitleView = {
-        let view = PropertyTitleView(frame: (self.titleView?.titleBarFrame)!)
+        let view = PropertyTitleView(frame: (self.menuNavTab?.titleBar?.frame)!)
         view.collectionDelegate = self.propertyCollectionView
         return view
     }()
@@ -72,13 +72,13 @@ class  MenuContainerController: UIViewController {
         selectArray = Utils.buildinMenuNames()
         selectArray?.append(contentsOf: Utils.selectedMenuNames())
         let frame = CGRect(x: 0, y: 64, width: Int(kScreenSize.width), height: kTitleHeigh)
-        titleView = MenuNavTab(frame: frame, titles: selectArray!)
-        titleView?.delegate = self
-        self.view.addSubview(titleView!)
+        menuNavTab = MenuNavTab(frame: frame, titles: selectArray!)
+        menuNavTab?.delegate = self
+        self.view.addSubview(menuNavTab!)
         
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
-        layout.itemSize = CGSize(width: kScreenSize.width, height: kScreenSize.height - ((titleView?.frame.maxY)! - 49))
+        layout.itemSize = CGSize(width: kScreenSize.width, height: kScreenSize.height - ((menuNavTab?.frame.maxY)! - 49))
         layout.minimumLineSpacing = 0
         layout.minimumInteritemSpacing = 0
         layout.sectionInset = UIEdgeInsetsMake(0, 0, 49, 0);
@@ -87,7 +87,7 @@ class  MenuContainerController: UIViewController {
         informationListController?.menuItem = Utils.menuItems(names: selectArray!)
         self.addChildViewController(informationListController!)
         
-        informationListController?.collectionView?.frame = CGRect(x:0, y:(titleView?.frame.maxY)!, width: kScreenSize.width, height:kScreenSize.height - (titleView?.frame.maxY)!)
+        informationListController?.collectionView?.frame = CGRect(x:0, y:(menuNavTab?.frame.maxY)!, width: kScreenSize.width, height:kScreenSize.height - (menuNavTab?.frame.maxY)!)
         self.view.addSubview((informationListController?.collectionView!)!)
 
         //TODO: introduce
@@ -108,20 +108,20 @@ extension MenuContainerController {
     
     func beginChoseProperty() {
         self.view.addSubview(self.propertyCollectionView)
-        titleView?.addSubview(self.propertyTitleView)
-        self.view.bringSubview(toFront: titleView!)
+        menuNavTab?.addSubview(self.propertyTitleView)
+        self.view.bringSubview(toFront: menuNavTab!)
         UIView.animate(withDuration: kAnimationTime) {
             self.propertyTitleView.alpha = 1
-            self.propertyCollectionView.frame = CGRect(x: 0, y: (self.titleView?.frame.maxY)!, width: kScreenSize.width, height: kScreenSize.height - (self.titleView?.frame.maxY)!)
+            self.propertyCollectionView.frame = CGRect(x: 0, y: (self.menuNavTab?.frame.maxY)!, width: kScreenSize.width, height: kScreenSize.height - (self.menuNavTab?.frame.maxY)!)
         }
     }
     
     func endChoseProperty() {
-        let height = kScreenSize.height - (titleView?.frame.maxY)!
+        let height = kScreenSize.height - (menuNavTab?.frame.maxY)!
         UIView.animate(withDuration: kAnimationTime,
            animations: {
             self.propertyTitleView.alpha = 0
-            self.propertyCollectionView.frame = CGRect(x: 0, y: (self.titleView?.frame.maxY)!, width: kScreenSize.width, height: height)
+            self.propertyCollectionView.frame = CGRect(x: 0, y: (self.menuNavTab?.frame.maxY)!, width: kScreenSize.width, height: height)
         }, completion: { _ in
             self.propertyCollectionView.removeFromSuperview()
             self.propertyTitleView.removeFromSuperview()
@@ -139,7 +139,7 @@ extension MenuContainerController: MenuBarDelegate {
                 let frame = CGRect(x: 0, y: kScreenSize.height, width: kScreenSize.width, height: (self.tabBarController?.tabBar.bounds.size.height)!)
                 self.tabBarController?.tabBar.frame = frame
             }, completion: { finished in
-                self.titleView?.endAnimation()
+                self.menuNavTab?.endAnimation()
             })
             self.beginChoseProperty()
         } else {
@@ -147,7 +147,7 @@ extension MenuContainerController: MenuBarDelegate {
                 let frame = CGRect(x: 0, y: kScreenSize.height - (self.tabBarController?.tabBar.bounds.size.height)!, width: kScreenSize.width, height: (self.tabBarController?.tabBar.bounds.size.height)!)
                 self.tabBarController?.tabBar.frame = frame
             }, completion: {finished in
-                self.titleView?.endAnimation()
+                self.menuNavTab?.endAnimation()
             })
             self.endChoseProperty()
         }
@@ -161,11 +161,11 @@ extension MenuContainerController: MenuBarDelegate {
     func closeMenuBarView() {
         propertyCollectionView.endEditing(true)
         selectArray = propertyCollectionView.CompleteAllEditings()
-        titleView?.reloadAllButtonsOfTitleBarWithTitles(titles: selectArray!)
+        menuNavTab?.reloadAllButtonsOfTitleBarWithTitles(titles: selectArray!)
         Utils.updateSelectedMenuList(names: selectArray!)
         informationListController?.menuItem = Utils.menuItems(names: selectArray!)
         currentIndex = propertyCollectionView.getSelectIdenx()
-        titleView?.scrollToCenterWithIndex(index: currentIndex)
+        menuNavTab?.scrollToCenterWithIndex(index: currentIndex)
         informationListController?.collectionView?.setContentOffset(CGPoint(x: CGFloat(currentIndex) * kScreenSize.width, y: 0), animated: true)
     }
 }
@@ -174,8 +174,8 @@ extension MenuContainerController: MenuBarDelegate {
 extension MenuContainerController: MenuPropertyDelegate {
     func clickPropertyItem(at index: Int) {
         currentIndex = index
-        self.titleView?.reloadAllButtonsOfTitleBarWithTitles(titles: propertyCollectionView.CompleteAllEditings())
-        self.titleView?.ClickCollectionCellWithIndex(index: index)
+        self.menuNavTab?.reloadAllButtonsOfTitleBarWithTitles(titles: propertyCollectionView.CompleteAllEditings())
+        self.menuNavTab?.ClickCollectionCellWithIndex(index: index)
         self.clickAddButton(editing: false)
         selectArray = propertyCollectionView.CompleteAllEditings()
         Utils.updateSelectedMenuList(names: selectArray!)
@@ -193,7 +193,7 @@ extension MenuContainerController: MenuPropertyDelegate {
 extension MenuContainerController : MenuCollectionDelegate {
     func ScrollViewDidEndWithIndex(index: Int) {
         currentIndex = index
-        self.titleView?.scrollToCenterWithIndex(index: index)
+        self.menuNavTab?.scrollToCenterWithIndex(index: index)
     }
 }
 

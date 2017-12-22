@@ -12,7 +12,7 @@ fileprivate let kAnimationTime = 0.5
 
 class MenuNavTab: UIView {
     var delegate: MenuBarDelegate?
-    var titleBarFrame: CGRect?
+//    var titleBarFrame: CGRect?
     var titleBar: TitleBarView?
     var titleArray: [String]?
     var addBtn = UIButton(type: .custom)
@@ -43,7 +43,7 @@ class MenuNavTab: UIView {
         addBtn.addTarget(self, action: #selector(addClick), for: .touchUpInside)
         self.addSubview(addBtn)
         titleBar?.backgroundColor = UIColor(hex: 0xf6f6f6)
-        titleBarFrame = titleBar?.frame
+//        titleBarFrame = titleBar?.frame
         
         let titleBackView = UIView(frame: (titleBar?.frame)!)
         titleBackView.addSubview(titleBar!)

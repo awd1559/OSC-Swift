@@ -24,7 +24,7 @@ protocol MenuCellDelegate {
     
 }
 
-//FIXME: OSCInformationListCollectionViewCellDelegate
+//FIXME: in MenuPropertyCell
 protocol MenuCollectionCellDelegate {
     func cell(_ cell: MenuCollectionCell, update dataSourceDic:[String: InfoResultItem])
     

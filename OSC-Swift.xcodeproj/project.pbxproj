@@ -523,14 +523,14 @@
 		CEC518D61FE24320009A7CF2 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				CEC518C91FE228D3009A7CF2 /* MenuPropertyCollection.swift */,
 				CECAD8821FE0C9AC008EE696 /* MenuContainerController.swift */,
 				CEC518CC1FE22C5D009A7CF2 /* MenuCollectionController.swift */,
 				CEC518DD1FE243F3009A7CF2 /* MenuCollectionCell.swift */,
 				CE6098FB1FEC8DC70023B6A5 /* PropertyTitleView.swift */,
-				CE6098FD1FEC90E60023B6A5 /* MenuDelegate.swift */,
 				CEC518C51FE226BC009A7CF2 /* MenuBarView.swift */,
+				CEC518C91FE228D3009A7CF2 /* MenuPropertyCollection.swift */,
 				CEC518DF1FE24413009A7CF2 /* MenuPropertyCell.swift */,
+				CE6098FD1FEC90E60023B6A5 /* MenuDelegate.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";

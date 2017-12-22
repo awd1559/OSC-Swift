@@ -48,7 +48,7 @@ protocol PropertyCollectionDelegate {
     func changeStateWithEdit(_: Bool)
 }
 
-//FIXME: in MenuBarView
+//FIXME: in MenuNavTab
 protocol MenuBarDelegate {
     func clickAddButton(editing:Bool)
     func clickMenuBarItem(at index: Int)

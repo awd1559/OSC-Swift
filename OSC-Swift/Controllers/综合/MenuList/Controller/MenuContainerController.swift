@@ -15,7 +15,7 @@ class  MenuContainerController: UIViewController {
     var label = UILabel()
     var editBtn = UIButton()
     
-    var titleView: MenuBarView?
+    var titleView: MenuNavTab?
     lazy var propertyCollectionView: MenuPropertyCollection = {
         let height = kScreenSize.height - (self.titleView?.frame.maxY)!
         let frame = CGRect(x: 0, y: (self.titleView?.frame.maxY)! - height, width: kScreenSize.width, height: height)
@@ -72,7 +72,7 @@ class  MenuContainerController: UIViewController {
         selectArray = Utils.buildinMenuNames()
         selectArray?.append(contentsOf: Utils.selectedMenuNames())
         let frame = CGRect(x: 0, y: 64, width: Int(kScreenSize.width), height: kTitleHeigh)
-        titleView = MenuBarView(frame: frame, titles: selectArray!)
+        titleView = MenuNavTab(frame: frame, titles: selectArray!)
         titleView?.delegate = self
         self.view.addSubview(titleView!)
         

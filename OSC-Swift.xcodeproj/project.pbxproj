@@ -45,7 +45,7 @@
 		CEA24E3F1FE8F10D000BAA76 /* OSCObjsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA24E3E1FE8F10D000BAA76 /* OSCObjsViewController.swift */; };
 		CEA24E4E1FE9413D000BAA76 /* Alamofire+xml.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA24E4D1FE9413C000BAA76 /* Alamofire+xml.swift */; };
 		CEA24E501FE94E86000BAA76 /* OSCParseable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA24E4F1FE94E86000BAA76 /* OSCParseable.swift */; };
-		CEC518C61FE226BC009A7CF2 /* MenuBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC518C51FE226BC009A7CF2 /* MenuBarView.swift */; };
+		CEC518C61FE226BC009A7CF2 /* MenuNavTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC518C51FE226BC009A7CF2 /* MenuNavTab.swift */; };
 		CEC518C81FE227A3009A7CF2 /* TitleBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC518C71FE227A3009A7CF2 /* TitleBarView.swift */; };
 		CEC518CA1FE228D3009A7CF2 /* MenuPropertyCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC518C91FE228D3009A7CF2 /* MenuPropertyCollection.swift */; };
 		CEC518CD1FE22C5D009A7CF2 /* MenuCollectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC518CC1FE22C5D009A7CF2 /* MenuCollectionController.swift */; };
@@ -177,7 +177,7 @@
 		CEA24E3E1FE8F10D000BAA76 /* OSCObjsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSCObjsViewController.swift; sourceTree = "<group>"; };
 		CEA24E4D1FE9413C000BAA76 /* Alamofire+xml.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Alamofire+xml.swift"; sourceTree = "<group>"; };
 		CEA24E4F1FE94E86000BAA76 /* OSCParseable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSCParseable.swift; sourceTree = "<group>"; };
-		CEC518C51FE226BC009A7CF2 /* MenuBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarView.swift; sourceTree = "<group>"; };
+		CEC518C51FE226BC009A7CF2 /* MenuNavTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuNavTab.swift; sourceTree = "<group>"; };
 		CEC518C71FE227A3009A7CF2 /* TitleBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleBarView.swift; sourceTree = "<group>"; };
 		CEC518C91FE228D3009A7CF2 /* MenuPropertyCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuPropertyCollection.swift; sourceTree = "<group>"; };
 		CEC518CC1FE22C5D009A7CF2 /* MenuCollectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCollectionController.swift; sourceTree = "<group>"; };
@@ -527,7 +527,7 @@
 				CEC518CC1FE22C5D009A7CF2 /* MenuCollectionController.swift */,
 				CEC518DD1FE243F3009A7CF2 /* MenuCollectionCell.swift */,
 				CE6098FB1FEC8DC70023B6A5 /* PropertyTitleView.swift */,
-				CEC518C51FE226BC009A7CF2 /* MenuBarView.swift */,
+				CEC518C51FE226BC009A7CF2 /* MenuNavTab.swift */,
 				CEC518C91FE228D3009A7CF2 /* MenuPropertyCollection.swift */,
 				CEC518DF1FE24413009A7CF2 /* MenuPropertyCell.swift */,
 				CE6098FD1FEC90E60023B6A5 /* MenuDelegate.swift */,
@@ -1135,7 +1135,7 @@
 				CECBB5E21FEB54BA005E87AA /* UsualTableViewCell.swift in Sources */,
 				CE52B5E51FE3C32E00A3E792 /* OSCBanner.swift in Sources */,
 				CECAD87D1FE0C585008EE696 /* OSCSearchViewController.swift in Sources */,
-				CEC518C61FE226BC009A7CF2 /* MenuBarView.swift in Sources */,
+				CEC518C61FE226BC009A7CF2 /* MenuNavTab.swift in Sources */,
 				CEC518DC1FE24359009A7CF2 /* OSCMenuItem.swift in Sources */,
 				CE48FCA51FDF588400366E4F /* ResetPWViewController.swift in Sources */,
 				CE1CE3F51FE4AD5A002B3A50 /* OSCNetImage.swift in Sources */,

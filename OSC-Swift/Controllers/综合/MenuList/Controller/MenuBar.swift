@@ -10,7 +10,7 @@ import UIKit
 
 fileprivate let kAnimationTime = 0.5
 
-class MenuNavTab: UIView {
+class MenuBar: UIView {
     var delegate: MenuBarDelegate?
     var titleArray: [String]?
     

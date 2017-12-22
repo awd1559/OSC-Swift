@@ -11,11 +11,11 @@ import UIKit
 
 class MenuPageCollection: UICollectionViewController {
     var delegate: MenuPageDelegate?
-    var menuItem: [OSCMenuItem]? {
+    var menuItems: [OSCMenuItem]? {
         didSet {
             if dataSources_dic == nil {
                 dataSources_dic = [String:InfoResultItem]()
-                for curMenuItem in menuItem! {
+                for curMenuItem in menuItems! {
                     let postBackItem = InfoResultItem()
 //                    self.fillResultPostBackItem(postBackItem, currentMenuItem:curMenuItem)
                     dataSources_dic![curMenuItem.token] =  postBackItem
@@ -72,11 +72,11 @@ class MenuPageCollection: UICollectionViewController {
     
     //MARK: - UICollectionViewDataSource
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return (self.menuItem?.count)!
+        return (self.menuItems?.count)!
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        curMenuItem = self.menuItem?[indexPath.row]
+        curMenuItem = self.menuItems?[indexPath.row]
         let curDic = self.getCurrentListDataSource()
         let cell = MenuPageCell.returnReuseInformationListCollectionViewCell(collectionView, identifier:kInformationListCollectionViewCellIdentifier, indexPath:indexPath, model:curMenuItem!)
 

@@ -12,8 +12,11 @@ fileprivate let kTitleHeigh = 60
 fileprivate let kAnimationTime = 0.4
 
 class  MenuContainerController: UIViewController {
-    var label = UILabel()
-    var editBtn = UIButton()
+    var currentIndex = 0
+    var selectArray: [String]?
+    var bgV: UIView?
+    var updateUrl: String?
+    var message: String?
     
     lazy var menuNavTab: MenuNavTab = {
         let frame = CGRect(x: 0, y: 64, width: Int(kScreenSize.width), height: kTitleHeigh)
@@ -21,6 +24,7 @@ class  MenuContainerController: UIViewController {
         menu.delegate = self
         return menu
     }()
+    
     lazy var propertyTopView: MenuPropertyTopView = {
         let view = MenuPropertyTopView(frame: self.menuNavTab.titleBar.frame)
         view.collectionDelegate = self.propertyCollection
@@ -35,7 +39,6 @@ class  MenuContainerController: UIViewController {
         return view
     }()
     
-    var currentIndex = 0
     lazy var pageCollection: MenuPageCollection = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
@@ -45,15 +48,11 @@ class  MenuContainerController: UIViewController {
         layout.sectionInset = UIEdgeInsetsMake(0, 0, 49, 0);
         let page = MenuPageCollection(collectionViewLayout: layout)
         page.delegate = self
-        page.menuItem = Utils.menuItems(names: selectArray!)
+        page.menuItems = Utils.menuItems(names: selectArray!)
+        page.collectionView?.frame = CGRect(x:0, y:menuNavTab.frame.maxY, width: kScreenSize.width, height:kScreenSize.height - menuNavTab.frame.maxY)
         return page
     }()
     
-    var selectArray: [String]?
-    
-    var bgV: UIView?
-    var updateUrl: String?
-    var message: String?
     
     //MARK: - lifeCycle
     override func viewWillAppear(_ animated: Bool) {
@@ -90,10 +89,7 @@ class  MenuContainerController: UIViewController {
         selectArray?.append(contentsOf: Utils.selectedMenuNames())
         
         self.view.addSubview(menuNavTab)
-
         self.addChildViewController(pageCollection)
-        
-        pageCollection.collectionView?.frame = CGRect(x:0, y:menuNavTab.frame.maxY, width: kScreenSize.width, height:kScreenSize.height - menuNavTab.frame.maxY)
         self.view.addSubview(pageCollection.collectionView!)
 
         //TODO: introduce
@@ -169,7 +165,7 @@ extension MenuContainerController: MenuBarDelegate {
         selectArray = propertyCollection.CompleteAllEditings()
         menuNavTab.reloadAllButtonsOfTitleBarWithTitles(titles: selectArray!)
         Utils.updateSelectedMenuList(names: selectArray!)
-        pageCollection.menuItem = Utils.menuItems(names: selectArray!)
+        pageCollection.menuItems = Utils.menuItems(names: selectArray!)
         currentIndex = propertyCollection.getSelectIdenx()
         menuNavTab.scrollToCenterWithIndex(index: currentIndex)
         pageCollection.collectionView?.setContentOffset(CGPoint(x: CGFloat(currentIndex) * kScreenSize.width, y: 0), animated: true)
@@ -185,7 +181,7 @@ extension MenuContainerController: MenuPropertyDelegate {
         self.clickAddButton(editing: false)
         selectArray = propertyCollection.CompleteAllEditings()
         Utils.updateSelectedMenuList(names: selectArray!)
-        pageCollection.menuItem = Utils.menuItems(names: selectArray!)
+        pageCollection.menuItems = Utils.menuItems(names: selectArray!)
         pageCollection.collectionView?.setContentOffset(CGPoint(x: CGFloat(index) * kScreenSize.width, y:0), animated: true)
     }
     

@@ -56,7 +56,7 @@ class MenuPropertyCell : UICollectionViewCell {
         
         deleteBtn.frame = CGRect(x:0, y:0, width:28, height:28)
         deleteBtn.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 14, 14);
-        deleteBtn.setImage(R.image.ic_subscribe(), for: .normal)
+        deleteBtn.setImage(R.image.ic_unsubscribe(), for: .normal)
         deleteBtn.addTarget(self, action:#selector(deleteClick), for:.touchUpInside)
         self.contentView.addSubview(deleteBtn)
         deleteBtn.isHidden = true

@@ -15,22 +15,39 @@ class  MenuContainerController: UIViewController {
     var label = UILabel()
     var editBtn = UIButton()
     
-    var menuNavTab: MenuNavTab?
-    lazy var propertyCollectionView: MenuPropertyCollection = {
-        let height = kScreenSize.height - (self.menuNavTab?.frame.maxY)!
-        let frame = CGRect(x: 0, y: (self.menuNavTab?.frame.maxY)! - height, width: kScreenSize.width, height: height)
+    lazy var menuNavTab: MenuNavTab = {
+        let frame = CGRect(x: 0, y: 64, width: Int(kScreenSize.width), height: kTitleHeigh)
+        let menu = MenuNavTab(frame: frame, titles: selectArray!)
+        menu.delegate = self
+        return menu
+    }()
+    lazy var propertyTopView: MenuPropertyTopView = {
+        let view = MenuPropertyTopView(frame: (self.menuNavTab.titleBar?.frame)!)
+        view.collectionDelegate = self.propertyCollection
+        return view
+    }()
+    
+    lazy var propertyCollection: MenuPropertyCollection = {
+        let height = kScreenSize.height - self.menuNavTab.frame.maxY
+        let frame = CGRect(x: 0, y: self.menuNavTab.frame.maxY - height, width: kScreenSize.width, height: height)
         let view = MenuPropertyCollection(frame: frame, selectIndex: self.currentIndex)
         view.menuPropertyDelegate = self
         return view
     }()
     
-    lazy var propertyTitleView: PropertyTitleView = {
-        let view = PropertyTitleView(frame: (self.menuNavTab?.titleBar?.frame)!)
-        view.collectionDelegate = self.propertyCollectionView
-        return view
-    }()
     var currentIndex = 0
-    var pageCollection: MenuPageCollection?
+    lazy var pageCollection: MenuPageCollection = {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        layout.itemSize = CGSize(width: kScreenSize.width, height: kScreenSize.height - (menuNavTab.frame.maxY - 49))
+        layout.minimumLineSpacing = 0
+        layout.minimumInteritemSpacing = 0
+        layout.sectionInset = UIEdgeInsetsMake(0, 0, 49, 0);
+        let page = MenuPageCollection(collectionViewLayout: layout)
+        page.delegate = self
+        page.menuItem = Utils.menuItems(names: selectArray!)
+        return page
+    }()
     
     var selectArray: [String]?
     
@@ -46,8 +63,8 @@ class  MenuContainerController: UIViewController {
         self.automaticallyAdjustsScrollViewInsets = false
         self.navigationController?.navigationBar.isTranslucent = true
         self.tabBarController?.tabBar.isTranslucent = true
-        if propertyCollectionView.isEditing {
-            propertyCollectionView.changeStateWithEdit(true)
+        if propertyCollection.isEditing {
+            propertyCollection.changeStateWithEdit(true)
         }
     }
     
@@ -71,24 +88,13 @@ class  MenuContainerController: UIViewController {
         
         selectArray = Utils.buildinMenuNames()
         selectArray?.append(contentsOf: Utils.selectedMenuNames())
-        let frame = CGRect(x: 0, y: 64, width: Int(kScreenSize.width), height: kTitleHeigh)
-        menuNavTab = MenuNavTab(frame: frame, titles: selectArray!)
-        menuNavTab?.delegate = self
-        self.view.addSubview(menuNavTab!)
         
-        let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .horizontal
-        layout.itemSize = CGSize(width: kScreenSize.width, height: kScreenSize.height - ((menuNavTab?.frame.maxY)! - 49))
-        layout.minimumLineSpacing = 0
-        layout.minimumInteritemSpacing = 0
-        layout.sectionInset = UIEdgeInsetsMake(0, 0, 49, 0);
-        pageCollection = MenuPageCollection(collectionViewLayout: layout)
-        pageCollection?.delegate = self
-        pageCollection?.menuItem = Utils.menuItems(names: selectArray!)
-        self.addChildViewController(pageCollection!)
+        self.view.addSubview(menuNavTab)
+
+        self.addChildViewController(pageCollection)
         
-        pageCollection?.collectionView?.frame = CGRect(x:0, y:(menuNavTab?.frame.maxY)!, width: kScreenSize.width, height:kScreenSize.height - (menuNavTab?.frame.maxY)!)
-        self.view.addSubview((pageCollection?.collectionView!)!)
+        pageCollection.collectionView?.frame = CGRect(x:0, y:menuNavTab.frame.maxY, width: kScreenSize.width, height:kScreenSize.height - menuNavTab.frame.maxY)
+        self.view.addSubview(pageCollection.collectionView!)
 
         //TODO: introduce
 //        let introView = OSCFunctionIntroManager.showIntroPage()
@@ -103,28 +109,28 @@ class  MenuContainerController: UIViewController {
 //MARK: - private
 extension MenuContainerController {
     func beginRefresh() {
-        pageCollection?.beginRefreshWithIndex(currentIndex)
+        pageCollection.beginRefreshWithIndex(currentIndex)
     }
     
     func beginChoseProperty() {
-        self.view.addSubview(self.propertyCollectionView)
-        menuNavTab?.addSubview(self.propertyTitleView)
-        self.view.bringSubview(toFront: menuNavTab!)
+        self.view.addSubview(self.propertyCollection)
+        menuNavTab.addSubview(self.propertyTopView)
+        self.view.bringSubview(toFront: menuNavTab)
         UIView.animate(withDuration: kAnimationTime) {
-            self.propertyTitleView.alpha = 1
-            self.propertyCollectionView.frame = CGRect(x: 0, y: (self.menuNavTab?.frame.maxY)!, width: kScreenSize.width, height: kScreenSize.height - (self.menuNavTab?.frame.maxY)!)
+            self.propertyTopView.alpha = 1
+            self.propertyCollection.frame = CGRect(x: 0, y: self.menuNavTab.frame.maxY, width: kScreenSize.width, height: kScreenSize.height - self.menuNavTab.frame.maxY)
         }
     }
     
     func endChoseProperty() {
-        let height = kScreenSize.height - (menuNavTab?.frame.maxY)!
+        let height = kScreenSize.height - menuNavTab.frame.maxY
         UIView.animate(withDuration: kAnimationTime,
            animations: {
-            self.propertyTitleView.alpha = 0
-            self.propertyCollectionView.frame = CGRect(x: 0, y: (self.menuNavTab?.frame.maxY)!, width: kScreenSize.width, height: height)
+            self.propertyTopView.alpha = 0
+            self.propertyCollection.frame = CGRect(x: 0, y: self.menuNavTab.frame.maxY, width: kScreenSize.width, height: height)
         }, completion: { _ in
-            self.propertyCollectionView.removeFromSuperview()
-            self.propertyTitleView.removeFromSuperview()
+            self.propertyCollection.removeFromSuperview()
+            self.propertyTopView.removeFromSuperview()
 //            self.propertyTitleView = nil
 //            self.collectionView = nil
         })
@@ -139,7 +145,7 @@ extension MenuContainerController: MenuBarDelegate {
                 let frame = CGRect(x: 0, y: kScreenSize.height, width: kScreenSize.width, height: (self.tabBarController?.tabBar.bounds.size.height)!)
                 self.tabBarController?.tabBar.frame = frame
             }, completion: { finished in
-                self.menuNavTab?.endAnimation()
+                self.menuNavTab.endAnimation()
             })
             self.beginChoseProperty()
         } else {
@@ -147,7 +153,7 @@ extension MenuContainerController: MenuBarDelegate {
                 let frame = CGRect(x: 0, y: kScreenSize.height - (self.tabBarController?.tabBar.bounds.size.height)!, width: kScreenSize.width, height: (self.tabBarController?.tabBar.bounds.size.height)!)
                 self.tabBarController?.tabBar.frame = frame
             }, completion: {finished in
-                self.menuNavTab?.endAnimation()
+                self.menuNavTab.endAnimation()
             })
             self.endChoseProperty()
         }
@@ -155,45 +161,45 @@ extension MenuContainerController: MenuBarDelegate {
     
     func clickMenuBarItem(at index: Int) {
         currentIndex = index
-        pageCollection?.collectionView?.setContentOffset(CGPoint(x: CGFloat(index) * kScreenSize.width, y: 0), animated: true)
+        pageCollection.collectionView?.setContentOffset(CGPoint(x: CGFloat(index) * kScreenSize.width, y: 0), animated: true)
     }
     
     func closeMenuBarView() {
-        propertyCollectionView.endEditing(true)
-        selectArray = propertyCollectionView.CompleteAllEditings()
-        menuNavTab?.reloadAllButtonsOfTitleBarWithTitles(titles: selectArray!)
+        propertyCollection.endEditing(true)
+        selectArray = propertyCollection.CompleteAllEditings()
+        menuNavTab.reloadAllButtonsOfTitleBarWithTitles(titles: selectArray!)
         Utils.updateSelectedMenuList(names: selectArray!)
-        pageCollection?.menuItem = Utils.menuItems(names: selectArray!)
-        currentIndex = propertyCollectionView.getSelectIdenx()
-        menuNavTab?.scrollToCenterWithIndex(index: currentIndex)
-        pageCollection?.collectionView?.setContentOffset(CGPoint(x: CGFloat(currentIndex) * kScreenSize.width, y: 0), animated: true)
+        pageCollection.menuItem = Utils.menuItems(names: selectArray!)
+        currentIndex = propertyCollection.getSelectIdenx()
+        menuNavTab.scrollToCenterWithIndex(index: currentIndex)
+        pageCollection.collectionView?.setContentOffset(CGPoint(x: CGFloat(currentIndex) * kScreenSize.width, y: 0), animated: true)
     }
 }
 
-//MARK: - PropertyCollectionDelegate
+//MARK: - MenuPropertyDelegate
 extension MenuContainerController: MenuPropertyDelegate {
     func clickPropertyItem(at index: Int) {
         currentIndex = index
-        self.menuNavTab?.reloadAllButtonsOfTitleBarWithTitles(titles: propertyCollectionView.CompleteAllEditings())
-        self.menuNavTab?.ClickCollectionCellWithIndex(index: index)
+        self.menuNavTab.reloadAllButtonsOfTitleBarWithTitles(titles: propertyCollection.CompleteAllEditings())
+        self.menuNavTab.ClickCollectionCellWithIndex(index: index)
         self.clickAddButton(editing: false)
-        selectArray = propertyCollectionView.CompleteAllEditings()
+        selectArray = propertyCollection.CompleteAllEditings()
         Utils.updateSelectedMenuList(names: selectArray!)
-        pageCollection?.menuItem = Utils.menuItems(names: selectArray!)
-        pageCollection?.collectionView?.setContentOffset(CGPoint(x: CGFloat(index) * kScreenSize.width, y:0), animated: true)
+        pageCollection.menuItem = Utils.menuItems(names: selectArray!)
+        pageCollection.collectionView?.setContentOffset(CGPoint(x: CGFloat(index) * kScreenSize.width, y:0), animated: true)
     }
     
     func propertyCollectionBeginEdit() {
-        self.propertyTitleView.beginEdit()
+        self.propertyTopView.beginEdit()
     }
 }
 
 
-//MARK: - InfoCollectionDelegate
+//MARK: - MenuPageDelegate
 extension MenuContainerController : MenuPageDelegate {
     func scrollViewDidEnd(at index: Int) {
         currentIndex = index
-        self.menuNavTab?.scrollToCenterWithIndex(index: index)
+        self.menuNavTab.scrollToCenterWithIndex(index: index)
     }
 }
 

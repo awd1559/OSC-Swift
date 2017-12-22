@@ -31,7 +31,7 @@
 		CE52B5E21FE3B3AD00A3E792 /* osc-token-config.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE52B5E11FE3B3AD00A3E792 /* osc-token-config.swift */; };
 		CE52B5E51FE3C32E00A3E792 /* OSCBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE52B5E41FE3C32E00A3E792 /* OSCBanner.swift */; };
 		CE52B5E71FE3C74900A3E792 /* OSCExtra.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE52B5E61FE3C74900A3E792 /* OSCExtra.swift */; };
-		CE6098FC1FEC8DC70023B6A5 /* PropertyTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6098FB1FEC8DC70023B6A5 /* PropertyTitleView.swift */; };
+		CE6098FC1FEC8DC70023B6A5 /* MenuPropertyTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6098FB1FEC8DC70023B6A5 /* MenuPropertyTopView.swift */; };
 		CE6098FE1FEC90E60023B6A5 /* MenuDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6098FD1FEC90E60023B6A5 /* MenuDelegate.swift */; };
 		CE6099001FEC9C000023B6A5 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6098FF1FEC9C000023B6A5 /* Constants.swift */; };
 		CE6522D71FE62DB2000A98D2 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = CE6522D61FE62DB2000A98D2 /* README.md */; };
@@ -162,7 +162,7 @@
 		CE52B5E11FE3B3AD00A3E792 /* osc-token-config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "osc-token-config.swift"; sourceTree = "<group>"; };
 		CE52B5E41FE3C32E00A3E792 /* OSCBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSCBanner.swift; sourceTree = "<group>"; };
 		CE52B5E61FE3C74900A3E792 /* OSCExtra.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSCExtra.swift; sourceTree = "<group>"; };
-		CE6098FB1FEC8DC70023B6A5 /* PropertyTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyTitleView.swift; sourceTree = "<group>"; };
+		CE6098FB1FEC8DC70023B6A5 /* MenuPropertyTopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuPropertyTopView.swift; sourceTree = "<group>"; };
 		CE6098FD1FEC90E60023B6A5 /* MenuDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuDelegate.swift; sourceTree = "<group>"; };
 		CE6098FF1FEC9C000023B6A5 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		CE6522D61FE62DB2000A98D2 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -527,7 +527,7 @@
 				CEC518CC1FE22C5D009A7CF2 /* MenuPageCollection.swift */,
 				CEC518DD1FE243F3009A7CF2 /* MenuPageCell.swift */,
 				CEC518C51FE226BC009A7CF2 /* MenuNavTab.swift */,
-				CE6098FB1FEC8DC70023B6A5 /* PropertyTitleView.swift */,
+				CE6098FB1FEC8DC70023B6A5 /* MenuPropertyTopView.swift */,
 				CEC518C91FE228D3009A7CF2 /* MenuPropertyCollection.swift */,
 				CEC518DF1FE24413009A7CF2 /* MenuPropertyCell.swift */,
 				CE6098FD1FEC90E60023B6A5 /* MenuDelegate.swift */,
@@ -1120,7 +1120,7 @@
 				CE52B5DD1FE379B500A3E792 /* enumList.swift in Sources */,
 				CE48FC9F1FDF580D00366E4F /* LoginViewController.swift in Sources */,
 				CEA24D311FE76372000BAA76 /* PullToRefreshOption.swift in Sources */,
-				CE6098FC1FEC8DC70023B6A5 /* PropertyTitleView.swift in Sources */,
+				CE6098FC1FEC8DC70023B6A5 /* MenuPropertyTopView.swift in Sources */,
 				CE6B24E91FE0D2FE00659156 /* HomepageViewController.swift in Sources */,
 				CECBB5EA1FEB6C1F005E87AA /* OSCActivityTableViewCell.swift in Sources */,
 				CEA24D331FE76372000BAA76 /* UIScrollViewExtension.swift in Sources */,

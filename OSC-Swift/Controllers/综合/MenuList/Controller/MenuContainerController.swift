@@ -30,7 +30,7 @@ class  MenuContainerController: UIViewController {
         return view
     }()
     var currentIndex = 0
-    var informationListController: MenuPageCollection?
+    var pageCollection: MenuPageCollection?
     
     var selectArray: [String]?
     
@@ -82,13 +82,13 @@ class  MenuContainerController: UIViewController {
         layout.minimumLineSpacing = 0
         layout.minimumInteritemSpacing = 0
         layout.sectionInset = UIEdgeInsetsMake(0, 0, 49, 0);
-        informationListController = MenuPageCollection(collectionViewLayout: layout)
-        informationListController?.delegate = self
-        informationListController?.menuItem = Utils.menuItems(names: selectArray!)
-        self.addChildViewController(informationListController!)
+        pageCollection = MenuPageCollection(collectionViewLayout: layout)
+        pageCollection?.delegate = self
+        pageCollection?.menuItem = Utils.menuItems(names: selectArray!)
+        self.addChildViewController(pageCollection!)
         
-        informationListController?.collectionView?.frame = CGRect(x:0, y:(menuNavTab?.frame.maxY)!, width: kScreenSize.width, height:kScreenSize.height - (menuNavTab?.frame.maxY)!)
-        self.view.addSubview((informationListController?.collectionView!)!)
+        pageCollection?.collectionView?.frame = CGRect(x:0, y:(menuNavTab?.frame.maxY)!, width: kScreenSize.width, height:kScreenSize.height - (menuNavTab?.frame.maxY)!)
+        self.view.addSubview((pageCollection?.collectionView!)!)
 
         //TODO: introduce
 //        let introView = OSCFunctionIntroManager.showIntroPage()
@@ -103,7 +103,7 @@ class  MenuContainerController: UIViewController {
 //MARK: - private
 extension MenuContainerController {
     func beginRefresh() {
-        informationListController?.beginRefreshWithIndex(currentIndex)
+        pageCollection?.beginRefreshWithIndex(currentIndex)
     }
     
     func beginChoseProperty() {
@@ -155,7 +155,7 @@ extension MenuContainerController: MenuBarDelegate {
     
     func clickMenuBarItem(at index: Int) {
         currentIndex = index
-        informationListController?.collectionView?.setContentOffset(CGPoint(x: CGFloat(index) * kScreenSize.width, y: 0), animated: true)
+        pageCollection?.collectionView?.setContentOffset(CGPoint(x: CGFloat(index) * kScreenSize.width, y: 0), animated: true)
     }
     
     func closeMenuBarView() {
@@ -163,10 +163,10 @@ extension MenuContainerController: MenuBarDelegate {
         selectArray = propertyCollectionView.CompleteAllEditings()
         menuNavTab?.reloadAllButtonsOfTitleBarWithTitles(titles: selectArray!)
         Utils.updateSelectedMenuList(names: selectArray!)
-        informationListController?.menuItem = Utils.menuItems(names: selectArray!)
+        pageCollection?.menuItem = Utils.menuItems(names: selectArray!)
         currentIndex = propertyCollectionView.getSelectIdenx()
         menuNavTab?.scrollToCenterWithIndex(index: currentIndex)
-        informationListController?.collectionView?.setContentOffset(CGPoint(x: CGFloat(currentIndex) * kScreenSize.width, y: 0), animated: true)
+        pageCollection?.collectionView?.setContentOffset(CGPoint(x: CGFloat(currentIndex) * kScreenSize.width, y: 0), animated: true)
     }
 }
 
@@ -179,8 +179,8 @@ extension MenuContainerController: MenuPropertyDelegate {
         self.clickAddButton(editing: false)
         selectArray = propertyCollectionView.CompleteAllEditings()
         Utils.updateSelectedMenuList(names: selectArray!)
-        informationListController?.menuItem = Utils.menuItems(names: selectArray!)
-        informationListController?.collectionView?.setContentOffset(CGPoint(x: CGFloat(index) * kScreenSize.width, y:0), animated: true)
+        pageCollection?.menuItem = Utils.menuItems(names: selectArray!)
+        pageCollection?.collectionView?.setContentOffset(CGPoint(x: CGFloat(index) * kScreenSize.width, y:0), animated: true)
     }
     
     func propertyCollectionBeginEdit() {

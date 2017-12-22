@@ -272,7 +272,7 @@ extension MenuPropertyCollection : UICollectionViewDelegateFlowLayout {
 //MARK: - UICollectionViewDelegate
 extension MenuPropertyCollection: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if self.isEditing {
+        if !self.isEditing {
             if indexPath.section == 0 {
                 if let menuPropertyDelegate = self.menuPropertyDelegate {
                     menuPropertyDelegate.clickPropertyItem(at: indexPath.row)
@@ -280,7 +280,7 @@ extension MenuPropertyCollection: UICollectionViewDelegate {
             } else {
                 let currentTitle = self.unSelectTitle![indexPath.row]
                 unSelectTitle?.remove(at: indexPath.row)
-                selectTitle?.insert(currentTitle, at: (selectTitle?.count)!)
+                selectTitle?.append(currentTitle)
                 let targetIndexPath = IndexPath(row: (selectTitle?.count)! - 1, section: 0)
                 collectionView.moveItem(at: indexPath, to: targetIndexPath)
             }

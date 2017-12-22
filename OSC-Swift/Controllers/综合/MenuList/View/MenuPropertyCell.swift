@@ -43,7 +43,7 @@ class MenuPropertyCell : UICollectionViewCell {
     }
     
     func addContentView() {
-        titleLabel.frame = self.contentView.frame
+        titleLabel.frame = self.contentView.bounds
         titleLabel.font = UIFont.systemFont(ofSize: 13)
         titleLabel.textColor = UIColor(hex: 0x6a6a6a)
         titleLabel.textAlignment = .center

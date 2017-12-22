@@ -11,15 +11,10 @@ import UIKit
 
 fileprivate let cellID = "cell"
 fileprivate let headerID = "header"
-fileprivate let kScreenSize = UIScreen.main.bounds.size
+
 fileprivate let kCellWidth: CGFloat = 80.0
 fileprivate let kCellHeight: CGFloat = 30.0
 fileprivate let kHeaderKind = UICollectionElementKindSectionHeader
-
-protocol MenuPropertyDelegate {
-    func clickPropertyItem(at index: Int)
-    func propertyCollectionBeginEdit()
-}
 
 class MenuPropertyCollection: UICollectionView {
     var menuPropertyDelegate: MenuPropertyDelegate?

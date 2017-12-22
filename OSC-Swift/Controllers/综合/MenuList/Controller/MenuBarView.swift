@@ -8,14 +8,8 @@
 
 import UIKit
 
-fileprivate let kScreenSize = UIScreen.main.bounds.size
 fileprivate let kAnimationTime = 0.5
 
-protocol MenuBarDelegate {
-    func clickAddButton(editing:Bool)
-    func clickMenuBarItem(at index: Int)
-    func closeMenuBarView()
-}
 class MenuBarView: UIView {
     var delegate: MenuBarDelegate?
     var titleBarFrame: CGRect?

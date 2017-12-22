@@ -8,9 +8,6 @@
 
 import UIKit
 
-protocol PropertyCollectionDelegate {
-    func changeStateWithEdit(_: Bool)
-}
 class PropertyTitleView: UIView {
     var label = UILabel()
     var editBtn = UIButton(type: .custom)

@@ -8,7 +8,6 @@
 
 import UIKit
 
-fileprivate let kScreenSize = UIScreen.main.bounds.size
 
 class MenuCollectionController: UICollectionViewController {
     var delegate: MenuCollectionDelegate?

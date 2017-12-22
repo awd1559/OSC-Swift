@@ -15,9 +15,6 @@ enum CellType: Int {
     case select, second
 }
 
-protocol MenuPropertyCellDelegate {
-    func deleteBtnClickWithCell(cell: UICollectionViewCell)
-}
 
 class MenuPropertyCell : UICollectionViewCell {
     var title: String? {

@@ -9,7 +9,6 @@
 import UIKit
 
 fileprivate let kTitleHeigh = 60
-fileprivate let kScreenSize = UIScreen.main.bounds.size
 fileprivate let kAnimationTime = 0.4
 
 class  MenuContainerController: UIViewController {
@@ -106,16 +105,6 @@ extension MenuContainerController {
     func beginRefresh() {
         informationListController?.beginRefreshWithIndex(currentIndex)
     }
-    
-//    @objc func editBtnClick(button: UIButton) {
-//        button.isSelected = !button.isSelected
-//        self.propertyCollectionView.changeStateWithEdit(isEditing: button.isSelected)
-//        if (button.isSelected) {
-//            label.text = "拖动排序"
-//        }else{
-//            label.text = "切换栏目"
-//        }
-//    }
     
     func beginChoseProperty() {
         self.view.addSubview(self.propertyCollectionView)

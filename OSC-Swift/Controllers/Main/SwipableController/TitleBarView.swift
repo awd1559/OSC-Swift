@@ -9,7 +9,6 @@
 import UIKit
 
 fileprivate let kMaxBtnWidth: CGFloat = 80.0
-fileprivate let kScreenSize = UIScreen.main.bounds.size
 
 class TitleBarView: UIScrollView {
     var titleButtons: [UIButton]?

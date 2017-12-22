@@ -12,11 +12,11 @@ fileprivate let kAnimationTime = 0.5
 
 class MenuBar: UIView {
     var delegate: MenuBarDelegate?
-    var titleArray: [String]?
+    var titles: [String]?
     
     lazy var titleBar: TitleBarView = {
         let frame = CGRect(x: 0, y: 0, width: kScreenSize.width - self.bounds.size.height - 10, height: self.bounds.size.height)
-        let bar = TitleBarView(frame: frame, titles: titleArray!, needScroll: true)
+        let bar = TitleBarView(frame: frame, titles: titles!, needScroll: true)
         bar.backgroundColor = UIColor(hex: 0xf6f6f6)
         bar.titleButtonClicked = { [weak self] index in
             if let delegate = self?.delegate {
@@ -36,7 +36,7 @@ class MenuBar: UIView {
     }()
     
     init(frame: CGRect, titles: [String]) {
-        self.titleArray = titles
+        self.titles = titles
         super.init(frame: frame)
         self.addContentView()
         self.backgroundColor = UIColor(hex: 0xf9f9f9)

@@ -22,7 +22,7 @@ class  MenuContainerController: UIViewController {
         return menu
     }()
     lazy var propertyTopView: MenuPropertyTopView = {
-        let view = MenuPropertyTopView(frame: (self.menuNavTab.titleBar?.frame)!)
+        let view = MenuPropertyTopView(frame: self.menuNavTab.titleBar.frame)
         view.collectionDelegate = self.propertyCollection
         return view
     }()

@@ -12,10 +12,28 @@ fileprivate let kAnimationTime = 0.5
 
 class MenuNavTab: UIView {
     var delegate: MenuBarDelegate?
-//    var titleBarFrame: CGRect?
-    var titleBar: TitleBarView?
     var titleArray: [String]?
-    var addBtn = UIButton(type: .custom)
+    
+    lazy var titleBar: TitleBarView = {
+        let frame = CGRect(x: 0, y: 0, width: kScreenSize.width - self.bounds.size.height - 10, height: self.bounds.size.height)
+        let bar = TitleBarView(frame: frame, titles: titleArray!, needScroll: true)
+        bar.backgroundColor = UIColor(hex: 0xf6f6f6)
+        bar.titleButtonClicked = { [weak self] index in
+            if let delegate = self?.delegate {
+                delegate.clickMenuBarItem(at: index)
+            }
+        }
+        return bar
+    }()
+    
+    lazy var addBtn: UIButton = {
+        let button = UIButton(type: .custom)
+        button.frame = CGRect(x: self.bounds.size.width - self.bounds.size.height - 5, y: 0, width: self.bounds.size.height, height: self.bounds.size.height)
+        button.setImage(R.image.ic_subscribe(), for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 20)
+        button.addTarget(self, action: #selector(addClick), for: .touchUpInside)
+        return button
+    }()
     
     init(frame: CGRect, titles: [String]) {
         self.titleArray = titles
@@ -29,41 +47,26 @@ class MenuNavTab: UIView {
     }
     
     fileprivate func addContentView() {
-        let frame = CGRect(x: 0, y: 0, width: kScreenSize.width - self.bounds.size.height - 10, height: self.bounds.size.height)
-        titleBar = TitleBarView(frame: frame, titles: titleArray!, needScroll: true)
-        titleBar?.titleButtonClicked = { [weak self] index in
-            if let delegate = self?.delegate {
-                delegate.clickMenuBarItem(at: index)
-            }
-        }
-        
-        addBtn.frame = CGRect(x: self.bounds.size.width - self.bounds.size.height - 5, y: 0, width: self.bounds.size.height, height: self.bounds.size.height)
-        addBtn.setImage(R.image.ic_subscribe(), for: .normal)
-        addBtn.titleLabel?.font = UIFont.systemFont(ofSize: 20)
-        addBtn.addTarget(self, action: #selector(addClick), for: .touchUpInside)
         self.addSubview(addBtn)
-        titleBar?.backgroundColor = UIColor(hex: 0xf6f6f6)
-//        titleBarFrame = titleBar?.frame
         
-        let titleBackView = UIView(frame: (titleBar?.frame)!)
-        titleBackView.addSubview(titleBar!)
-        self.addSubview(titleBackView)
-        
+        let titleBackView = UIView(frame: titleBar.frame)
         let layer = CAGradientLayer()
-        layer.frame = (titleBar?.frame)!
+        layer.frame = titleBar.frame
         layer.locations = [0.01,0.13,0.87,0.99]
         layer.startPoint = CGPoint(x:0, y:0)
         layer.endPoint = CGPoint(x:1, y:0)
         layer.colors = [UIColor.white.cgColor, UIColor.white.cgColor, UIColor.white.cgColor, UIColor.clear.cgColor]
         titleBackView.layer.mask = layer
+        titleBackView.addSubview(titleBar)
+        self.addSubview(titleBackView)
     }
     
     func reloadAllButtonsOfTitleBarWithTitles(titles: [String]) {
-        titleBar?.reloadAllButtonsOfTitleBarWithTitles(titles)
+        titleBar.reloadAllButtonsOfTitleBarWithTitles(titles)
     }
     
     func scrollToCenterWithIndex(index: Int) {
-        titleBar?.scrollToCenterWithIndex(index)
+        titleBar.scrollToCenterWithIndex(index)
     }
     
     func ClickCollectionCellWithIndex(index:Int) {
@@ -77,7 +80,7 @@ class MenuNavTab: UIView {
         animation.fromValue = -Double.pi/4 * 3
         animation.toValue = 0
         addBtn.layer.add(animation, forKey:"hideAni")
-        titleBar?.scrollToCenterWithIndex(index)
+        titleBar.scrollToCenterWithIndex(index)
     }
     
     func endAnimation() {

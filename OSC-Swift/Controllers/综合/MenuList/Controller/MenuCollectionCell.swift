@@ -13,19 +13,6 @@ import Ono
 
 let kInformationListCollectionViewCellIdentifier = "OSCInformationListCollectionViewCell"
 
-//FIXME: OSCInformationListCollectionViewCellDelegate
-protocol MenuCollectionCellDelegate {
-    func cell(_ cell: MenuCollectionCell, update dataSourceDic:[String: InfoResultItem])
-    
-    func cell(_ cell: MenuCollectionCell, onclick tableViewCell: UITableViewCell,  push controller: UIViewController, url: String)
-}
-
-extension MenuCollectionCellDelegate {
-    //optional
-    func cell(_ cell: MenuCollectionCell, onclick banner: UIView, push controller: UIViewController, url:String) {
-    }
-}
-
 
 //FIXME: OSCInformationListCollectionViewCell
 class MenuCollectionCell: UICollectionViewCell {

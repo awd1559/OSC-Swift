@@ -10,10 +10,6 @@ import UIKit
 
 fileprivate let kScreenSize = UIScreen.main.bounds.size
 
-protocol MenuCollectionDelegate {
-    func ScrollViewDidEndWithIndex(index:Int)
-}
-
 class MenuCollectionController: UICollectionViewController {
     var delegate: MenuCollectionDelegate?
     var menuItem: [OSCMenuItem]? {

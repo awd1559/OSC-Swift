@@ -25,41 +25,15 @@ class  MenuContainerController: UIViewController {
         return view
     }()
     
-    lazy var propertyTitleView: UIView = {
-        let view = UIView(frame: (self.titleView?.titleBarFrame)!)
-        view.backgroundColor = UIColor.titleBarColor()
-        
-        self.label = UILabel(frame: CGRect(x:10, y:0, width: 100, height: view.bounds.size.height))
-        self.label.font = UIFont.systemFont(ofSize: 14)
-        
-        self.label.textColor = UIColor(hex:0x9d9d9d)
-        self.label.text = "切换栏目"
-        view.addSubview(self.label)
-        
-        self.editBtn = UIButton(type: .custom)
-        self.editBtn.frame = CGRect(x: (self.titleView?.titleBarFrame?.size.width)! - 60, y: (self.titleView?.titleBarFrame?.size.height)!/2 - 12, width: 60, height: 24)
-        self.editBtn.setTitle("排序删除", for: .normal)
-        self.editBtn.setTitle("完成", for: .selected)
-        self.editBtn.setBackgroundImage(Utils.createImageWithColor(UIColor.white), for:.normal)
-        self.editBtn.setBackgroundImage(Utils.createImageWithColor(UIColor.navigationbarColor()), for:.highlighted)
-        self.editBtn.setTitleColor(UIColor.navigationbarColor(), for:.normal)
-        self.editBtn.setTitleColor(UIColor.white, for:.highlighted)
-        self.editBtn.titleLabel?.font = UIFont.systemFont(ofSize: 12)
-        self.editBtn.layer.cornerRadius = 4
-        self.editBtn.layer.masksToBounds = true
-        self.editBtn.layer.borderColor = UIColor.navigationbarColor().cgColor
-        self.editBtn.layer.borderWidth = 1
-        self.editBtn.addTarget(self, action:#selector(editBtnClick), for:.touchUpInside)
-        view.addSubview(editBtn)
-        view.alpha = 0
-        
+    lazy var propertyTitleView: PropertyTitleView = {
+        let view = PropertyTitleView(frame: (self.titleView?.titleBarFrame)!)
+        view.collectionDelegate = self.propertyCollectionView
         return view
     }()
     var currentIndex = 0
     var informationListController: MenuCollectionController?
     
     var selectArray: [String]?
-//    var unSelectArray: []
     
     var bgV: UIView?
     var updateUrl: String?
@@ -74,7 +48,7 @@ class  MenuContainerController: UIViewController {
         self.navigationController?.navigationBar.isTranslucent = true
         self.tabBarController?.tabBar.isTranslucent = true
         if propertyCollectionView.isEditing {
-            propertyCollectionView.changeStateWithEdit(isEditing: true)
+            propertyCollectionView.changeStateWithEdit(true)
         }
     }
     
@@ -133,15 +107,15 @@ extension MenuContainerController {
         informationListController?.beginRefreshWithIndex(currentIndex)
     }
     
-    @objc func editBtnClick(button: UIButton) {
-        button.isSelected = !button.isSelected
-        self.propertyCollectionView.changeStateWithEdit(isEditing: button.isSelected)
-        if (button.isSelected) {
-            label.text = "拖动排序"
-        }else{
-            label.text = "切换栏目"
-        }
-    }
+//    @objc func editBtnClick(button: UIButton) {
+//        button.isSelected = !button.isSelected
+//        self.propertyCollectionView.changeStateWithEdit(isEditing: button.isSelected)
+//        if (button.isSelected) {
+//            label.text = "拖动排序"
+//        }else{
+//            label.text = "切换栏目"
+//        }
+//    }
     
     func beginChoseProperty() {
         self.view.addSubview(self.propertyCollectionView)
@@ -221,7 +195,7 @@ extension MenuContainerController: MenuPropertyDelegate {
     }
     
     func propertyCollectionBeginEdit() {
-        self.editBtnClick(button: editBtn)
+        self.propertyTitleView.beginEdit()
     }
 }
 

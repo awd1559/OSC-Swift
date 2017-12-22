@@ -79,29 +79,7 @@ class MenuPropertyCollection: UICollectionView {
             }
         }
     }
-    
-    func changeStateWithEdit(isEditing: Bool) {
-        self.isEditing = isEditing
-        let indexSet = IndexSet(integer: 1)
-        self.reloadSections(indexSet)
-        for i in 0..<selectTitle!.count {
-            let indexPath = IndexPath(row: i, section: 0)
-            let cell = self.cellForItem(at: indexPath) as! MenuPropertyCell
-            
-            if i > 3 {
-                if isEditing {
-                    cell.beginEditing()
-                    self.addGestureRecognizer(self.longGR)
-                    self.removeGestureRecognizer(self.pressToEdit!)
-                } else {
-                    cell.endEditing()
-                    self.removeGestureRecognizer(self.longGR)
-                    self.addGestureRecognizer(self.pressToEdit!)
-                }
-            }
-        }
-    }
-    
+
     @objc func moveCellWithGR(longgr: UILongPressGestureRecognizer) {
         switch longgr.state {
         case .began:
@@ -175,6 +153,29 @@ class MenuPropertyCollection: UICollectionView {
     }
 }
 
+extension MenuPropertyCollection: PropertyCollectionDelegate {
+    func changeStateWithEdit(_ isEditing: Bool) {
+        self.isEditing = isEditing
+        let indexSet = IndexSet(integer: 1)
+        self.reloadSections(indexSet)
+        for i in 0..<selectTitle!.count {
+            let indexPath = IndexPath(row: i, section: 0)
+            let cell = self.cellForItem(at: indexPath) as! MenuPropertyCell
+            
+            if i > 3 {
+                if isEditing {
+                    cell.beginEditing()
+                    self.addGestureRecognizer(self.longGR)
+                    self.removeGestureRecognizer(self.pressToEdit!)
+                } else {
+                    cell.endEditing()
+                    self.removeGestureRecognizer(self.longGR)
+                    self.addGestureRecognizer(self.pressToEdit!)
+                }
+            }
+        }
+    }
+}
 
 //MARK: - UICollectionViewDataSource
 extension MenuPropertyCollection: UICollectionViewDataSource {

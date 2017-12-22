@@ -29,12 +29,12 @@ class MenuPropertyCollection: UICollectionView {
     var selectTitle: [String]?
     var unSelectTitle: [String]?
     var pressToMove: UILongPressGestureRecognizer = {
-        let rec = UILongPressGestureRecognizer(target: self, action: #selector(pressToMoveAction))
+        let rec = UILongPressGestureRecognizer()
         rec.minimumPressDuration = 0.1;
         return rec
     }()
     var pressToEdit: UILongPressGestureRecognizer = {
-        let rec = UILongPressGestureRecognizer(target: self, action: #selector(pressToEditAction))
+        let rec = UILongPressGestureRecognizer()
         rec.minimumPressDuration = 1
         return rec
     }()
@@ -69,6 +69,8 @@ class MenuPropertyCollection: UICollectionView {
         self.unSelectTitle = Utils.unselectedMenuNames()
         self.alwaysBounceVertical = true
         
+        pressToMove.addTarget(self, action: #selector(pressToMoveAction))
+        pressToEdit.addTarget(self, action: #selector(pressToEditAction))
         self.addGestureRecognizer(pressToEdit)
     }
     
@@ -78,9 +80,8 @@ class MenuPropertyCollection: UICollectionView {
     
     @objc func pressToEditAction(longPress: UILongPressGestureRecognizer) {
         if longPress.state == .began {
-            if let menuPropertyDelegate = self.menuPropertyDelegate {
-                menuPropertyDelegate.propertyCollectionBeginEdit()
-            }
+            changeStateWithEdit(true)
+            self.menuPropertyDelegate?.propertyCollectionBeginEdit()
         }
     }
 
@@ -144,15 +145,15 @@ class MenuPropertyCollection: UICollectionView {
     }
     
     func getSelectIdenx() -> Int {
-        var index = 0
+        var result = 0
         for i in 0..<selectTitle!.count {
             let indexPath = IndexPath(row: i, section: 0)
             let cell = self.cellForItem(at: indexPath) as! MenuPropertyCell
             if cell.getType() == .select {
-                index = i
+                result = i
             }
         }
-        return index
+        return result
     }
     
     func changeStateWithEdit(_ isEditing: Bool) {
@@ -277,9 +278,7 @@ extension MenuPropertyCollection: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if !self.isEditing {
             if indexPath.section == 0 {
-                if let menuPropertyDelegate = self.menuPropertyDelegate {
-                    menuPropertyDelegate.clickPropertyItem(at: indexPath.row)
-                }
+                self.menuPropertyDelegate?.clickPropertyItem(at: indexPath.row)
             } else {
                 let currentTitle = self.unSelectTitle![indexPath.row]
                 unSelectTitle?.remove(at: indexPath.row)

@@ -10,7 +10,7 @@ import UIKit
 
 
 class MenuPageCollection: UICollectionViewController {
-    var delegate: MenuCollectionDelegate?
+    var delegate: MenuPageDelegate?
     var menuItem: [OSCMenuItem]? {
         didSet {
             if dataSources_dic == nil {
@@ -37,7 +37,7 @@ class MenuPageCollection: UICollectionViewController {
         self.collectionView?.contentInsetAdjustmentBehavior = .automatic
         isTouchSliding = false
         self.collectionView?.backgroundColor = .white
-        self.collectionView?.register(MenuCollectionCell.self, forCellWithReuseIdentifier:kInformationListCollectionViewCellIdentifier)
+        self.collectionView?.register(MenuPageCell.self, forCellWithReuseIdentifier:kInformationListCollectionViewCellIdentifier)
         self.collectionView?.isPagingEnabled = true
     }
     
@@ -58,7 +58,7 @@ class MenuPageCollection: UICollectionViewController {
     
     func beginRefreshWithIndex(_ index: Int) {
         let indexPath = IndexPath(row: index, section: 0)
-        let cell = self.collectionView?.cellForItem(at: indexPath) as! MenuCollectionCell
+        let cell = self.collectionView?.cellForItem(at: indexPath) as! MenuPageCell
         cell.beginRefreshCurCell()
     }
     
@@ -78,7 +78,7 @@ class MenuPageCollection: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         curMenuItem = self.menuItem?[indexPath.row]
         let curDic = self.getCurrentListDataSource()
-        let cell = MenuCollectionCell.returnReuseInformationListCollectionViewCell(collectionView, identifier:kInformationListCollectionViewCellIdentifier, indexPath:indexPath, model:curMenuItem!)
+        let cell = MenuPageCell.returnReuseInformationListCollectionViewCell(collectionView, identifier:kInformationListCollectionViewCellIdentifier, indexPath:indexPath, model:curMenuItem!)
 
         cell.configurationPostBackDictionary(curDic)
         cell.delegate = self
@@ -90,23 +90,23 @@ class MenuPageCollection: UICollectionViewController {
     override func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         let index = Int(scrollView.contentOffset.x / kScreenSize.width)
         if let delegate = self.delegate {
-            delegate.ScrollViewDidEndWithIndex(index: index)
+            delegate.scrollViewDidEnd(at: index)
         }
     }
 }
 
 
 //MARK: - InfoCollectionCellDelegate
-extension MenuPageCollection: MenuCollectionCellDelegate {
-    func cell(_ cell: MenuCollectionCell, update dataSourceDic: [String : InfoResultItem]) {
+extension MenuPageCollection: MenuPageCellDelegate {
+    func cell(_ cell: MenuPageCell, update dataSourceDic: [String : InfoResultItem]) {
         
     }
     
-    func cell(_ cell: MenuCollectionCell, onclick tableViewCell: UITableViewCell, push controller: UIViewController, url: String) {
+    func cell(_ cell: MenuPageCell, onclick tableViewCell: UITableViewCell, push controller: UIViewController, url: String) {
         
     }
     
-    func cell(_ cell: MenuCollectionCell, onclick banner: UIView, push controller: UIViewController, url: String) {
+    func cell(_ cell: MenuPageCell, onclick banner: UIView, push controller: UIViewController, url: String) {
         
     }
     

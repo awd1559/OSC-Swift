@@ -8,32 +8,19 @@
 
 import UIKit
 
-protocol MenuContainerDelegate {
+protocol MenuPageDelegate {
+    func scrollViewDidEnd(at index:Int)
+}
+
+protocol MenuPageCellDelegate {
+    func cell(_ cell: MenuPageCell, update dataSourceDic:[String: InfoResultItem])
     
+    func cell(_ cell: MenuPageCell, onclick tableViewCell: UITableViewCell,  push controller: UIViewController, url: String)
 }
 
-protocol MenuCollectionDelegate {
-    func ScrollViewDidEndWithIndex(index:Int)
-}
-
-protocol MenuTopDelegate {
-    
-}
-
-protocol MenuCellDelegate {
-    
-}
-
-//FIXME: in MenuPropertyCell
-protocol MenuCollectionCellDelegate {
-    func cell(_ cell: MenuCollectionCell, update dataSourceDic:[String: InfoResultItem])
-    
-    func cell(_ cell: MenuCollectionCell, onclick tableViewCell: UITableViewCell,  push controller: UIViewController, url: String)
-}
-
-extension MenuCollectionCellDelegate {
+extension MenuPageCellDelegate {
     //optional
-    func cell(_ cell: MenuCollectionCell, onclick banner: UIView, push controller: UIViewController, url:String) {
+    func cell(_ cell: MenuPageCell, onclick banner: UIView, push controller: UIViewController, url:String) {
     }
 }
 

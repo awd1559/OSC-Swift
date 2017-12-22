@@ -15,8 +15,8 @@ let kInformationListCollectionViewCellIdentifier = "OSCInformationListCollection
 
 
 //FIXME: OSCInformationListCollectionViewCell
-class MenuCollectionCell: UICollectionViewCell {
-    var delegate: MenuCollectionCellDelegate?
+class MenuPageCell: UICollectionViewCell {
+    var delegate: MenuPageCellDelegate?
     var menuItem: OSCMenuItem?
     var pageToken: String?
     var offestDistance: Float?
@@ -53,8 +53,8 @@ class MenuCollectionCell: UICollectionViewCell {
     }()
     
     static func returnReuseInformationListCollectionViewCell(_ collectionView: UICollectionView,
-                identifier: String, indexPath: IndexPath,  model:OSCMenuItem) -> MenuCollectionCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier:identifier, for:indexPath) as! MenuCollectionCell
+                identifier: String, indexPath: IndexPath,  model:OSCMenuItem) -> MenuPageCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier:identifier, for:indexPath) as! MenuPageCell
         cell.menuItem = model
         return cell
     }
@@ -255,7 +255,7 @@ class MenuCollectionCell: UICollectionViewCell {
 
 
 //MARK: - UITableViewDataSource
-extension MenuCollectionCell: UITableViewDataSource {
+extension MenuPageCell: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -295,7 +295,7 @@ extension MenuCollectionCell: UITableViewDataSource {
 }
 
 //MARK: - UITableViewDelegate
-extension MenuCollectionCell: UITableViewDelegate {
+extension MenuPageCell: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let listItem = self.dataSources[indexPath.row]
         tableView.deselectRow(at: indexPath, animated:true)
@@ -308,7 +308,7 @@ extension MenuCollectionCell: UITableViewDelegate {
 
 
 //MARK: - UIScrollViewDelegate
-extension MenuCollectionCell: UIScrollViewDelegate {
+extension MenuPageCell: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         offestDistance = Float(scrollView.contentOffset.y)
     }

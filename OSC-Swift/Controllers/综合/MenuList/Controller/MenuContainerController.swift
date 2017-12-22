@@ -30,7 +30,7 @@ class  MenuContainerController: UIViewController {
         return view
     }()
     var currentIndex = 0
-    var informationListController: MenuCollectionController?
+    var informationListController: MenuPageCollection?
     
     var selectArray: [String]?
     
@@ -82,7 +82,7 @@ class  MenuContainerController: UIViewController {
         layout.minimumLineSpacing = 0
         layout.minimumInteritemSpacing = 0
         layout.sectionInset = UIEdgeInsetsMake(0, 0, 49, 0);
-        informationListController = MenuCollectionController(collectionViewLayout: layout)
+        informationListController = MenuPageCollection(collectionViewLayout: layout)
         informationListController?.delegate = self
         informationListController?.menuItem = Utils.menuItems(names: selectArray!)
         self.addChildViewController(informationListController!)
@@ -190,8 +190,8 @@ extension MenuContainerController: MenuPropertyDelegate {
 
 
 //MARK: - InfoCollectionDelegate
-extension MenuContainerController : MenuCollectionDelegate {
-    func ScrollViewDidEndWithIndex(index: Int) {
+extension MenuContainerController : MenuPageDelegate {
+    func scrollViewDidEnd(at index: Int) {
         currentIndex = index
         self.menuNavTab?.scrollToCenterWithIndex(index: index)
     }

@@ -257,9 +257,9 @@ extension MenuPropertyCollection : UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         if section == 0 {
             return CGSize(width: kScreenSize.width, height: 0)
-        }else if self.isEditing {
+        } else if self.isEditing {
             return CGSize(width: 0, height: 0)
-        }else{
+        } else {
             return CGSize(width: kScreenSize.width, height: 40)
         }
     }

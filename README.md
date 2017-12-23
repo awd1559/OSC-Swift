@@ -1,5 +1,7 @@
 base on OSChina iphone app [v3.8.6](https://gitee.com/oschina/iphone-app/tree/v3.8.6/)
 
+- test of ui is a big problem
+
 TODO:
 
 - replace [AFNetworking](https://github.com/AFNetworking/AFNetworking) with Alamofire
@@ -8,3 +10,5 @@ TODO:
 
 - [YYKit](https://github.com/ibireme/YYKit) in swift
 - use [YYModel](https://github.com/ibireme/YYModel) to map NSArray... to model
+
+

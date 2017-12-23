@@ -12,7 +12,7 @@ fileprivate let kTitleHeigh = 60
 fileprivate let kAnimationTime = 0.4
 
 class  MenuContainerController: UIViewController {
-    var currentIndex = 0
+    //TODO: can remove, let the menu and pager mange this
     var selectArray: [String]?
     var bgV: UIView?
     var updateUrl: String?
@@ -23,20 +23,6 @@ class  MenuContainerController: UIViewController {
         let menu = MenuBar(frame: frame, titles: selectArray!)
         menu.delegate = self
         return menu
-    }()
-    
-    lazy var propertyTopView: MenuPropertyTopView = {
-        let view = MenuPropertyTopView(frame: self.menuBar.titleBar.frame)
-        view.topviewDelegate = self
-        return view
-    }()
-    
-    lazy var propertyCollection: MenuPropertyCollection = {
-        let height = kScreenSize.height - self.menuBar.frame.maxY
-        let frame = CGRect(x: 0, y: self.menuBar.frame.maxY - height, width: kScreenSize.width, height: height)
-        let view = MenuPropertyCollection(frame: frame)
-        view.menuPropertyDelegate = self
-        return view
     }()
     
     lazy var pageCollection: MenuPageCollection = {
@@ -62,9 +48,6 @@ class  MenuContainerController: UIViewController {
         self.automaticallyAdjustsScrollViewInsets = false
         self.navigationController?.navigationBar.isTranslucent = true
         self.tabBarController?.tabBar.isTranslucent = true
-        if propertyCollection.isEditing {
-            propertyCollection.isEditing = true
-        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -105,85 +88,24 @@ class  MenuContainerController: UIViewController {
 
 //MARK: - MenuBarDelegate
 extension MenuContainerController: MenuBarDelegate {
-    func propertyTopViewWillShow() {
+    func propertyWillShow() {
         //hide tabbar
         UIView.animate(withDuration: kAnimationTime) {
             let frame = CGRect(x: 0, y: kScreenSize.height, width: kScreenSize.width, height: (self.tabBarController?.tabBar.bounds.size.height)!)
             self.tabBarController?.tabBar.frame = frame
         }
-        
-        menuBar.addSubview(self.propertyTopView)
-        self.view.addSubview(self.propertyCollection)
-        self.propertyCollection.index = self.currentIndex
-        self.view.bringSubview(toFront: menuBar)
-        
-        //show property collection
-        UIView.animate(withDuration: kAnimationTime) {
-            self.propertyTopView.alpha = 1
-            self.propertyCollection.frame = CGRect(x: 0, y: self.menuBar.frame.maxY, width: kScreenSize.width, height: kScreenSize.height - self.menuBar.frame.maxY)
-        }
+        self.view.bringSubview(toFront: self.menuBar)
     }
-    func propertyTopViewWillClose() {
-        propertyTopView.stopEdit()
-        propertyCollection.isEditing = false
-        selectArray = propertyCollection.CompleteAllEditings()
-        menuBar.reloadTitleBar(with: selectArray!)
-        Utils.updateSelectedMenuList(names: selectArray!)
-        pageCollection.menuItems = Utils.menuItems(names: selectArray!)
-        menuBar.scrollToCenter(with: currentIndex)
-        pageCollection.collectionView?.setContentOffset(CGPoint(x: CGFloat(currentIndex) * kScreenSize.width, y: 0), animated: true)
-        
+    
+    func propertyWillHide() {
         //show tabbar
         UIView.animate(withDuration: kAnimationTime) {
             let frame = CGRect(x: 0, y: kScreenSize.height - (self.tabBarController?.tabBar.bounds.size.height)!, width: kScreenSize.width, height: (self.tabBarController?.tabBar.bounds.size.height)!)
             self.tabBarController?.tabBar.frame = frame
         }
-        
-        //hide menu property collection, and remove it
-        let height = kScreenSize.height - menuBar.frame.maxY
-        UIView.animate(withDuration: kAnimationTime, animations: {
-            self.propertyTopView.alpha = 0
-            self.propertyCollection.frame = CGRect(x: 0, y: self.menuBar.frame.maxY, width: kScreenSize.width, height: height)
-        }, completion: { _ in
-            self.propertyCollection.removeFromSuperview()
-            self.propertyTopView.removeFromSuperview()
-        })
     }
-    
     func menubardidClickAt(_ index: Int) {
-        currentIndex = index
         pageCollection.collectionView?.setContentOffset(CGPoint(x: CGFloat(index) * kScreenSize.width, y: 0), animated: true)
-    }
-}
-
-
-//MARK: - PropertyTopViewDelegate
-extension MenuContainerController: PropertyTopViewDelegate {
-    func startEdit() {
-        self.propertyCollection.isEditing = true
-    }
-    
-    func stopEdit() {
-        self.propertyCollection.isEditing = false
-    }
-}
-
-
-//MARK: - MenuPropertyDelegate
-extension MenuContainerController: MenuPropertyDelegate {
-    func clickPropertyItem(at index: Int) {
-        currentIndex = index
-        self.menuBar.reloadTitleBar(with: propertyCollection.CompleteAllEditings())
-        self.menuBar.ClickCollectionCellWithIndex(index: index)
-        self.propertyTopViewWillClose()
-        selectArray = propertyCollection.CompleteAllEditings()
-        Utils.updateSelectedMenuList(names: selectArray!)
-        pageCollection.menuItems = Utils.menuItems(names: selectArray!)
-        pageCollection.collectionView?.setContentOffset(CGPoint(x: CGFloat(index) * kScreenSize.width, y:0), animated: true)
-    }
-    
-    func propertyCollectionBeginEdit() {
-        self.propertyTopView.startEdit()
     }
 }
 
@@ -191,7 +113,6 @@ extension MenuContainerController: MenuPropertyDelegate {
 //MARK: - MenuPageDelegate
 extension MenuContainerController : MenuPageDelegate {
     func scrollViewDidEnd(at index: Int) {
-        currentIndex = index
         self.menuBar.scrollToCenter(with: index)
     }
 }

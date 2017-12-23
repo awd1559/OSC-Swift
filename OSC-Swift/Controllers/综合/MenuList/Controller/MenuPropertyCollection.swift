@@ -24,28 +24,7 @@ protocol MenuPropertyDelegate {
 
 class MenuPropertyCollection: UICollectionView {
     var menuPropertyDelegate: MenuPropertyDelegate?
-    var isEditing: Bool = false {
-        didSet {
-            let indexSet = IndexSet(integer: 1)
-            self.reloadSections(indexSet)
-            for i in 0..<selectTitle!.count {
-                let indexPath = IndexPath(row: i, section: 0)
-                let cell = self.cellForItem(at: indexPath) as! MenuPropertyCell
-                
-                if i > 3 {
-                    if isEditing {
-                        cell.beginEditing()
-                        self.addGestureRecognizer(self.pressToMove)
-                        self.removeGestureRecognizer(self.pressToEdit)
-                    } else {
-                        cell.endEditing()
-                        self.removeGestureRecognizer(self.pressToMove)
-                        self.addGestureRecognizer(self.pressToEdit)
-                    }
-                }
-            }
-        }
-    }
+    var isEditing: Bool = false
     var index: Int = 0 {
         didSet {
             self.reloadData()
@@ -105,6 +84,7 @@ class MenuPropertyCollection: UICollectionView {
     @objc func pressToEditAction(longPress: UILongPressGestureRecognizer) {
         if longPress.state == .began {
             self.isEditing = true
+            self.reload()
             self.menuPropertyDelegate?.propertyCollectionBeginEdit()
         }
     }
@@ -116,7 +96,7 @@ class MenuPropertyCollection: UICollectionView {
             if indexPath!.row > 3 {
                 moveCell = self.cellForItem(at: indexPath!) as? MenuPropertyCell
                 if let moveCell = moveCell {
-                    moveCell.endEditing()
+                    moveCell.stopEdit()
                     self.beginInteractiveMovementForItem(at: indexPath!)
                     UIView.animate(withDuration: 0.2) {
                         moveCell.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
@@ -145,7 +125,7 @@ class MenuPropertyCollection: UICollectionView {
                     self.moveCell?.transform = CGAffineTransform(scaleX: 1, y: 1)
                     self.moveCell?.alpha = 1
                 }
-                moveCell?.beginEditing()
+                moveCell?.startEdit()
             }
             if let moveCell = self.moveCell {
                 moveCell.alpha = 0.8
@@ -158,13 +138,44 @@ class MenuPropertyCollection: UICollectionView {
                     moveCell.transform = CGAffineTransform(scaleX: 1, y: 1)
                     moveCell.alpha = 1
                 }
-                moveCell.beginEditing()
-//                moveCell = nil
+                moveCell.startEdit()
             }
         }
     }
     
-    func CompleteAllEditings() -> [String] {
+    func reload() {
+        let indexSet = IndexSet(integer: 1)
+        self.reloadSections(indexSet)
+        for i in 0..<selectTitle!.count {
+            let indexPath = IndexPath(row: i, section: 0)
+            let cell = self.cellForItem(at: indexPath) as! MenuPropertyCell
+            
+            if i > 3 {
+                if isEditing {
+                    cell.startEdit()
+                    self.addGestureRecognizer(self.pressToMove)
+                    self.removeGestureRecognizer(self.pressToEdit)
+                } else {
+                    cell.stopEdit()
+                    self.removeGestureRecognizer(self.pressToMove)
+                    self.addGestureRecognizer(self.pressToEdit)
+                }
+            }
+        }
+    }
+    
+    func startEdit() {
+        self.isEditing = true
+        self.reload()
+    }
+    
+    func stopEdit() -> [String] {
+        self.isEditing = false
+        self.reload()
+        return selectTitle!
+    }
+    
+    func getSelectedTitles() -> [String] {
         return selectTitle!
     }
     
@@ -173,7 +184,7 @@ class MenuPropertyCollection: UICollectionView {
         for i in 0..<selectTitle!.count {
             let indexPath = IndexPath(row: i, section: 0)
             let cell = self.cellForItem(at: indexPath) as! MenuPropertyCell
-            if cell.getType() == .select {
+            if cell.type == .select {
                 result = i
             }
         }
@@ -202,30 +213,30 @@ extension MenuPropertyCollection: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: MenuPropertyCell = collectionView.dequeueReusableCell(withReuseIdentifier: cellID, for: indexPath) as! MenuPropertyCell
-        cell.endEditing()
+        cell.stopEdit()
 
         if indexPath.section == 0 {
             if isEditing && indexPath.row >= 4 {
-                cell.beginEditing()
+                cell.startEdit()
             }
             if indexPath.row == index {
                 if indexPath.row > 3 {
-                    cell.setCellType(.select, isUnable: false)
+                    cell.setCellType(.select, withBorder: true)
                 } else {
-                    cell.setCellType(.select, isUnable: true)
+                    cell.setCellType(.select, withBorder: false)
                 }
             } else {
                 if indexPath.row > 3 {
-                    cell.setCellType(.nomal, isUnable: false)
+                    cell.setCellType(.nomal, withBorder: true)
                 } else {
-                    cell.setCellType(.nomal, isUnable: true)
+                    cell.setCellType(.nomal, withBorder: false)
                 }
             }
             cell.title = selectTitle?[indexPath.row]
         } else {
             cell.title = unSelectTitle?[indexPath.row]
-            cell.endEditing()
-            cell.setCellType(.second, isUnable:false)
+            cell.stopEdit()
+            cell.setCellType(.second, withBorder:true)
         }
         cell.delegate = self
         return cell
@@ -248,7 +259,7 @@ extension MenuPropertyCollection: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, canMoveItemAt indexPath: IndexPath) -> Bool {
-        if indexPath.row >= 4 || indexPath.section != 1 {
+        if indexPath.section == 0 || indexPath.row > 3 {
             return true
         }
         return false
@@ -259,6 +270,7 @@ extension MenuPropertyCollection: UICollectionViewDataSource {
         let index = self.selectTitle?.index(of: sourceString!)
         self.selectTitle?.remove(at: index!)
         self.selectTitle?.insert(sourceString!, at: destinationIndexPath.row)
+        Utils.updateSelectedMenuList(names: self.selectTitle!)
     }
 }
 
@@ -295,11 +307,13 @@ extension MenuPropertyCollection: UICollectionViewDelegate {
 
 //MARK: - PropertyCellDelegate
 extension MenuPropertyCollection : MenuPropertyCellDelegate {
-    func deleteBtnClick(at cell: UICollectionViewCell) {
+    func deleteCell(_ cell: UICollectionViewCell) {
         let indexPath = self.indexPath(for: cell)
-        let currentTitle = self.selectTitle![(indexPath?.row)!]
-        self.selectTitle?.remove(at: (indexPath?.row)!)
-        self.deleteItems(at: [indexPath!])
+        let index = (indexPath?.row)!
+        let currentTitle = self.selectTitle![index]
+        self.selectTitle?.remove(at: index)
         self.unSelectTitle?.insert(currentTitle, at: 0)
+        Utils.updateSelectedMenuList(names: self.selectTitle!)
+        self.deleteItems(at: [indexPath!])
     }
 }

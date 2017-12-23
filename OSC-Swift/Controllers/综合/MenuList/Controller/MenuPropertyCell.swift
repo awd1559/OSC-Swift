@@ -17,13 +17,18 @@ enum CellType: Int {
 
 
 protocol MenuPropertyCellDelegate {
-    func deleteBtnClick(at cell: UICollectionViewCell)
+    func deleteCell(_ cell: UICollectionViewCell)
 }
 
 
 class MenuPropertyCell : UICollectionViewCell {
-    var isUnable = false
-    var cellType: CellType = .nomal
+    let normalTextColor = UIColor(hex: 0x111111)
+    let normalBorderColor = UIColor(hex: 0xcdcdcd)
+    let selectTextColor = UIColor.navigationbarColor()
+    let selectBorderColor = UIColor.navigationbarColor()
+    
+    var withBorader = false
+    var type: CellType = .nomal
     var delegate: MenuPropertyCellDelegate?
     
     var title: String? {
@@ -67,12 +72,10 @@ class MenuPropertyCell : UICollectionViewCell {
     }
     
     @objc func deleteClick(sender: UIButton) {
-        if let delegate = self.delegate {
-            delegate.deleteBtnClick(at: self)
-        }
+        self.delegate?.deleteCell(self)
     }
     
-    func beginEditing() {
+    func startEdit() {
         let animation = CAKeyframeAnimation(keyPath: "transform.rotation")
         animation.duration = 0.2
         animation.isRemovedOnCompletion = true
@@ -88,38 +91,34 @@ class MenuPropertyCell : UICollectionViewCell {
         deleteBtn.isHidden = false
     }
     
-    func endEditing() {
+    func stopEdit() {
         self.layer.removeAnimation(forKey: "animation")
         deleteBtn.isHidden = true
     }
     
-    func setCellType(_ cellType: CellType, isUnable:Bool) {
-        self.isUnable = isUnable
-        self.cellType = cellType
+    func setCellType(_ cellType: CellType, withBorder:Bool) {
+        self.withBorader = withBorder
+        self.type = cellType
         switch cellType {
         case .nomal:
-            titleLabel.textColor = UIColor(hex:0x111111)
-            if !isUnable {
-                titleLabel.layer.borderColor = UIColor(hex:0xcdcdcd).cgColor
-            }else{
-                titleLabel.layer.borderColor = UIColor(red:205/225.0, green:205/225.0, blue:205/225.0, alpha:0.4).cgColor
+            titleLabel.textColor = normalTextColor
+            if withBorader {
+                titleLabel.layer.borderColor = normalBorderColor.cgColor
+            } else {
+                titleLabel.layer.borderColor = UIColor.clear.cgColor
                 titleLabel.backgroundColor = UIColor.clear
             }
         case .select:
-            titleLabel.layer.borderColor = UIColor.navigationbarColor().cgColor
-            titleLabel.textColor = UIColor.navigationbarColor()
-            if isUnable {
+            titleLabel.textColor = selectTextColor
+            if withBorader {
+                titleLabel.layer.borderColor = selectBorderColor.cgColor
+            } else {
+                titleLabel.layer.borderColor = UIColor.clear.cgColor
                 titleLabel.backgroundColor = UIColor.clear
             }
         case .second:
-            titleLabel.textColor = UIColor(hex:0x111111)
-            titleLabel.layer.borderColor = UIColor(hex:0xcdcdcd).cgColor
-        default:
-            break
+            titleLabel.textColor = normalTextColor
+            titleLabel.layer.borderColor = normalBorderColor.cgColor
         }
-    }
-    
-    func getType() -> CellType {
-        return cellType
     }
 }

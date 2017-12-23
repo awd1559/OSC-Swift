@@ -58,22 +58,22 @@ class MenuPropertyTopView: UIView {
     }
     
     @objc func editBtnClick(button: UIButton) {
-        beginEdit()
-        
         if button.isSelected {
-            self.topviewDelegate?.startEdit()
-        } else {
+            self.stopEdit()
             self.topviewDelegate?.stopEdit()
+        } else {
+            self.startEdit()
+            self.topviewDelegate?.startEdit()
         }
     }
     
-    func beginEdit() {
-        self.editBtn.isSelected = !self.editBtn.isSelected
-        
-        if (self.editBtn.isSelected) {
-            label.text = "拖动排序"
-        }else{
-            label.text = "切换栏目"
-        }
+    func startEdit() {
+        self.editBtn.isSelected = true
+        label.text = "拖动排序"
+    }
+    
+    func stopEdit() {
+        self.editBtn.isSelected = false
+        label.text = "切换栏目"
     }
 }

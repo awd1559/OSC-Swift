@@ -11,8 +11,8 @@ import UIKit
 fileprivate let kAnimationTime = 0.5
 
 protocol MenuBarDelegate {
-    func menubarWillShow()
-    func menubarWillClose()
+    func propertyTopViewWillShow()
+    func propertyTopViewWillClose()
     func menubardidClickAt(_ index: Int)
 }
 
@@ -118,9 +118,9 @@ class MenuBar: UIView {
         addBtn.isEnabled = true
         
         if addBtn.isSelected {
-            self.delegate?.menubarWillShow()
+            self.delegate?.propertyTopViewWillShow()
         } else {
-            self.delegate?.menubarWillClose()
+            self.delegate?.propertyTopViewWillClose()
         }
     }
     

@@ -105,7 +105,7 @@ class  MenuContainerController: UIViewController {
 
 //MARK: - MenuBarDelegate
 extension MenuContainerController: MenuBarDelegate {
-    func menubarWillShow() {
+    func propertyTopViewWillShow() {
         //hide tabbar
         UIView.animate(withDuration: kAnimationTime) {
             let frame = CGRect(x: 0, y: kScreenSize.height, width: kScreenSize.width, height: (self.tabBarController?.tabBar.bounds.size.height)!)
@@ -123,8 +123,9 @@ extension MenuContainerController: MenuBarDelegate {
             self.propertyCollection.frame = CGRect(x: 0, y: self.menuBar.frame.maxY, width: kScreenSize.width, height: kScreenSize.height - self.menuBar.frame.maxY)
         }
     }
-    func menubarWillClose() {
-        propertyCollection.endEditing(true)
+    func propertyTopViewWillClose() {
+        propertyTopView.stopEdit()
+        propertyCollection.isEditing = false
         selectArray = propertyCollection.CompleteAllEditings()
         menuBar.reloadTitleBar(with: selectArray!)
         Utils.updateSelectedMenuList(names: selectArray!)
@@ -174,7 +175,7 @@ extension MenuContainerController: MenuPropertyDelegate {
         currentIndex = index
         self.menuBar.reloadTitleBar(with: propertyCollection.CompleteAllEditings())
         self.menuBar.ClickCollectionCellWithIndex(index: index)
-        self.menubarWillClose()
+        self.propertyTopViewWillClose()
         selectArray = propertyCollection.CompleteAllEditings()
         Utils.updateSelectedMenuList(names: selectArray!)
         pageCollection.menuItems = Utils.menuItems(names: selectArray!)
@@ -182,7 +183,7 @@ extension MenuContainerController: MenuPropertyDelegate {
     }
     
     func propertyCollectionBeginEdit() {
-        self.propertyTopView.beginEdit()
+        self.propertyTopView.startEdit()
     }
 }
 

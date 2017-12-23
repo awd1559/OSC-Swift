@@ -34,12 +34,10 @@ class MenuPropertyCollection: UICollectionView {
     var unSelectTitle: [String]?
     var pressToMove: UILongPressGestureRecognizer = {
         let rec = UILongPressGestureRecognizer()
-        rec.minimumPressDuration = 0.1;
         return rec
     }()
     var pressToEdit: UILongPressGestureRecognizer = {
         let rec = UILongPressGestureRecognizer()
-        rec.minimumPressDuration = 1
         return rec
     }()
     var moveCell: MenuPropertyCell?

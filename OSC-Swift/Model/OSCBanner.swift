@@ -8,17 +8,17 @@
 
 struct OSCBanner {
 
-    var name: String
+    var name: String = ""
 
-    var detail: String
+    var detail: String = ""
 
-    var img: String
+    var img: String = ""
 
-    var href: String
+    var href: String = ""
 
-    var type: InformationType
+    var type: InformationType = .linknews
 
-    var id: Int
+    var id: Int = 0
 
-    var time: String
+    var time: String = ""
 }

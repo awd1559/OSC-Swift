@@ -14,4 +14,6 @@ target 'OSC-Swift' do
     pod 'MJRefresh'
     pod 'MBProgressHUD', '~> 1.1.0'
     pod 'Ono'
+    pod 'FSPagerView'
+    pod 'Kingfisher'
 end

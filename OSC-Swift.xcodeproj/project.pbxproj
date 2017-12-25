@@ -44,6 +44,8 @@
 		CEA24E3F1FE8F10D000BAA76 /* OSCObjsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA24E3E1FE8F10D000BAA76 /* OSCObjsViewController.swift */; };
 		CEA24E4E1FE9413D000BAA76 /* Alamofire+xml.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA24E4D1FE9413C000BAA76 /* Alamofire+xml.swift */; };
 		CEA24E501FE94E86000BAA76 /* OSCParseable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA24E4F1FE94E86000BAA76 /* OSCParseable.swift */; };
+		CEAFBEA01FEFF12A00BA8DCB /* Alamofire+SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAFBE9E1FEFF12900BA8DCB /* Alamofire+SwiftyJSON.swift */; };
+		CEAFBEA11FEFF12A00BA8DCB /* Alamofire+ObjectMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAFBE9F1FEFF12A00BA8DCB /* Alamofire+ObjectMapper.swift */; };
 		CEC518C61FE226BC009A7CF2 /* MenuBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC518C51FE226BC009A7CF2 /* MenuBar.swift */; };
 		CEC518C81FE227A3009A7CF2 /* TitleBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC518C71FE227A3009A7CF2 /* TitleBarView.swift */; };
 		CEC518CA1FE228D3009A7CF2 /* MenuPropertyCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC518C91FE228D3009A7CF2 /* MenuPropertyCollection.swift */; };
@@ -175,6 +177,8 @@
 		CEA24E3E1FE8F10D000BAA76 /* OSCObjsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSCObjsViewController.swift; sourceTree = "<group>"; };
 		CEA24E4D1FE9413C000BAA76 /* Alamofire+xml.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Alamofire+xml.swift"; sourceTree = "<group>"; };
 		CEA24E4F1FE94E86000BAA76 /* OSCParseable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSCParseable.swift; sourceTree = "<group>"; };
+		CEAFBE9E1FEFF12900BA8DCB /* Alamofire+SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Alamofire+SwiftyJSON.swift"; sourceTree = "<group>"; };
+		CEAFBE9F1FEFF12A00BA8DCB /* Alamofire+ObjectMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Alamofire+ObjectMapper.swift"; sourceTree = "<group>"; };
 		CEC518C51FE226BC009A7CF2 /* MenuBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBar.swift; sourceTree = "<group>"; };
 		CEC518C71FE227A3009A7CF2 /* TitleBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleBarView.swift; sourceTree = "<group>"; };
 		CEC518C91FE228D3009A7CF2 /* MenuPropertyCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuPropertyCollection.swift; sourceTree = "<group>"; };
@@ -736,6 +740,8 @@
 		CEFEC67D1FDE43B10019DDF2 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				CEAFBE9F1FEFF12A00BA8DCB /* Alamofire+ObjectMapper.swift */,
+				CEAFBE9E1FEFF12900BA8DCB /* Alamofire+SwiftyJSON.swift */,
 				CEA24E4D1FE9413C000BAA76 /* Alamofire+xml.swift */,
 				CEFEC6CC1FDEBFFC0019DDF2 /* Config.swift */,
 				CE2BF0E01FE10CD800528BA6 /* UIColor+ext.swift */,
@@ -1100,6 +1106,7 @@
 				CEFEC6CA1FDE720B0019DDF2 /* OSCTabBarController.swift in Sources */,
 				CEFEC6CD1FDEBFFC0019DDF2 /* Config.swift in Sources */,
 				CECBB5E41FEB6789005E87AA /* UIView+ext.swift in Sources */,
+				CEAFBEA01FEFF12A00BA8DCB /* Alamofire+SwiftyJSON.swift in Sources */,
 				CE2BF0E11FE10CD800528BA6 /* UIColor+ext.swift in Sources */,
 				CEA24E4E1FE9413D000BAA76 /* Alamofire+xml.swift in Sources */,
 				CE2BF0DF1FE106D200528BA6 /* OptionButton.swift in Sources */,
@@ -1118,6 +1125,7 @@
 				CEA24D311FE76372000BAA76 /* PullToRefreshOption.swift in Sources */,
 				CE6098FC1FEC8DC70023B6A5 /* MenuPropertyTopView.swift in Sources */,
 				CE6B24E91FE0D2FE00659156 /* HomepageViewController.swift in Sources */,
+				CEAFBEA11FEFF12A00BA8DCB /* Alamofire+ObjectMapper.swift in Sources */,
 				CECBB5EA1FEB6C1F005E87AA /* OSCActivityTableViewCell.swift in Sources */,
 				CEA24D331FE76372000BAA76 /* UIScrollViewExtension.swift in Sources */,
 				CEC518F01FE247CF009A7CF2 /* SearchResultController.swift in Sources */,

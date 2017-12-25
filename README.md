@@ -7,8 +7,12 @@ TODO:
 - replace [AFNetworking](https://github.com/AFNetworking/AFNetworking) with Alamofire
 - [MJRefresh](https://github.com/CoderMJLee/MJRefresh) in swift
 - [MBProgressHUD](https://github.com/jdg/MBProgressHUD) in swift
+- [Kingfisher](https://github.com/onevcat/Kingfisher)
 
-- [YYKit](https://github.com/ibireme/YYKit) in swift
-- use [YYModel](https://github.com/ibireme/YYModel) to map NSArray... to model
-
-
+- OSCMenuItem: Decodable, use PropertyListDecoder, in Utils.allMenuItems from subMenuItems.plist
+- MenuPageCollection: use UIPageViewController
+- BannerScrollView:  FSPageView
+    the textLabel shadow is with alpha 0.6,  it is unconfigable, must change the source code
+    FSPageViewCell.textLabel get{
+        view.backgroundColor = UIColor.black.withAlphaComponent(0.6)
+    }

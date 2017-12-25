@@ -175,18 +175,27 @@ class Utils {
         var menuItems = [OSCMenuItem]()
         for arrItem in (localMenusArr?.enumerated())! {
             let dict = arrItem.element as! [String: Any]
+            //TODO: OSCMenuItem: Decodable
+            //use PropertyListDecoder
             var item = OSCMenuItem()
             item.name = dict["name"] as! String
             item.token = dict["token"] as! String
             item.fixed = dict["fixed"] as! Bool
             item.needLogin = dict["needLogin"] as! Bool
             item.tag = dict["tag"] as! String
-//            item.type = InformationType(rawValue: dict["type"] as! Int)!
+            var type = dict["type"] as! Int
+            if type > 6 && type != 11 && type != 100{
+                type = 0
+            }
+            item.type = InformationType(rawValue: type)!
             item.subtype = dict["subtype"] as! String
             item.order = dict["order"] as! Int
             item.href = dict["href"] as! String
             
-            //TODO: more banner property
+            let banner = dict["banner"] as! [String: Any]
+            item.banner = OSCMenuItem_Banner()
+            item.banner.catalog = OSCInformationListBannerType(rawValue: banner["catalog"] as! Int)!
+            item.banner.href = banner["href"] as! String
             
             menuItems.append(item)
         }

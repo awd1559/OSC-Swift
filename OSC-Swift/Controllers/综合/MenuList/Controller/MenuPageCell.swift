@@ -12,7 +12,9 @@ import Alamofire
 import Ono
 
 let kInformationListCollectionViewCellIdentifier = "OSCInformationListCollectionViewCell"
-
+let kScreen_Width = UIScreen.main.bounds.size.width
+let BannerView_Simple_Height = UIScreen.main.bounds.size.width * 39 / 125
+let BannerView_CustomActivity_Height = 215
 
 protocol MenuPageCellDelegate {
     func cell(_ cell: MenuPageCell, update dataSourceDic:[String: InfoResultItem])
@@ -86,7 +88,7 @@ class MenuPageCell: UICollectionViewCell {
     }
     
     func configurationPostBackDictionary(_ resultItem: [String: InfoResultItem]) {
-//        self.hideCustomPageView()
+        self.hideAllGeneralPage()
         self.tableView.mj_footer.state = .idle
         
         if self.dataSources.count > 0 {
@@ -112,7 +114,7 @@ class MenuPageCell: UICollectionViewCell {
             dataSources = resultItemModel.tableViewArr!
             bannerDataSources = resultItemModel.bannerArr
             
-            if let bannerDataSources = self.bannerDataSources {
+            if self.bannerDataSources != nil {
                 self.configurationBannerView()
             } else {
                 self.tableView.tableHeaderView = nil
@@ -131,7 +133,9 @@ class MenuPageCell: UICollectionViewCell {
     func configurationBannerView() {
         switch menuItem!.banner.catalog {
         case .simple, .simpleblogs:
-            self.bannerScrollView?.banners = self.convertModels(banners: self.bannerDataSources!)
+            let frame = CGRect(x: 0, y: 0, width: kScreen_Width, height: BannerView_Simple_Height)
+            self.bannerScrollView = BannerScrollView(frame: frame, banners: self.bannerDataSources!)
+            self.tableView.tableHeaderView = self.bannerScrollView
         case .customactivity:
             self.activityBannerView?.banners = self.bannerDataSources
         default:
@@ -139,15 +143,15 @@ class MenuPageCell: UICollectionViewCell {
         }
     }
     
-    func convertModels(banners: [OSCBanner]) -> [OSCBannerModel] {
-        var arr = [OSCBannerModel]()
-        arr.reserveCapacity(banners.count)
-        for banner in banners {
-            let model = OSCBannerModel(title: banner.name, netImagePath: banner.img, localImageData: nil)
-            arr.append(model)
-        }
-        return arr
-    }
+//    func convertModels(banners: [OSCBanner]) -> [OSCBannerModel] {
+//        var arr = [OSCBannerModel]()
+//        arr.reserveCapacity(banners.count)
+//        for banner in banners {
+//            let model = OSCBannerModel(title: banner.name, netImagePath: banner.img, localImageData: nil)
+//            arr.append(model)
+//        }
+//        return arr
+//    }
     
     func commonRefresh() {
         offestDistance = 0
@@ -158,34 +162,52 @@ class MenuPageCell: UICollectionViewCell {
     }
     
     func sendRequestGetBannerData() {
-        let url = OSCAPI_V2_PREFIX + OSCAPI_BANNER
+        let url = OSCAPI_V2_PREFIX + OSCAPI_BANNER + "?catalog=1"
         let param = ["catalog" : menuItem?.banner.catalog.rawValue]
         
-        Alamofire.request(url, method: .get, parameters: param)
-            .responseXMLDocument{ response in
-                switch response.result {
-                case .success(let doc):
-                    break
-//                    let rootElement: ONOXMLElement = doc.rootElement
-//                    let resultDic = rootElement.firstChild(withTag: "result").children(withTag: "items")
-                    
-                case .failure(let error):
+        Alamofire.request(url)
+            .responseSwiftyJSON{ response in
+                if let error = response.error {
                     self.HUD = Utils.createHUD()
                     self.HUD?.mode = .customView
                     self.HUD?.detailsLabel.text = error.localizedDescription
                     self.HUD?.hide(animated: true, afterDelay: 1)
                 }
-        }
+                
+                let code = response.value!["code"].intValue
+                if code != 1 {
+                    self.HUD = Utils.createHUD()
+                    self.HUD?.mode = .customView
+                    self.HUD?.detailsLabel.text = response.value!["message"].stringValue
+                    self.HUD?.hide(animated: true, afterDelay: 1)
+                }
+                
+                let items = response.value!["result"]["items"].arrayValue
+                self.bannerDataSources = [OSCBanner]()
+                for json in items {
+                    var banner = OSCBanner()
+                    banner.name = json["name"].stringValue
+                    banner.detail = json["detail"].stringValue
+                    banner.img = json["img"].stringValue
+                    banner.href = json["href"].stringValue
+                    banner.type = InformationType(rawValue: json["type"].intValue)!
+                    banner.id = json["id"].intValue
+                    banner.time = json["pubDate"].stringValue
+                    self.bannerDataSources?.append(banner)
+                }
+                DispatchQueue.main.async {
+                    self.configurationBannerView()
+                    self.tableView.reloadData()
+                }
+            }
     }
     
     func sendRequestGetListData(_ isRefresh: Bool) {
         if menuItem!.needLogin && Config.getOwnID() == 0 {
-            
-            //TODO: try to use base protocal, DO NOT USE AssociatedObject
-//            self.showCustomPageViewWithImage(R.image.ic_tip_fail(), tipString:"很遗憾,您必须登录才能查看此处内容")
+            self.showCustomPage(R.image.ic_tip_fail()!, tip:"很遗憾,您必须登录才能查看此处内容")
             return
         } else {
-//            self.hideCustomPageView()
+            self.hideAllGeneralPage()
         }
         
         let url = OSCAPI_V2_PREFIX + OSCAPI_INFORMATION_LIST
@@ -196,19 +218,16 @@ class MenuPageCell: UICollectionViewCell {
             self.tableView.mj_footer.state = .idle
         }
         
-        Alamofire.request(url, method: .get, parameters: param)
-            .responseXMLDocument{ response in
-                switch response.result {
-                case .success(let doc):
-                    break
-//                    let rootElement: ONOXMLElement = doc.rootElement
-//                    self.allCount = rootElement.firstChild(withTag: "allCount").numberValue().intValue
-//                    let objectsXML = self.parseXML(xml: doc)
-                case .failure(let error) :
-                    self.HUD = Utils.createHUD()
-                    self.HUD?.mode = .customView
-                }
-        }
+//        Alamofire.request(url, method: .get, parameters: param)
+//            .responseXMLDocument{ response in
+//                switch response.result {
+//                case .success(let doc):
+//                    break
+//                case .failure(let error) :
+//                    self.HUD = Utils.createHUD()
+//                    self.HUD?.mode = .customView
+//                }
+//        }
     }
     
     func distributionListCurrentCellWithItem(listItem: OSCListItem, tableView:UITableView, indexPath: IndexPath) -> UITableViewCell {

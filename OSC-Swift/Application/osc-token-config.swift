@@ -7,9 +7,9 @@
 //
 
 
-let App_Token_Key   = "oschina"
+let App_Token_Key   = "6c799b31900377884ac4517d73b4503d52b34c1e"
 
-let Debug_App_Token = "oschina"
+let Debug_App_Token = "6c799b31900377884ac4517d73b4503d52b34c1e"
 
 let Reading_Collect_Tiken = "oschina"
 

@@ -179,7 +179,9 @@ class MenuPageCell: UICollectionViewCell {
             self.tableView.mj_footer.state = .idle
         }
         
-//        Client.sublist(param: param)
+        Client.sublist(param: param) { listitems in
+            
+        }
     }
 }
 

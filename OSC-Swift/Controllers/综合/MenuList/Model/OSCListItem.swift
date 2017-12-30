@@ -86,22 +86,21 @@ enum OSCListCellType: Int {
 /** OSCListItem 被分栏列表和对应详情共用 */
 
 struct OSCListItem {
+//    var  menuItem: OSCMenuItem?
 
-    var  menuItem: OSCMenuItem
+    var id: Int = 0
 
-    var id: Int
+    var title: String = ""
 
-    var title: String
+//    var attributedTitle: NSAttributedString
 
-    var attributedTitle: NSAttributedString
+    var body: String = ""
 
-    var body: String
+    var pubDate: String = ""
 
-    var pubDate: String
+    var href: String = ""
 
-    var href: String
-
-    var favorite: Bool
+//    var favorite: Bool
 
     var summary: String
 

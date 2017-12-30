@@ -66,15 +66,15 @@ class Client {
                 let items = response.value!["result"]["items"].arrayValue
                 var list = [OSCBanner]()
                 for json in items {
-                    var banner = OSCBanner()
-                    banner.name = json["name"].stringValue
-                    banner.detail = json["detail"].stringValue
-                    banner.img = json["img"].stringValue
-                    banner.href = json["href"].stringValue
-                    banner.type = InformationType(rawValue: json["type"].intValue)!
-                    banner.id = json["id"].intValue
-                    banner.time = json["pubDate"].stringValue
-                    list.append(banner)
+                    var item = OSCBanner()
+                    item.name = json["name"].stringValue
+                    item.detail = json["detail"].stringValue
+                    item.img = json["img"].stringValue
+                    item.href = json["href"].stringValue
+                    item.type = InformationType(rawValue: json["type"].intValue)!
+                    item.id = json["id"].intValue
+                    item.time = json["pubDate"].stringValue
+                    list.append(item)
                 }
                 DispatchQueue.main.async {
                     success(list)
@@ -82,7 +82,7 @@ class Client {
         }
     }
     
-    static func sublist(param: [String: Any], success: @escaping (([OSCBanner])->Void)) {
+    static func sublist(param: [String: Any], success: @escaping (([OSCListItem])->Void)) {
         let url = OSCAPI_V2_PREFIX + OSCAPI_INFORMATION_LIST
         
         alamofireWithAppToken.request(url, parameters: param)
@@ -99,17 +99,17 @@ class Client {
                 }
                 
                 let items = response.value!["result"]["items"].arrayValue
-                var list = [OSCBanner]()
+                var list = [OSCListItem]()
                 for json in items {
-                    var banner = OSCBanner()
-                    banner.name = json["name"].stringValue
-                    banner.detail = json["detail"].stringValue
-                    banner.img = json["img"].stringValue
-                    banner.href = json["href"].stringValue
-                    banner.type = InformationType(rawValue: json["type"].intValue)!
-                    banner.id = json["id"].intValue
-                    banner.time = json["pubDate"].stringValue
-                    list.append(banner)
+//                    var item = OSCListItem()
+//                    item.name = json["name"].stringValue
+//                    item.detail = json["detail"].stringValue
+//                    item.img = json["img"].stringValue
+//                    item.href = json["href"].stringValue
+//                    item.type = InformationType(rawValue: json["type"].intValue)!
+//                    item.id = json["id"].intValue
+//                    item.time = json["pubDate"].stringValue
+//                    list.append(item)
                 }
                 DispatchQueue.main.async {
                     success(list)

@@ -11,7 +11,7 @@ import MJRefresh
 import Alamofire
 import Ono
 
-let kInformationListCollectionViewCellIdentifier = "OSCInformationListCollectionViewCell"
+let kMenuPageCell = "kMenuPageCell"
 let kScreen_Width = UIScreen.main.bounds.size.width
 let BannerView_Simple_Height = UIScreen.main.bounds.size.width * 39 / 125
 let BannerView_CustomActivity_Height = 215
@@ -49,11 +49,11 @@ class MenuPageCell: UICollectionViewCell {
         tableView.delegate = self
         tableView.dataSource = self
         
-        tableView.register(OSCInformationTableViewCell.self, forCellReuseIdentifier:InformationTableViewCell_IdentifierString)
-//        tableView.registerClass(OSCBlogCell.self, forCellReuseIdentifier:kNewHotBlogTableViewCellReuseIdentifier)
-//        tableView.registerClass(OSCQuesAnsTableViewCell.self] forCellReuseIdentifier:kQuesAnsTableViewCellReuseIdentifier)
-//        tableView.registerNib:[UINib nibWithNibName:"OSCActivityTableViewCell" bundle:nil] forCellReuseIdentifier:OSCActivityTableViewCell_IdentifierString)
-    
+        tableView.register(NewsCell.self, forCellReuseIdentifier:kNewsCellID)
+        tableView.register(BlogCell.self, forCellReuseIdentifier:kBlogCellID)
+        tableView.register(QuesAnsCell.self, forCellReuseIdentifier:kQuesAnsCellID)
+        tableView.register(ActivityCell.self, forCellReuseIdentifier:kActivityCellID)
+        
         let header = MJRefreshNormalHeader(refreshingBlock: {
             self.commonRefresh()
         })
@@ -143,16 +143,6 @@ class MenuPageCell: UICollectionViewCell {
         }
     }
     
-//    func convertModels(banners: [OSCBanner]) -> [OSCBannerModel] {
-//        var arr = [OSCBannerModel]()
-//        arr.reserveCapacity(banners.count)
-//        for banner in banners {
-//            let model = OSCBannerModel(title: banner.name, netImagePath: banner.img, localImageData: nil)
-//            arr.append(model)
-//        }
-//        return arr
-//    }
-    
     func commonRefresh() {
         offestDistance = 0
         if let _ = menuItem?.banner.href {
@@ -233,31 +223,31 @@ class MenuPageCell: UICollectionViewCell {
     func distributionListCurrentCellWithItem(listItem: OSCListItem, tableView:UITableView, indexPath: IndexPath) -> UITableViewCell {
         switch listItem.type {
         case .info:
-            let curCell = tableView.dequeueReusableCell(withIdentifier: InformationTableViewCell_IdentifierString, for:indexPath) as! OSCInformationTableViewCell
+            let curCell = tableView.dequeueReusableCell(withIdentifier: kNewsCellID, for:indexPath) as! NewsCell
             curCell.showCommentCount = true
             return curCell
         case .blog:
-            return tableView.dequeueReusableCell(withIdentifier: kNewHotBlogTableViewCellReuseIdentifier, for:indexPath)
+            return tableView.dequeueReusableCell(withIdentifier: kBlogCellID, for:indexPath)
         case .forum:
             if menuItem?.token == "d6112fa662bc4bf21084670a857fbd20" {//推荐
-                let curCell = tableView.dequeueReusableCell(withIdentifier: InformationTableViewCell_IdentifierString, for:indexPath) as! OSCInformationTableViewCell
+                let curCell = tableView.dequeueReusableCell(withIdentifier: kNewsCellID, for:indexPath) as! NewsCell
                 curCell.showCommentCount = true
                 
                 return curCell
             } else {
-                return tableView.dequeueReusableCell(withIdentifier: kQuesAnsTableViewCellReuseIdentifier, for:indexPath)
+                return tableView.dequeueReusableCell(withIdentifier: kQuesAnsCellID, for:indexPath)
             }
         case .activity:
             if menuItem?.token == "d6112fa662bc4bf21084670a857fbd20" {//推荐
-                let curCell = tableView.dequeueReusableCell(withIdentifier: InformationTableViewCell_IdentifierString, for:indexPath) as! OSCInformationTableViewCell
+                let curCell = tableView.dequeueReusableCell(withIdentifier: kNewsCellID, for:indexPath) as! NewsCell
                 curCell.showCommentCount = true
                 
                 return curCell
             } else {
-                return tableView.dequeueReusableCell(withIdentifier: OSCActivityTableViewCell_IdentifierString, for:indexPath)
+                return tableView.dequeueReusableCell(withIdentifier: kActivityCellID, for:indexPath) as! ActivityCell
             }
         default:
-            let curCell = tableView.dequeueReusableCell(withIdentifier: InformationTableViewCell_IdentifierString, for:indexPath) as! OSCInformationTableViewCell
+            let curCell = tableView.dequeueReusableCell(withIdentifier: kNewsCellID, for:indexPath) as! NewsCell
             if listItem.type == .linknews || menuItem!.type.rawValue == 7 { //链接新闻
                 curCell.showCommentCount = false
             } else {

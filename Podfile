@@ -16,4 +16,5 @@ target 'OSC-Swift' do
     pod 'Ono'
     pod 'FSPagerView'
     pod 'Kingfisher'
+    pod 'HandyJSON'
 end

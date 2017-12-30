@@ -40,7 +40,7 @@ class MenuPageCollection: UICollectionViewController {
         self.collectionView?.contentInsetAdjustmentBehavior = .automatic
         isTouchSliding = false
         self.collectionView?.backgroundColor = .white
-        self.collectionView?.register(MenuPageCell.self, forCellWithReuseIdentifier:kInformationListCollectionViewCellIdentifier)
+        self.collectionView?.register(MenuPageCell.self, forCellWithReuseIdentifier:kMenuPageCell)
         self.collectionView?.isPagingEnabled = true
     }
     
@@ -85,7 +85,7 @@ class MenuPageCollection: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         curMenuItem = self.menuItems?[indexPath.row]
         let curDic = self.getCurrentListDataSource()
-        let cell = MenuPageCell.returnReuseInformationListCollectionViewCell(collectionView, identifier:kInformationListCollectionViewCellIdentifier, indexPath:indexPath, model:curMenuItem!)
+        let cell = MenuPageCell.returnReuseInformationListCollectionViewCell(collectionView, identifier:kMenuPageCell, indexPath:indexPath, model:curMenuItem!)
 
         cell.configurationPostBackDictionary(curDic)
         cell.delegate = self

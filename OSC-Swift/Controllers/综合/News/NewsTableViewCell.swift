@@ -7,7 +7,7 @@
 //
 
 let InformationTableViewCell_IdentifierString = "InformationTableViewCellReuseIdenfitier"
-class NewsTableViewCell: UITableViewCell {
+class NewsCell: UITableViewCell {
     var listItem: OSCListItem?
     var showCommentCount: Bool = false
     var showViewCount: Bool = false

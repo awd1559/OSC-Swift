@@ -14,7 +14,7 @@
 		CE1CE3FC1FE4AF5F002B3A50 /* OSCTweetItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1CE3FB1FE4AF5F002B3A50 /* OSCTweetItem.swift */; };
 		CE1CE3FE1FE4AFC6002B3A50 /* OSCUserItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1CE3FD1FE4AFC6002B3A50 /* OSCUserItem.swift */; };
 		CE1CE4001FE4BD86002B3A50 /* subMenuItems.plist in Resources */ = {isa = PBXBuildFile; fileRef = CE1CE3FF1FE4BD86002B3A50 /* subMenuItems.plist */; };
-		CE1CE4031FE55EAA002B3A50 /* OSCInformationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1CE4021FE55EAA002B3A50 /* OSCInformationTableViewCell.swift */; };
+		CE1CE4031FE55EAA002B3A50 /* NewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1CE4021FE55EAA002B3A50 /* NewsCell.swift */; };
 		CE2BF0DF1FE106D200528BA6 /* OptionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2BF0DE1FE106D200528BA6 /* OptionButton.swift */; };
 		CE2BF0E11FE10CD800528BA6 /* UIColor+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2BF0E01FE10CD800528BA6 /* UIColor+ext.swift */; };
 		CE2BF0E61FE1189700528BA6 /* TweetEditingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2BF0E51FE1189700528BA6 /* TweetEditingVC.swift */; };
@@ -37,6 +37,9 @@
 		CE6B24E71FE0D2BE00659156 /* DiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6B24E61FE0D2BE00659156 /* DiscoverViewController.swift */; };
 		CE6B24E91FE0D2FE00659156 /* HomepageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6B24E81FE0D2FE00659156 /* HomepageViewController.swift */; };
 		CE6B24ED1FE0E13F00659156 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE6B24EC1FE0E13F00659156 /* Login.storyboard */; };
+		CE87EBA91FF754D400187F28 /* BlogCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE87EBA81FF754D400187F28 /* BlogCell.swift */; };
+		CE87EBAB1FF7550A00187F28 /* QuesAnsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE87EBAA1FF7550A00187F28 /* QuesAnsCell.swift */; };
+		CE87EBAE1FF7556800187F28 /* ActivityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE87EBAD1FF7556800187F28 /* ActivityCell.swift */; };
 		CEA24D301FE76372000BAA76 /* pulltorefresharrow.png in Resources */ = {isa = PBXBuildFile; fileRef = CEA24D2C1FE76370000BAA76 /* pulltorefresharrow.png */; };
 		CEA24D311FE76372000BAA76 /* PullToRefreshOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA24D2D1FE76371000BAA76 /* PullToRefreshOption.swift */; };
 		CEA24D321FE76372000BAA76 /* PullToRefreshView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA24D2E1FE76371000BAA76 /* PullToRefreshView.swift */; };
@@ -71,8 +74,6 @@
 		CECBB5E01FEB4D5B005E87AA /* ActivityHeadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECBB5DF1FEB4D5B005E87AA /* ActivityHeadView.swift */; };
 		CECBB5E21FEB54BA005E87AA /* UsualTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECBB5E11FEB54BA005E87AA /* UsualTableViewCell.swift */; };
 		CECBB5E41FEB6789005E87AA /* UIView+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECBB5E31FEB6789005E87AA /* UIView+ext.swift */; };
-		CECBB5E61FEB6BB7005E87AA /* NewHotBlogTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECBB5E51FEB6BB7005E87AA /* NewHotBlogTableViewCell.swift */; };
-		CECBB5E81FEB6BE1005E87AA /* OSCQuesAnsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECBB5E71FEB6BE1005E87AA /* OSCQuesAnsTableViewCell.swift */; };
 		CECBB5EA1FEB6C1F005E87AA /* OSCActivityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECBB5E91FEB6C1F005E87AA /* OSCActivityTableViewCell.swift */; };
 		CECBB5EC1FEB7407005E87AA /* OSCPushTypeControllerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECBB5EB1FEB7407005E87AA /* OSCPushTypeControllerHelper.swift */; };
 		CEFEC64D1FDE41030019DDF2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFEC64C1FDE41030019DDF2 /* AppDelegate.swift */; };
@@ -145,7 +146,7 @@
 		CE1CE3FB1FE4AF5F002B3A50 /* OSCTweetItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSCTweetItem.swift; sourceTree = "<group>"; };
 		CE1CE3FD1FE4AFC6002B3A50 /* OSCUserItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSCUserItem.swift; sourceTree = "<group>"; };
 		CE1CE3FF1FE4BD86002B3A50 /* subMenuItems.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = subMenuItems.plist; sourceTree = "<group>"; };
-		CE1CE4021FE55EAA002B3A50 /* OSCInformationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSCInformationTableViewCell.swift; sourceTree = "<group>"; };
+		CE1CE4021FE55EAA002B3A50 /* NewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCell.swift; sourceTree = "<group>"; };
 		CE2BF0DE1FE106D200528BA6 /* OptionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionButton.swift; sourceTree = "<group>"; };
 		CE2BF0E01FE10CD800528BA6 /* UIColor+ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+ext.swift"; sourceTree = "<group>"; };
 		CE2BF0E51FE1189700528BA6 /* TweetEditingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetEditingVC.swift; sourceTree = "<group>"; };
@@ -169,6 +170,9 @@
 		CE6B24E61FE0D2BE00659156 /* DiscoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverViewController.swift; sourceTree = "<group>"; };
 		CE6B24E81FE0D2FE00659156 /* HomepageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomepageViewController.swift; sourceTree = "<group>"; };
 		CE6B24EC1FE0E13F00659156 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		CE87EBA81FF754D400187F28 /* BlogCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogCell.swift; sourceTree = "<group>"; };
+		CE87EBAA1FF7550A00187F28 /* QuesAnsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuesAnsCell.swift; sourceTree = "<group>"; };
+		CE87EBAD1FF7556800187F28 /* ActivityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityCell.swift; sourceTree = "<group>"; };
 		CEA24D2B1FE762D8000BAA76 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		CEA24D2C1FE76370000BAA76 /* pulltorefresharrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pulltorefresharrow.png; sourceTree = "<group>"; };
 		CEA24D2D1FE76371000BAA76 /* PullToRefreshOption.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PullToRefreshOption.swift; sourceTree = "<group>"; };
@@ -204,8 +208,6 @@
 		CECBB5DF1FEB4D5B005E87AA /* ActivityHeadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityHeadView.swift; sourceTree = "<group>"; };
 		CECBB5E11FEB54BA005E87AA /* UsualTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsualTableViewCell.swift; sourceTree = "<group>"; };
 		CECBB5E31FEB6789005E87AA /* UIView+ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+ext.swift"; sourceTree = "<group>"; };
-		CECBB5E51FEB6BB7005E87AA /* NewHotBlogTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewHotBlogTableViewCell.swift; sourceTree = "<group>"; };
-		CECBB5E71FEB6BE1005E87AA /* OSCQuesAnsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSCQuesAnsTableViewCell.swift; sourceTree = "<group>"; };
 		CECBB5E91FEB6C1F005E87AA /* OSCActivityTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSCActivityTableViewCell.swift; sourceTree = "<group>"; };
 		CECBB5EB1FEB7407005E87AA /* OSCPushTypeControllerHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSCPushTypeControllerHelper.swift; sourceTree = "<group>"; };
 		CEFEC6491FDE41030019DDF2 /* OSC-Swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "OSC-Swift.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -302,7 +304,7 @@
 		CE1CE4011FE55EA1002B3A50 /* News */ = {
 			isa = PBXGroup;
 			children = (
-				CE1CE4021FE55EAA002B3A50 /* OSCInformationTableViewCell.swift */,
+				CE1CE4021FE55EAA002B3A50 /* NewsCell.swift */,
 			);
 			path = News;
 			sourceTree = "<group>";
@@ -367,6 +369,14 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		CE87EBAC1FF7555E00187F28 /* Activity */ = {
+			isa = PBXGroup;
+			children = (
+				CE87EBAD1FF7556800187F28 /* ActivityCell.swift */,
+			);
+			path = Activity;
+			sourceTree = "<group>";
+		};
 		CEA24D291FE762BE000BAA76 /* PullToRefresh */ = {
 			isa = PBXGroup;
 			children = (
@@ -382,7 +392,7 @@
 		CEA24E371FE8A570000BAA76 /* Blogs */ = {
 			isa = PBXGroup;
 			children = (
-				CECBB5E51FEB6BB7005E87AA /* NewHotBlogTableViewCell.swift */,
+				CE87EBA81FF754D400187F28 /* BlogCell.swift */,
 			);
 			path = Blogs;
 			sourceTree = "<group>";
@@ -390,7 +400,7 @@
 		CEA24E381FE8A579000BAA76 /* Questions */ = {
 			isa = PBXGroup;
 			children = (
-				CECBB5E71FEB6BE1005E87AA /* OSCQuesAnsTableViewCell.swift */,
+				CE87EBAA1FF7550A00187F28 /* QuesAnsCell.swift */,
 			);
 			path = Questions;
 			sourceTree = "<group>";
@@ -626,6 +636,7 @@
 		CECAD8791FE0BE19008EE696 /* 综合 */ = {
 			isa = PBXGroup;
 			children = (
+				CE87EBAC1FF7555E00187F28 /* Activity */,
 				CEA24E391FE8A580000BAA76 /* Software */,
 				CEA24E381FE8A579000BAA76 /* Questions */,
 				CEA24E371FE8A570000BAA76 /* Blogs */,
@@ -1086,15 +1097,15 @@
 				CEC518F31FE24906009A7CF2 /* HorizontalController.swift in Sources */,
 				CECBB5DD1FEB4BA4005E87AA /* BannerScrollView.swift in Sources */,
 				CE48FCA71FDF58C100366E4F /* RegisterViewController.swift in Sources */,
+				CE87EBAE1FF7556800187F28 /* ActivityCell.swift in Sources */,
 				CEC518FB1FE24A7C009A7CF2 /* OSCPhotoGroupView.swift in Sources */,
 				CE48FCA31FDF586B00366E4F /* RegisterInfoViewController.swift in Sources */,
 				CECBB5E01FEB4D5B005E87AA /* ActivityHeadView.swift in Sources */,
-				CE1CE4031FE55EAA002B3A50 /* OSCInformationTableViewCell.swift in Sources */,
+				CE1CE4031FE55EAA002B3A50 /* NewsCell.swift in Sources */,
 				CE1CE3FE1FE4AFC6002B3A50 /* OSCUserItem.swift in Sources */,
 				CE2BF0E81FE1686700528BA6 /* VoiceTweetEditingVC.swift in Sources */,
 				CEC518CA1FE228D3009A7CF2 /* MenuPropertyCollection.swift in Sources */,
 				CE1CE3F71FE4AD8A002B3A50 /* OSCStatistics.swift in Sources */,
-				CECBB5E61FEB6BB7005E87AA /* NewHotBlogTableViewCell.swift in Sources */,
 				CE52B5DF1FE3ACAD00A3E792 /* OSCAPI.swift in Sources */,
 				CECBB5EC1FEB7407005E87AA /* OSCPushTypeControllerHelper.swift in Sources */,
 				CEC518C81FE227A3009A7CF2 /* TitleBarView.swift in Sources */,
@@ -1112,10 +1123,10 @@
 				CE2BF0DF1FE106D200528BA6 /* OptionButton.swift in Sources */,
 				CE6B24E71FE0D2BE00659156 /* DiscoverViewController.swift in Sources */,
 				CECAD8851FE0CAA2008EE696 /* OSCTweetsController.swift in Sources */,
+				CE87EBAB1FF7550A00187F28 /* QuesAnsCell.swift in Sources */,
 				CEFEC64D1FDE41030019DDF2 /* AppDelegate.swift in Sources */,
 				CECAD8831FE0C9AC008EE696 /* MenuContainerController.swift in Sources */,
 				CE1CE3FC1FE4AF5F002B3A50 /* OSCTweetItem.swift in Sources */,
-				CECBB5E81FEB6BE1005E87AA /* OSCQuesAnsTableViewCell.swift in Sources */,
 				CEC518CD1FE22C5D009A7CF2 /* MenuPageCollection.swift in Sources */,
 				CEC518E01FE24413009A7CF2 /* MenuPropertyCell.swift in Sources */,
 				CEC518DA1FE2434C009A7CF2 /* OSCListItem.swift in Sources */,
@@ -1125,6 +1136,7 @@
 				CEA24D311FE76372000BAA76 /* PullToRefreshOption.swift in Sources */,
 				CE6098FC1FEC8DC70023B6A5 /* MenuPropertyTopView.swift in Sources */,
 				CE6B24E91FE0D2FE00659156 /* HomepageViewController.swift in Sources */,
+				CE87EBA91FF754D400187F28 /* BlogCell.swift in Sources */,
 				CEAFBEA11FEFF12A00BA8DCB /* Alamofire+ObjectMapper.swift in Sources */,
 				CECBB5EA1FEB6C1F005E87AA /* OSCActivityTableViewCell.swift in Sources */,
 				CEA24D331FE76372000BAA76 /* UIScrollViewExtension.swift in Sources */,

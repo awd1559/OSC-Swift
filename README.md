@@ -16,3 +16,7 @@ TODO:
     FSPageViewCell.textLabel get{
         view.backgroundColor = UIColor.black.withAlphaComponent(0.6)
     }
+
+
+
+- remove R.swift

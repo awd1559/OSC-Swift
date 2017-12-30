@@ -6,8 +6,9 @@
 //  Copyright © 2017年 awd. All rights reserved.
 //
 
-let InformationTableViewCell_IdentifierString = "InformationTableViewCellReuseIdenfitier"
-class NewsTableViewCell: UITableViewCell {
+let kNewsCellID = "kNewsCellID"
+
+class NewsCell: UITableViewCell {
     var listItem: OSCListItem?
     var showCommentCount: Bool = false
     var showViewCount: Bool = false

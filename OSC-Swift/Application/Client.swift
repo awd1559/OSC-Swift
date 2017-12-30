@@ -10,11 +10,6 @@ import Alamofire
 import ObjectMapper
 
 class Client {
-    private static let defaultHeaders: HTTPHeaders = [
-        "User-Agent": "Mozilla",
-        "Content-Type": "application/x-www-form-urlencoded; charset=utf-8",
-    ]
-    
     private static let tokenHeads: HTTPHeaders = [
         "User-Agent": "",
         "Content-Type": "application/x-www-form-urlencoded; charset=utf-8",
@@ -22,9 +17,7 @@ class Client {
     ]
     
     private static var alamofire: SessionManager = {
-        let configuration = URLSessionConfiguration.ephemeral
-        configuration.httpAdditionalHeaders = defaultHeaders
-        return SessionManager(configuration: configuration)
+        return SessionManager.default
     }()
     
     private static var alamofireWithAppToken: SessionManager = {
@@ -46,7 +39,7 @@ class Client {
             let HUD = Utils.createHUD()
             HUD.mode = .customView
             HUD.detailsLabel.text = message
-//            HUD.hide(animated: true, afterDelay: 2)
+            HUD.hide(animated: true, afterDelay: 2)
         }
     }
     fileprivate static func resultCheck(_ json: Any) -> Bool {
@@ -67,44 +60,34 @@ class Client {
             return false
         }
     }
-    fileprivate static func items(_ json: Any) -> [String : Any]? {
+    fileprivate static func items(_ json: Any) -> [Any]? {
         guard let dict = json as? [String : Any], let result = dict["result"] as? [String : Any]  else {
             return nil
         }
-        guard let items = result["items"] as? [String : Any] else {
+        guard let items = result["items"] as? [Any] else {
             return nil
         }
         return items
     }
+
     static func banners(param: [String: Any], success: @escaping (([OSCBanner])->Void)) {
         let url = OSCAPI_V2_PREFIX + OSCAPI_BANNER + "?catalog=1"
         alamofire.request(url)
-            .responseSwiftyJSON{ response in
+            .responseJSON{ response in
                 switch response.result {
                 case .failure(let error):
                     networkError(error)
                     return
                 case .success(let json):
-                     let code = json["code"].intValue
-                    
-                }
-            }
-            .responseJSON{ response in
-                switch response.result {
-                case .success(let json):
                     guard resultCheck(json) == true, let items = items(json) else {
                         return
                     }
-
                     guard let list = Mapper<OSCBanner>().mapArray(JSONObject: items) else {
                         return
                     }
                     DispatchQueue.main.async {
                         success(list)
                     }
-
-                case .failure(let error):
-                    networkError(error)
                 }
             }
     }

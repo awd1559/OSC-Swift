@@ -219,59 +219,6 @@ class MenuPageCell: UICollectionViewCell {
 //                }
 //        }
     }
-    
-    func distributionListCurrentCellWithItem(listItem: OSCListItem, tableView:UITableView, indexPath: IndexPath) -> UITableViewCell {
-        switch listItem.type {
-        case .info:
-            let curCell = tableView.dequeueReusableCell(withIdentifier: kNewsCellID, for:indexPath) as! NewsCell
-            curCell.showCommentCount = true
-            return curCell
-        case .blog:
-            return tableView.dequeueReusableCell(withIdentifier: kBlogCellID, for:indexPath)
-        case .forum:
-            if menuItem?.token == "d6112fa662bc4bf21084670a857fbd20" {//推荐
-                let curCell = tableView.dequeueReusableCell(withIdentifier: kNewsCellID, for:indexPath) as! NewsCell
-                curCell.showCommentCount = true
-                
-                return curCell
-            } else {
-                return tableView.dequeueReusableCell(withIdentifier: kQuesAnsCellID, for:indexPath)
-            }
-        case .activity:
-            if menuItem?.token == "d6112fa662bc4bf21084670a857fbd20" {//推荐
-                let curCell = tableView.dequeueReusableCell(withIdentifier: kNewsCellID, for:indexPath) as! NewsCell
-                curCell.showCommentCount = true
-                
-                return curCell
-            } else {
-                return tableView.dequeueReusableCell(withIdentifier: kActivityCellID, for:indexPath) as! ActivityCell
-            }
-        default:
-            let curCell = tableView.dequeueReusableCell(withIdentifier: kNewsCellID, for:indexPath) as! NewsCell
-            if listItem.type == .linknews || menuItem!.type.rawValue == 7 { //链接新闻
-                curCell.showCommentCount = false
-            } else {
-                curCell.showCommentCount = true
-            }
-            
-            return curCell
-        }
-    }
-    
-    func distributionListCurrentCellHeightWithTableView(_ tableView: UITableView, listItem: OSCListItem) -> Float {
-        switch listItem.type {
-        case .info:
-            return listItem.rowHeight
-        case .blog:
-            return listItem.rowHeight
-        case .forum:
-            return listItem.rowHeight
-        case .activity:
-            return listItem.rowHeight
-        default:
-            return listItem.rowHeight
-        }
-    }
 }
 
 
@@ -292,26 +239,73 @@ extension MenuPageCell: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if self.dataSources.count > 0 {
             let listItem = self.dataSources[indexPath.row]
-            let curTableView = self.distributionListCurrentCellWithItem(listItem: listItem, tableView:tableView, indexPath:indexPath) as! UsualTableViewCell
-            curTableView.setValue(listItem, forKey:"listItem")
-            
-            curTableView.selectedBackgroundView = UIView(frame:curTableView.frame)
-            curTableView.selectedBackgroundView?.backgroundColor = UIColor.selectCellSColor()
-            
-            return curTableView
+            switch listItem.type {
+            case .info:
+                let curCell = tableView.dequeueReusableCell(withIdentifier: kNewsCellID, for:indexPath) as! NewsCell
+                curCell.showCommentCount = true
+                return curCell
+            case .blog:
+                return tableView.dequeueReusableCell(withIdentifier: kBlogCellID, for:indexPath)
+            case .forum:
+                //FIXME: use Utils.token not hard code
+                if menuItem?.token == "d6112fa662bc4bf21084670a857fbd20" {//推荐
+                    let curCell = tableView.dequeueReusableCell(withIdentifier: kNewsCellID, for:indexPath) as! NewsCell
+                    curCell.showCommentCount = true
+                    
+                    return curCell
+                } else {
+                    return tableView.dequeueReusableCell(withIdentifier: kQuesAnsCellID, for:indexPath)
+                }
+            case .activity:
+                if menuItem?.token == "d6112fa662bc4bf21084670a857fbd20" {//推荐
+                    let curCell = tableView.dequeueReusableCell(withIdentifier: kNewsCellID, for:indexPath) as! NewsCell
+                    curCell.showCommentCount = true
+                    
+                    return curCell
+                } else {
+                    return tableView.dequeueReusableCell(withIdentifier: kActivityCellID, for:indexPath) as! ActivityCell
+                }
+            default:
+                let curCell = tableView.dequeueReusableCell(withIdentifier: kNewsCellID, for:indexPath) as! NewsCell
+                //FIXME: use enum, not hard code
+                if listItem.type == .linknews || menuItem!.type.rawValue == 7 { //链接新闻
+                    curCell.showCommentCount = false
+                } else {
+                    curCell.showCommentCount = true
+                }
+                
+                return curCell
+            }
+//            let curTableView = self.distributionListCurrentCellWithItem(listItem: listItem, tableView:tableView, indexPath:indexPath) as! UsualTableViewCell
+//            curTableView.setValue(listItem, forKey:"listItem")
+//            curTableView.selectedBackgroundView = UIView(frame:curTableView.frame)
+//            curTableView.selectedBackgroundView?.backgroundColor = UIColor.selectCellSColor()
+//            return curTableView
         }else{
             return UITableViewCell()
         }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        var result: Float = 0
         if self.dataSources.count > 0 {
             let listItem = self.dataSources[indexPath.row]
-            let result = self.distributionListCurrentCellHeightWithTableView(tableView, listItem:listItem)
-            return CGFloat(result)
+            switch listItem.type {
+            case .info:
+                result = listItem.rowHeight
+            case .blog:
+                result = listItem.rowHeight
+            case .forum:
+                result = listItem.rowHeight
+            case .activity:
+                result = listItem.rowHeight
+            default:
+                result = listItem.rowHeight
+            }
         } else {
-            return 0
+            result = 0
         }
+        return CGFloat(result)
     }
 }
 

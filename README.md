@@ -20,3 +20,4 @@ TODO:
 
 
 - remove R.swift
+- use objectmap to map json to model

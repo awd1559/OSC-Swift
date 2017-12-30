@@ -152,44 +152,16 @@ class MenuPageCell: UICollectionViewCell {
     }
     
     func sendRequestGetBannerData() {
-        let url = OSCAPI_V2_PREFIX + OSCAPI_BANNER + "?catalog=1"
         let param = ["catalog" : menuItem?.banner.catalog.rawValue]
         
-        Alamofire.request(url)
-            .responseSwiftyJSON{ response in
-                if let error = response.error {
-                    self.HUD = Utils.createHUD()
-                    self.HUD?.mode = .customView
-                    self.HUD?.detailsLabel.text = error.localizedDescription
-                    self.HUD?.hide(animated: true, afterDelay: 1)
-                }
-                
-                let code = response.value!["code"].intValue
-                if code != 1 {
-                    self.HUD = Utils.createHUD()
-                    self.HUD?.mode = .customView
-                    self.HUD?.detailsLabel.text = response.value!["message"].stringValue
-                    self.HUD?.hide(animated: true, afterDelay: 1)
-                }
-                
-                let items = response.value!["result"]["items"].arrayValue
+        Client.banners(param: param) { banners in
+            if banners.count > 0 {
                 self.bannerDataSources = [OSCBanner]()
-                for json in items {
-                    var banner = OSCBanner()
-                    banner.name = json["name"].stringValue
-                    banner.detail = json["detail"].stringValue
-                    banner.img = json["img"].stringValue
-                    banner.href = json["href"].stringValue
-                    banner.type = InformationType(rawValue: json["type"].intValue)!
-                    banner.id = json["id"].intValue
-                    banner.time = json["pubDate"].stringValue
-                    self.bannerDataSources?.append(banner)
-                }
-                DispatchQueue.main.async {
-                    self.configurationBannerView()
-                    self.tableView.reloadData()
-                }
+                self.bannerDataSources?.append(contentsOf: banners)
+                self.configurationBannerView()
+                self.tableView.reloadData()
             }
+        }
     }
     
     func sendRequestGetListData(_ isRefresh: Bool) {
@@ -200,7 +172,6 @@ class MenuPageCell: UICollectionViewCell {
             self.hideAllGeneralPage()
         }
         
-        let url = OSCAPI_V2_PREFIX + OSCAPI_INFORMATION_LIST
         var param = ["token" : menuItem!, "pageToken" : menuItem!.token] as [String : Any]
         if pageToken != "" && !isRefresh  {
             param["pageToken"] = pageToken
@@ -208,16 +179,7 @@ class MenuPageCell: UICollectionViewCell {
             self.tableView.mj_footer.state = .idle
         }
         
-//        Alamofire.request(url, method: .get, parameters: param)
-//            .responseXMLDocument{ response in
-//                switch response.result {
-//                case .success(let doc):
-//                    break
-//                case .failure(let error) :
-//                    self.HUD = Utils.createHUD()
-//                    self.HUD?.mode = .customView
-//                }
-//        }
+//        Client.sublist(param: param)
     }
 }
 

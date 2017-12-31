@@ -11,5 +11,9 @@ import Foundation
 let kQuesAnsCellID = "kQuesAnsCellID"
 
 class QuesAnsCell: UITableViewCell {
-    
+    static var rowHeight: CGFloat {
+        get {
+            return 20
+        }
+    }
 }

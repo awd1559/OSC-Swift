@@ -15,6 +15,7 @@ enum InformationType: Int {
     case translation = 4//翻译文章
     case activity = 5//活动类型
     case info = 6//资讯
+    case linknewstwo = 7
     
     case usercenter = 11//用户中心
     

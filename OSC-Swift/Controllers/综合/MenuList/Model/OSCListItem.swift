@@ -11,6 +11,8 @@
 //#import "OSCStatistics.h"
 //#import "OSCNetImage.h"
 
+import ObjectMapper
+
 /** nomal setting*/
 let kScreen_bound_width  = UIScreen.main.bounds.size.width
 let cell_padding_left = 16
@@ -85,10 +87,11 @@ enum OSCListCellType: Int {
 
 /** OSCListItem 被分栏列表和对应详情共用 */
 
-struct OSCListItem {
+struct OSCListItem: Mappable {
 //    var  menuItem: OSCMenuItem?
 
     var id: Int = 0
+    var newsId: Int = 0
 
     var title: String = ""
 
@@ -102,48 +105,80 @@ struct OSCListItem {
 
 //    var favorite: Bool
 
-    var summary: String
+//    var summary: String
 
-    var type: InformationType
+    var type: InformationType = .linknews
 
-    var author: OSCAuthor
+    var author: OSCAuthor?
 
-    var images: [OSCNetImage]
+//    var images: [OSCNetImage]
 
-    var tags: [String]
-    var isRecommend, isOriginal, isAd, isStick , isToday: Bool
+    var tags: [String] = [String]()
+    
+//    var isRecommend, isOriginal, isAd, isStick , isToday: Bool
 
-    var statistics: OSCStatistics
+    var statistics: OSCStatistics = OSCStatistics()
 
-    var extra: OSCExtra
+//    var extra: OSCExtra
 
-    var abouts: [OSCAbout]
+//    var abouts: [OSCAbout]
 
-    var software: OSCRecommendSoftware
+//    var software: OSCRecommendSoftware
 
-    var cellType: OSCListCellType
+//    var cellType: OSCListCellType
 
     //layout info
-    func getLayoutInfo() {}
-    var rowHeight: Float///全部cell使用到info
-    var informationLayoutInfo: InformationCell_layoutInfo///咨询列表cell使用到的info
-    var questionLayoutInfo:QuestionCell_LayoutInfo //问答列表cell
-    var blogLayoutInfo: BlogCell_LayoutInfo //博客列表cell
+//    func getLayoutInfo() {}
+//    var rowHeight: Float///全部cell使用到info
+//    var informationLayoutInfo: InformationCell_layoutInfo///咨询列表cell使用到的info
+//    var questionLayoutInfo:QuestionCell_LayoutInfo //问答列表cell
+//    var blogLayoutInfo: BlogCell_LayoutInfo //博客列表cell
+    
+    init() {}
+    init?(map: Map) {
+        
+    }
+    
+    mutating func mapping(map: Map) {
+        author <- map["author"]
+        body <- map["body"]
+        href  <- map["href"]
+        id  <- map["id"]
+        newsId  <- map["newsId"]
+        pubDate  <- map["pubDate"]
+        statistics  <- map["statistics"]
+        tags  <- map["tags"]
+        title  <- map["title"]
+        type  <- map["type"]
+    }
 }
 
 
 
-struct OSCAuthor {
+struct OSCAuthor: Mappable {
+    init(){}
+    init?(map: Map) {
+        
+    }
+    
+    mutating func mapping(map: Map) {
+        id <- map["id"]
+        name <- map["name"]
+        portrait <- map["portrait"]
+        relation <- map["relation"]
+        identity <- map["identity"]
+    }
+    
 
-    var id: Int
+    var id: Int = 0
 
-    var name: String
+    var name: String = ""
 
-    var portrait: String
+    var portrait: String = ""
 
-    var relation: UserRelationStatus
+    var relation: UserRelationStatus = .none
 
-    var identity: OSCUserIdentity
+    var identity: OSCUserIdentity = OSCUserIdentity()
 }
 
 

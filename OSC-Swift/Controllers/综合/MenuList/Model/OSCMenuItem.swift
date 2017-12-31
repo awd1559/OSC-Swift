@@ -31,7 +31,7 @@ struct OSCMenuItem {
 }
 
 struct OSCMenuItem_Banner {
-    var catalog: OSCInformationListBannerType = .simple
+    var catalog: OSCInformationListBannerType = .none
     var href: String = ""
 }
 

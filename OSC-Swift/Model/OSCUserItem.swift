@@ -6,24 +6,25 @@
 //  Copyright © 2017年 awd. All rights reserved.
 //
 
+import ObjectMapper
+
 struct OSCUserStatistics {
 
-    var follow: Int
+    var follow: Int = 0
 
-    var score: Int
+    var score: Int = 0
 
-    var answer: Int
+    var answer: Int = 0
 
-    var collect: Int
+    var collect: Int = 0
 
-    var tweet: Int
+    var tweet: Int = 0
 
-    var discuss: Int
+    var discuss: Int = 0
 
-    var fans: Int
+    var fans: Int = 0
 
-    var blog: Int
-
+    var blog: Int = 0
 }
 
 
@@ -57,7 +58,17 @@ struct OSCUserEventInfo {
     var job: String
 }
 
-struct OSCUserIdentity {
-    var officialMember: Bool
-    var softwareAuthor: Bool
+struct OSCUserIdentity: Mappable {
+    init() {}
+    init?(map: Map) {
+        
+    }
+    
+    mutating func mapping(map: Map) {
+        officialMember <- map["officialMember"]
+        softwareAuthor <- map["softwareAuthor"]
+    }
+    
+    var officialMember: Bool = false
+    var softwareAuthor: Bool = false
 }

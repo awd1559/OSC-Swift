@@ -69,15 +69,7 @@ class Utils {
         ]
     }
     
-    static func allMenuNames() -> [String] {
-        return [
-            "开源资讯",
-            "推荐博客",
-            "技术问答",
-            "每日一搏"
-        ]
     }
-    
     static func allMenuTokens() -> [String] {
         let items = self.allMenuItems()
         var tokens = [String]()
@@ -170,8 +162,6 @@ class Utils {
         let fileUrl = R.file.subMenuItemsPlist()
         let localMenusArr = NSArray(contentsOf: fileUrl!)
         
-//        NSArray.modelArrayWithClass(OSCMenuItem.self, json: localMenusArr)
-        
         var menuItems = [OSCMenuItem]()
         for arrItem in (localMenusArr?.enumerated())! {
             let dict = arrItem.element as! [String: Any]
@@ -184,9 +174,6 @@ class Utils {
             item.needLogin = dict["needLogin"] as! Bool
             item.tag = dict["tag"] as! String
             var type = dict["type"] as! Int
-            if type > 6 && type != 11 && type != 100{
-                type = 0
-            }
             item.type = InformationType(rawValue: type)!
             item.subtype = dict["subtype"] as! String
             item.order = dict["order"] as! Int

@@ -11,5 +11,9 @@ import Foundation
 let kActivityCellID = "kActivityCellID"
 
 class ActivityCell: UITableViewCell {
-    
+    static var rowHeight: CGFloat {
+        get {
+            return 20
+        }
+    }
 }

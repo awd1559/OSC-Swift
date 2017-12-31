@@ -39,7 +39,7 @@ class MenuPageCell: UICollectionViewCell {
 //    optional_banner
     var bannerScrollView: BannerScrollView?
     var activityBannerView: ActivityHeadView?
-    var dataSources = [OSCListItem]()
+    var listItems = [OSCListItem]()
     var bannerDataSources: [OSCBanner]?
 //    var updateToController_Dic: [:]
     
@@ -91,9 +91,9 @@ class MenuPageCell: UICollectionViewCell {
         self.hideAllGeneralPage()
         self.tableView.mj_footer.state = .idle
         
-        if self.dataSources.count > 0 {
+        if self.listItems.count > 0 {
             offestDistance = 0
-            self.dataSources.removeAll()
+            self.listItems.removeAll()
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
@@ -111,7 +111,7 @@ class MenuPageCell: UICollectionViewCell {
         pageToken = resultItemModel.pageToken
         
         if (resultItemModel.tableViewArr != nil) && resultItemModel.tableViewArr!.count > 0 {
-            dataSources = resultItemModel.tableViewArr!
+            listItems = resultItemModel.tableViewArr!
             bannerDataSources = resultItemModel.bannerArr
             
             if self.bannerDataSources != nil {
@@ -172,15 +172,25 @@ class MenuPageCell: UICollectionViewCell {
             self.hideAllGeneralPage()
         }
         
-        var param = ["token" : menuItem!, "pageToken" : menuItem!.token] as [String : Any]
+        guard let menuItem = menuItem else {
+            return
+        }
+        var param = ["token" : menuItem.token] as [String : Any]
         if pageToken != "" && !isRefresh  {
             param["pageToken"] = pageToken
         } else {
             self.tableView.mj_footer.state = .idle
         }
         
+        //FIXME: pageToken
         Client.sublist(param: param) { listitems in
-            
+            if listitems.count > 0 {
+                self.listItems.removeAll()
+                self.listItems.append(contentsOf: listitems)
+                self.hideAllGeneralPage()
+            } else {
+                self.showCustomPage(R.image.ic_tip_smile()!, tip: "这里没找到数据呢")
+            }
         }
     }
 }
@@ -193,17 +203,17 @@ extension MenuPageCell: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if self.dataSources.count > 0 {
-            return self.dataSources.count
+        if self.listItems.count > 0 {
+            return self.listItems.count
         } else {
             return 0
         }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if self.dataSources.count > 0 {
-            let listItem = self.dataSources[indexPath.row]
-            switch listItem.type {
+        if self.listItems.count > 0 {
+            let listitem = self.listItems[indexPath.row]
+            switch listitem.type {
             case .info:
                 let curCell = tableView.dequeueReusableCell(withIdentifier: kNewsCellID, for:indexPath) as! NewsCell
                 curCell.showCommentCount = true
@@ -212,7 +222,7 @@ extension MenuPageCell: UITableViewDataSource {
                 return tableView.dequeueReusableCell(withIdentifier: kBlogCellID, for:indexPath)
             case .forum:
                 //FIXME: use Utils.token not hard code
-                if menuItem?.token == "d6112fa662bc4bf21084670a857fbd20" {//推荐
+                if menuItem?.token == buildinMenus[.info]?.token {
                     let curCell = tableView.dequeueReusableCell(withIdentifier: kNewsCellID, for:indexPath) as! NewsCell
                     curCell.showCommentCount = true
                     
@@ -221,7 +231,7 @@ extension MenuPageCell: UITableViewDataSource {
                     return tableView.dequeueReusableCell(withIdentifier: kQuesAnsCellID, for:indexPath)
                 }
             case .activity:
-                if menuItem?.token == "d6112fa662bc4bf21084670a857fbd20" {//推荐
+                if menuItem?.token == buildinMenus[.info]?.token {
                     let curCell = tableView.dequeueReusableCell(withIdentifier: kNewsCellID, for:indexPath) as! NewsCell
                     curCell.showCommentCount = true
                     
@@ -232,7 +242,7 @@ extension MenuPageCell: UITableViewDataSource {
             default:
                 let curCell = tableView.dequeueReusableCell(withIdentifier: kNewsCellID, for:indexPath) as! NewsCell
                 //FIXME: use enum, not hard code
-                if listItem.type == .linknews || menuItem!.type.rawValue == 7 { //链接新闻
+                if listitem.type == .linknews || menuItem!.type == .linknewstwo { //链接新闻
                     curCell.showCommentCount = false
                 } else {
                     curCell.showCommentCount = true
@@ -251,32 +261,32 @@ extension MenuPageCell: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        var result: Float = 0
-        if self.dataSources.count > 0 {
-            let listItem = self.dataSources[indexPath.row]
+        var result: CGFloat = 0
+        if self.listItems.count > 0 {
+            let listItem = self.listItems[indexPath.row]
             switch listItem.type {
             case .info:
-                result = listItem.rowHeight
+                result = NewsCell.rowHeight
             case .blog:
-                result = listItem.rowHeight
+                result = BlogCell.rowHeight
             case .forum:
-                result = listItem.rowHeight
+                result = QuesAnsCell.rowHeight
             case .activity:
-                result = listItem.rowHeight
+                result = ActivityCell.rowHeight
             default:
-                result = listItem.rowHeight
+                result = NewsCell.rowHeight
             }
         } else {
             result = 0
         }
-        return CGFloat(result)
+        return result
     }
 }
 
 //MARK: - UITableViewDelegate
 extension MenuPageCell: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let listItem = self.dataSources[indexPath.row]
+        let listItem = self.listItems[indexPath.row]
         tableView.deselectRow(at: indexPath, animated:true)
         let curVC = OSCPushTypeControllerHelper.pushControllerGeneral(listItem.type, id:listItem.id)
         if let delegate = self.delegate {
@@ -294,7 +304,7 @@ extension MenuPageCell: UIScrollViewDelegate {
     
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         if let delegate = self.delegate {
-            let updateResultItem = InfoResultItem(bannerArr: self.bannerDataSources, tableViewArr:self.dataSources, pageToken:pageToken!, offsetDistance:offestDistance!, isFromCache:false)
+            let updateResultItem = InfoResultItem(bannerArr: self.bannerDataSources, tableViewArr:self.listItems, pageToken:pageToken!, offsetDistance:offestDistance!, isFromCache:false)
             let postBackDic = [menuItem!.token : updateResultItem]
             delegate.cell(self, update:postBackDic)
         }
@@ -302,7 +312,7 @@ extension MenuPageCell: UIScrollViewDelegate {
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         if let delegate = self.delegate {
-            let updateResultItem = InfoResultItem(bannerArr: self.bannerDataSources, tableViewArr:self.dataSources, pageToken:pageToken!, offsetDistance:offestDistance!, isFromCache:false)
+            let updateResultItem = InfoResultItem(bannerArr: self.bannerDataSources, tableViewArr:self.listItems, pageToken:pageToken!, offsetDistance:offestDistance!, isFromCache:false)
             let postBackDic = [menuItem!.token : updateResultItem]
             delegate.cell(self, update:postBackDic)
         }

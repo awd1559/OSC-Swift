@@ -6,17 +6,32 @@
 //  Copyright © 2017年 awd. All rights reserved.
 //
 
-struct OSCStatistics {// : NSObject <NSMutableCopying>
+import ObjectMapper
 
-    var comment: Int
+struct OSCStatistics:  Mappable{
+    init(){}
+    init?(map: Map) {
+        
+    }
+    
+    mutating func mapping(map: Map) {
+        comment  <- map["comment"]
+        favCount <- map["favCount"]
+        like <- map["like"]
+        transmit <- map["transmit"]
+        view <- map["view"]
+    }
+    // : NSObject <NSMutableCopying>
 
-    var view: Int
+    var comment: Int = 0
 
-    var like: Int
+    var view: Int = 0
 
-    var transmit: Int
+    var like: Int = 0
 
-    var favCount: Int
+    var transmit: Int = 0
+
+    var favCount: Int = 0
 
 }
 

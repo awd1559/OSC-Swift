@@ -11,5 +11,9 @@ import Foundation
 let kBlogCellID = "kBlogCellID"
 
 class BlogCell: UITableViewCell {
-    
+    static var rowHeight: CGFloat {
+        get {
+            return 20
+        }
+    }
 }

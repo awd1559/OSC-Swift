@@ -221,7 +221,6 @@ extension MenuPageCell: UITableViewDataSource {
             case .blog:
                 return tableView.dequeueReusableCell(withIdentifier: kBlogCellID, for:indexPath)
             case .forum:
-                //FIXME: use Utils.token not hard code
                 if menuItem?.token == buildinMenus[.info]?.token {
                     let curCell = tableView.dequeueReusableCell(withIdentifier: kNewsCellID, for:indexPath) as! NewsCell
                     curCell.showCommentCount = true
@@ -241,7 +240,6 @@ extension MenuPageCell: UITableViewDataSource {
                 }
             default:
                 let curCell = tableView.dequeueReusableCell(withIdentifier: kNewsCellID, for:indexPath) as! NewsCell
-                //FIXME: use enum, not hard code
                 if listitem.type == .linknews || menuItem!.type == .linknewstwo { //链接新闻
                     curCell.showCommentCount = false
                 } else {

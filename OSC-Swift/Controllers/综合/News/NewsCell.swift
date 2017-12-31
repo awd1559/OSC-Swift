@@ -13,30 +13,42 @@ import SnapKit
 let kNewsCellID = "kNewsCellID"
 
 class NewsCell: UITableViewCell {
-    var listItem: OSCListItem?
-    var showCommentCount: Bool = false
-    var showViewCount: Bool = false
+    var listItem: OSCListItem? {
+        willSet {
+            if listItem?.id == newValue?.id {
+                return
+            }
+        }
+        didSet {
+            self.titleLabel.text = listItem?.title
+            self.bodyLabel.text = listItem?.body
+            self.timeLabel.text = listItem?.author?.name
+            
+            self.commentLabel.text = "\(listItem?.statistics.comment)"
+            self.viewLabel.text = "\(listItem?.statistics.view)"
+        }
+    }
     
     var titleLabel: UILabel = {
         let label = UILabel()
         label.textColor = UIColor.newTitleColor()
-        label.font = UIFont.systemFont(ofSize: CGFloat(informationCell_titleLB_Font_Size))
-        label.numberOfLines = 2
+        label.font = UIFont.systemFont(ofSize: informationCell_titleLB_Font_Size)
+        label.numberOfLines = 0
         return label
     }()
     
-    var contentLabel: UILabel = {
+    var bodyLabel: UILabel = {
         let label = UILabel()
         label.textColor = UIColor.newSecondTextColor()
-        label.font = UIFont.systemFont(ofSize: CGFloat(informationCell_descLB_Font_Size))
-        label.numberOfLines = 2
+        label.font = UIFont.systemFont(ofSize: informationCell_descLB_Font_Size)
+        label.numberOfLines = 0
         return label
     }()
     
     var timeLabel: YYLabel = {
         let label = YYLabel()
         label.textColor = UIColor.newAssistTextColor()
-        label.font = UIFont.systemFont(ofSize: CGFloat(informationCell_infoBar_Font_Size))
+        label.font = UIFont.systemFont(ofSize: informationCell_infoBar_Font_Size)
         return label
     }()
     
@@ -50,7 +62,7 @@ class NewsCell: UITableViewCell {
     var commentLabel: UILabel = {
         let label = UILabel()
         label.textColor = UIColor.newAssistTextColor()
-        label.font = UIFont.systemFont(ofSize: CGFloat(informationCell_infoBar_Font_Size))
+        label.font = UIFont.systemFont(ofSize: informationCell_infoBar_Font_Size)
         return label
     }()
     
@@ -87,7 +99,7 @@ class NewsCell: UITableViewCell {
         self.backgroundColor = .white
         
         self.contentView.addSubview(titleLabel)
-        self.contentView.addSubview(contentLabel)
+        self.contentView.addSubview(bodyLabel)
         self.contentView.addSubview(timeLabel)
         self.contentView.addSubview(commentIcon)
         self.contentView.addSubview(commentLabel)
@@ -101,7 +113,35 @@ class NewsCell: UITableViewCell {
             make.height.equalTo(1)
         }
         //layout in OSCListItem.m infomationLayoutHeight
-        //FIXME:
+        
+        titleLabel.snp.makeConstraints{ make in
+            make.top.equalToSuperview().offset(cell_padding_top)
+            make.leading.equalToSuperview().offset(cell_padding_left)
+            make.width.equalTo(kScreen_bound_width - cell_padding_left - cell_padding_right)
+        }
+        bodyLabel.snp.makeConstraints{ make in
+            make.top.equalTo(titleLabel.snp.bottom).offset(informationCell_titleLB_SPACE_descLB)
+            make.leading.equalToSuperview().offset(cell_padding_left)
+            make.width.equalTo(kScreen_bound_width - cell_padding_left - cell_padding_right)
+        }
+        timeLabel.snp.makeConstraints{ make in
+            make.leading.equalToSuperview().offset(cell_padding_left)
+            make.top.equalTo(bodyLabel.snp.bottom).offset(informationCell_descLB_SPACE_infoBar)
+            make.width.equalTo(informationCell_infoBar_Height)
+            make.height.equalTo(informationCell_infoBar_Height)
+        }
+        commentLabel.snp.makeConstraints{ make in
+            make.trailing.equalToSuperview().offset(cell_padding_right)
+            make.top.equalTo(bodyLabel.snp.bottom).offset(informationCell_descLB_SPACE_infoBar)
+            make.height.equalTo(informationCell_infoBar_Height)
+        }
+        commentIcon.snp.makeConstraints{ make in
+            make.trailing.equalTo(commentLabel.snp.leading).offset(informationCell_count_icon_count_space)
+            make.top.equalTo(bodyLabel.snp.bottom).offset(informationCell_descLB_SPACE_infoBar)
+            make.width.equalTo(informationCell_icon_width)
+            make.height.equalTo(informationCell_icon_height)
+        }
+        
     }
     
     required init?(coder aDecoder: NSCoder) {

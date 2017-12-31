@@ -14,7 +14,7 @@
 import ObjectMapper
 
 /** nomal setting*/
-let kScreen_bound_width  = UIScreen.main.bounds.size.width
+let kScreen_bound_width  = Int(UIScreen.main.bounds.size.width)
 let cell_padding_left = 16
 let cell_padding_right = cell_padding_left
 let cell_padding_top = 16
@@ -49,9 +49,9 @@ let questionsCell_icon_height = 10
 let questionsCell_infoBar_Height = 14
 
 /** information cell setting*/
-let informationCell_titleLB_Font_Size = 15
-let informationCell_descLB_Font_Size = 13
-let informationCell_infoBar_Font_Size = 10
+let informationCell_titleLB_Font_Size: CGFloat = 15.0
+let informationCell_descLB_Font_Size: CGFloat = 13.0
+let informationCell_infoBar_Font_Size: CGFloat = 10.0
 let informationCell_titleLB_SPACE_descLB = 5
 let informationCell_descLB_SPACE_infoBar = 8
 let informationCell_infoBar_Height = 14

@@ -77,6 +77,7 @@
 		CECBB5E41FEB6789005E87AA /* UIView+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECBB5E31FEB6789005E87AA /* UIView+ext.swift */; };
 		CECBB5EA1FEB6C1F005E87AA /* OSCActivityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECBB5E91FEB6C1F005E87AA /* OSCActivityTableViewCell.swift */; };
 		CECBB5EC1FEB7407005E87AA /* OSCPushTypeControllerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECBB5EB1FEB7407005E87AA /* OSCPushTypeControllerHelper.swift */; };
+		CED2BCDE1FF8E5E500BE89F6 /* test.json in Resources */ = {isa = PBXBuildFile; fileRef = CED2BCDD1FF8E5E500BE89F6 /* test.json */; };
 		CEFEC64D1FDE41030019DDF2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFEC64C1FDE41030019DDF2 /* AppDelegate.swift */; };
 		CEFEC6521FDE41030019DDF2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEFEC6501FDE41030019DDF2 /* Main.storyboard */; };
 		CEFEC6541FDE41030019DDF2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEFEC6531FDE41030019DDF2 /* Assets.xcassets */; };
@@ -212,6 +213,7 @@
 		CECBB5E31FEB6789005E87AA /* UIView+ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+ext.swift"; sourceTree = "<group>"; };
 		CECBB5E91FEB6C1F005E87AA /* OSCActivityTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSCActivityTableViewCell.swift; sourceTree = "<group>"; };
 		CECBB5EB1FEB7407005E87AA /* OSCPushTypeControllerHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSCPushTypeControllerHelper.swift; sourceTree = "<group>"; };
+		CED2BCDD1FF8E5E500BE89F6 /* test.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = test.json; sourceTree = "<group>"; };
 		CEFEC6491FDE41030019DDF2 /* OSC-Swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "OSC-Swift.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEFEC64C1FDE41030019DDF2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CEFEC6511FDE41030019DDF2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -695,6 +697,7 @@
 				CEFEC6531FDE41030019DDF2 /* Assets.xcassets */,
 				CEFEC6581FDE41030019DDF2 /* Info.plist */,
 				CE2BF0F01FE1FCAE00528BA6 /* bridge-header.h */,
+				CED2BCDD1FF8E5E500BE89F6 /* test.json */,
 			);
 			path = "OSC-Swift";
 			sourceTree = "<group>";
@@ -970,6 +973,7 @@
 				CEFEC6BC1FDE44580019DDF2 /* github.css in Resources */,
 				CEFEC6B31FDE44580019DDF2 /* note.png in Resources */,
 				CEFEC6AB1FDE44580019DDF2 /* blog.mustache in Resources */,
+				CED2BCDE1FF8E5E500BE89F6 /* test.json in Resources */,
 				CEFEC6A61FDE44580019DDF2 /* newTweet.html in Resources */,
 				CEFEC6B91FDE44580019DDF2 /* scan.png in Resources */,
 				CEFEC6571FDE41030019DDF2 /* LaunchScreen.storyboard in Resources */,

@@ -22,7 +22,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.file` struct is generated, and contains static references to 35 files.
+  /// This `R.file` struct is generated, and contains static references to 36 files.
   struct file {
     /// Resource file `FontAwesome.ttf`.
     static let fontAwesomeTtf = Rswift.FileResource(bundle: R.hostingBundle, name: "FontAwesome", pathExtension: "ttf")
@@ -90,6 +90,8 @@ struct R: Rswift.Validatable {
     static let soundPng = Rswift.FileResource(bundle: R.hostingBundle, name: "sound", pathExtension: "png")
     /// Resource file `subMenuItems.plist`.
     static let subMenuItemsPlist = Rswift.FileResource(bundle: R.hostingBundle, name: "subMenuItems", pathExtension: "plist")
+    /// Resource file `test.json`.
+    static let testJson = Rswift.FileResource(bundle: R.hostingBundle, name: "test", pathExtension: "json")
     /// Resource file `tweet.html`.
     static let tweetHtml = Rswift.FileResource(bundle: R.hostingBundle, name: "tweet", pathExtension: "html")
     /// Resource file `tweetEditing.png`.
@@ -290,6 +292,12 @@ struct R: Rswift.Validatable {
     /// `bundle.url(forResource: "subMenuItems", withExtension: "plist")`
     static func subMenuItemsPlist(_: Void = ()) -> Foundation.URL? {
       let fileResource = R.file.subMenuItemsPlist
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+    
+    /// `bundle.url(forResource: "test", withExtension: "json")`
+    static func testJson(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.testJson
       return fileResource.bundle.url(forResource: fileResource)
     }
     

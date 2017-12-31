@@ -1,0 +1,562 @@
+{
+    "code": 1,
+    "message": "success",
+    "notice": {
+        "like": 0,
+        "review": 0,
+        "letter": 0,
+        "newsCount": 22,
+        "mention": 0,
+        "fans": 0
+    },
+    "result": {
+        "items": [
+                  {
+                  "author": {
+                  "id": 12,
+                  "identity": {
+                  "officialMember": true,
+                  "softwareAuthor": true
+                  },
+                  "name": "红薯",
+                  "portrait": "http://static.oschina.net/uploads/user/0/12_50.jpg?t=1421200584000",
+                  "relation": 0
+                  },
+                  "body": "Oxygen.2 正式版发布了，可通过更新或者下载获取。值得关注的改进内容（其实就是 bug 修复）请阅读： http://www.eclipse.org/eclipse...",
+                  "href": "https://www.oschina.net/news/91811/eclipse-4-7-2",
+                  "id": 91811,
+                  "newsId": 91811,
+                  "pubDate": "2017-12-24 12:19:24",
+                  "statistics": {
+                  "comment": 7,
+                  "favCount": 0,
+                  "like": 0,
+                  "transmit": 0,
+                  "view": 329
+                  },
+                  "tags": [ ],
+                  "title": "Eclipse 4.7.2 和 Equinox Oxygen.2 正式版发布",
+                  "type": 6
+                  },
+                  {
+                  "author": {
+                  "id": 12,
+                  "identity": {
+                  "officialMember": true,
+                  "softwareAuthor": true
+                  },
+                  "name": "红薯",
+                  "portrait": "http://static.oschina.net/uploads/user/0/12_50.jpg?t=1421200584000",
+                  "relation": 0
+                  },
+                  "body": "Hibernate Validator 6.0.7.Final 发布了，建议 6.x 版本的用户尽快升级，特别是 6.0.5 版本。该版本升级了 Bean Validation 到 2.0....",
+                  "href": "https://www.oschina.net/news/91810/hibernate-validator-6-0-7",
+                  "id": 91810,
+                  "newsId": 91810,
+                  "pubDate": "2017-12-24 11:32:01",
+                  "statistics": {
+                  "comment": 0,
+                  "favCount": 0,
+                  "like": 0,
+                  "transmit": 0,
+                  "view": 163
+                  },
+                  "tags": [ ],
+                  "title": "Hibernate Validator 6.0.7.Final 发布",
+                  "type": 6
+                  },
+                  {
+                  "author": {
+                  "id": 12,
+                  "identity": {
+                  "officialMember": true,
+                  "softwareAuthor": true
+                  },
+                  "name": "红薯",
+                  "portrait": "http://static.oschina.net/uploads/user/0/12_50.jpg?t=1421200584000",
+                  "relation": 0
+                  },
+                  "body": "Arquillian 团队发布了 1.2.0.Final 版本的 Core 核心组件。该版本最值得关注的是对 JUnit 规则的支持！详细的介绍请看这里。 示例代...",
+                  "href": "https://www.oschina.net/news/91809/arquillian-core-1-2-0-final",
+                  "id": 91809,
+                  "newsId": 91809,
+                  "pubDate": "2017-12-24 11:29:31",
+                  "statistics": {
+                  "comment": 3,
+                  "favCount": 0,
+                  "like": 0,
+                  "transmit": 0,
+                  "view": 94
+                  },
+                  "tags": [ ],
+                  "title": "Arquillian Core 1.2.0.Final 发布",
+                  "type": 6
+                  },
+                  {
+                  "author": {
+                  "id": 3703517,
+                  "identity": {
+                  "officialMember": true,
+                  "softwareAuthor": false
+                  },
+                  "name": "周其",
+                  "portrait": "http://static.oschina.net/uploads/user/1851/3703517_50.jpeg?t=1507540401000",
+                  "relation": 0
+                  },
+                  "body": "无论你在什么时候读代码，您都必须注意到匿名函数。有时它们被称为 lambda，有时是匿名函数，不管怎样，我认为都是不好使用的。",
+                  "href": "https://www.oschina.net/translate/three-reasons-i-avoid-anonymous-js-functions-like-the-plague",
+                  "id": 4078,
+                  "newsId": 91808,
+                  "pubDate": "2017-12-24 08:19:30",
+                  "statistics": {
+                  "comment": 5,
+                  "favCount": 0,
+                  "like": 0,
+                  "transmit": 0,
+                  "view": 650
+                  },
+                  "tags": [ ],
+                  "title": "协作翻译 | 不使用 JS 匿名函数的三个理由",
+                  "type": 4
+                  },
+                  {
+                  "author": {
+                  "id": 3703517,
+                  "identity": {
+                  "officialMember": true,
+                  "softwareAuthor": false
+                  },
+                  "name": "周其",
+                  "portrait": "http://static.oschina.net/uploads/user/1851/3703517_50.jpeg?t=1507540401000",
+                  "relation": 0
+                  },
+                  "body": "inMap 是 TalkingData 可视化团队开源的一款基于 canvas 的大数据可视化库，专注于大数据方向点、线、面的可视化效果展示。......",
+                  "href": "https://www.oschina.net/p/inmap",
+                  "id": 46516,
+                  "newsId": 91807,
+                  "pubDate": "2017-12-24 08:16:40",
+                  "statistics": {
+                  "comment": 2,
+                  "favCount": 0,
+                  "like": 0,
+                  "transmit": 0,
+                  "view": 395
+                  },
+                  "tags": [ ],
+                  "title": "inMap — 基于 Canvas 的大数据可视化库",
+                  "type": 1
+                  },
+                  {
+                  "author": {
+                  "id": 3703517,
+                  "identity": {
+                  "officialMember": true,
+                  "softwareAuthor": false
+                  },
+                  "name": "周其",
+                  "portrait": "http://static.oschina.net/uploads/user/1851/3703517_50.jpeg?t=1507540401000",
+                  "relation": 0
+                  },
+                  "body": "一个全新的Web接口.它不再使用Lua，而是使用MVVM框架。",
+                  "href": "https://gitee.com/zhaojh329/vuci",
+                  "id": 91806,
+                  "newsId": 91806,
+                  "pubDate": "2017-12-24 08:16:30",
+                  "statistics": {
+                  "comment": 0,
+                  "favCount": 0,
+                  "like": 0,
+                  "transmit": 0,
+                  "view": 2
+                  },
+                  "tags": [ ],
+                  "title": "码云推荐 | VUCI - OpenWrt 后台管理框架 vuci",
+                  "type": 0
+                  },
+                  {
+                  "author": {
+                  "id": 3703517,
+                  "identity": {
+                  "officialMember": true,
+                  "softwareAuthor": false
+                  },
+                  "name": "周其",
+                  "portrait": "http://static.oschina.net/uploads/user/1851/3703517_50.jpeg?t=1507540401000",
+                  "relation": 0
+                  },
+                  "body": "摘要: 该框架的组成 MVP+Dagger2+RxJava+Retrofit+OkHttp+RxCache+单元测试(Junit+Mockito)......",
+                  "href": "https://my.oschina.net/u/1423694/blog/1593683",
+                  "id": 1593683,
+                  "newsId": 91805,
+                  "pubDate": "2017-12-24 08:16:16",
+                  "statistics": {
+                  "comment": 2,
+                  "favCount": 0,
+                  "like": 0,
+                  "transmit": 0,
+                  "view": 313
+                  },
+                  "tags": [ ],
+                  "title": "每日一博 | App 框架实现—dagger2",
+                  "type": 3
+                  },
+                  {
+                  "author": {
+                  "id": 3703517,
+                  "identity": {
+                  "officialMember": true,
+                  "softwareAuthor": false
+                  },
+                  "name": "周其",
+                  "portrait": "http://static.oschina.net/uploads/user/1851/3703517_50.jpeg?t=1507540401000",
+                  "relation": 0
+                  },
+                  "body": "3 年前，微软宣布开源 .NET 框架的大部分内容。正如Scott Hanselman在Connect 2016主题演讲中所说的那样，微软一直在做重大贡献： 开源...",
+                  "href": "https://www.oschina.net/news/91804/open-source-net-3-years-later",
+                  "id": 91804,
+                  "newsId": 91804,
+                  "pubDate": "2017-12-24 08:15:45",
+                  "statistics": {
+                  "comment": 5,
+                  "favCount": 0,
+                  "like": 0,
+                  "transmit": 0,
+                  "view": 627
+                  },
+                  "tags": [ ],
+                  "title": "喜大普奔，.NET 开源三周年了",
+                  "type": 6
+                  },
+                  {
+                  "author": {
+                  "id": 3703517,
+                  "identity": {
+                  "officialMember": true,
+                  "softwareAuthor": false
+                  },
+                  "name": "周其",
+                  "portrait": "http://static.oschina.net/uploads/user/1851/3703517_50.jpeg?t=1507540401000",
+                  "relation": 0
+                  },
+                  "body": "什么是程序媛 程序媛中的“媛”同样是“员”的谐音，更代表着女性。 你一定听说过，同样是男女比例失调的大学电气系、计算机系，仅有的...",
+                  "href": "https://www.oschina.net/news/91803/history-procedural-ladies",
+                  "id": 91803,
+                  "newsId": 91803,
+                  "pubDate": "2017-12-24 08:15:13",
+                  "statistics": {
+                  "comment": 5,
+                  "favCount": 0,
+                  "like": 0,
+                  "transmit": 0,
+                  "view": 457
+                  },
+                  "tags": [ ],
+                  "title": "来看看历史上这些头脑与颜值兼备的程序媛们吧",
+                  "type": 6
+                  },
+                  {
+                  "author": {
+                  "id": 3703517,
+                  "identity": {
+                  "officialMember": true,
+                  "softwareAuthor": false
+                  },
+                  "name": "周其",
+                  "portrait": "http://static.oschina.net/uploads/user/1851/3703517_50.jpeg?t=1507540401000",
+                  "relation": 0
+                  },
+                  "body": "Rust 重温了 2017 年发布路线规划图，完成了以下的计划。 通过编写书籍，课程提升和改进语言，降低了语言的学习曲线。它还通过在检查...",
+                  "href": "https://www.oschina.net/news/91802/rust-in-2017",
+                  "id": 91802,
+                  "newsId": 91802,
+                  "pubDate": "2017-12-24 08:15:00",
+                  "statistics": {
+                  "comment": 3,
+                  "favCount": 0,
+                  "like": 0,
+                  "transmit": 0,
+                  "view": 508
+                  },
+                  "tags": [ ],
+                  "title": "Rust 回顾了 2017 年发布的路线规划图",
+                  "type": 6
+                  },
+                  {
+                  "author": {
+                  "id": 3703517,
+                  "identity": {
+                  "officialMember": true,
+                  "softwareAuthor": false
+                  },
+                  "name": "周其",
+                  "portrait": "http://static.oschina.net/uploads/user/1851/3703517_50.jpeg?t=1507540401000",
+                  "relation": 0
+                  },
+                  "body": "生活不仅有枸杞，还有保温杯和霸王洗发水。",
+                  "href": "https://my.oschina.net/xxiaobian/blog/1594148",
+                  "id": 1594148,
+                  "newsId": 91801,
+                  "pubDate": "2017-12-24 08:14:39",
+                  "statistics": {
+                  "comment": 11,
+                  "favCount": 0,
+                  "like": 0,
+                  "transmit": 0,
+                  "view": 505
+                  },
+                  "tags": [ ],
+                  "title": "OSChina 周日乱弹 ——我2018年的目标是什么?",
+                  "type": 3
+                  },
+                  {
+                  "author": {
+                  "id": 3703517,
+                  "identity": {
+                  "officialMember": true,
+                  "softwareAuthor": false
+                  },
+                  "name": "周其",
+                  "portrait": "http://static.oschina.net/uploads/user/1851/3703517_50.jpeg?t=1507540401000",
+                  "relation": 0
+                  },
+                  "body": "Instagram 宣布将其 MonkeyType 工具开源。它是通过运行时跟踪类型自动将类型注释添加到您的 Python 3 代码的工具。该公司拥有数百名工...",
+                  "href": "https://www.oschina.net/news/91800/instagram-open-sources-monkeytype",
+                  "id": 91800,
+                  "newsId": 91800,
+                  "pubDate": "2017-12-24 08:14:19",
+                  "statistics": {
+                  "comment": 2,
+                  "favCount": 0,
+                  "like": 0,
+                  "transmit": 0,
+                  "view": 453
+                  },
+                  "tags": [ ],
+                  "title": "Instagram 开源用于 Python 3 的 MonkeyType 工具",
+                  "type": 6
+                  },
+                  {
+                  "author": {
+                  "id": 3703517,
+                  "identity": {
+                  "officialMember": true,
+                  "softwareAuthor": false
+                  },
+                  "name": "周其",
+                  "portrait": "http://static.oschina.net/uploads/user/1851/3703517_50.jpeg?t=1507540401000",
+                  "relation": 0
+                  },
+                  "body": "腾讯电脑管家今天官方发布安全预警称，腾讯安全反病毒实验室安全团队捕获了一例病毒样本，并顺藤摸瓜，发现了一个潜伏17年之久的0day漏...",
+                  "href": "https://www.oschina.net/news/91799/microsoft-17-office-bug",
+                  "id": 91799,
+                  "newsId": 91799,
+                  "pubDate": "2017-12-24 08:14:05",
+                  "statistics": {
+                  "comment": 6,
+                  "favCount": 0,
+                  "like": 0,
+                  "transmit": 0,
+                  "view": 872
+                  },
+                  "tags": [ ],
+                  "title": "可怕，微软 Office 漏洞潜伏 17 年终于被腾讯发现",
+                  "type": 6
+                  },
+                  {
+                  "author": {
+                  "id": 2903254,
+                  "identity": {
+                  "officialMember": true,
+                  "softwareAuthor": false
+                  },
+                  "name": "达尔文",
+                  "portrait": "http://static.oschina.net/uploads/user/1451/2903254_50.jpg?t=1475462273000",
+                  "relation": 0
+                  },
+                  "body": "Mozilla Thunderbird 52.5.2 发布了。Thunderbird 是一个支持 IMAP、POP3 的邮件客户端工具，它提供了一个向导程序，能让你导入来自 ...",
+                  "href": "https://www.oschina.net/news/91798/mozilla-thunderbird-52-5-2",
+                  "id": 91798,
+                  "newsId": 91798,
+                  "pubDate": "2017-12-24 08:11:23",
+                  "statistics": {
+                  "comment": 3,
+                  "favCount": 0,
+                  "like": 0,
+                  "transmit": 0,
+                  "view": 332
+                  },
+                  "tags": [ ],
+                  "title": "Mozilla Thunderbird 52.5.2 发布，邮件工具",
+                  "type": 6
+                  },
+                  {
+                  "author": {
+                  "id": 2903254,
+                  "identity": {
+                  "officialMember": true,
+                  "softwareAuthor": false
+                  },
+                  "name": "达尔文",
+                  "portrait": "http://static.oschina.net/uploads/user/1451/2903254_50.jpg?t=1475462273000",
+                  "relation": 0
+                  },
+                  "body": "GnuPG 2.2.4 发布了，GnuPG 是 OpenPGP 标准的完整且自由的实现，允许加密和签署数据和通信，并具有通用的密钥管理系统以及公共密钥目...",
+                  "href": "https://www.oschina.net/news/91797/gnupg-2-2-4",
+                  "id": 91797,
+                  "newsId": 91797,
+                  "pubDate": "2017-12-24 08:02:39",
+                  "statistics": {
+                  "comment": 0,
+                  "favCount": 0,
+                  "like": 0,
+                  "transmit": 0,
+                  "view": 176
+                  },
+                  "tags": [ ],
+                  "title": "GnuPG 2.2.4 发布，数据和通信加密签署服务",
+                  "type": 6
+                  },
+                  {
+                  "author": {
+                  "id": 2903254,
+                  "identity": {
+                  "officialMember": true,
+                  "softwareAuthor": false
+                  },
+                  "name": "达尔文",
+                  "portrait": "http://static.oschina.net/uploads/user/1451/2903254_50.jpg?t=1475462273000",
+                  "relation": 0
+                  },
+                  "body": "phpMyAdmin 4.7.7 发布了。phpMyAdmin是一个非常受欢迎的基于web的MySQL数据库管理工具。它能够创建和删除数据库，创建/删除/修改表格...",
+                  "href": "https://www.oschina.net/news/91796/phpmyadmin-4-7-7",
+                  "id": 91796,
+                  "newsId": 91796,
+                  "pubDate": "2017-12-24 07:49:10",
+                  "statistics": {
+                  "comment": 1,
+                  "favCount": 0,
+                  "like": 0,
+                  "transmit": 0,
+                  "view": 314
+                  },
+                  "tags": [ ],
+                  "title": "phpMyAdmin 4.7.7 发布，MySQL 管理工具",
+                  "type": 6
+                  },
+                  {
+                  "author": {
+                  "id": 2903254,
+                  "identity": {
+                  "officialMember": true,
+                  "softwareAuthor": false
+                  },
+                  "name": "达尔文",
+                  "portrait": "http://static.oschina.net/uploads/user/1451/2903254_50.jpg?t=1475462273000",
+                  "relation": 0
+                  },
+                  "body": "Tcl/Tk 8.6.8 发布了。Tcl/Tk 是一种简明，高效，可移植性好的编程语言。在信息产业领域具有广泛的应用。 该版本暂未提供更新内容，详...",
+                  "href": "https://www.oschina.net/news/91795/tcltk-8-6-8",
+                  "id": 91795,
+                  "newsId": 91795,
+                  "pubDate": "2017-12-24 07:45:28",
+                  "statistics": {
+                  "comment": 1,
+                  "favCount": 0,
+                  "like": 0,
+                  "transmit": 0,
+                  "view": 288
+                  },
+                  "tags": [ ],
+                  "title": "Tcl/Tk 8.6.8 发布，用于信息产业的编程语言",
+                  "type": 6
+                  },
+                  {
+                  "author": {
+                  "id": 2903254,
+                  "identity": {
+                  "officialMember": true,
+                  "softwareAuthor": false
+                  },
+                  "name": "达尔文",
+                  "portrait": "http://static.oschina.net/uploads/user/1451/2903254_50.jpg?t=1475462273000",
+                  "relation": 0
+                  },
+                  "body": "Infinispan 9.1.4.Final 已发布。Inﬁnispan 是个开源的数据网格平台。它公开了一个简单的数据结构（一个Cache）来存储对象。虽然可以...",
+                  "href": "https://www.oschina.net/news/91794/infinispan-9-1-4-final",
+                  "id": 91794,
+                  "newsId": 91794,
+                  "pubDate": "2017-12-24 07:37:56",
+                  "statistics": {
+                  "comment": 0,
+                  "favCount": 0,
+                  "like": 0,
+                  "transmit": 0,
+                  "view": 130
+                  },
+                  "tags": [ ],
+                  "title": "Infinispan 9.1.4.final 发布，分布式集群缓存系统",
+                  "type": 6
+                  },
+                  {
+                  "author": {
+                  "id": 2903254,
+                  "identity": {
+                  "officialMember": true,
+                  "softwareAuthor": false
+                  },
+                  "name": "达尔文",
+                  "portrait": "http://static.oschina.net/uploads/user/1451/2903254_50.jpg?t=1475462273000",
+                  "relation": 0
+                  },
+                  "body": "Keycloak 3.4.2.Final 已发布。Keycloak 是一个针对现代应用程序和服务的开源身份和访问管理，为应用程序和安全服务添加最小化身份验证...",
+                  "href": "https://www.oschina.net/news/91793/keycloak-3-4-2-final",
+                  "id": 91793,
+                  "newsId": 91793,
+                  "pubDate": "2017-12-24 07:33:41",
+                  "statistics": {
+                  "comment": 1,
+                  "favCount": 0,
+                  "like": 0,
+                  "transmit": 0,
+                  "view": 145
+                  },
+                  "tags": [ ],
+                  "title": "Keycloak 3.4.2.Final 发布，身份和访问管理",
+                  "type": 6
+                  },
+                  {
+                  "author": {
+                  "id": 2903254,
+                  "identity": {
+                  "officialMember": true,
+                  "softwareAuthor": false
+                  },
+                  "name": "达尔文",
+                  "portrait": "http://static.oschina.net/uploads/user/1451/2903254_50.jpg?t=1475462273000",
+                  "relation": 0
+                  },
+                  "body": "Samba 4.7.4 发布了。作为一款开源、免费和跨平台的软件，Samba 旨在取代 UNIX 平台上的 SMB/CIFS 网络协议，让GNU/Linux 和 Mac OS...",
+                  "href": "https://www.oschina.net/news/91792/samba-4-7-4",
+                  "id": 91792,
+                  "newsId": 91792,
+                  "pubDate": "2017-12-24 07:29:22",
+                  "statistics": {
+                  "comment": 4,
+                  "favCount": 0,
+                  "like": 0,
+                  "transmit": 0,
+                  "view": 254
+                  },
+                  "tags": [ ],
+                  "title": "Samba 4.7.4 发布，最新稳定版",
+                  "type": 6
+                  }
+                  ],
+        "nextPageToken": "DBA816934CD0AA59",
+        "prevPageToken": "0997C855C600E421",
+        "requestCount": 20,
+        "responseCount": 20,
+        "totalResults": 84359
+    },
+    "time": "2017-12-24 14:57:26"
+}

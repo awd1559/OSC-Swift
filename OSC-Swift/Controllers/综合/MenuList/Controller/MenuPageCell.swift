@@ -41,7 +41,6 @@ class MenuPageCell: UICollectionViewCell {
     var activityBannerView: ActivityHeadView?
     var listItems = [OSCListItem]()
     var bannerDataSources: [OSCBanner]?
-//    var updateToController_Dic: [:]
     
     lazy var tableView: UITableView = {
         let tableView = UITableView(frame: self.contentView.bounds)
@@ -215,38 +214,36 @@ extension MenuPageCell: UITableViewDataSource {
             let listitem = self.listItems[indexPath.row]
             switch listitem.type {
             case .info:
-                let curCell = tableView.dequeueReusableCell(withIdentifier: kNewsCellID, for:indexPath) as! NewsCell
-                curCell.showCommentCount = true
-                return curCell
+                let cell = tableView.dequeueReusableCell(withIdentifier: kNewsCellID, for:indexPath) as! NewsCell
+                cell.listItem = listitem
+                return cell
             case .blog:
                 return tableView.dequeueReusableCell(withIdentifier: kBlogCellID, for:indexPath)
             case .forum:
-                if menuItem?.token == buildinMenus[.info]?.token {
-                    let curCell = tableView.dequeueReusableCell(withIdentifier: kNewsCellID, for:indexPath) as! NewsCell
-                    curCell.showCommentCount = true
+                if menuItem?.token == buildinMenus[0].token {
+                    let cell = tableView.dequeueReusableCell(withIdentifier: kNewsCellID, for:indexPath) as! NewsCell
                     
-                    return curCell
+                    return cell
                 } else {
                     return tableView.dequeueReusableCell(withIdentifier: kQuesAnsCellID, for:indexPath)
                 }
             case .activity:
-                if menuItem?.token == buildinMenus[.info]?.token {
-                    let curCell = tableView.dequeueReusableCell(withIdentifier: kNewsCellID, for:indexPath) as! NewsCell
-                    curCell.showCommentCount = true
+                if menuItem?.token == buildinMenus[0].token {
+                    let cell = tableView.dequeueReusableCell(withIdentifier: kNewsCellID, for:indexPath) as! NewsCell
                     
-                    return curCell
+                    return cell
                 } else {
                     return tableView.dequeueReusableCell(withIdentifier: kActivityCellID, for:indexPath) as! ActivityCell
                 }
             default:
-                let curCell = tableView.dequeueReusableCell(withIdentifier: kNewsCellID, for:indexPath) as! NewsCell
+                let cell = tableView.dequeueReusableCell(withIdentifier: kNewsCellID, for:indexPath) as! NewsCell
                 if listitem.type == .linknews || menuItem!.type == .linknewstwo { //链接新闻
-                    curCell.showCommentCount = false
+//                    cell.showCommentCount = false
                 } else {
-                    curCell.showCommentCount = true
+//                    cell.showCommentCount = true
                 }
                 
-                return curCell
+                return cell
             }
 //            let curTableView = self.distributionListCurrentCellWithItem(listItem: listItem, tableView:tableView, indexPath:indexPath) as! UsualTableViewCell
 //            curTableView.setValue(listItem, forKey:"listItem")

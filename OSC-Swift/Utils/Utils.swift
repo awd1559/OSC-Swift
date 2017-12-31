@@ -10,18 +10,18 @@ import UIKit
 import YYKit
 import MBProgressHUD
 
-enum BuildInMenuType {
-    case info
-    case recommend
-    case question
-    case blog
+enum BuildInMenuType: Int {
+    case info = 0
+    case recommend = 1
+    case question = 2
+    case blog = 3
 }
 
-let buildinMenus: [BuildInMenuType: (name: String, token: String)] = [
-    .info      : ("开源资讯", "d6112fa662bc4bf21084670a857fbd20"),
-    .recommend : ("推荐博客", "df985be3c5d5449f8dfb47e06e098ef9"),
-    .question  : ("技术问答", "98d04eb58a1d12b75d254deecbc83790"),
-    .blog      : ("每日一搏", "1abf09a23a87442184c2f9bf9dc29e35")
+let buildinMenus: [(name: String, token: String)] = [
+    ("开源资讯", "d6112fa662bc4bf21084670a857fbd20"),
+    ("推荐博客", "df985be3c5d5449f8dfb47e06e098ef9"),
+    ("技术问答", "98d04eb58a1d12b75d254deecbc83790"),
+    ("每日一搏", "1abf09a23a87442184c2f9bf9dc29e35")
 ]
 
 class Utils {
@@ -70,7 +70,7 @@ class Utils {
     static func buildinMenuNames() -> [String] {
         var names = [String]()
         for item in buildinMenus {
-            names.append(item.value.name)
+            names.append(item.name)
         }
         return names
     }
@@ -78,7 +78,7 @@ class Utils {
     static func buildinMenuTokens() -> [String] {
         var tokens = [String]()
         for item in buildinMenus {
-            tokens.append(item.value.token)
+            tokens.append(item.token)
         }
         return tokens
     }

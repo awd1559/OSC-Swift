@@ -85,9 +85,11 @@ class MenuPageCollection: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         curMenuItem = self.menuItems?[indexPath.row]
         let curDic = self.getCurrentListDataSource()
-        let cell = MenuPageCell.returnReuseInformationListCollectionViewCell(collectionView, identifier:kMenuPageCell, indexPath:indexPath, model:curMenuItem!)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: kMenuPageCell, for: indexPath) as! MenuPageCell
+        cell.menuItem = curMenuItem
+//        let cell = MenuPageCell.returnReuseInformationListCollectionViewCell(collectionView, identifier:kMenuPageCell, indexPath:indexPath, model:curMenuItem!)
 
-        cell.configurationPostBackDictionary(curDic)
+//        cell.configurationPostBackDictionary(curDic)
         cell.delegate = self
         
         return cell

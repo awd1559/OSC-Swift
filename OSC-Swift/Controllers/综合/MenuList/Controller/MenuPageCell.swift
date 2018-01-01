@@ -10,6 +10,9 @@ import MBProgressHUD
 import MJRefresh
 import Alamofire
 import Ono
+import SwiftyJSON
+import ObjectMapper
+import SnapKit
 
 let kMenuPageCell = "kMenuPageCell"
 let kScreen_Width = UIScreen.main.bounds.size.width
@@ -43,12 +46,13 @@ class MenuPageCell: UICollectionViewCell {
     var bannerDataSources: [OSCBanner]?
     
     lazy var tableView: UITableView = {
-        let tableView = UITableView(frame: self.contentView.bounds)
+        let tableView = UITableView()
         tableView.separatorStyle = .none
         tableView.delegate = self
         tableView.dataSource = self
         
-        tableView.register(NewsCell.self, forCellReuseIdentifier:kNewsCellID)
+        let nib = UINib(nibName: "NewsCell", bundle: nil)
+        tableView.register(nib, forCellReuseIdentifier: kNewsCellID)
         tableView.register(BlogCell.self, forCellReuseIdentifier:kBlogCellID)
         tableView.register(QuesAnsCell.self, forCellReuseIdentifier:kQuesAnsCellID)
         tableView.register(ActivityCell.self, forCellReuseIdentifier:kActivityCellID)
@@ -76,6 +80,8 @@ class MenuPageCell: UICollectionViewCell {
         super.init(frame: frame)
         
         self.contentView.addSubview(tableView)
+        self.tableView.frame = self.contentView.frame
+        self.sendRequestGetListData(true)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -86,48 +92,48 @@ class MenuPageCell: UICollectionViewCell {
         self.tableView.mj_header.beginRefreshing()
     }
     
-    func configurationPostBackDictionary(_ resultItem: [String: InfoResultItem]) {
-        self.hideAllGeneralPage()
-        self.tableView.mj_footer.state = .idle
-        
-        if self.listItems.count > 0 {
-            offestDistance = 0
-            self.listItems.removeAll()
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }
-        }
-        switch menuItem!.banner.catalog {
-        case .simple, .simpleblogs:
-            self.tableView.tableHeaderView = self.bannerScrollView
-        case .customactivity:
-            self.tableView.tableHeaderView = self.activityBannerView
-        case .none:
-            self.tableView.tableHeaderView = nil
-        }
-        
-        let resultItemModel = Array(resultItem.values).last!
-        pageToken = resultItemModel.pageToken
-        
-        if (resultItemModel.tableViewArr != nil) && resultItemModel.tableViewArr!.count > 0 {
-            listItems = resultItemModel.tableViewArr!
-            bannerDataSources = resultItemModel.bannerArr
-            
-            if self.bannerDataSources != nil {
-                self.configurationBannerView()
-            } else {
-                self.tableView.tableHeaderView = nil
-            }
-            self.tableView.reloadData()
-            self.tableView.setContentOffset(CGPoint(x:CGFloat(0), y:CGFloat(resultItemModel.offsetDistance)), animated: true)
-            
-            if resultItemModel.isFromCache {
-                self.tableView.mj_header.beginRefreshing()
-            }
-        } else {
-            self.tableView.mj_header.beginRefreshing()
-        }
-    }
+//    func configurationPostBackDictionary(_ resultItem: [String: InfoResultItem]) {
+//        self.hideAllGeneralPage()
+//        self.tableView.mj_footer.state = .idle
+//
+//        if self.listItems.count > 0 {
+//            offestDistance = 0
+//            self.listItems.removeAll()
+//            DispatchQueue.main.async {
+//                self.tableView.reloadData()
+//            }
+//        }
+//        switch menuItem!.banner.catalog {
+//        case .simple, .simpleblogs:
+//            self.tableView.tableHeaderView = self.bannerScrollView
+//        case .customactivity:
+//            self.tableView.tableHeaderView = self.activityBannerView
+//        case .none:
+//            self.tableView.tableHeaderView = nil
+//        }
+//
+//        let resultItemModel = Array(resultItem.values).last!
+//        pageToken = resultItemModel.pageToken
+//
+//        if (resultItemModel.tableViewArr != nil) && resultItemModel.tableViewArr!.count > 0 {
+//            listItems = resultItemModel.tableViewArr!
+//            bannerDataSources = resultItemModel.bannerArr
+//
+//            if self.bannerDataSources != nil {
+//                self.configurationBannerView()
+//            } else {
+//                self.tableView.tableHeaderView = nil
+//            }
+//            self.tableView.reloadData()
+//            self.tableView.setContentOffset(CGPoint(x:CGFloat(0), y:CGFloat(resultItemModel.offsetDistance)), animated: true)
+//
+//            if resultItemModel.isFromCache {
+//                self.tableView.mj_header.beginRefreshing()
+//            }
+//        } else {
+//            self.tableView.mj_header.beginRefreshing()
+//        }
+//    }
     
     func configurationBannerView() {
         switch menuItem!.banner.catalog {
@@ -151,6 +157,7 @@ class MenuPageCell: UICollectionViewCell {
     }
     
     func sendRequestGetBannerData() {
+        return
         let param = ["catalog" : menuItem?.banner.catalog.rawValue]
         
         Client.banners(param: param) { banners in
@@ -158,12 +165,28 @@ class MenuPageCell: UICollectionViewCell {
                 self.bannerDataSources = [OSCBanner]()
                 self.bannerDataSources?.append(contentsOf: banners)
                 self.configurationBannerView()
-                self.tableView.reloadData()
             }
         }
     }
     
     func sendRequestGetListData(_ isRefresh: Bool) {
+        //test content from file
+        let url = Bundle.main.url(forResource: "test", withExtension: "json")
+        do {
+            let jsonData = try Data(contentsOf:url!)
+            let json = try JSON(data:jsonData)
+            let swifty = json["result"]["items"].arrayValue
+            let itemsjson = json["result"]["items"]
+            let list = Mapper<OSCListItem>().mapArray(JSONObject: itemsjson.object)
+            self.listItems.removeAll()
+            self.listItems.append(contentsOf: list!)
+            self.tableView.reloadData()
+        } catch(let error) {
+            print(error.localizedDescription)
+        }
+        return
+        
+        
         if menuItem!.needLogin && Config.getOwnID() == 0 {
             self.showCustomPage(R.image.ic_tip_fail()!, tip:"很遗憾,您必须登录才能查看此处内容")
             return
@@ -186,6 +209,7 @@ class MenuPageCell: UICollectionViewCell {
             if listitems.count > 0 {
                 self.listItems.removeAll()
                 self.listItems.append(contentsOf: listitems)
+                self.tableView.reloadData()
                 self.hideAllGeneralPage()
             } else {
                 self.showCustomPage(R.image.ic_tip_smile()!, tip: "这里没找到数据呢")
@@ -222,7 +246,7 @@ extension MenuPageCell: UITableViewDataSource {
             case .forum:
                 if menuItem?.token == buildinMenus[0].token {
                     let cell = tableView.dequeueReusableCell(withIdentifier: kNewsCellID, for:indexPath) as! NewsCell
-                    
+
                     return cell
                 } else {
                     return tableView.dequeueReusableCell(withIdentifier: kQuesAnsCellID, for:indexPath)
@@ -230,19 +254,17 @@ extension MenuPageCell: UITableViewDataSource {
             case .activity:
                 if menuItem?.token == buildinMenus[0].token {
                     let cell = tableView.dequeueReusableCell(withIdentifier: kNewsCellID, for:indexPath) as! NewsCell
-                    
+
                     return cell
                 } else {
                     return tableView.dequeueReusableCell(withIdentifier: kActivityCellID, for:indexPath) as! ActivityCell
                 }
             default:
                 let cell = tableView.dequeueReusableCell(withIdentifier: kNewsCellID, for:indexPath) as! NewsCell
+                cell.listItem = listitem
                 if listitem.type == .linknews || menuItem!.type == .linknewstwo { //链接新闻
-//                    cell.showCommentCount = false
-                } else {
-//                    cell.showCommentCount = true
+                    cell.commentLabel.isHidden = true
                 }
-                
                 return cell
             }
 //            let curTableView = self.distributionListCurrentCellWithItem(listItem: listItem, tableView:tableView, indexPath:indexPath) as! UsualTableViewCell
@@ -251,31 +273,32 @@ extension MenuPageCell: UITableViewDataSource {
 //            curTableView.selectedBackgroundView?.backgroundColor = UIColor.selectCellSColor()
 //            return curTableView
         }else{
-            return UITableViewCell()
+            let cell = UITableViewCell()
+            return cell
         }
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        var result: CGFloat = 0
-        if self.listItems.count > 0 {
-            let listItem = self.listItems[indexPath.row]
-            switch listItem.type {
-            case .info:
-                result = NewsCell.rowHeight
-            case .blog:
-                result = BlogCell.rowHeight
-            case .forum:
-                result = QuesAnsCell.rowHeight
-            case .activity:
-                result = ActivityCell.rowHeight
-            default:
-                result = NewsCell.rowHeight
-            }
-        } else {
-            result = 0
-        }
-        return result
-    }
+//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        var result: CGFloat = 0
+//        if self.listItems.count > 0 {
+//            let listItem = self.listItems[indexPath.row]
+//            switch listItem.type {
+//            case .info:
+//                result = NewsCell.rowHeight
+//            case .blog:
+//                result = BlogCell.rowHeight
+//            case .forum:
+//                result = QuesAnsCell.rowHeight
+//            case .activity:
+//                result = ActivityCell.rowHeight
+//            default:
+//                result = NewsCell.rowHeight
+//            }
+//        } else {
+//            result = 0
+//        }
+//        return result
+//    }
 }
 
 //MARK: - UITableViewDelegate
@@ -298,19 +321,19 @@ extension MenuPageCell: UIScrollViewDelegate {
     }
     
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        if let delegate = self.delegate {
-            let updateResultItem = InfoResultItem(bannerArr: self.bannerDataSources, tableViewArr:self.listItems, pageToken:pageToken!, offsetDistance:offestDistance!, isFromCache:false)
-            let postBackDic = [menuItem!.token : updateResultItem]
-            delegate.cell(self, update:postBackDic)
-        }
+//        if let delegate = self.delegate {
+//            let updateResultItem = InfoResultItem(bannerArr: self.bannerDataSources, tableViewArr:self.listItems, pageToken:pageToken!, offsetDistance:offestDistance!, isFromCache:false)
+//            let postBackDic = [menuItem!.token : updateResultItem]
+//            delegate.cell(self, update:postBackDic)
+//        }
     }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        if let delegate = self.delegate {
-            let updateResultItem = InfoResultItem(bannerArr: self.bannerDataSources, tableViewArr:self.listItems, pageToken:pageToken!, offsetDistance:offestDistance!, isFromCache:false)
-            let postBackDic = [menuItem!.token : updateResultItem]
-            delegate.cell(self, update:postBackDic)
-        }
+//        if let delegate = self.delegate {
+//            let updateResultItem = InfoResultItem(bannerArr: self.bannerDataSources, tableViewArr:self.listItems, pageToken:pageToken!, offsetDistance:offestDistance!, isFromCache:false)
+//            let postBackDic = [menuItem!.token : updateResultItem]
+//            delegate.cell(self, update:postBackDic)
+//        }
     }
 }
 

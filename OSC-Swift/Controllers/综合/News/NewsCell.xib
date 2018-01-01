@@ -24,29 +24,36 @@
                     </constraints>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YmW-dO-n1N">
-                    <rect key="frame" x="16" y="30" width="343" height="564.5"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <rect key="frame" x="16" y="30" width="343" height="578.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="body" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J1A-HI-Fwn" userLabel="body">
-                    <rect key="frame" x="16" y="602" width="343" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <rect key="frame" x="16" y="616" width="343" height="16"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="comment" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dpn-kk-iXb" userLabel="comment">
-                    <rect key="frame" x="286" y="631" width="73" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <rect key="frame" x="314" y="640" width="45" height="12"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lSI-FN-BXx" userLabel="time">
-                    <rect key="frame" x="16" y="631" width="34" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <rect key="frame" x="16" y="640" width="21" height="12"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_comment" translatesAutoresizingMaskIntoConstraints="NO" id="eAM-UT-dvu">
+                    <rect key="frame" x="290" y="640" width="16" height="16"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="16" id="dWI-am-7P1"/>
+                        <constraint firstAttribute="width" constant="16" id="sKX-FL-QeO"/>
+                    </constraints>
+                </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
@@ -58,10 +65,12 @@
                 <constraint firstItem="oem-6y-IAa" firstAttribute="bottom" secondItem="efp-I5-evr" secondAttribute="bottom" constant="5" id="DSl-Cu-VzI"/>
                 <constraint firstItem="lSI-FN-BXx" firstAttribute="leading" secondItem="oem-6y-IAa" secondAttribute="leading" constant="16" id="Kfs-tj-Fef"/>
                 <constraint firstItem="Dpn-kk-iXb" firstAttribute="top" secondItem="J1A-HI-Fwn" secondAttribute="bottom" constant="8" id="Ljb-QX-VpF"/>
+                <constraint firstItem="Dpn-kk-iXb" firstAttribute="leading" secondItem="eAM-UT-dvu" secondAttribute="trailing" constant="8" id="LvG-V7-k1z"/>
                 <constraint firstItem="efp-I5-evr" firstAttribute="top" secondItem="Dpn-kk-iXb" secondAttribute="bottom" constant="8" id="Ymi-P5-Fkr"/>
                 <constraint firstItem="oem-6y-IAa" firstAttribute="trailing" secondItem="YmW-dO-n1N" secondAttribute="trailing" constant="16" id="aqZ-tg-Kkd"/>
                 <constraint firstItem="J1A-HI-Fwn" firstAttribute="leading" secondItem="oem-6y-IAa" secondAttribute="leading" constant="16" id="fD7-MW-3eI"/>
                 <constraint firstItem="lSI-FN-BXx" firstAttribute="top" secondItem="J1A-HI-Fwn" secondAttribute="bottom" constant="8" id="faV-um-axT"/>
+                <constraint firstItem="eAM-UT-dvu" firstAttribute="top" secondItem="J1A-HI-Fwn" secondAttribute="bottom" constant="8" id="hAz-h3-hCq"/>
                 <constraint firstItem="oem-6y-IAa" firstAttribute="trailing" secondItem="efp-I5-evr" secondAttribute="trailing" constant="5" id="sPq-t5-CCJ"/>
                 <constraint firstItem="efp-I5-evr" firstAttribute="leading" secondItem="oem-6y-IAa" secondAttribute="leading" constant="5" id="xuE-SE-Yn9"/>
             </constraints>
@@ -72,7 +81,10 @@
                 <outlet property="timeLabel" destination="lSI-FN-BXx" id="efR-05-cCt"/>
                 <outlet property="titleLabel" destination="YmW-dO-n1N" id="iYD-G1-U7v"/>
             </connections>
-            <point key="canvasLocation" x="-430" y="692"/>
+            <point key="canvasLocation" x="-430.5" y="691.5"/>
         </view>
     </objects>
+    <resources>
+        <image name="ic_comment" width="10" height="10"/>
+    </resources>
 </document>

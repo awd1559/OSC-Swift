@@ -46,7 +46,7 @@ class MenuPageCell: UICollectionViewCell {
     var bannerDataSources: [OSCBanner]?
     
     lazy var tableView: UITableView = {
-        let tableView = UITableView()
+        let tableView = UITableView(frame: self.contentView.bounds)
         tableView.separatorStyle = .none
         tableView.delegate = self
         tableView.dataSource = self
@@ -80,7 +80,6 @@ class MenuPageCell: UICollectionViewCell {
         super.init(frame: frame)
         
         self.contentView.addSubview(tableView)
-        self.tableView.frame = self.contentView.frame
         self.sendRequestGetListData(true)
     }
     
@@ -91,49 +90,6 @@ class MenuPageCell: UICollectionViewCell {
     func beginRefreshCurCell() {
         self.tableView.mj_header.beginRefreshing()
     }
-    
-//    func configurationPostBackDictionary(_ resultItem: [String: InfoResultItem]) {
-//        self.hideAllGeneralPage()
-//        self.tableView.mj_footer.state = .idle
-//
-//        if self.listItems.count > 0 {
-//            offestDistance = 0
-//            self.listItems.removeAll()
-//            DispatchQueue.main.async {
-//                self.tableView.reloadData()
-//            }
-//        }
-//        switch menuItem!.banner.catalog {
-//        case .simple, .simpleblogs:
-//            self.tableView.tableHeaderView = self.bannerScrollView
-//        case .customactivity:
-//            self.tableView.tableHeaderView = self.activityBannerView
-//        case .none:
-//            self.tableView.tableHeaderView = nil
-//        }
-//
-//        let resultItemModel = Array(resultItem.values).last!
-//        pageToken = resultItemModel.pageToken
-//
-//        if (resultItemModel.tableViewArr != nil) && resultItemModel.tableViewArr!.count > 0 {
-//            listItems = resultItemModel.tableViewArr!
-//            bannerDataSources = resultItemModel.bannerArr
-//
-//            if self.bannerDataSources != nil {
-//                self.configurationBannerView()
-//            } else {
-//                self.tableView.tableHeaderView = nil
-//            }
-//            self.tableView.reloadData()
-//            self.tableView.setContentOffset(CGPoint(x:CGFloat(0), y:CGFloat(resultItemModel.offsetDistance)), animated: true)
-//
-//            if resultItemModel.isFromCache {
-//                self.tableView.mj_header.beginRefreshing()
-//            }
-//        } else {
-//            self.tableView.mj_header.beginRefreshing()
-//        }
-//    }
     
     func configurationBannerView() {
         switch menuItem!.banner.catalog {
@@ -218,7 +174,6 @@ class MenuPageCell: UICollectionViewCell {
     }
 }
 
-
 //MARK: - UITableViewDataSource
 extension MenuPageCell: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -239,6 +194,7 @@ extension MenuPageCell: UITableViewDataSource {
             switch listitem.type {
             case .info:
                 let cell = tableView.dequeueReusableCell(withIdentifier: kNewsCellID, for:indexPath) as! NewsCell
+                cell.menuItem = menuItem!
                 cell.listItem = listitem
                 return cell
             case .blog:
@@ -277,28 +233,6 @@ extension MenuPageCell: UITableViewDataSource {
             return cell
         }
     }
-    
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        var result: CGFloat = 0
-//        if self.listItems.count > 0 {
-//            let listItem = self.listItems[indexPath.row]
-//            switch listItem.type {
-//            case .info:
-//                result = NewsCell.rowHeight
-//            case .blog:
-//                result = BlogCell.rowHeight
-//            case .forum:
-//                result = QuesAnsCell.rowHeight
-//            case .activity:
-//                result = ActivityCell.rowHeight
-//            default:
-//                result = NewsCell.rowHeight
-//            }
-//        } else {
-//            result = 0
-//        }
-//        return result
-//    }
 }
 
 //MARK: - UITableViewDelegate

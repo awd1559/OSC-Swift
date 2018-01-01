@@ -2604,15 +2604,24 @@ struct R: Rswift.Validatable {
 struct _R: Rswift.Validatable {
   static func validate() throws {
     try storyboard.validate()
+    try nib.validate()
   }
   
-  struct nib {
-    struct _NewsCell: Rswift.NibResourceType {
+  struct nib: Rswift.Validatable {
+    static func validate() throws {
+      try _NewsCell.validate()
+    }
+    
+    struct _NewsCell: Rswift.NibResourceType, Rswift.Validatable {
       let bundle = R.hostingBundle
       let name = "NewsCell"
       
       func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [NSObject : AnyObject]? = nil) -> NewsCell? {
         return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? NewsCell
+      }
+      
+      static func validate() throws {
+        if UIKit.UIImage(named: "ic_comment", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ic_comment' is used in nib 'NewsCell', but couldn't be loaded.") }
       }
       
       fileprivate init() {}

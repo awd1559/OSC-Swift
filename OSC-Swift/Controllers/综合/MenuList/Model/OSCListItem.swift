@@ -23,7 +23,7 @@ let fontLineSpace = 10
 
 /** SPACE:垂直方向的间距 space:水平方向的间距*/
 /** blog cell setting*/
-let blogCell_titleLB_Font_Size = 15
+let blogCell_titleLB_Font_Size: CGFloat = 15.0
 let blogCell_descLB_Font_Size = 13
 let blogCell_titleLB_SPACE_descLB = 4
 let blogCell_descLB_SPACE_infoBar = 6
@@ -88,14 +88,10 @@ enum OSCListCellType: Int {
 /** OSCListItem 被分栏列表和对应详情共用 */
 
 struct OSCListItem: Mappable {
-//    var  menuItem: OSCMenuItem?
-
     var id: Int = 0
     var newsId: Int = 0
 
     var title: String = ""
-
-//    var attributedTitle: NSAttributedString
 
     var body: String = ""
 
@@ -103,19 +99,17 @@ struct OSCListItem: Mappable {
 
     var href: String = ""
 
-//    var favorite: Bool
-
-//    var summary: String
-
     var type: InformationType = .linknews
 
     var author: OSCAuthor?
 
-//    var images: [OSCNetImage]
-
     var tags: [String] = [String]()
     
-//    var isRecommend, isOriginal, isAd, isStick , isToday: Bool
+    var isRecommend = false
+    var isOriginal = false
+    var isAd = false
+    var isStick = false
+    var isToday = false
 
     var statistics: OSCStatistics = OSCStatistics()
 
@@ -150,6 +144,19 @@ struct OSCListItem: Mappable {
         tags  <- map["tags"]
         title  <- map["title"]
         type  <- map["type"]
+        
+        for tag in tags {
+            if tag == "recommend" { isRecommend = true }
+            if tag == "original" {
+                isOriginal = true
+            }
+            if tag == "ad" { isAd = true }
+            if tag == "stick" { isStick = true }
+        }
+        let now = Date().description
+        if pubDate.starts(with: now) {
+            isToday = true
+        }
     }
 }
 

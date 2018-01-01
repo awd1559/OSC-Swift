@@ -188,7 +188,8 @@ class Utils {
             item.tag = dict["tag"] as! String
             var type = dict["type"] as! Int
             item.type = InformationType(rawValue: type)!
-            item.subtype = dict["subtype"] as! String
+            let subtype = dict["subtype"] as! String
+            item.subtype = Int(subtype) ?? 0
             item.order = dict["order"] as! Int
             item.href = dict["href"] as! String
             

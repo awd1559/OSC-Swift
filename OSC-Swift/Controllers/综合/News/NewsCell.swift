@@ -12,7 +12,67 @@ import SnapKit
 
 let kNewsCellID = "kNewsCellID"
 
+func attributedTitle(menuItem: OSCMenuItem, listItem: OSCListItem) -> NSAttributedString {
+    var attr = NSMutableAttributedString()
+    switch(menuItem.type) {
+    case .info:
+        if menuItem.subtype == 1 {
+            attr.append(iconAttribute(R.image.ic_label_today()))
+        }
+    case .software:
+        attr.append(iconAttribute(R.image.ic_label_today()))
+    case .blog:
+        attr.append(iconAttribute(R.image.ic_label_today()))
+        if listItem.isRecommend {
+            attr.append(iconAttribute(R.image.ic_label_recommend()))
+        }
+        if listItem.isOriginal {
+            attr.append(iconAttribute(R.image.ic_label_originate()))
+        } else {
+            attr.append(iconAttribute(R.image.ic_label_reprint()))
+        }
+    case .translation:
+        attr.append(iconAttribute(R.image.ic_label_today()))
+    default:
+        break
+    }
+    
+    let titleAttr = NSAttributedString(string: listItem.title, attributes:[NSAttributedStringKey.font : UIFont.systemFont(ofSize: blogCell_titleLB_Font_Size)])
+    attr.append(titleAttr)
+    
+    return attr
+}
+
+func attributeTime(menuItem: OSCMenuItem, listItem: OSCListItem) -> NSAttributedString {
+    var attr = NSMutableAttributedString()
+    if menuItem.token == "b4ca1962b3a80823c6138441015d9836" {
+        attr.append(NSAttributedString(string: listItem.pubDate + " "))
+    } else {
+        attr.append(NSAttributedString(string: (listItem.author?.name ?? "") + listItem.pubDate + " "))
+    }
+    attr.addAttributes([NSAttributedStringKey.font : UIFont.systemFont(ofSize: 10)], range: NSMakeRange(0, attr.length))
+    attr.color = UIColor.newAssistTextColor()
+    
+    return attr
+}
+
+func iconAttribute(_ image: UIImage?) -> NSAttributedString {
+    var attr = NSMutableAttributedString()
+    
+    guard let image = image else {
+        return attr
+    }
+    var textAttachment = NSTextAttachment()
+    textAttachment.image = image
+    textAttachment.adjustY(-3)
+    attr.append(NSAttributedString(attachment: textAttachment))
+    attr.append(NSAttributedString(string: " "))
+
+    return attr
+}
+
 class NewsCell: UITableViewCell {
+    var menuItem = OSCMenuItem()
     var listItem: OSCListItem? {
         willSet {
             if listItem?.id == newValue?.id {
@@ -20,9 +80,9 @@ class NewsCell: UITableViewCell {
             }
         }
         didSet {
-            self.titleLabel.text = listItem?.title
+            self.titleLabel.attributedText = attributedTitle(menuItem: menuItem, listItem: listItem!)
             self.bodyLabel.text = listItem?.body
-            self.timeLabel.text = listItem?.author?.name
+            self.timeLabel.attributedText = attributeTime(menuItem: menuItem, listItem: listItem!)
             
             if let comment = listItem?.statistics.comment {
                 self.commentLabel.text = "\(comment)"
@@ -37,123 +97,4 @@ class NewsCell: UITableViewCell {
     @IBOutlet weak var bodyLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var commentLabel: UILabel!
-    
-//    var titleLabel: UILabel = {
-//        let label = UILabel()
-//        label.textColor = UIColor.newTitleColor()
-//        label.font = UIFont.systemFont(ofSize: informationCell_titleLB_Font_Size)
-//        label.numberOfLines = 0
-//        return label
-//    }()
-//
-//    var bodyLabel: UILabel = {
-//        let label = UILabel()
-//        label.textColor = UIColor.newSecondTextColor()
-//        label.font = UIFont.systemFont(ofSize: informationCell_descLB_Font_Size)
-//        label.numberOfLines = 0
-//        return label
-//    }()
-//
-//    var timeLabel: YYLabel = {
-//        let label = YYLabel()
-//        label.textColor = UIColor.newAssistTextColor()
-//        label.font = UIFont.systemFont(ofSize: informationCell_infoBar_Font_Size)
-//        return label
-//    }()
-//
-//    var commentIcon: UIImageView = {
-//        let icon = UIImageView()
-//        icon.contentMode = .scaleAspectFit
-//        icon.image = R.image.ic_comment()
-//        return icon
-//    }()
-//
-//    var commentLabel: UILabel = {
-//        let label = UILabel()
-//        label.textColor = UIColor.newAssistTextColor()
-//        label.font = UIFont.systemFont(ofSize: informationCell_infoBar_Font_Size)
-//        return label
-//    }()
-//
-//    var viewIcon: UIImageView = {
-//        let icon = UIImageView()
-//        icon.contentMode = .scaleAspectFit
-//        icon.image = R.image.ic_view()
-//        icon.isHidden = true
-//        return icon
-//    }()
-//
-//    var viewLabel: YYLabel = {
-//       let label = YYLabel()
-//        label.textColor = UIColor.newAssistTextColor()
-//        label.font = UIFont.systemFont(ofSize:CGFloat(informationCell_infoBar_Font_Size))
-//        label.isHidden = true
-//        return label
-//    }()
-//
-//    lazy var bottomLine: UIView = {
-//        let view = UIView()
-//        view.backgroundColor = UIColor(hex: 0xC8C7CC).withAlphaComponent(0.7)
-//        return view
-//    }()
-//
-    static var rowHeight: CGFloat {
-        get {
-            return 20
-        }
-    }
-    
-//    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
-//        super.init(style: style, reuseIdentifier: reuseIdentifier)
-//        self.backgroundColor = .white
-//        
-//        self.contentView.addSubview(titleLabel)
-//        self.contentView.addSubview(bodyLabel)
-//        self.contentView.addSubview(timeLabel)
-//        self.contentView.addSubview(commentIcon)
-//        self.contentView.addSubview(commentLabel)
-//        self.contentView.addSubview(viewIcon)
-//        self.contentView.addSubview(viewLabel)
-//        self.contentView.addSubview(bottomLine)
-//        bottomLine.snp.makeConstraints{ make in
-//            make.leading.equalToSuperview().offset(cell_padding_left)
-//            make.bottom.equalToSuperview().offset(1)
-//            make.width.equalToSuperview()
-//            make.height.equalTo(1)
-//        }
-//        //layout in OSCListItem.m infomationLayoutHeight
-//        
-//        titleLabel.snp.makeConstraints{ make in
-//            make.top.equalToSuperview().offset(cell_padding_top)
-//            make.leading.equalToSuperview().offset(cell_padding_left)
-//            make.width.equalTo(kScreen_bound_width - cell_padding_left - cell_padding_right)
-//        }
-//        bodyLabel.snp.makeConstraints{ make in
-//            make.top.equalTo(titleLabel.snp.bottom).offset(informationCell_titleLB_SPACE_descLB)
-//            make.leading.equalToSuperview().offset(cell_padding_left)
-//            make.width.equalTo(kScreen_bound_width - cell_padding_left - cell_padding_right)
-//        }
-//        timeLabel.snp.makeConstraints{ make in
-//            make.leading.equalToSuperview().offset(cell_padding_left)
-//            make.top.equalTo(bodyLabel.snp.bottom).offset(informationCell_descLB_SPACE_infoBar)
-//            make.width.equalTo(informationCell_infoBar_Height)
-//            make.height.equalTo(informationCell_infoBar_Height)
-//        }
-//        commentLabel.snp.makeConstraints{ make in
-//            make.trailing.equalToSuperview().offset(cell_padding_right)
-//            make.top.equalTo(bodyLabel.snp.bottom).offset(informationCell_descLB_SPACE_infoBar)
-//            make.height.equalTo(informationCell_infoBar_Height)
-//        }
-//        commentIcon.snp.makeConstraints{ make in
-//            make.trailing.equalTo(commentLabel.snp.leading).offset(informationCell_count_icon_count_space)
-//            make.top.equalTo(bodyLabel.snp.bottom).offset(informationCell_descLB_SPACE_infoBar)
-//            make.width.equalTo(informationCell_icon_width)
-//            make.height.equalTo(informationCell_icon_height)
-//        }
-//        
-//    }
-//    
-//    required init?(coder aDecoder: NSCoder) {
-//        fatalError("init(coder:) has not been implemented")
-//    }
 }

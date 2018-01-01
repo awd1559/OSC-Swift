@@ -13,20 +13,21 @@
         "items": [
                   {
                   "author": {
-                  "id": 12,
-                  "identity": {
-                  "officialMember": true,
-                  "softwareAuthor": true
+                      "id": 12,
+                      "identity": {
+                          "officialMember": true,
+                          "softwareAuthor": true
+                      },
+                      "name": "红薯",
+                      "portrait": "http://static.oschina.net/uploads/user/0/12_50.jpg?t=1421200584000",
+                      "relation": 0
                   },
-                  "name": "红薯",
-                  "portrait": "http://static.oschina.net/uploads/user/0/12_50.jpg?t=1421200584000",
-                  "relation": 0
-                  },
+                  "subtype": 1,
                   "body": "Oxygen.2 正式版发布了，可通过更新或者下载获取。值得关注的改进内容（其实就是 bug 修复）请阅读： http://www.eclipse.org/eclipse...",
                   "href": "https://www.oschina.net/news/91811/eclipse-4-7-2",
                   "id": 91811,
                   "newsId": 91811,
-                  "pubDate": "2017-12-24 12:19:24",
+                  "pubDate": "2018-01-01 12:19:24",
                   "statistics": {
                   "comment": 7,
                   "favCount": 0,
@@ -34,7 +35,7 @@
                   "transmit": 0,
                   "view": 329
                   },
-                  "tags": [ ],
+                  "tags": [ "original", "ad" ],
                   "title": "Eclipse 4.7.2 和 Equinox Oxygen.2 正式版发布",
                   "type": 6
                   },

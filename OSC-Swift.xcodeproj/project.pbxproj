@@ -37,6 +37,7 @@
 		CE6B24E71FE0D2BE00659156 /* DiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6B24E61FE0D2BE00659156 /* DiscoverViewController.swift */; };
 		CE6B24E91FE0D2FE00659156 /* HomepageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6B24E81FE0D2FE00659156 /* HomepageViewController.swift */; };
 		CE6B24ED1FE0E13F00659156 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE6B24EC1FE0E13F00659156 /* Login.storyboard */; };
+		CE74F3BF1FFA0D8A00EBA4D2 /* NSTextAttachment+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE74F3BE1FFA0D8A00EBA4D2 /* NSTextAttachment+ext.swift */; };
 		CE87EBA91FF754D400187F28 /* BlogCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE87EBA81FF754D400187F28 /* BlogCell.swift */; };
 		CE87EBAB1FF7550A00187F28 /* QuesAnsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE87EBAA1FF7550A00187F28 /* QuesAnsCell.swift */; };
 		CE87EBAE1FF7556800187F28 /* ActivityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE87EBAD1FF7556800187F28 /* ActivityCell.swift */; };
@@ -173,6 +174,7 @@
 		CE6B24E61FE0D2BE00659156 /* DiscoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverViewController.swift; sourceTree = "<group>"; };
 		CE6B24E81FE0D2FE00659156 /* HomepageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomepageViewController.swift; sourceTree = "<group>"; };
 		CE6B24EC1FE0E13F00659156 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		CE74F3BE1FFA0D8A00EBA4D2 /* NSTextAttachment+ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSTextAttachment+ext.swift"; sourceTree = "<group>"; };
 		CE87EBA81FF754D400187F28 /* BlogCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogCell.swift; sourceTree = "<group>"; };
 		CE87EBAA1FF7550A00187F28 /* QuesAnsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuesAnsCell.swift; sourceTree = "<group>"; };
 		CE87EBAD1FF7556800187F28 /* ActivityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityCell.swift; sourceTree = "<group>"; };
@@ -769,6 +771,7 @@
 				CECBB5E31FEB6789005E87AA /* UIView+ext.swift */,
 				CECBB5EB1FEB7407005E87AA /* OSCPushTypeControllerHelper.swift */,
 				CE6098FF1FEC9C000023B6A5 /* Constants.swift */,
+				CE74F3BE1FFA0D8A00EBA4D2 /* NSTextAttachment+ext.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -1114,6 +1117,7 @@
 				CECBB5E01FEB4D5B005E87AA /* ActivityHeadView.swift in Sources */,
 				CE1CE4031FE55EAA002B3A50 /* NewsCell.swift in Sources */,
 				CE1CE3FE1FE4AFC6002B3A50 /* OSCUserItem.swift in Sources */,
+				CE74F3BF1FFA0D8A00EBA4D2 /* NSTextAttachment+ext.swift in Sources */,
 				CE2BF0E81FE1686700528BA6 /* VoiceTweetEditingVC.swift in Sources */,
 				CEC518CA1FE228D3009A7CF2 /* MenuPropertyCollection.swift in Sources */,
 				CE1CE3F71FE4AD8A002B3A50 /* OSCStatistics.swift in Sources */,

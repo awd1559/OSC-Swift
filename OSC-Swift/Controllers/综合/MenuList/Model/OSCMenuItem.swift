@@ -21,7 +21,7 @@ struct OSCMenuItem {
     
     var type: InformationType = .linknews
     
-    var subtype: String = ""
+    var subtype: Int = 0
     
     var order: Int = 0
     
